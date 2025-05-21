@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Front-end Dasturchi Portfolio</title>
+  <!-- Tailwind CSS CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Toastify CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts (Inter va Great Vibes) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Great+Vibes&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+  <!-- Loading Overlay -->
+  <div class="loading-overlay" id="loadingOverlay">
+    <div class="spinner" id="spinner"></div>
+  </div>
+
+  <!-- Hamburger Menu -->
+  <i class="fas fa-bars hamburger" onclick="toggleSidebar()"></i>
+
+  <!-- Sidebar Overlay -->
+  <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
+
+  <!-- Main Container -->
+  <div class="main-container">
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+      <div class="profile">
+        <div class="avatar-container">
+          <div class="avatar-border"></div>
+          <div class="avatar-inner">
+            <img src="./image/Akmaljon Yusupov.png" class="avatar-img" alt="Avatar">
+          </div>
+        </div>
+        <h4 id="profile-name" class="profile-name">Akmaljon Yusupov</h4>
+      </div>
+      <nav>
+        <a href="#" onclick="showSection('home')" class="hover:bg-blue-50" data-section="home"><i
+            class="fas fa-home"></i><span class="nav-text" id="nav-home">Bosh sahifa</span></a>
+        <a href="#" onclick="showSection('about')" class="hover:bg-blue-50" data-section="about"><i
+            class="fas fa-user"></i><span class="nav-text" id="nav-about">Men haqimda</span></a>
+        <a href="#" onclick="showSection('skills')" class="hover:bg-blue-50" data-section="skills"><i
+            class="fas fa-tools"></i><span class="nav-text" id="nav-skills">Ko‘nikmalar</span></a>
+        <a href="#" onclick="showSection('portfolio')" class="hover:bg-blue-50" data-section="portfolio"><i
+            class="fas fa-briefcase"></i><span class="nav-text" id="nav-portfolio">Loyihalar</span></a>
+        <a href="#" onclick="showSection('blog')" class="hover:bg-blue-50" data-section="blog"><i
+            class="fas fa-blog"></i><span class="nav-text" id="nav-blog">Blog</span></a>
+        <a href="#" onclick="showSection('contact')" class="hover:bg-blue-50" data-section="contact"><i
+            class="fas fa-envelope"></i><span class="nav-text" id="nav-contact">Aloqa</span></a>
+        <div class="relative">
+          <button onclick="toggleDropdown()" id="languageDropdown" class="hover:bg-blue-50">
+            <img src="https://flagcdn.com/uz.svg" class="flag-icon" alt="Uzbekistan Flag">
+            <span class="nav-text">Uzbekcha</span>
+          </button>
+          <div id="dropdownMenu" class="hidden backdrop-blur-sm">
+            <a href="#" onclick="changeLanguage('uz', event)" data-lang="uz"
+              class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+              <img src="https://flagcdn.com/uz.svg" class="flag-icon" alt="Uzbekistan Flag"> Uzbekcha
+            </a>
+            <a href="#" onclick="changeLanguage('ru', event)" data-lang="ru"
+              class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+              <img src="https://flagcdn.com/ru.svg" class="flag-icon" alt="Russia Flag"> Ruscha
+            </a>
+            <a href="#" onclick="changeLanguage('en', event)" data-lang="en"
+              class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+              <img src="https://flagcdn.com/gb.svg" class="flag-icon" alt="UK Flag"> Inglizcha
+            </a>
+            <a href="#" onclick="changeLanguage('tr', event)" data-lang="tr"
+              class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+              <img src="https://flagcdn.com/tr.svg" class="flag-icon" alt="Turkey Flag"> Türkçe
+            </a>
+          </div>
+        </div>
+      </nav>
+      <div class="social-links flex justify-center gap-4">
+        <a href="https://facebook.com/akmaljon"><i class="fab fa-facebook"></i><span class="tooltip"
+            id="tooltip-facebook">Facebook</span></a>
+        <a href="https://instagram.com/akmaljon"><i class="fab fa-instagram"></i><span class="tooltip"
+            id="tooltip-instagram">Instagram</span></a>
+        <a href="https://github.com/akmaljon"><i class="fab fa-github"></i><span class="tooltip"
+            id="tooltip-github">GitHub</span></a>
+        <a href="https://linkedin.com/in/akmaljon"><i class="fab fa-linkedin"></i><span class="tooltip"
+            id="tooltip-linkedin">LinkedIn</span></a>
+      </div>
+      <div class="footer-info" id="footer-info">
+        <p class="border">© 2025</p>
+        <p id="footer-date">04.26.2025</p>
+        <p id="footer-time">17:26:26</p>
+      </div>
+    </div>
+
+    <!-- Content -->
+    <div class="content">
+      <div id="home" class="section active">
+        <h1 id="home-title" class="text-2xl font-semibold text-blue-600 mb-3 uppercase border-b pb-2">Bosh sahifa</h1>
+        <p id="home-text" class="text-gray-700 leading-relaxed text-sm">Men Akmaljon Yusupov, Front-end dasturchiman.
+          Zamonaviy va foydalanuvchi uchun qulay veb-saytlar yaratishda 3 yildan ortiq tajribam bor. Mening portfolio
+          saytimga xush kelibsiz!</p>
+      </div>
+      <div id="about" class="section">
+        <h1 id="about-title" class="text-2xl font-semibold text-blue-600 mb-3 uppercase border-b pb-2">Men haqimda</h1>
+        <p id="about-text" class="text-gray-700 leading-relaxed text-sm">Ismim Akmaljon Yusupov. Men 1995-yilda
+          tug‘ilganman va hozirda Toshkentda yashayman. 2020-yildan beri Front-end dasturchi sifatida faoliyat
+          yuritaman. HTML, CSS, JavaScript va Bootstrap kabi texnologiyalarda tajribam bor. Mijozlar uchun qulay va
+          zamonaviy veb-saytlar yaratishni yaxshi ko‘raman.</p>
+      </div>
+      <div id="skills" class="section">
+        <h1 id="skills-title" class="text-2xl font-semibold text-blue-600 mb-3 uppercase border-b pb-2">Ko‘nikmalar</h1>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+          <div class="card p-3">
+            <div class="card-body">
+              <strong class="text-base font-medium">HTML5</strong><br>90%
+            </div>
+          </div>
+          <div class="card p-3">
+            <div class="card-body">
+              <strong class="text-base font-medium">CSS3</strong><br>85%
+            </div>
+          </div>
+          <div class="card p-3">
+            <div class="card-body">
+              <strong class="text-base font-medium">JavaScript</strong><br>80%
+            </div>
+          </div>
+          <div class="card p-3">
+            <div class="card-body">
+              <strong class="text-base font-medium">Bootstrap</strong><br>90%
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="portfolio" class="section">
+        <h1 id="portfolio-title" class="text-2xl font-semibold text-blue-600 mb-3 uppercase border-b pb-2">Loyihalar
+        </h1>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="card">
+            <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Loyiha">
+            <div class="card-body">
+              <h5 class="card-title text-base font-medium" id="portfolio-item1-title">E-commerce sayti</h5>
+              <p class="card-text text-gray-600 text-sm" id="portfolio-item1-desc">HTML, CSS va JavaScript yordamida
+                yaratilgan onlayn do‘kon sayti.</p>
+            </div>
+          </div>
+          <div class="card">
+            <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Loyiha">
+            <div class="card-body">
+              <h5 class="card-title text-base font-medium" id="portfolio-item2-title">Portfolio sayti</h5>
+              <p class="card-text text-gray-600 text-sm" id="portfolio-item2-desc">Bootstrap yordamida yaratilgan
+                shaxsiy portfolio sayti.</p>
+            </div>
+          </div>
+          <div class="card">
+            <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Loyiha">
+            <div class="card-body">
+              <h5 class="card-title text-base font-medium" id="portfolio-item3-title">Blog platformasi</h5>
+              <p class="card-text text-gray-600 text-sm" id="portfolio-item3-desc">JavaScript va CSS yordamida
+                yaratilgan blog sayti.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="blog" class="section">
+        <h1 id="blog-title" class="text-2xl font-semibold text-blue-600 mb-3 uppercase border-b pb-2">Blog</h1>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title text-base font-medium" id="blog-item1-title">CSS Grid haqida</h5>
+              <p class="card-text text-gray-600 text-sm" id="blog-item1-desc">CSS Grid yordamida responsiv dizayn
+                yaratish bo‘yicha qo‘llanma.</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title text-base font-medium" id="blog-item2-title">JavaScript Asinxronlik</h5>
+              <p class="card-text text-gray-600 text-sm" id="blog-item2-desc">JavaScript’da async/await va Promise’lar
+                haqida ma'lumot.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="contact" class="section">
+        <h1 id="contact-title" class="text-2xl font-semibold text-blue-600 mb-3 uppercase border-b pb-2">Aloqa</h1>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="contact-info">
+            <h2 id="contact-info-title">Kontakt ma'lumotlari</h2>
+            <p id="contact-info-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
+              incididunt ut labore.</p>
+            <div class="info-item">
+              <div class="icon-box">
+                <i class="fas fa-phone"></i>
+              </div>
+              <span><strong id="contact-phone-label">Telefon:</strong> <a href="tel:+998885700209"
+                  id="contact-phone">+998-(88)-570-02-09</a></span>
+            </div>
+            <div class="info-item">
+              <div class="icon-box">
+                <i class="fab fa-telegram"></i>
+              </div>
+              <span><strong id="contact-telegram-label">Telegram:</strong> <a href="https://t.me/AkmaljonYusupov"
+                  id="contact-telegram">@AkmaljonYusupov</a></span>
+            </div>
+            <div class="info-item">
+              <div class="icon-box">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <span><strong id="contact-email-label">Email:</strong> <a
+                  href="/cdn-cgi/l/email-protection#2c0d07010d000603022c09140d011c0009420f0301" id="contact-email"><span
+                    class="__cf_email__" data-cfemail="cfaea4a2aea3a5a0a18faab7aea2bfa3aae1aca0a2">[email
+                    protected]</span></a></span>
+            </div>
+            <div class="social-links flex gap-4 mt-4">
+              <a href="https://instagram.com/coder.ac"><i class="fab fa-instagram"></i><span class="tooltip"
+                  id="tooltip-contact-instagram">Instagram</span></a>
+              <a href="https://facebook.com/akmaljon"><i class="fab fa-facebook"></i><span class="tooltip"
+                  id="tooltip-contact-facebook">Facebook</span></a>
+              <a href="https://linkedin.com/in/akmaljon"><i class="fab fa-linkedin"></i><span class="tooltip"
+                  id="tooltip-contact-linkedin">LinkedIn</span></a>
+            </div>
+          </div>
+          <div class="contact-form">
+            <form id="contactForm">
+              <div class="mb-3">
+                <label for="full_name" class="form-label" id="form-full-name-label">Ism va familiya</label>
+                <input type="text" class="form-control" id="full_name" placeholder="Ismingiz va familiyangiz" required>
+              </div>
+              <div class="mb-3">
+                <label for="phone" class="form-label" id="form-phone-label">Telefon raqam</label>
+                <div class="d-flex">
+                  <div class="phone-prefix-dropdown">
+                    <button class="dropdown-toggle" type="button" id="phonePrefixDropdown" data-bs-toggle="dropdown"
+                      aria-expanded="false">
+                      +998
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="phonePrefixDropdown">
+                      <li><a class="dropdown-item" href="#" onclick="setPhonePrefix('+998')">+998 (UZ)</a></li>
+                      <li><a class="dropdown-item" href="#" onclick="setPhonePrefix('+7')">+7 (RU)</a></li>
+                      <li><a class="dropdown-item" href="#" onclick="setPhonePrefix('+1')">+1 (US)</a></li>
+                      <li><a class="dropdown-item" href="#" onclick="setPhonePrefix('+90')">+90 (TR)</a></li>
+                    </ul>
+                  </div>
+                  <input type="text" class="form-control phone-input" id="phone" placeholder="(90)-123-45-67" required>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="telegram" class="form-label" id="form-telegram-label">Telegram username</label>
+                <input type="text" class="form-control" id="telegram" placeholder="@username" required>
+              </div>
+              <div class="mb-3">
+                <label for="message" class="form-label" id="form-message-label">Xabar</label>
+                <textarea class="form-control" id="message" rows="4" placeholder="Xabaringizni yozing" maxlength="500"
+                  required></textarea>
+                <span class="character-count" id="message-char-count">500 belgi qoldi</span>
+              </div>
+              <button type="submit"
+                class="btn bg-gradient-to-r from-blue-500 to-blue-600 text-white px-5 py-1.5 rounded-lg hover:from-blue-600 hover-to-blue-700 flex items-center gap-1"
+                id="form-submit" disabled>
+                <i class="fas fa-paper-plane"></i> Yuborish
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  <script src="https://unpkg.com/imask"></script>
+  <script src="./js/script.js"></script>
+</body>
+
+</html>

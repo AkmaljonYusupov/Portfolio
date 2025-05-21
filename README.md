@@ -15,10 +15,10 @@ Bu Akmaljon Yusupovning Front-end dasturchi sifatidagi shaxsiy portfolio sayti. 
 - `image/`: Profil rasmi va bayroqlar
 - `js/`: JavaScript modullari (utils.js, language.js)
 - `index.html`: Asosiy sahifa
-- 
+
 ## Kontakt
 
-- **Telegram**: @AkmaljonYusupov
+- **Telegram**: https://t.me/AkmaljonYusupov
 
 
 © 2025 Akmaljon Yusupov

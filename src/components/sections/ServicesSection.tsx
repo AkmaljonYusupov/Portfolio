@@ -1,4 +1,5 @@
 import { motion } from "framer-motion"
+import { ArrowUpRight, CheckCircle2 } from "lucide-react"
 import ServiceIcon from "../ServiceIcon"
 import styles from "./ServicesSection.module.scss"
 
@@ -19,6 +20,7 @@ export default function ServicesSection({ t }: ServicesSectionProps) {
     >
       <div className={styles.bgCircleOne} />
       <div className={styles.bgCircleTwo} />
+      <div className={styles.bgGrid} />
       <div className={styles.bgLine} />
 
       <div className={styles.sectionWatermark}>{sectionLabel}</div>
@@ -31,11 +33,18 @@ export default function ServicesSection({ t }: ServicesSectionProps) {
               <p className={styles.desc}>{t.services.desc}</p>
             </div>
 
-            <div className={styles.topBadge}>
-              <span className={styles.badgeValue}>
-                {t?.services?.items?.length || 0}+
-              </span>
-              <span className={styles.badgeText}>Premium Services</span>
+            <div className={styles.topStats}>
+              <div className={styles.statItem}>
+                <span className={styles.statValue}>
+                  {t?.services?.items?.length || 0}+
+                </span>
+                <span className={styles.statLabel}>Services</span>
+              </div>
+
+              <div className={styles.statItem}>
+                <span className={styles.statValue}>Pro</span>
+                <span className={styles.statLabel}>UI Quality</span>
+              </div>
             </div>
           </div>
         </div>
@@ -51,6 +60,7 @@ export default function ServicesSection({ t }: ServicesSectionProps) {
               className={styles.card}
             >
               <div className={styles.cardGlow} />
+              <div className={styles.cardTopLine} />
 
               <div className={styles.cardTop}>
                 <div className={styles.iconWrap}>
@@ -65,8 +75,22 @@ export default function ServicesSection({ t }: ServicesSectionProps) {
               <h3 className={styles.cardTitle}>{service.title}</h3>
               <p className={styles.text}>{service.text}</p>
 
+              <div className={styles.featureChips}>
+                <span>Modern UI</span>
+                <span>Responsive</span>
+                <span>Clean Code</span>
+              </div>
+
               <div className={styles.cardFooter}>
-                <span className={styles.footerBadge}>Professional Service</span>
+                <div className={styles.footerLeft}>
+                  <CheckCircle2 size={15} />
+                  <span>Professional Service</span>
+                </div>
+
+                <button type="button" className={styles.moreBtn}>
+                  <span>Explore</span>
+                  <ArrowUpRight size={15} />
+                </button>
               </div>
             </motion.article>
           ))}

@@ -1,0 +1,33 @@
+@use "../styles/variables" as *;
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 1rem;
+  border: 1px solid $border-light;
+  background: $white;
+  color: #334155;
+  padding: 0.75rem 1rem;
+  text-decoration: none;
+  box-shadow: $shadow-soft;
+  transition: $transition;
+
+  &:hover {
+    transform: translateY(-1px);
+  }
+
+  :global(.dark) & {
+    border-color: $border-dark;
+    background: rgba(255, 255, 255, 0.05);
+    color: #e2e8f0;
+    box-shadow: none;
+  }
+}

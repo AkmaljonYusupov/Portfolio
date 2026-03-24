@@ -1,0 +1,95 @@
+{
+  "owner": "Akmaljon Yusufov",
+  "role": "Senior Frontend Web Programmer",
+  "shortRole": "Frontend Developer",
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "portfolio": "Portfolio",
+    "services": "Services",
+    "contact": "Contact"
+  },
+  "hero": {
+    "badge": "Premium Frontend Portfolio",
+    "title": "Welcome to my portfolio website",
+    "desc": "I craft premium ReactJS interfaces with scalable frontend architecture, smooth animation, and multilingual experiences focused on business impact.",
+    "primary": "View Projects",
+    "secondary": "Contact Me",
+    "stats1": "Years Experience",
+    "stats2": "Frontend Projects",
+    "stats3": "Technologies"
+  },
+  "about": {
+    "title": "A strategic approach to frontend development",
+    "desc": "I do not just design interfaces — I build universal frontend systems that combine user behavior, business goals, and visual trust. Every section is fast, elegant, and responsive.",
+    "cards": [
+      "Component-based architecture",
+      "Responsive and mobile-first UI",
+      "Multilingual universal interface",
+      "Premium animation and UX details"
+    ]
+  },
+  "portfolio": {
+    "title": "Featured Work",
+    "desc": "A selection of modern frontend work focused on premium UI, strong structure, and real business value.",
+    "items": [
+      {
+        "title": "Enterprise Dashboard",
+        "category": "React + Analytics",
+        "text": "A management dashboard with KPI blocks, charts, filters, and modular layout."
+      },
+      {
+        "title": "Corporate Website",
+        "category": "Multi-page UX",
+        "text": "A premium corporate website and internal page ecosystem."
+      },
+      {
+        "title": "LMS Frontend",
+        "category": "Education Platform",
+        "text": "A modern UI for courses, tests, profiles, and admin flow."
+      },
+      {
+        "title": "Portfolio Experience",
+        "category": "Personal Brand",
+        "text": "An animated and high-trust portfolio experience for a personal brand."
+      }
+    ]
+  },
+  "services": {
+    "title": "Services",
+    "desc": "Core services for modern universal frontend development.",
+    "items": [
+      {
+        "title": "ReactJS Development",
+        "text": "Fast, clean, and scalable React interface development.",
+        "icon": "code"
+      },
+      {
+        "title": "UI/UX Implementation",
+        "text": "Turning polished designs into premium frontend products.",
+        "icon": "palette"
+      },
+      {
+        "title": "Responsive Web Design",
+        "text": "Perfect adaptation for desktop, tablet, and mobile.",
+        "icon": "mobile"
+      },
+      {
+        "title": "Frontend Optimization",
+        "text": "Improving performance, accessibility, and code structure.",
+        "icon": "device"
+      }
+    ]
+  },
+  "contact": {
+    "title": "Let’s build a powerful project together",
+    "desc": "Need a premium portfolio, corporate website, or a universal React frontend? Let’s connect.",
+    "email": "Email",
+    "phone": "Phone",
+    "location": "Location",
+    "button": "Send Message",
+    "availability": "Currently available for new projects",
+    "fullName": "Full name",
+    "projectDetails": "Project details"
+  }
+}

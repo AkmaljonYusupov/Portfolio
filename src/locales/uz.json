@@ -1,0 +1,95 @@
+{
+  "owner": "Akmaljon Yusufov",
+  "role": "Senior Frontend Web Programmer",
+  "shortRole": "Frontend Dasturchi",
+  "nav": {
+    "home": "Bosh sahifa",
+    "about": "Men haqimda",
+    "portfolio": "Portfolio",
+    "services": "Xizmatlar",
+    "contact": "Bog‘lanish"
+  },
+  "hero": {
+    "badge": "Premium Frontend Portfolio",
+    "title": "Mening portfolio saytimga xush kelibsiz",
+    "desc": "ReactJS, zamonaviy frontend arxitekturasi, animatsiyalar va ko‘p tilli interfeyslar bilan biznesga mos premium darajadagi foydalanuvchi tajribasini quraman.",
+    "primary": "Loyihalarni ko‘rish",
+    "secondary": "Bog‘lanish",
+    "stats1": "Yillik tajriba",
+    "stats2": "Frontend loyihalar",
+    "stats3": "Texnologiyalar"
+  },
+  "about": {
+    "title": "Frontend rivojlantirishga strategik yondashuv",
+    "desc": "Men nafaqat interfeys chizaman, balki foydalanuvchi harakatini, biznes maqsadini va vizual ishonchni birlashtiradigan universal frontend tizimlar yarataman. Har bir bo‘lim tezkor, chiroyli va mobil qurilmalarga mos ishlaydi.",
+    "cards": [
+      "Component-based arxitektura",
+      "Responsive va mobile-first UI",
+      "Ko‘p tilli universal interfeys",
+      "Premium animatsiya va UX detallari"
+    ]
+  },
+  "portfolio": {
+    "title": "Tanlangan ishlar",
+    "desc": "Premium UI, kuchli tuzilma va biznes natijaga yo‘naltirilgan zamonaviy frontend ishlar namunasi.",
+    "items": [
+      {
+        "title": "Enterprise Dashboard",
+        "category": "React + Analytics",
+        "text": "KPI, chart, filter va modular layout bilan boshqaruv paneli."
+      },
+      {
+        "title": "Corporate Website",
+        "category": "Multi-page UX",
+        "text": "Kompaniya uchun premium landing va ichki sahifalar ekotizimi."
+      },
+      {
+        "title": "LMS Frontend",
+        "category": "Education Platform",
+        "text": "Kurslar, testlar, profil va admin flow uchun zamonaviy interfeys."
+      },
+      {
+        "title": "Portfolio Experience",
+        "category": "Personal Brand",
+        "text": "Shaxsiy brend uchun animatsion va ishonchli portfolio tizimi."
+      }
+    ]
+  },
+  "services": {
+    "title": "Xizmatlar",
+    "desc": "Universal frontend yo‘nalishida kerakli asosiy xizmatlar to‘plami.",
+    "items": [
+      {
+        "title": "ReactJS Development",
+        "text": "Tezkor, toza va kengaytiriladigan React interfeyslar yaratish.",
+        "icon": "code"
+      },
+      {
+        "title": "UI/UX Implementation",
+        "text": "Dizaynni premium ko‘rinishda to‘liq frontendga aylantirish.",
+        "icon": "palette"
+      },
+      {
+        "title": "Responsive Web Design",
+        "text": "Desktop, tablet va mobil uchun mukammal moslashuv.",
+        "icon": "mobile"
+      },
+      {
+        "title": "Frontend Optimization",
+        "text": "Performance, accessibility va toza struktura yaxshilash.",
+        "icon": "device"
+      }
+    ]
+  },
+  "contact": {
+    "title": "Birgalikda kuchli loyiha quramiz",
+    "desc": "Premium darajadagi portfolio, korporativ sayt yoki React asosidagi universal frontend kerak bo‘lsa, bog‘laning.",
+    "email": "Email",
+    "phone": "Telefon",
+    "location": "Manzil",
+    "button": "Xabar yuborish",
+    "availability": "Hozir yangi loyihalar uchun ochiqman",
+    "fullName": "To‘liq ism",
+    "projectDetails": "Loyiha tafsilotlari"
+  }
+}

@@ -1,0 +1,74 @@
+@use "./variables" as *;
+
+@mixin card {
+  border: 1px solid $border-light;
+  background: $card-light;
+  border-radius: $radius-xl;
+  box-shadow: $shadow-soft;
+  backdrop-filter: blur(14px);
+}
+
+@mixin dark-card {
+  border: 1px solid $border-dark;
+  background: $card-dark;
+  box-shadow: none;
+}
+
+@mixin section-title {
+  font-size: clamp(1.6rem, 2vw, 2rem);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+@mixin container-card {
+  @include card;
+  padding: 1.5rem;
+
+  :global(.dark) & {
+    @include dark-card;
+  }
+}
+
+@mixin button-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: 0;
+  border-radius: $radius-md;
+  background: $primary;
+  color: $white;
+  font-weight: 600;
+  padding: 0.85rem 1.25rem;
+  transition: $transition;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.92;
+    transform: translateY(-1px);
+  }
+
+  :global(.dark) & {
+    background: $white;
+    color: $primary;
+  }
+}
+
+@mixin button-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: $radius-md;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.06);
+  color: $white;
+  font-weight: 600;
+  padding: 0.85rem 1.25rem;
+  transition: $transition;
+  cursor: pointer;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.12);
+  }
+}

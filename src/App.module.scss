@@ -1,0 +1,74 @@
+@use "./styles/variables" as *;
+
+$sidebar-gap: 12px;
+$sidebar-offset: 16px;
+$top-gap: 16px;
+$right-gap: 12px;
+$mobile-gap: 12px;
+
+.app {
+  min-height: 100vh;
+  color: $text-dark;
+  background:
+    radial-gradient(circle at top left, rgba(34, 211, 238, 0.1), transparent 20%),
+    radial-gradient(circle at bottom right, rgba(168, 85, 247, 0.1), transparent 22%),
+    linear-gradient(180deg, #f8fafc 0%, #eef2ff 100%);
+
+  :global(.dark) & {
+    color: $text-light;
+    background:
+      radial-gradient(circle at top left, rgba(34, 211, 238, 0.08), transparent 18%),
+      radial-gradient(circle at bottom right, rgba(168, 85, 247, 0.08), transparent 18%),
+      linear-gradient(180deg, #020617 0%, #0f172a 100%);
+  }
+}
+
+.cursorHidden {
+  * {
+    cursor: none;
+  }
+}
+
+.layout {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  background: rgba(2, 6, 23, 0.35);
+  backdrop-filter: blur(2px);
+}
+
+.main {
+  min-height: 100vh;
+  min-width: 0;
+  width: 100%;
+  flex: 1;
+  overflow-y: auto;
+  padding: $top-gap $mobile-gap $mobile-gap;
+}
+
+.content {
+  margin-bottom: 1rem;
+}
+
+.sectionWrap {
+  margin-top: 0;
+}
+
+@media (min-width: 640px) {
+  .main {
+    padding: 16px 14px 14px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .main {
+    margin-left: calc(#{$sidebar-width} + #{$sidebar-offset} + #{$sidebar-gap});
+    padding: $top-gap $right-gap $right-gap 0;
+  }
+}

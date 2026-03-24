@@ -1,0 +1,95 @@
+{
+  "owner": "Akmaljon Юсуфов",
+  "role": "Senior Frontend Web Programmer",
+  "shortRole": "Frontend разработчик",
+  "nav": {
+    "home": "Главная",
+    "about": "Обо мне",
+    "portfolio": "Портфолио",
+    "services": "Услуги",
+    "contact": "Контакты"
+  },
+  "hero": {
+    "badge": "Премиум Frontend Portfolio",
+    "title": "Добро пожаловать в моё портфолио",
+    "desc": "Разрабатываю премиальные интерфейсы на ReactJS с современной архитектурой, анимациями и многоязычным пользовательским опытом.",
+    "primary": "Смотреть проекты",
+    "secondary": "Связаться",
+    "stats1": "Лет опыта",
+    "stats2": "Frontend проектов",
+    "stats3": "Технологий"
+  },
+  "about": {
+    "title": "Стратегический подход к frontend-разработке",
+    "desc": "Я создаю не просто интерфейсы, а универсальные frontend-системы, где соединяются действия пользователя, бизнес-цели и визуальное доверие. Каждый раздел быстрый, красивый и адаптивный.",
+    "cards": [
+      "Компонентная архитектура",
+      "Responsive и mobile-first UI",
+      "Многоязычный универсальный интерфейс",
+      "Премиальные анимации и UX-детали"
+    ]
+  },
+  "portfolio": {
+    "title": "Избранные работы",
+    "desc": "Примеры современных frontend-решений с premium UI и продуманной структурой.",
+    "items": [
+      {
+        "title": "Enterprise Dashboard",
+        "category": "React + Analytics",
+        "text": "Панель управления с KPI, графиками, фильтрами и модульной структурой."
+      },
+      {
+        "title": "Corporate Website",
+        "category": "Multi-page UX",
+        "text": "Премиальный корпоративный сайт и экосистема внутренних страниц."
+      },
+      {
+        "title": "LMS Frontend",
+        "category": "Education Platform",
+        "text": "Современный интерфейс для курсов, тестов, профилей и admin flow."
+      },
+      {
+        "title": "Portfolio Experience",
+        "category": "Personal Brand",
+        "text": "Анимационный и уверенный portfolio-сайт для личного бренда."
+      }
+    ]
+  },
+  "services": {
+    "title": "Услуги",
+    "desc": "Ключевые услуги в направлении универсального frontend.",
+    "items": [
+      {
+        "title": "ReactJS Development",
+        "text": "Создание быстрых, чистых и масштабируемых React-интерфейсов.",
+        "icon": "code"
+      },
+      {
+        "title": "UI/UX Implementation",
+        "text": "Премиальная frontend-реализация готового дизайна.",
+        "icon": "palette"
+      },
+      {
+        "title": "Responsive Web Design",
+        "text": "Идеальная адаптация под desktop, tablet и mobile.",
+        "icon": "mobile"
+      },
+      {
+        "title": "Frontend Optimization",
+        "text": "Улучшение performance, accessibility и архитектуры.",
+        "icon": "device"
+      }
+    ]
+  },
+  "contact": {
+    "title": "Давайте создадим сильный проект вместе",
+    "desc": "Если вам нужен премиальный portfolio, корпоративный сайт или универсальный frontend на React — свяжитесь со мной.",
+    "email": "Email",
+    "phone": "Телефон",
+    "location": "Локация",
+    "button": "Отправить сообщение",
+    "availability": "Открыт для новых проектов",
+    "fullName": "Полное имя",
+    "projectDetails": "Детали проекта"
+  }
+}

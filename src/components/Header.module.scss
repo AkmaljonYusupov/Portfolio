@@ -1,0 +1,153 @@
+@use "../styles/variables" as *;
+@use "../styles/mixins" as *;
+
+.header {
+  @include container-card;
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-width: 0;
+}
+
+.menuBtn {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 1rem;
+  border: 1px solid $border-light;
+  background: transparent;
+  color: $text-dark;
+  cursor: pointer;
+  transition: $transition;
+
+  &:hover {
+    background: #f8fafc;
+  }
+
+  :global(.dark) & {
+    color: $white;
+    border-color: $border-dark;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.06);
+    }
+  }
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-width: 0;
+}
+
+.avatar {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #020617, #1e293b);
+  color: $white;
+  font-weight: 700;
+  box-shadow: $shadow-soft;
+}
+
+.meta {
+  min-width: 0;
+}
+
+.name {
+  font-size: 0.95rem;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.role {
+  font-size: 0.8rem;
+  color: $text-muted;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  :global(.dark) & {
+    color: $text-muted-dark;
+  }
+}
+
+.langs {
+  display: inline-flex;
+  width: 100%;
+  align-items: center;
+  padding: 0.25rem;
+  border-radius: 1rem;
+  border: 1px solid $border-light;
+  background: rgba(248, 250, 252, 0.9);
+
+  :global(.dark) & {
+    border-color: $border-dark;
+    background: rgba(255, 255, 255, 0.05);
+  }
+}
+
+.langBtn {
+  flex: 1;
+  border: 0;
+  background: transparent;
+  border-radius: 0.875rem;
+  padding: 0.7rem 0.9rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #64748b;
+  transition: $transition;
+  cursor: pointer;
+  text-transform: uppercase;
+
+  &:hover {
+    background: $white;
+    color: $text-dark;
+  }
+
+  :global(.dark) & {
+    color: #cbd5e1;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: $white;
+    }
+  }
+}
+
+.langActive {
+  background: $primary;
+  color: $white;
+  box-shadow: $shadow-soft;
+
+  :global(.dark) & {
+    background: $white;
+    color: $primary;
+  }
+}
+
+@media (min-width: 640px) {
+  .langs {
+    width: auto;
+  }
+
+  .langBtn {
+    flex: unset;
+    min-width: 70px;
+  }
+}

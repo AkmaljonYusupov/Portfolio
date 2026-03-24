@@ -1,0 +1,121 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.section {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.infoCard,
+.formCard {
+  @include container-card;
+}
+
+.availability {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 999px;
+  background: rgba(16, 185, 129, 0.12);
+  color: #047857;
+  padding: 0.7rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+
+  :global(.dark) & {
+    background: rgba(16, 185, 129, 0.12);
+    color: #6ee7b7;
+  }
+}
+
+.title {
+  margin-top: 1rem;
+  @include section-title;
+}
+
+.desc {
+  margin-top: 0.8rem;
+  line-height: 1.8;
+  color: #64748b;
+
+  :global(.dark) & {
+    color: #cbd5e1;
+  }
+}
+
+.infoGrid {
+  margin-top: 1.5rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.infoItem {
+  border-radius: 1.5rem;
+  border: 1px solid $border-light;
+  background: #f8fafc;
+  padding: 1rem;
+
+  :global(.dark) & {
+    border-color: $border-dark;
+    background: rgba(255, 255, 255, 0.05);
+  }
+}
+
+.infoLabel {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: #64748b;
+
+  :global(.dark) & {
+    color: #94a3b8;
+  }
+}
+
+.infoValue {
+  margin-top: 0.35rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.form {
+  display: grid;
+  gap: 1rem;
+}
+
+.input,
+.textarea {
+  width: 100%;
+  border-radius: 1rem;
+  border: 1px solid $border-light;
+  background: #f8fafc;
+  padding: 0.95rem 1rem;
+  font-size: 0.95rem;
+  outline: none;
+  transition: $transition;
+
+  &:focus {
+    border-color: #94a3b8;
+  }
+
+  :global(.dark) & {
+    border-color: $border-dark;
+    background: rgba(255, 255, 255, 0.05);
+    color: $white;
+  }
+}
+
+.textarea {
+  min-height: 170px;
+  resize: vertical;
+}
+
+.submitBtn {
+  @include button-primary;
+}
+
+@media (min-width: 1280px) {
+  .section {
+    grid-template-columns: 1.05fr 0.95fr;
+  }
+}

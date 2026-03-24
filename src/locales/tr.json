@@ -1,0 +1,95 @@
+{
+  "owner": "Akmaljon Yusufov",
+  "role": "Senior Frontend Web Programmer",
+  "shortRole": "Frontend Geliştirici",
+  "nav": {
+    "home": "Ana Sayfa",
+    "about": "Hakkımda",
+    "portfolio": "Portföy",
+    "services": "Hizmetler",
+    "contact": "İletişim"
+  },
+  "hero": {
+    "badge": "Premium Frontend Portfolio",
+    "title": "Portföy siteme hoş geldiniz",
+    "desc": "ReactJS, ölçeklenebilir frontend mimarisi, akıcı animasyonlar ve çok dilli arayüzlerle premium dijital deneyimler oluşturuyorum.",
+    "primary": "Projeleri Gör",
+    "secondary": "İletişime Geç",
+    "stats1": "Yıl Deneyim",
+    "stats2": "Frontend Proje",
+    "stats3": "Teknoloji"
+  },
+  "about": {
+    "title": "Frontend geliştirmeye stratejik yaklaşım",
+    "desc": "Sadece arayüz tasarlamıyorum; kullanıcı davranışı, iş hedefleri ve görsel güveni birleştiren evrensel frontend sistemleri geliştiriyorum. Her bölüm hızlı, şık ve responsive çalışır.",
+    "cards": [
+      "Component tabanlı mimari",
+      "Responsive ve mobile-first UI",
+      "Çok dilli evrensel arayüz",
+      "Premium animasyon ve UX detayları"
+    ]
+  },
+  "portfolio": {
+    "title": "Öne Çıkan İşler",
+    "desc": "Premium UI, güçlü yapı ve iş odaklı modern frontend örnekleri.",
+    "items": [
+      {
+        "title": "Enterprise Dashboard",
+        "category": "React + Analytics",
+        "text": "KPI, grafikler, filtreler ve modüler layout içeren yönetim paneli."
+      },
+      {
+        "title": "Corporate Website",
+        "category": "Multi-page UX",
+        "text": "Premium kurumsal web sitesi ve iç sayfa ekosistemi."
+      },
+      {
+        "title": "LMS Frontend",
+        "category": "Education Platform",
+        "text": "Kurslar, testler, profiller ve admin akışı için modern arayüz."
+      },
+      {
+        "title": "Portfolio Experience",
+        "category": "Personal Brand",
+        "text": "Kişisel marka için animasyonlu ve güven veren portfolio deneyimi."
+      }
+    ]
+  },
+  "services": {
+    "title": "Hizmetler",
+    "desc": "Modern evrensel frontend için temel hizmetler.",
+    "items": [
+      {
+        "title": "ReactJS Development",
+        "text": "Hızlı, temiz ve ölçeklenebilir React arayüzleri geliştirme.",
+        "icon": "code"
+      },
+      {
+        "title": "UI/UX Implementation",
+        "text": "Hazır tasarımı premium frontend ürüne dönüştürme.",
+        "icon": "palette"
+      },
+      {
+        "title": "Responsive Web Design",
+        "text": "Desktop, tablet ve mobil için kusursuz uyum.",
+        "icon": "mobile"
+      },
+      {
+        "title": "Frontend Optimization",
+        "text": "Performance, accessibility ve yapı iyileştirme.",
+        "icon": "device"
+      }
+    ]
+  },
+  "contact": {
+    "title": "Birlikte güçlü bir proje oluşturalım",
+    "desc": "Premium portfolio, kurumsal site veya React tabanlı evrensel frontend ihtiyacınız varsa iletişime geçin.",
+    "email": "Email",
+    "phone": "Telefon",
+    "location": "Konum",
+    "button": "Mesaj Gönder",
+    "availability": "Yeni projeler için uygunum",
+    "fullName": "Tam ad",
+    "projectDetails": "Proje detayları"
+  }
+}

@@ -1,0 +1,89 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.section {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.topCard {
+  @include container-card;
+}
+
+.title {
+  @include section-title;
+}
+
+.desc {
+  margin-top: 0.8rem;
+  max-width: 800px;
+  line-height: 1.8;
+  color: #64748b;
+
+  :global(.dark) & {
+    color: #cbd5e1;
+  }
+}
+
+.grid {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.card {
+  border-radius: 1.9rem;
+  border: 1px solid $border-light;
+  background: $white;
+  padding: 1.5rem;
+  box-shadow: $shadow-soft;
+  transition: $transition;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $shadow-md;
+  }
+
+  :global(.dark) & {
+    border-color: $border-dark;
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: none;
+  }
+}
+
+.iconWrap {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: $primary;
+  color: $white;
+
+  :global(.dark) & {
+    background: $white;
+    color: $primary;
+  }
+}
+
+.cardTitle {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.text {
+  margin-top: 0.8rem;
+  line-height: 1.7;
+  color: #64748b;
+
+  :global(.dark) & {
+    color: #cbd5e1;
+  }
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

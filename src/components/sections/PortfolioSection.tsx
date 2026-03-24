@@ -8,26 +8,41 @@ import {
 } from "lucide-react"
 import styles from "./PortfolioSection.module.scss"
 
+type PortfolioItem = {
+  category: string
+  title: string
+  text: string
+}
+
 type PortfolioSectionProps = {
-  t: any
+  t: {
+    nav?: {
+      portfolio?: string
+    }
+    portfolio: {
+      title: string
+      desc: string
+      items: PortfolioItem[]
+    }
+  }
 }
 
 export default function PortfolioSection({ t }: PortfolioSectionProps) {
+  const portfolioLabel = t?.nav?.portfolio ?? "Portfolio"
+
   return (
     <motion.section
+      className={styles.section}
       initial={{ opacity: 0, y: 18 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.12 }}
       transition={{ duration: 0.5 }}
-      className={styles.section}
     >
       <div className={styles.bgCircleOne} />
       <div className={styles.bgCircleTwo} />
       <div className={styles.bgLine} />
 
-      <div className={styles.sectionWatermark}>
-        {t?.nav?.portfolio ?? "Portfolio"}
-      </div>
+      <div className={styles.sectionWatermark}>{portfolioLabel}</div>
 
       <div className={styles.contentLayer}>
         <div className={styles.topCard}>
@@ -40,7 +55,7 @@ export default function PortfolioSection({ t }: PortfolioSectionProps) {
             <div className={styles.topStats}>
               <div className={styles.statItem}>
                 <span className={styles.statValue}>
-                  {t?.portfolio?.items?.length || "0"}+
+                  {t?.portfolio?.items?.length || 0}+
                 </span>
                 <span className={styles.statLabel}>Projects</span>
               </div>
@@ -54,14 +69,14 @@ export default function PortfolioSection({ t }: PortfolioSectionProps) {
         </div>
 
         <div className={styles.grid}>
-          {t.portfolio.items.map((item: any, index: number) => (
+          {t.portfolio.items.map((item, index) => (
             <motion.article
-              key={item.title}
+              key={`${item.title}-${index}`}
+              className={styles.card}
               initial={{ opacity: 0, y: 18 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.15 }}
               transition={{ duration: 0.45, delay: index * 0.08 }}
-              className={styles.card}
             >
               <div className={styles.cardGlow} />
 
@@ -74,7 +89,7 @@ export default function PortfolioSection({ t }: PortfolioSectionProps) {
                 <button
                   type="button"
                   className={styles.linkBtn}
-                  aria-label={`${item.title} project`}
+                  aria-label={`${item.title} project link`}
                 >
                   <ExternalLink size={16} />
                 </button>

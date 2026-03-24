@@ -84,7 +84,12 @@ export default function AboutSection({ t }: { t: any }) {
           transition={{ duration: 0.45, delay: 0.12 }}
         >
           <div className={styles.profileImageWrap}>
-            <img src={AkmaljonImage} alt="Akmaljon Yusufov" />
+            <div className={styles.profileRingOuter} />
+            <div className={styles.profileRingBlur} />
+            <div className={styles.profileImageInner}>
+              <img src={AkmaljonImage} alt="Akmaljon Yusufov" />
+            </div>
+            <span className={styles.profileOnlineDot} />
           </div>
 
           <div className={styles.profileContent}>

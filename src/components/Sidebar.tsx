@@ -83,22 +83,16 @@ export default function Sidebar({
       }}
       transition={{
         type: "spring",
-        stiffness: 380,
-        damping: 34,
+        stiffness: 420,
+        damping: 36,
         mass: 0.72,
       }}
       className={`${styles.sidebar} ${!isDesktop ? styles.mobileSidebar : ""}`}
       style={{
-        willChange: "transform",
         transform: "translate3d(0,0,0)",
         backfaceVisibility: "hidden",
       }}
     >
-      <div className={styles.bgGlowOne} />
-      <div className={styles.bgGlowTwo} />
-      <div className={styles.bgGrid} />
-      <div className={styles.topLine} />
-
       <div className={styles.inner}>
         <div className={styles.top}>
           <div className={styles.brand}>
@@ -165,27 +159,21 @@ export default function Sidebar({
                     duration: 0.18,
                     ease: "easeOut",
                   }}
-                  whileHover={{ x: 3, scale: 1.01 }}
+                  whileHover={{ x: 2 }}
                   whileTap={{ scale: 0.985 }}
                 >
                   <span className={styles.navItemLayer} />
                   <span className={styles.navIndicator} />
+
                   <span className={styles.iconBox}>
-                    <Icon size={18} />
+                    <Icon size={17} />
                   </span>
 
-                  <span className={styles.navContent}>
-                    <span className={styles.navText}>{item.label}</span>
-                    <span className={styles.navSubText}>
-                      {item.key.toUpperCase()}
-                    </span>
-                  </span>
+                  <span className={styles.navText}>{item.label}</span>
 
                   <span className={styles.navArrow}>
                     <ArrowUpRight size={14} />
                   </span>
-
-                  {isActive && <span className={styles.activeOrb} />}
                 </motion.button>
               )
             })}

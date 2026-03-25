@@ -71,7 +71,7 @@ export default function HomeSection({
     { value: portfolioData.stats.tech, label: t.hero.stats3 },
   ]
 
-  const skills = portfolioData.skills.slice(0, 8)
+  const skills = portfolioData.skills
 
   return (
     <section className={styles.heroSection}>

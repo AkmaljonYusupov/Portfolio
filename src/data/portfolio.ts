@@ -1,22 +1,25 @@
 export const portfolioData = {
   skills: [
-    "ReactJS",
+    "Html 5",
+    "Css 3",
+    "Bootstrap 5",
     "JavaScript",
+    "ReactJS",
     "TypeScript",
+    "Node.js",
     "Next.js",
     "Tailwind CSS",
     "SCSS",
-    "Redux Toolkit",
-    "Framer Motion",
+    "Python"   
   ],
   stats: {
-    experience: "3+",
-    projects: "20+",
-    tech: "15+",
+    experience: "5+",
+    projects: "30+",
+    tech: "11+",
   },
   contacts: {
-    email: "akmaljon.dev@example.com",
-    phone: "+998 90 123 45 67",
+    email: "InfoAkmaljon.uz@gmail.com",
+    phone: "+998 88 570 02 09",
     location: "Uzbekistan",
   },
 }

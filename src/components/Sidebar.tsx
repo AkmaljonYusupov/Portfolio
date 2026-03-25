@@ -69,15 +69,30 @@ export default function Sidebar({
     { key: "contact", label: t.nav.contact },
   ]
 
+  const handleItemClick = (key: SectionKey) => {
+    setActiveSection(key)
+    if (!isDesktop) setSidebarOpen(false)
+  }
+
   return (
     <motion.aside
       initial={false}
       animate={{
-        x: isDesktop ? 0 : sidebarOpen ? 0 : -340,
-        opacity: isDesktop ? 1 : sidebarOpen ? 1 : 0.98,
+        x: isDesktop ? 0 : sidebarOpen ? 0 : -360,
+        opacity: 1,
       }}
-      transition={{ duration: 0.28, ease: "easeOut" }}
-      className={styles.sidebar}
+      transition={{
+        type: "spring",
+        stiffness: 380,
+        damping: 34,
+        mass: 0.72,
+      }}
+      className={`${styles.sidebar} ${!isDesktop ? styles.mobileSidebar : ""}`}
+      style={{
+        willChange: "transform",
+        transform: "translate3d(0,0,0)",
+        backfaceVisibility: "hidden",
+      }}
     >
       <div className={styles.bgGlowOne} />
       <div className={styles.bgGlowTwo} />
@@ -130,42 +145,51 @@ export default function Sidebar({
             </span>
           </div>
 
-          {menuItems.map((item, index) => {
-            const Icon = sectionIcons[item.key]
-            const isActive = activeSection === item.key
+          <div className={styles.navList}>
+            {menuItems.map((item, index) => {
+              const Icon = sectionIcons[item.key]
+              const isActive = activeSection === item.key
 
-            return (
-              <motion.button
-                key={item.key}
-                type="button"
-                onClick={() => {
-                  setActiveSection(item.key)
-                  if (!isDesktop) setSidebarOpen(false)
-                }}
-                className={`${styles.navItem} ${
-                  isActive ? styles.navActive : ""
-                }`}
-                initial={{ opacity: 0, x: -14 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: index * 0.05 }}
-                whileHover={{ x: 4 }}
-                whileTap={{ scale: 0.985 }}
-              >
-                <span className={styles.navItemBg} />
-                <span className={styles.iconBox}>
-                  <Icon size={18} />
-                </span>
+              return (
+                <motion.button
+                  key={item.key}
+                  type="button"
+                  onClick={() => handleItemClick(item.key)}
+                  className={`${styles.navItem} ${
+                    isActive ? styles.navActive : ""
+                  }`}
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{
+                    delay: index * 0.035,
+                    duration: 0.18,
+                    ease: "easeOut",
+                  }}
+                  whileHover={{ x: 3, scale: 1.01 }}
+                  whileTap={{ scale: 0.985 }}
+                >
+                  <span className={styles.navItemLayer} />
+                  <span className={styles.navIndicator} />
+                  <span className={styles.iconBox}>
+                    <Icon size={18} />
+                  </span>
 
-                <span className={styles.navText}>{item.label}</span>
+                  <span className={styles.navContent}>
+                    <span className={styles.navText}>{item.label}</span>
+                    <span className={styles.navSubText}>
+                      {item.key.toUpperCase()}
+                    </span>
+                  </span>
 
-                <span className={styles.navArrow}>
-                  <ArrowUpRight size={14} />
-                </span>
+                  <span className={styles.navArrow}>
+                    <ArrowUpRight size={14} />
+                  </span>
 
-                {isActive && <span className={styles.activeLine} />}
-              </motion.button>
-            )
-          })}
+                  {isActive && <span className={styles.activeOrb} />}
+                </motion.button>
+              )
+            })}
+          </div>
         </nav>
 
         <div className={styles.socialCard}>

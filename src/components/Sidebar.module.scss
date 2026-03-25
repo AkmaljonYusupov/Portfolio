@@ -14,16 +14,20 @@ $sidebar-offset: 20px;
   flex-direction: column;
   overflow: hidden;
   isolation: isolate;
+  contain: layout paint style;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: transform;
   border-radius: 2rem;
   border: 1px solid rgba(148, 163, 184, 0.16);
   background:
     radial-gradient(circle at top left, rgba(59, 130, 246, 0.14), transparent 26%),
     radial-gradient(circle at bottom right, rgba(168, 85, 247, 0.14), transparent 24%),
     linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(248, 250, 252, 0.96) 100%);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
   box-shadow:
-    0 24px 60px rgba(15, 23, 42, 0.1),
+    0 18px 42px rgba(15, 23, 42, 0.1),
     inset 0 1px 0 rgba(255, 255, 255, 0.45);
 
   :global(.dark) & {
@@ -33,18 +37,30 @@ $sidebar-offset: 20px;
       radial-gradient(circle at bottom right, rgba(168, 85, 247, 0.16), transparent 24%),
       linear-gradient(180deg, rgba(2, 6, 23, 0.94) 0%, rgba(15, 23, 42, 0.96) 100%);
     box-shadow:
-      0 24px 60px rgba(0, 0, 0, 0.3),
+      0 18px 42px rgba(0, 0, 0, 0.28),
       inset 0 1px 0 rgba(255, 255, 255, 0.03);
   }
 }
 
+.mobileSidebar {
+  touch-action: pan-y;
+}
+
+.bgGlowOne,
+.bgGlowTwo,
+.bgGrid,
+.topLine {
+  position: absolute;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+  transform: translateZ(0);
+}
+
 .bgGlowOne,
 .bgGlowTwo {
-  position: absolute;
   border-radius: 999px;
   filter: blur(65px);
-  pointer-events: none;
-  z-index: 0;
 }
 
 .bgGlowOne {
@@ -64,23 +80,19 @@ $sidebar-offset: 20px;
 }
 
 .bgGrid {
-  position: absolute;
   inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  opacity: 0.2;
+  opacity: 0.18;
   background-image:
     linear-gradient(rgba(148, 163, 184, 0.08) 1px, transparent 1px),
     linear-gradient(90deg, rgba(148, 163, 184, 0.08) 1px, transparent 1px);
   background-size: 24px 24px;
 
   :global(.dark) & {
-    opacity: 0.08;
+    opacity: 0.07;
   }
 }
 
 .topLine {
-  position: absolute;
   top: 0;
   left: 12%;
   width: 76%;
@@ -92,16 +104,15 @@ $sidebar-offset: 20px;
     rgba(168, 85, 247, 0.42),
     transparent
   );
-  z-index: 0;
 }
 
 .inner {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   height: 100%;
   display: flex;
   flex-direction: column;
-  padding: 1.15rem;
+  padding: 1.1rem;
 }
 
 .top {
@@ -125,11 +136,11 @@ $sidebar-offset: 20px;
   flex-shrink: 0;
 
   &:hover .avatarShell {
-    transform: scale(1.06);
+    transform: scale(1.04);
   }
 
   &:hover .avatarImage {
-    transform: scale(1.08);
+    transform: scale(1.06);
   }
 }
 
@@ -143,8 +154,7 @@ $sidebar-offset: 20px;
     rgba(168, 85, 247, 0.88),
     rgba(59, 130, 246, 0.95)
   );
-  animation: spinRing 8s linear infinite;
-  filter: blur(0.2px);
+  animation: spinRing 6s linear infinite;
   box-shadow:
     0 10px 24px rgba(59, 130, 246, 0.18),
     0 12px 28px rgba(168, 85, 247, 0.12);
@@ -179,7 +189,7 @@ $sidebar-offset: 20px;
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.72),
     0 10px 20px rgba(15, 23, 42, 0.08);
-  transition: transform 0.35s ease;
+  transition: transform 0.25s ease;
   z-index: 1;
 
   :global(.dark) & {
@@ -203,7 +213,7 @@ $sidebar-offset: 20px;
   display: block;
   object-fit: cover;
   object-position: center top;
-  transition: transform 0.35s ease;
+  transition: transform 0.25s ease;
 }
 
 .onlineDot {
@@ -265,8 +275,8 @@ $sidebar-offset: 20px;
 }
 
 .closeBtn {
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 2.45rem;
+  height: 2.45rem;
   border: 1px solid rgba(148, 163, 184, 0.14);
   border-radius: 0.92rem;
   background: rgba(255, 255, 255, 0.58);
@@ -275,10 +285,11 @@ $sidebar-offset: 20px;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: 0.28s ease;
+  transition: 0.2s ease;
+  flex-shrink: 0;
 
   &:hover {
-    transform: rotate(90deg);
+    transform: rotate(90deg) scale(1.04);
     background: #f8fafc;
     color: #0f172a;
   }
@@ -317,13 +328,13 @@ $sidebar-offset: 20px;
 
 .nav {
   flex: 1;
-  display: grid;
-  align-content: start;
-  gap: 0.42rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
 }
 
 .navHeader {
-  padding: 0 0.22rem 0.12rem;
+  padding: 0 0.22rem 0.5rem;
 }
 
 .navEyebrow {
@@ -338,23 +349,30 @@ $sidebar-offset: 20px;
   }
 }
 
+.navList {
+  display: grid;
+  gap: 0.6rem;
+}
+
 .navItem {
   position: relative;
   display: flex;
   align-items: center;
-  gap: 0.68rem;
+  gap: 0.78rem;
   width: 100%;
+  min-height: 4rem;
   border: 0;
-  border-radius: 0.98rem;
+  border-radius: 1.18rem;
   background: transparent;
   color: #475569;
-  padding: 0.54rem 0.66rem;
-  font-size: 0.89rem;
-  font-weight: 600;
+  padding: 0.72rem 0.78rem;
   text-align: left;
   cursor: pointer;
-  transition: 0.24s ease;
   overflow: hidden;
+  transition:
+    transform 0.18s ease,
+    color 0.18s ease;
+  will-change: transform;
 
   &:hover {
     color: #0f172a;
@@ -369,60 +387,65 @@ $sidebar-offset: 20px;
   }
 }
 
-.navItemBg {
+.navItemLayer {
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  background: rgba(248, 250, 252, 0.72);
-  border: 1px solid rgba(148, 163, 184, 0.1);
-  opacity: 0;
-  transition: 0.24s ease;
-
-  :global(.dark) & {
-    background: rgba(255, 255, 255, 0.04);
-    border-color: rgba(255, 255, 255, 0.06);
-  }
-}
-
-.navItem:hover .navItemBg {
-  opacity: 1;
-}
-
-.navActive .navItemBg {
-  opacity: 1;
-  background: linear-gradient(
-    135deg,
-    rgba(59, 130, 246, 1),
-    rgba(37, 99, 235, 0.96)
-  );
-  border-color: transparent;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.82), rgba(248, 250, 252, 0.7));
+  border: 1px solid rgba(148, 163, 184, 0.12);
   box-shadow:
-    0 12px 24px rgba(37, 99, 235, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.18);
+    0 8px 18px rgba(15, 23, 42, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease;
+  z-index: 0;
 
   :global(.dark) & {
-    background: linear-gradient(
-      135deg,
-      rgba(255, 255, 255, 0.96),
-      rgba(226, 232, 240, 0.92)
-    );
+    background:
+      linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.03));
+    border-color: rgba(255, 255, 255, 0.07);
     box-shadow: none;
   }
 }
 
+.navItem:hover .navItemLayer {
+  transform: scale(1.01);
+}
+
+.navIndicator {
+  position: absolute;
+  left: 0.52rem;
+  top: 18%;
+  bottom: 18%;
+  width: 4px;
+  border-radius: 999px;
+  background: linear-gradient(
+    180deg,
+    rgba(59, 130, 246, 0.2),
+    rgba(168, 85, 247, 0.1)
+  );
+  z-index: 1;
+  transition: 0.2s ease;
+}
+
 .iconBox {
   position: relative;
-  z-index: 1;
-  width: 2.08rem;
-  height: 2.08rem;
-  border-radius: 0.8rem;
+  z-index: 2;
+  width: 2.3rem;
+  height: 2.3rem;
+  border-radius: 0.95rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(241, 245, 249, 0.95);
+  background:
+    linear-gradient(135deg, rgba(241, 245, 249, 1), rgba(255, 255, 255, 0.84));
   border: 1px solid rgba(148, 163, 184, 0.12);
   flex-shrink: 0;
-  transition: 0.24s ease;
+  transition: 0.2s ease;
 
   :global(.dark) & {
     background: rgba(255, 255, 255, 0.05);
@@ -430,49 +453,118 @@ $sidebar-offset: 20px;
   }
 }
 
-.navActive .iconBox {
-  background: rgba(255, 255, 255, 0.14);
-  border-color: rgba(255, 255, 255, 0.12);
-  color: #ffffff;
-
-  :global(.dark) & {
-    background: rgba(255, 255, 255, 0.92);
-    border-color: transparent;
-    color: $primary;
-  }
+.navContent {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.18rem;
 }
 
 .navText {
-  position: relative;
-  z-index: 1;
-  flex: 1;
-  min-width: 0;
-  transition: 0.24s ease;
+  font-size: 0.92rem;
+  font-weight: 700;
+  line-height: 1.1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.navActive .navText {
-  color: #ffffff;
+.navSubText {
+  font-size: 0.66rem;
+  letter-spacing: 0.14em;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #94a3b8;
 
   :global(.dark) & {
-    color: #0f172a;
+    color: #64748b;
   }
 }
 
 .navArrow {
   position: relative;
-  z-index: 1;
-  width: 1.3rem;
+  z-index: 2;
+  width: 1.5rem;
   display: inline-flex;
   justify-content: center;
-  opacity: 0.58;
-  transition: 0.24s ease;
+  opacity: 0.6;
+  transition: 0.2s ease;
 }
 
-.navActive .navArrow {
-  color: #ffffff;
+.activeOrb {
+  position: absolute;
+  right: -0.2rem;
+  top: 50%;
+  width: 2.8rem;
+  height: 2.8rem;
+  border-radius: 999px;
+  transform: translateY(-50%);
+  background: radial-gradient(circle, rgba(96, 165, 250, 0.24), transparent 70%);
+  filter: blur(8px);
+  z-index: 1;
+  pointer-events: none;
 
   :global(.dark) & {
-    color: #0f172a;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.18), transparent 70%);
+  }
+}
+
+.navActive {
+  color: #ffffff;
+
+  .navItemLayer {
+    background:
+      linear-gradient(135deg, rgba(37, 99, 235, 1), rgba(59, 130, 246, 0.96) 45%, rgba(99, 102, 241, 0.96));
+    border-color: transparent;
+    box-shadow:
+      0 14px 28px rgba(37, 99, 235, 0.24),
+      inset 0 1px 0 rgba(255, 255, 255, 0.18);
+
+    :global(.dark) & {
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(226, 232, 240, 0.94));
+      box-shadow: none;
+    }
+  }
+
+  .navIndicator {
+    background: rgba(255, 255, 255, 0.96);
+
+    :global(.dark) & {
+      background: $primary;
+    }
+  }
+
+  .iconBox {
+    background: rgba(255, 255, 255, 0.14);
+    border-color: rgba(255, 255, 255, 0.14);
+    color: #ffffff;
+
+    :global(.dark) & {
+      background: rgba(15, 23, 42, 0.06);
+      border-color: rgba(15, 23, 42, 0.06);
+      color: $primary;
+    }
+  }
+
+  .navText,
+  .navArrow {
+    color: #ffffff;
+
+    :global(.dark) & {
+      color: #0f172a;
+    }
+  }
+
+  .navSubText {
+    color: rgba(255, 255, 255, 0.72);
+
+    :global(.dark) & {
+      color: #475569;
+    }
   }
 }
 
@@ -482,27 +574,12 @@ $sidebar-offset: 20px;
   transform: translateX(2px);
 }
 
-.activeLine {
-  position: absolute;
-  left: 0.32rem;
-  top: 16%;
-  bottom: 16%;
-  width: 3px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.94);
-  z-index: 1;
-
-  :global(.dark) & {
-    background: $primary;
-  }
-}
-
 .socialCard {
   position: relative;
   overflow: visible;
   border-radius: 1.3rem;
   padding: 0.9rem 0.85rem;
-  margin-top: 0.4rem;
+  margin-top: 0.6rem;
   border: 1px solid rgba(148, 163, 184, 0.14);
   background:
     linear-gradient(180deg, rgba(241, 245, 249, 0.88) 0%, rgba(248, 250, 252, 0.94) 100%);
@@ -554,11 +631,11 @@ $sidebar-offset: 20px;
     0 10px 22px rgba(15, 23, 42, 0.06),
     inset 0 1px 0 rgba(255, 255, 255, 0.65);
   transition:
-    transform 0.28s ease,
-    box-shadow 0.28s ease,
-    border-color 0.28s ease,
-    background 0.28s ease,
-    color 0.28s ease;
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease,
+    color 0.2s ease;
 
   &:hover {
     transform: translateY(-4px) scale(1.03);
@@ -578,7 +655,7 @@ $sidebar-offset: 20px;
   border-radius: inherit;
   opacity: 0;
   filter: blur(14px);
-  transition: 0.3s ease;
+  transition: 0.22s ease;
   pointer-events: none;
 }
 
@@ -591,10 +668,6 @@ $sidebar-offset: 20px;
   border-color: transparent;
   background: linear-gradient(135deg, #fd5949, #d6249f 55%, #285aeb);
   box-shadow: 0 16px 28px rgba(214, 36, 159, 0.24);
-
-  :global(.dark) & {
-    color: #ffffff;
-  }
 }
 
 .instagram .socialGlow {
@@ -606,10 +679,6 @@ $sidebar-offset: 20px;
   border-color: transparent;
   background: linear-gradient(135deg, #36aee2, #229ed9);
   box-shadow: 0 16px 28px rgba(34, 158, 217, 0.24);
-
-  :global(.dark) & {
-    color: #ffffff;
-  }
 }
 
 .telegram .socialGlow {
@@ -621,10 +690,6 @@ $sidebar-offset: 20px;
   border-color: transparent;
   background: linear-gradient(135deg, #24292f, #0f1419);
   box-shadow: 0 16px 28px rgba(15, 20, 25, 0.24);
-
-  :global(.dark) & {
-    color: #ffffff;
-  }
 }
 
 .github .socialGlow {
@@ -648,9 +713,9 @@ $sidebar-offset: 20px;
   visibility: hidden;
   pointer-events: none;
   transition:
-    opacity 0.24s ease,
-    transform 0.24s ease,
-    visibility 0.24s ease;
+    opacity 0.2s ease,
+    transform 0.2s ease,
+    visibility 0.2s ease;
   box-shadow: 0 14px 30px rgba(15, 23, 42, 0.18);
 
   &::after {
@@ -681,11 +746,11 @@ $sidebar-offset: 20px;
 }
 
 @keyframes spinRing {
-  0% {
+  from {
     transform: rotate(0deg);
   }
 
-  100% {
+  to {
     transform: rotate(360deg);
   }
 }
@@ -715,13 +780,17 @@ $sidebar-offset: 20px;
     top: 0;
     left: 0;
     bottom: 0;
-    width: min(340px, 90vw);
-    border-radius: 0;
+    width: min(340px, 88vw);
+    border-radius: 0 1.4rem 1.4rem 0;
   }
 
   .avatarWrap {
-    width: 4.25rem;
-    height: 4.25rem;
+    width: 4.15rem;
+    height: 4.15rem;
+  }
+
+  .navItem {
+    min-height: 3.8rem;
   }
 }
 

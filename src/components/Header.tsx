@@ -1,5 +1,5 @@
 import { motion } from "framer-motion"
-import { Menu } from "lucide-react"
+import { Download, Menu } from "lucide-react"
 import type { LanguageKey } from "../i18n"
 import styles from "./Header.module.scss"
 
@@ -28,11 +28,14 @@ export default function Header({
   return (
     <div className={styles.headerWrap}>
       <motion.header
-        initial={{ opacity: 0, y: -10 }}
+        initial={{ opacity: 0, y: -14 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.35, ease: "easeOut" }}
+        transition={{ duration: 0.4, ease: "easeOut" }}
         className={styles.header}
       >
+        <div className={styles.headerGlow} />
+        <div className={styles.headerLine} />
+
         <div className={styles.left}>
           {!isDesktop && (
             <button
@@ -41,39 +44,47 @@ export default function Header({
               className={styles.menuBtn}
               aria-label="Open menu"
             >
-              <Menu size={20} />
+              <Menu size={19} />
             </button>
           )}
 
-          <div className={styles.profile}>
-            <div className={styles.avatar}>AY</div>
-
-            <div className={styles.meta}>
-              <div className={styles.name}>{t.owner}</div>
-              <div className={styles.role}>{t.role}</div>
-            </div>
-          </div>
+          <a
+            href="/cv.pdf"
+            download
+            className={styles.downloadBtn}
+            aria-label="Download CV"
+          >
+            <span className={styles.downloadBtnBg} />
+            <Download size={15} />
+            <span className={styles.downloadText}>
+              {t?.downloadCv ?? "Download CV"}
+            </span>
+          </a>
         </div>
 
-        <div className={styles.langs}>
-          {languages.map(lang => {
-            const isActive = language === lang.key
+        <div className={styles.right}>
+          <div className={styles.langs}>
+            {languages.map(lang => {
+              const isActive = language === lang.key
 
-            return (
-              <button
-                key={lang.key}
-                type="button"
-                onClick={() => setLanguage(lang.key)}
-                className={`${styles.langBtn} ${
-                  isActive ? styles.langActive : ""
-                }`}
-                aria-pressed={isActive}
-                title={lang.label}
-              >
-                {lang.key === "tr" ? "TR" : lang.key.toUpperCase()}
-              </button>
-            )
-          })}
+              return (
+                <button
+                  key={lang.key}
+                  type="button"
+                  onClick={() => setLanguage(lang.key)}
+                  className={`${styles.langBtn} ${
+                    isActive ? styles.langActive : ""
+                  }`}
+                  aria-pressed={isActive}
+                  title={lang.label}
+                >
+                  <span className={styles.langInner}>
+                    {lang.key === "tr" ? "TR" : lang.key.toUpperCase()}
+                  </span>
+                </button>
+              )
+            })}
+          </div>
         </div>
       </motion.header>
     </div>

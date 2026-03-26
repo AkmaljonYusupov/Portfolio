@@ -1,7 +1,7 @@
 @use "../styles/variables" as *;
 @use "../styles/mixins" as *;
 
-$sidebar-offset: 20px;
+$sidebar-offset: 16px;
 
 .sidebar {
   position: fixed;
@@ -15,7 +15,7 @@ $sidebar-offset: 20px;
   overflow: hidden;
   isolation: isolate;
   contain: layout paint;
-  border-radius: 2rem;
+  border-radius: 1rem;
   border: 1px solid rgba(148, 163, 184, 0.14);
   background: linear-gradient(
     180deg,

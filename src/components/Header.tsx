@@ -26,48 +26,56 @@ export default function Header({
   ]
 
   return (
-    <motion.header
-      initial={{ opacity: 0, y: -10 }}
-      animate={{ opacity: 1, y: 0 }}
-      className={styles.header}
-    >
-      <div className={styles.left}>
-        {!isDesktop && (
-          <button
-            onClick={() => setSidebarOpen(true)}
-            className={styles.menuBtn}
-          >
-            <Menu size={20} />
-          </button>
-        )}
+    <div className={styles.headerWrap}>
+      <motion.header
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.35, ease: "easeOut" }}
+        className={styles.header}
+      >
+        <div className={styles.left}>
+          {!isDesktop && (
+            <button
+              type="button"
+              onClick={() => setSidebarOpen(true)}
+              className={styles.menuBtn}
+              aria-label="Open menu"
+            >
+              <Menu size={20} />
+            </button>
+          )}
 
-        <div className={styles.profile}>
-          <div className={styles.avatar}>AY</div>
+          <div className={styles.profile}>
+            <div className={styles.avatar}>AY</div>
 
-          <div className={styles.meta}>
-            <div className={styles.name}>{t.owner}</div>
-            <div className={styles.role}>{t.role}</div>
+            <div className={styles.meta}>
+              <div className={styles.name}>{t.owner}</div>
+              <div className={styles.role}>{t.role}</div>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div className={styles.langs}>
-        {languages.map(lang => {
-          const isActive = language === lang.key
+        <div className={styles.langs}>
+          {languages.map(lang => {
+            const isActive = language === lang.key
 
-          return (
-            <button
-              key={lang.key}
-              onClick={() => setLanguage(lang.key)}
-              className={`${styles.langBtn} ${
-                isActive ? styles.langActive : ""
-              }`}
-            >
-              {lang.key === "tr" ? "TR" : lang.key.toUpperCase()}
-            </button>
-          )
-        })}
-      </div>
-    </motion.header>
+            return (
+              <button
+                key={lang.key}
+                type="button"
+                onClick={() => setLanguage(lang.key)}
+                className={`${styles.langBtn} ${
+                  isActive ? styles.langActive : ""
+                }`}
+                aria-pressed={isActive}
+                title={lang.label}
+              >
+                {lang.key === "tr" ? "TR" : lang.key.toUpperCase()}
+              </button>
+            )
+          })}
+        </div>
+      </motion.header>
+    </div>
   )
 }

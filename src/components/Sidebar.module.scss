@@ -15,6 +15,7 @@ $sidebar-offset: 16px;
   overflow: hidden;
   isolation: isolate;
   contain: layout paint;
+
   border-radius: 1rem;
   border: 1px solid rgba(148, 163, 184, 0.14);
   background: linear-gradient(
@@ -87,7 +88,7 @@ $sidebar-offset: 16px;
   height: 100%;
   display: flex;
   flex-direction: column;
-  padding: 1.1rem;
+  padding: 1rem;
 }
 
 .top {
@@ -106,8 +107,8 @@ $sidebar-offset: 16px;
 
 .avatarWrap {
   position: relative;
-  width: 4.6rem;
-  height: 4.6rem;
+  width: 4.5rem;
+  height: 4.5rem;
   flex-shrink: 0;
 
   &:hover .avatarShell {
@@ -122,7 +123,7 @@ $sidebar-offset: 16px;
 .avatarRing {
   position: absolute;
   inset: -4px;
-  border-radius: 1.45rem;
+  border-radius: 1.2rem;
   background: conic-gradient(
     from 0deg,
     rgba(59, 130, 246, 0.95),
@@ -138,7 +139,7 @@ $sidebar-offset: 16px;
     content: "";
     position: absolute;
     inset: 2px;
-    border-radius: 1.3rem;
+    border-radius: 1rem;
     background: rgba(255, 255, 255, 0.82);
   }
 
@@ -152,7 +153,7 @@ $sidebar-offset: 16px;
 .avatarShell {
   position: absolute;
   inset: 4px;
-  border-radius: 1.18rem;
+  border-radius: 0.92rem;
   overflow: hidden;
   background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
   box-shadow:
@@ -187,10 +188,10 @@ $sidebar-offset: 16px;
 
 .onlineDot {
   position: absolute;
-  right: 1px;
-  bottom: 1px;
-  width: 0.95rem;
-  height: 0.95rem;
+  right: 2px;
+  bottom: 2px;
+  width: 0.92rem;
+  height: 0.92rem;
   border-radius: 999px;
   background: #22c55e;
   border: 3px solid #ffffff;
@@ -207,7 +208,7 @@ $sidebar-offset: 16px;
 
 .meta {
   min-width: 0;
-  padding-top: 0.2rem;
+  padding-top: 0.16rem;
 }
 
 .ownerRow {
@@ -231,7 +232,7 @@ $sidebar-offset: 16px;
 }
 
 .role {
-  margin-top: 0.22rem;
+  margin-top: 0.18rem;
   font-size: 0.76rem;
   color: #64748b;
   white-space: nowrap;
@@ -244,8 +245,8 @@ $sidebar-offset: 16px;
 }
 
 .closeBtn {
-  width: 2.45rem;
-  height: 2.45rem;
+  width: 2.55rem;
+  height: 2.55rem;
   border: 1px solid rgba(148, 163, 184, 0.14);
   border-radius: 0.92rem;
   background: rgba(255, 255, 255, 0.58);
@@ -254,19 +255,28 @@ $sidebar-offset: 16px;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: 0.18s ease;
+  transition:
+    transform 0.18s ease,
+    background 0.18s ease,
+    color 0.18s ease,
+    border-color 0.18s ease;
   flex-shrink: 0;
+  box-shadow:
+    0 8px 18px rgba(15, 23, 42, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.55);
 
   &:hover {
-    transform: rotate(90deg) scale(1.04);
+    transform: rotate(90deg) scale(1.03);
     background: #f8fafc;
     color: #0f172a;
+    border-color: rgba(59, 130, 246, 0.18);
   }
 
   :global(.dark) & {
     background: rgba(255, 255, 255, 0.04);
     border-color: rgba(255, 255, 255, 0.08);
     color: #cbd5e1;
+    box-shadow: none;
 
     &:hover {
       background: rgba(255, 255, 255, 0.08);
@@ -277,7 +287,7 @@ $sidebar-offset: 16px;
 
 .divider {
   height: 1px;
-  margin: 0.95rem 0 1rem;
+  margin: 1rem 0 1rem;
   background: linear-gradient(
     90deg,
     transparent,
@@ -303,7 +313,7 @@ $sidebar-offset: 16px;
 }
 
 .navHeader {
-  padding: 0 0.22rem 0.5rem;
+  padding: 0 0.18rem 0.48rem;
 }
 
 .navEyebrow {
@@ -320,21 +330,21 @@ $sidebar-offset: 16px;
 
 .navList {
   display: grid;
-  gap: 0.55rem;
+  gap: 0.52rem;
 }
 
 .navItem {
   position: relative;
   display: flex;
   align-items: center;
-  gap: 0.85rem;
+  gap: 0.82rem;
   width: 100%;
-  min-height: 3.5rem;
+  min-height: 3.35rem;
   border: 0;
-  border-radius: 1rem;
+  border-radius: 0.98rem;
   background: transparent;
   color: #475569;
-  padding: 0.55rem 0.8rem 0.55rem 1rem;
+  padding: 0.52rem 0.8rem 0.52rem 0.92rem;
   text-align: left;
   cursor: pointer;
   overflow: hidden;
@@ -403,10 +413,10 @@ $sidebar-offset: 16px;
 .iconBox {
   position: relative;
   z-index: 2;
-  width: 2.15rem;
-  height: 2.15rem;
-  margin-left: 0.55rem;
-  border-radius: 0.8rem;
+  width: 2.1rem;
+  height: 2.1rem;
+  margin-left: 0.5rem;
+  border-radius: 0.78rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -416,11 +426,14 @@ $sidebar-offset: 16px;
   transition:
     background 0.18s ease,
     color 0.18s ease,
-    border-color 0.18s ease;
+    border-color 0.18s ease,
+    transform 0.18s ease;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45);
 
   :global(.dark) & {
     background: rgba(255, 255, 255, 0.05);
     border-color: rgba(255, 255, 255, 0.08);
+    box-shadow: none;
   }
 }
 
@@ -429,7 +442,7 @@ $sidebar-offset: 16px;
   z-index: 2;
   flex: 1;
   min-width: 0;
-  font-size: 0.91rem;
+  font-size: 0.9rem;
   font-weight: 700;
   white-space: nowrap;
   overflow: hidden;
@@ -439,7 +452,7 @@ $sidebar-offset: 16px;
 .navArrow {
   position: relative;
   z-index: 2;
-  width: 1.4rem;
+  width: 1.35rem;
   display: inline-flex;
   justify-content: center;
   opacity: 0;
@@ -454,6 +467,10 @@ $sidebar-offset: 16px;
 .navActive .navArrow {
   opacity: 1;
   transform: translateX(0);
+}
+
+.navItem:hover .iconBox {
+  transform: translateY(-1px);
 }
 
 .navActive {
@@ -503,6 +520,7 @@ $sidebar-offset: 16px;
     background: rgba(59, 130, 246, 0.09);
     border-color: rgba(59, 130, 246, 0.12);
     color: #2563eb;
+    box-shadow: none;
 
     :global(.dark) & {
       background: rgba(255, 255, 255, 0.08);
@@ -531,9 +549,9 @@ $sidebar-offset: 16px;
 .socialCard {
   position: relative;
   overflow: visible;
-  border-radius: 1.3rem;
-  padding: 0.9rem 0.85rem;
-  margin-top: 0.6rem;
+  border-radius: 1rem;
+  padding: 0.92rem 0.86rem;
+  margin-top: 0.62rem;
   border: 1px solid rgba(148, 163, 184, 0.12);
   background: linear-gradient(
     180deg,
@@ -556,8 +574,8 @@ $sidebar-offset: 16px;
 }
 
 .socialTitle {
-  margin: 0 0 0.8rem;
-  font-size: 0.9rem;
+  margin: 0 0 0.78rem;
+  font-size: 0.88rem;
   font-weight: 800;
   line-height: 1.4;
   color: #0f172a;
@@ -572,14 +590,14 @@ $sidebar-offset: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.68rem;
+  gap: 0.66rem;
 }
 
 .socialIconBtn {
   position: relative;
-  width: 2.72rem;
-  height: 2.72rem;
-  border-radius: 0.92rem;
+  width: 2.64rem;
+  height: 2.64rem;
+  border-radius: 0.9rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -741,16 +759,47 @@ $sidebar-offset: 16px;
     left: 0;
     bottom: 0;
     width: min(340px, 88vw);
-    border-radius: 0 1.4rem 1.4rem 0;
+    border-radius: 0 1rem 1rem 0;
+  }
+
+  .inner {
+    padding: 1rem;
   }
 
   .avatarWrap {
-    width: 4.15rem;
-    height: 4.15rem;
+    width: 4.1rem;
+    height: 4.1rem;
   }
 
   .navItem {
-    min-height: 3.7rem;
+    min-height: 3.55rem;
+  }
+}
+
+@media (max-width: 639px) {
+  .inner {
+    padding: 0.92rem;
+  }
+
+  .brand {
+    gap: 0.82rem;
+  }
+
+  .owner {
+    font-size: 0.92rem;
+  }
+
+  .role {
+    font-size: 0.73rem;
+  }
+
+  .navText {
+    font-size: 0.88rem;
+  }
+
+  .socialIconBtn {
+    width: 2.55rem;
+    height: 2.55rem;
   }
 }
 

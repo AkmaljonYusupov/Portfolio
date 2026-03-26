@@ -28,12 +28,13 @@ export default function Header({
   return (
     <div className={styles.headerWrap}>
       <motion.header
-        initial={{ opacity: 0, y: -14 }}
+        initial={{ opacity: 0, y: -12 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4, ease: "easeOut" }}
+        transition={{ duration: 0.35, ease: "easeOut" }}
         className={styles.header}
       >
         <div className={styles.headerGlow} />
+        <div className={styles.headerGlowRight} />
         <div className={styles.headerLine} />
 
         <div className={styles.left}>
@@ -64,7 +65,7 @@ export default function Header({
 
         <div className={styles.right}>
           <div className={styles.langs}>
-            {languages.map(lang => {
+            {languages.map((lang) => {
               const isActive = language === lang.key
 
               return (

@@ -15,8 +15,6 @@ $mobile-gap: 12px;
 }
 
 .header {
-  @include container-card;
-
   position: fixed;
   top: $top-gap;
   left: $mobile-gap;
@@ -28,61 +26,106 @@ $mobile-gap: 12px;
   justify-content: space-between;
   gap: 1rem;
 
-  min-height: 68px;
-  padding: 0.75rem 0.9rem;
+  min-height: 72px;
+  padding: 0.8rem 0.95rem;
   overflow: hidden;
   isolation: isolate;
+  contain: layout paint;
 
-  border-radius: 1.45rem;
-  border: 1px solid rgba(148, 163, 184, 0.16);
+  border-radius: 1rem;
+  border: 1px solid rgba(148, 163, 184, 0.14);
   background: linear-gradient(
     180deg,
-    rgba(255, 255, 255, 0.8) 0%,
-    rgba(248, 250, 252, 0.88) 100%
+    rgba(255, 255, 255, 0.92) 0%,
+    rgba(248, 250, 252, 0.95) 100%
   );
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   box-shadow:
-    0 14px 34px rgba(15, 23, 42, 0.08),
-    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    0 18px 42px rgba(15, 23, 42, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.42);
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    user-select: none;
+    z-index: 0;
+  }
+
+  &::before {
+    background:
+      radial-gradient(circle at top left, rgba(59, 130, 246, 0.1), transparent 24%),
+      radial-gradient(circle at bottom right, rgba(168, 85, 247, 0.09), transparent 22%);
+    opacity: 1;
+  }
+
+  &::after {
+    inset: auto 12% 0 12%;
+    top: 0;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(59, 130, 246, 0.52),
+      rgba(168, 85, 247, 0.36),
+      transparent
+    );
+  }
 
   :global(.dark) & {
     border-color: rgba(255, 255, 255, 0.08);
     background: linear-gradient(
       180deg,
-      rgba(15, 23, 42, 0.84) 0%,
-      rgba(2, 6, 23, 0.9) 100%
+      rgba(2, 6, 23, 0.92) 0%,
+      rgba(15, 23, 42, 0.96) 100%
     );
     box-shadow:
-      0 18px 38px rgba(0, 0, 0, 0.28),
-      inset 0 1px 0 rgba(255, 255, 255, 0.04);
+      0 18px 42px rgba(0, 0, 0, 0.26),
+      inset 0 1px 0 rgba(255, 255, 255, 0.03);
+
+    &::before {
+      background:
+        radial-gradient(circle at top left, rgba(59, 130, 246, 0.12), transparent 24%),
+        radial-gradient(circle at bottom right, rgba(168, 85, 247, 0.1), transparent 22%);
+    }
   }
 }
 
 .headerGlow {
   position: absolute;
-  inset: -30% auto auto -4%;
-  width: 180px;
-  height: 180px;
+  top: -34px;
+  left: -26px;
+  width: 140px;
+  height: 140px;
   border-radius: 999px;
   background: radial-gradient(
     circle,
-    rgba(59, 130, 246, 0.12),
-    rgba(168, 85, 247, 0.08),
-    transparent 70%
+    rgba(59, 130, 246, 0.14),
+    transparent 68%
   );
-  filter: blur(26px);
+  filter: blur(20px);
   pointer-events: none;
   z-index: 0;
+}
 
-  :global(.dark) & {
-    background: radial-gradient(
-      circle,
-      rgba(96, 165, 250, 0.12),
-      rgba(168, 85, 247, 0.1),
-      transparent 70%
-    );
-  }
+.headerGlowRight {
+  position: absolute;
+  right: -30px;
+  bottom: -40px;
+  width: 150px;
+  height: 150px;
+  border-radius: 999px;
+  background: radial-gradient(
+    circle,
+    rgba(168, 85, 247, 0.14),
+    transparent 70%
+  );
+  filter: blur(22px);
+  pointer-events: none;
+  z-index: 0;
 }
 
 .headerLine {
@@ -94,22 +137,12 @@ $mobile-gap: 12px;
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(59, 130, 246, 0.45),
-    rgba(168, 85, 247, 0.3),
+    rgba(59, 130, 246, 0.5),
+    rgba(168, 85, 247, 0.32),
     transparent
   );
+  z-index: 1;
   pointer-events: none;
-  z-index: 0;
-
-  :global(.dark) & {
-    background: linear-gradient(
-      90deg,
-      transparent,
-      rgba(255, 255, 255, 0.18),
-      rgba(96, 165, 250, 0.18),
-      transparent
-    );
-  }
 }
 
 .left,
@@ -121,7 +154,7 @@ $mobile-gap: 12px;
 .left {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.72rem;
   min-width: 0;
   flex: 1 1 auto;
 }
@@ -135,44 +168,42 @@ $mobile-gap: 12px;
 }
 
 .menuBtn {
-  width: 2.9rem;
-  height: 2.9rem;
-  flex-shrink: 0;
+  width: 2.8rem;
+  height: 2.8rem;
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  border-radius: 0.92rem;
+  background: rgba(255, 255, 255, 0.58);
+  color: #475569;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 0.95rem;
-  border: 1px solid rgba(148, 163, 184, 0.16);
-  background: rgba(255, 255, 255, 0.62);
-  color: #0f172a;
   cursor: pointer;
   transition:
     transform 0.18s ease,
     background 0.18s ease,
-    border-color 0.18s ease,
     color 0.18s ease,
-    box-shadow 0.18s ease;
+    border-color 0.18s ease;
+  flex-shrink: 0;
   box-shadow:
     0 8px 18px rgba(15, 23, 42, 0.05),
     inset 0 1px 0 rgba(255, 255, 255, 0.55);
 
   &:hover {
-    transform: translateY(-1px);
-    background: rgba(255, 255, 255, 0.9);
-    border-color: rgba(59, 130, 246, 0.22);
-    color: #2563eb;
+    transform: translateY(-1px) scale(1.02);
+    background: #f8fafc;
+    color: #0f172a;
+    border-color: rgba(59, 130, 246, 0.18);
   }
 
   :global(.dark) & {
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.04);
     border-color: rgba(255, 255, 255, 0.08);
-    color: #ffffff;
+    color: #cbd5e1;
     box-shadow: none;
 
     &:hover {
-      background: rgba(255, 255, 255, 0.09);
-      border-color: rgba(96, 165, 250, 0.2);
-      color: #93c5fd;
+      background: rgba(255, 255, 255, 0.08);
+      color: #ffffff;
     }
   }
 }
@@ -180,43 +211,39 @@ $mobile-gap: 12px;
 .downloadBtn {
   position: relative;
   overflow: hidden;
+  min-width: 136px;
+  height: 2.8rem;
+  padding: 0 0.95rem;
+  border-radius: 0.92rem;
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  background: rgba(255, 255, 255, 0.58);
+  color: #0f172a;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  min-width: 132px;
-  height: 2.9rem;
-  padding: 0 0.95rem;
-  border-radius: 0.95rem;
-  border: 1px solid rgba(148, 163, 184, 0.16);
-  background: rgba(255, 255, 255, 0.7);
-  color: #0f172a;
   text-decoration: none;
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.01em;
+  cursor: pointer;
   white-space: nowrap;
   flex-shrink: 0;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  box-shadow:
-    0 10px 22px rgba(15, 23, 42, 0.05),
-    inset 0 1px 0 rgba(255, 255, 255, 0.7);
   transition:
     transform 0.18s ease,
     background 0.18s ease,
-    border-color 0.18s ease,
     color 0.18s ease,
+    border-color 0.18s ease,
     box-shadow 0.18s ease;
+  box-shadow:
+    0 8px 18px rgba(15, 23, 42, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.62);
 
   &:hover {
     transform: translateY(-1px);
-    background: rgba(255, 255, 255, 0.95);
-    border-color: rgba(59, 130, 246, 0.24);
-    color: #2563eb;
+    background: #f8fafc;
+    color: #0f172a;
+    border-color: rgba(59, 130, 246, 0.18);
     box-shadow:
-      0 14px 26px rgba(37, 99, 235, 0.1),
-      inset 0 1px 0 rgba(255, 255, 255, 0.85);
+      0 12px 22px rgba(37, 99, 235, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.72);
   }
 
   &:active {
@@ -234,24 +261,15 @@ $mobile-gap: 12px;
   }
 
   :global(.dark) & {
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.04);
     border-color: rgba(255, 255, 255, 0.08);
     color: #ffffff;
-    box-shadow:
-      0 12px 24px rgba(0, 0, 0, 0.16),
-      inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    box-shadow: none;
 
     &:hover {
-      background: linear-gradient(
-        135deg,
-        rgba(59, 130, 246, 0.12),
-        rgba(168, 85, 247, 0.1)
-      );
-      border-color: rgba(96, 165, 250, 0.22);
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(96, 165, 250, 0.18);
       color: #ffffff;
-      box-shadow:
-        0 14px 28px rgba(37, 99, 235, 0.14),
-        inset 0 1px 0 rgba(255, 255, 255, 0.05);
     }
   }
 }
@@ -262,24 +280,17 @@ $mobile-gap: 12px;
   border-radius: inherit;
   background: linear-gradient(
     135deg,
-    rgba(59, 130, 246, 0.08),
+    rgba(59, 130, 246, 0.07),
     rgba(168, 85, 247, 0.04),
     transparent
   );
-  opacity: 0.9;
   pointer-events: none;
-
-  :global(.dark) & {
-    background: linear-gradient(
-      135deg,
-      rgba(59, 130, 246, 0.12),
-      rgba(168, 85, 247, 0.08),
-      transparent
-    );
-  }
 }
 
 .downloadText {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
   white-space: nowrap;
 }
 
@@ -287,48 +298,48 @@ $mobile-gap: 12px;
   display: inline-flex;
   align-items: center;
   gap: 0.22rem;
-  padding: 0.24rem;
-  border-radius: 1rem;
-  border: 1px solid rgba(148, 163, 184, 0.14);
-  background: rgba(248, 250, 252, 0.82);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45);
+  padding: 0.22rem;
+  border-radius: 0.98rem;
+  border: 1px solid rgba(148, 163, 184, 0.12);
+  background: rgba(255, 255, 255, 0.56);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.48);
   flex-shrink: 0;
 
   :global(.dark) & {
+    background: rgba(255, 255, 255, 0.04);
     border-color: rgba(255, 255, 255, 0.08);
-    background: rgba(255, 255, 255, 0.05);
     box-shadow: none;
   }
 }
 
 .langBtn {
   position: relative;
-  border: 0;
-  background: transparent;
-  border-radius: 0.82rem;
   min-width: 58px;
-  height: 2.4rem;
+  height: 2.34rem;
   padding: 0 0.78rem;
-  font-size: 0.74rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
+  border: 0;
+  border-radius: 0.8rem;
+  background: transparent;
   color: #64748b;
-  transition:
-    background 0.18s ease,
-    color 0.18s ease,
-    transform 0.18s ease,
-    box-shadow 0.18s ease;
-  cursor: pointer;
-  text-transform: uppercase;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   white-space: nowrap;
+  transition:
+    transform 0.18s ease,
+    background 0.18s ease,
+    color 0.18s ease,
+    box-shadow 0.18s ease;
 
   &:hover {
+    transform: translateY(-1px);
     background: rgba(255, 255, 255, 0.9);
     color: #0f172a;
-    transform: translateY(-1px);
   }
 
   :global(.dark) & {
@@ -347,25 +358,41 @@ $mobile-gap: 12px;
 }
 
 .langActive {
-  background: linear-gradient(135deg, #2563eb, #4f46e5);
+  background: linear-gradient(
+    135deg,
+    rgba(59, 130, 246, 0.96),
+    rgba(99, 102, 241, 0.9)
+  );
   color: #ffffff;
   box-shadow:
-    0 10px 20px rgba(37, 99, 235, 0.18),
+    0 10px 20px rgba(37, 99, 235, 0.16),
     inset 0 1px 0 rgba(255, 255, 255, 0.18);
 
   &:hover {
     color: #ffffff;
-    background: linear-gradient(135deg, #2563eb, #4f46e5);
+    background: linear-gradient(
+      135deg,
+      rgba(59, 130, 246, 0.96),
+      rgba(99, 102, 241, 0.9)
+    );
   }
 
   :global(.dark) & {
-    background: linear-gradient(135deg, #ffffff, #e2e8f0);
-    color: #1e3a8a;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.92),
+      rgba(226, 232, 240, 0.84)
+    );
+    color: #0f172a;
     box-shadow: none;
 
     &:hover {
-      color: #1e3a8a;
-      background: linear-gradient(135deg, #ffffff, #e2e8f0);
+      color: #0f172a;
+      background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.92),
+        rgba(226, 232, 240, 0.84)
+      );
     }
   }
 }
@@ -385,8 +412,11 @@ $mobile-gap: 12px;
 
   .header {
     flex-wrap: wrap;
+    top: 12px;
+    left: $mobile-gap;
+    right: $mobile-gap;
     padding: 0.8rem;
-    gap: 0.8rem;
+    gap: 0.78rem;
   }
 
   .left,
@@ -397,43 +427,37 @@ $mobile-gap: 12px;
   .right {
     justify-content: flex-start;
   }
-
-  .langs {
-    width: auto;
-    max-width: 100%;
-  }
 }
 
 @media (max-width: 639px) {
   .headerWrap {
-    height: 140px;
+    height: 142px;
   }
 
   .header {
-    top: 12px;
-    left: $mobile-gap;
-    right: $mobile-gap;
-    min-height: 64px;
-    border-radius: 1.2rem;
+    min-height: 68px;
     padding: 0.72rem;
     gap: 0.72rem;
   }
 
   .left {
-    gap: 0.6rem;
+    gap: 0.58rem;
   }
 
   .menuBtn {
     width: 2.65rem;
     height: 2.65rem;
-    border-radius: 0.88rem;
+    border-radius: 0.86rem;
   }
 
   .downloadBtn {
-    min-width: 124px;
+    min-width: 132px;
     height: 2.65rem;
     padding: 0 0.82rem;
-    border-radius: 0.88rem;
+    border-radius: 0.86rem;
+  }
+
+  .downloadText {
     font-size: 0.74rem;
   }
 
@@ -445,8 +469,8 @@ $mobile-gap: 12px;
   .langBtn {
     flex: 1;
     min-width: 0;
-    height: 2.3rem;
-    padding: 0 0.5rem;
-    font-size: 0.7rem;
+    height: 2.24rem;
+    padding: 0 0.45rem;
+    font-size: 0.69rem;
   }
 }

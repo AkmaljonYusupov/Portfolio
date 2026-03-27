@@ -75,86 +75,134 @@ export default function HomeSection({
 
   return (
     <section className={styles.heroSection}>
-      <div className={styles.bgCircleOne} />
-      <div className={styles.bgCircleTwo} />
+      <div className={styles.bgGlowOne} />
+      <div className={styles.bgGlowTwo} />
+      <div className={styles.topLine} />
 
-      {/* katta va bilinar-bilinmas background text */}
       <div className={styles.sectionWatermark}>
         {t?.nav?.home ?? "HOME"}
       </div>
 
       <motion.div
         className={styles.topBadge}
-        initial={{ opacity: 0, y: 16 }}
+        initial={{ opacity: 0, y: 14 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4 }}
       >
-        <Sparkles size={16} />
+        <span className={styles.badgeIcon}>
+          <Sparkles size={15} />
+        </span>
         <span>{t.hero.badge}</span>
       </motion.div>
 
       <motion.div
-        className={styles.centerContent}
+        className={styles.heroMain}
         initial={{ opacity: 0, y: 18 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.45, delay: 0.05 }}
       >
-        <p className={styles.overline}>{t.owner ?? "Akmaljon Yusufov"}</p>
-        <h1 className={styles.title}>{t.hero.title}</h1>
-        <p className={styles.desc}>{t.hero.desc}</p>
+        <div className={styles.heroContent}>
+          <p className={styles.overline}>{t.owner ?? "Akmaljon Yusufov"}</p>
+          <h1 className={styles.title}>{t.hero.title}</h1>
+          <p className={styles.desc}>{t.hero.desc}</p>
 
-        <div className={styles.actions}>
-          <button
-            type="button"
-            className={styles.primaryBtn}
-            onClick={() => setActiveSection("portfolio")}
-          >
-            <span>{t.hero.primary}</span>
-            <ArrowUpRight size={17} />
-          </button>
+          <div className={styles.actions}>
+            <button
+              type="button"
+              className={styles.primaryBtn}
+              onClick={() => setActiveSection("portfolio")}
+            >
+              <span className={styles.btnGlow} />
+              <span>{t.hero.primary}</span>
+              <ArrowUpRight size={17} />
+            </button>
 
-          <button
-            type="button"
-            className={styles.secondaryBtn}
-            onClick={() => setActiveSection("contact")}
-          >
-            <span>{t.hero.secondary}</span>
-            <Send size={16} />
-          </button>
+            <button
+              type="button"
+              className={styles.secondaryBtn}
+              onClick={() => setActiveSection("contact")}
+            >
+              <span className={styles.btnGlowSoft} />
+              <span>{t.hero.secondary}</span>
+              <Send size={16} />
+            </button>
+          </div>
         </div>
+
+        <motion.div
+          className={styles.heroSide}
+          initial={{ opacity: 0, x: 18 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.45, delay: 0.12 }}
+        >
+          <div className={styles.previewCard}>
+            <div className={styles.previewTop}>
+              <div className={styles.previewPill}>
+                <span className={styles.previewDot} />
+                <span>{t?.hero?.sideBadge ?? "Frontend Developer"}</span>
+              </div>
+            </div>
+
+            <div className={styles.previewGrid}>
+              <div className={styles.previewBox}>
+                <div className={styles.previewIcon}>
+                  <LayoutTemplate size={18} />
+                </div>
+                <div>
+                  <h4>{t?.hero?.sideTitle1 ?? "Modern UI"}</h4>
+                  <p>
+                    {t?.hero?.sideDesc1 ??
+                      "Clean and premium interfaces for modern web projects"}
+                  </p>
+                </div>
+              </div>
+
+              <div className={styles.previewBox}>
+                <div className={styles.previewIcon}>
+                  <Code2 size={18} />
+                </div>
+                <div>
+                  <h4>{t?.hero?.sideTitle2 ?? "Scalable Code"}</h4>
+                  <p>
+                    {t?.hero?.sideDesc2 ??
+                      "Readable structure and reusable frontend components"}
+                  </p>
+                </div>
+              </div>
+
+              <div className={styles.previewMiniStats}>
+                {stats.map((item, index) => (
+                  <div key={item.label} className={styles.previewStat}>
+                    <strong>
+                      <CountUp value={item.value} duration={1400 + index * 150} />
+                    </strong>
+                    <span>{item.label}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </motion.div>
       </motion.div>
 
       <motion.div
-        className={styles.statsStrip}
+        className={styles.infoGrid}
         initial={{ opacity: 0, y: 18 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.45, delay: 0.12 }}
+        transition={{ duration: 0.45, delay: 0.16 }}
       >
-        {stats.map((item, index) => (
-          <div key={item.label} className={styles.statItem}>
-            <div className={styles.statValue}>
-              <CountUp value={item.value} duration={1400 + index * 150} />
-            </div>
-            <div className={styles.statLabel}>{item.label}</div>
-          </div>
-        ))}
-      </motion.div>
-
-      <div className={styles.infoGrid}>
-        <motion.div
-          className={styles.infoCardLarge}
-          initial={{ opacity: 0, x: -18 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.45, delay: 0.18 }}
-        >
+        <div className={styles.infoCardLarge}>
           <div className={styles.cardIcon}>
             <LayoutTemplate size={20} />
           </div>
+
           <div className={styles.cardContent}>
-            <h3 className={styles.cardTitle}>Modern UI Focus</h3>
+            <h3 className={styles.cardTitle}>
+              {t?.hero?.cardTitle ?? "Modern UI Focus"}
+            </h3>
             <p className={styles.cardText}>
-              Clean layouts, responsive sections, better spacing and clear visual
-              hierarchy for modern web interfaces.
+              {t?.hero?.cardText ??
+                "Clean layouts, responsive sections, strong spacing and clear visual hierarchy for modern web interfaces."}
             </p>
 
             <div className={styles.cardTags}>
@@ -163,21 +211,19 @@ export default function HomeSection({
               <span>Clean Layout</span>
             </div>
           </div>
-        </motion.div>
+        </div>
 
-        <motion.div
-          className={styles.infoCardStack}
-          initial={{ opacity: 0, x: 18 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.45, delay: 0.22 }}
-        >
+        <div className={styles.infoCardStack}>
           <div className={styles.miniCard}>
             <div className={styles.miniIcon}>
               <Briefcase size={18} />
             </div>
             <div>
-              <h4>Project Ready</h4>
-              <p>Portfolio, dashboard and landing pages</p>
+              <h4>{t?.hero?.miniTitle1 ?? "Project Ready"}</h4>
+              <p>
+                {t?.hero?.miniDesc1 ??
+                  "Portfolio, dashboard and landing pages"}
+              </p>
             </div>
           </div>
 
@@ -186,25 +232,32 @@ export default function HomeSection({
               <Code2 size={18} />
             </div>
             <div>
-              <h4>Code Quality</h4>
-              <p>Readable, modular and scalable frontend structure</p>
+              <h4>{t?.hero?.miniTitle2 ?? "Code Quality"}</h4>
+              <p>
+                {t?.hero?.miniDesc2 ??
+                  "Readable, modular and scalable frontend structure"}
+              </p>
             </div>
           </div>
-        </motion.div>
-      </div>
+        </div>
+      </motion.div>
 
       <motion.div
         className={styles.skillsSection}
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4, delay: 0.28 }}
+        transition={{ duration: 0.4, delay: 0.24 }}
       >
         <div className={styles.skillsHeader}>
-          <span className={styles.skillsEyebrow}>Core Technologies</span>
-          <h3 className={styles.skillsTitle}>Tech Stack</h3>
+          <span className={styles.skillsEyebrow}>
+            {t?.hero?.skillsEyebrow ?? "Core Technologies"}
+          </span>
+          <h3 className={styles.skillsTitle}>
+            {t?.hero?.skillsTitle ?? "Tech Stack"}
+          </h3>
           <p className={styles.skillsDesc}>
-            Zamonaviy va ishonchli frontend yechimlar uchun foydalanadigan
-            texnologiyalarim.
+            {t?.hero?.skillsDesc ??
+              "Zamonaviy va ishonchli frontend yechimlar uchun foydalanadigan texnologiyalarim."}
           </p>
         </div>
 

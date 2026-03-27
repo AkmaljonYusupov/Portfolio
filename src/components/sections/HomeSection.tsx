@@ -5,7 +5,6 @@ import {
   Code2,
   LayoutTemplate,
   Send,
-  Sparkles,
 } from "lucide-react"
 import { useEffect, useState } from "react"
 import { portfolioData } from "../../data/portfolio"
@@ -80,20 +79,8 @@ export default function HomeSection({
       <div className={styles.topLine} />
 
       <div className={styles.sectionWatermark}>
-        {t?.nav?.home ?? "HOME"}
+        <span>{t?.nav?.home ?? "HOME"}</span>
       </div>
-
-      <motion.div
-        className={styles.topBadge}
-        initial={{ opacity: 0, y: 14 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4 }}
-      >
-        <span className={styles.badgeIcon}>
-          <Sparkles size={15} />
-        </span>
-        <span>{t.hero.badge}</span>
-      </motion.div>
 
       <motion.div
         className={styles.heroMain}

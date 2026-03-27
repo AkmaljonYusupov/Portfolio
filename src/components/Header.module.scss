@@ -419,10 +419,7 @@ $mobile-gap: 12px;
     gap: 0.78rem;
   }
 
-  .left,
-  .right {
-    width: 100%;
-  }
+  
 
   .right {
     justify-content: flex-start;
@@ -472,5 +469,9 @@ $mobile-gap: 12px;
     height: 2.24rem;
     padding: 0 0.45rem;
     font-size: 0.69rem;
+  }
+  .left,
+  .right {
+    width: 100%;
   }
 }

@@ -1024,12 +1024,12 @@
   }
 
   .actions {
-    flex-direction: column;
+    display: flex;
   }
 
   .primaryBtn,
   .secondaryBtn {
-    width: 100%;
+    width: fit-content;
   }
 
   .infoCardLarge {
@@ -1063,5 +1063,9 @@
       font-size: clamp(1.2rem, 8vw, 1.9rem);
       letter-spacing: 0.02em;
     }
+  }
+  .primaryBtn,
+  .secondaryBtn {
+    width: 100%;
   }
 }

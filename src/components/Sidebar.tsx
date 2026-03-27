@@ -7,10 +7,10 @@ import {
   Instagram,
   Layers3,
   Mail,
-  Send,
   User,
-  X,
+  X
 } from "lucide-react"
+import { FaTelegramPlane } from "react-icons/fa"
 import AkmaljonImage from "../assets/Akmaljon.jpg"
 import type { SectionKey } from "../types"
 import styles from "./Sidebar.module.scss"
@@ -35,19 +35,19 @@ type SidebarProps = {
 const socialLinks = [
   {
     name: "Instagram",
-    href: "https://instagram.com/your_username",
+    href: "https://instagram.com/Coder.ac",
     icon: Instagram,
     className: "instagram",
   },
   {
     name: "Telegram",
-    href: "https://t.me/your_username",
-    icon: Send,
+    href: "https://t.me/AkmaljonYusupov",
+    icon: FaTelegramPlane,
     className: "telegram",
   },
   {
     name: "GitHub",
-    href: "https://github.com/your_username",
+    href: "https://github.com/AkmaljonYusupov",
     icon: Github,
     className: "github",
   },

@@ -1,10 +1,13 @@
 @use "../../styles/variables" as *;
 
+/* =========================
+   Asosiy hero section
+========================= */
 .heroSection {
   position: relative;
   overflow: hidden;
   isolation: isolate;
-  border-radius: 1.8rem;
+  border-radius: $radius-xs;
   padding: 1.15rem;
   border: 1px solid rgba(148, 163, 184, 0.14);
   background: linear-gradient(
@@ -48,6 +51,9 @@
   }
 }
 
+/* =========================
+   Orqa glowlar
+========================= */
 .bgGlowOne,
 .bgGlowTwo {
   position: absolute;
@@ -90,6 +96,9 @@
   );
 }
 
+/* =========================
+   Watermark
+========================= */
 .sectionWatermark {
   position: absolute;
   inset: 0;
@@ -144,6 +153,9 @@
   }
 }
 
+/* =========================
+   Main grid
+========================= */
 .heroMain {
   position: relative;
   z-index: 3;
@@ -200,8 +212,11 @@
   border-radius: inherit;
 }
 
+/* =========================
+   Left content card
+========================= */
 .heroContent {
-  border-radius: 1.6rem;
+  border-radius:$radius-xs;
   padding: 1.2rem;
   border: 1px solid rgba(148, 163, 184, 0.12);
   background: transparent;
@@ -246,9 +261,79 @@
   line-height: 1.03;
   font-weight: 800;
   letter-spacing: -0.04em;
+  width: 100%;
 
   :global(.dark) & {
     color: #ffffff;
+  }
+}
+
+/* =========================
+   Universal premium typewriter
+========================= */
+
+.typewriterRoot {
+  display: inline-grid;
+  width: 100%;
+  max-width: 100%;
+  vertical-align: top;
+}
+
+.typewriterSizer,
+.typewriterText {
+  grid-area: 1 / 1;
+}
+
+/* Bu ko'rinmas text.
+   Final matn qancha joy olsa, shuncha joyni oldindan ushlab turadi. */
+.typewriterSizer {
+  visibility: hidden;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  line-height: inherit;
+  min-width: 0;
+}
+
+/* Ko'rinadigan yoziladigan matn */
+.typewriterText {
+  display: inline;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  line-height: inherit;
+  color: inherit;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+/* Cursor alohida element emas.
+   U matnning o'ziga birikkan pseudo-element.
+   Shu sabab matn qayerga tushsa, cursor ham birga tushadi. */
+.typewriterText::after {
+  content: "";
+  display: inline-block;
+  width: 4px;
+  height: 0.92em;
+  margin-left: 0.09em;
+  border-radius: 999px;
+  background: currentColor;
+  vertical-align: -0.08em;
+  animation: blinkCursor 0.95s ease-in-out infinite;
+  transform: translateY(0);
+  will-change: opacity;
+}
+
+@keyframes blinkCursor {
+  0%,
+  45% {
+    opacity: 1;
+  }
+
+  46%,
+  100% {
+    opacity: 0;
   }
 }
 
@@ -264,6 +349,9 @@
   }
 }
 
+/* =========================
+   Buttons
+========================= */
 .actions {
   margin-top: 1.35rem;
   display: flex;
@@ -277,7 +365,7 @@
   overflow: hidden;
   min-height: 3.15rem;
   padding: 0.9rem 1.15rem;
-  border-radius: 1rem;
+  border-radius: $radius-xs;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -371,8 +459,11 @@
   );
 }
 
+/* =========================
+   Preview card
+========================= */
 .previewCard {
-  border-radius: 1.6rem;
+  border-radius: $radius-xs;
   padding: 1rem;
   height: 100%;
   border: 1px solid rgba(148, 163, 184, 0.08);
@@ -419,7 +510,7 @@
   gap: 0.5rem;
   min-height: 2.15rem;
   padding: 0 0.82rem;
-  border-radius: 999px;
+  border-radius: $radius-xs;
   border: 1px solid rgba(148, 163, 184, 0.12);
   background: rgba(255, 255, 255, 0.28);
   color: #334155;
@@ -449,7 +540,7 @@
 }
 
 .previewBox {
-  border-radius: 1.1rem;
+  border-radius: $radius-xs;
   padding: 0.95rem;
   display: flex;
   gap: 0.82rem;
@@ -497,7 +588,7 @@
 .previewIcon {
   width: 2.65rem;
   height: 2.65rem;
-  border-radius: 0.92rem;
+  border-radius: $radius-xs;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -523,7 +614,7 @@
 
 .previewStat {
   text-align: center;
-  border-radius: 1rem;
+  border-radius: $radius-xs;
   padding: 0.9rem 0.7rem;
   border: 1px solid rgba(148, 163, 184, 0.08);
   background: transparent;
@@ -567,6 +658,9 @@
   }
 }
 
+/* =========================
+   Info cards
+========================= */
 .infoGrid {
   position: relative;
   z-index: 3;
@@ -577,7 +671,7 @@
 
 .infoCardLarge,
 .infoCardStack {
-  border-radius: 1.6rem;
+  border-radius: $radius-xs;
   border: 1px solid rgba(148, 163, 184, 0.14);
   background: transparent;
   box-shadow: 0 12px 30px rgba(15, 23, 42, 0.05);
@@ -608,7 +702,7 @@
 .cardIcon {
   width: 3rem;
   height: 3rem;
-  border-radius: 1rem;
+  border-radius: $radius-xs;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -658,7 +752,7 @@
 
   span {
     padding: 0.5rem 0.8rem;
-    border-radius: 999px;
+    border-radius: $radius-xs;
     background: rgba(59, 130, 246, 0.08);
     border: 1px solid rgba(59, 130, 246, 0.1);
     color: #334155;
@@ -680,7 +774,7 @@
 }
 
 .miniCard {
-  border-radius: 1.2rem;
+  border-radius: $radius-xs;
   padding: 1rem;
   display: flex;
   align-items: flex-start;
@@ -726,7 +820,7 @@
 .miniIcon {
   width: 2.7rem;
   height: 2.7rem;
-  border-radius: 0.95rem;
+  border-radius: $radius-xs;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -744,11 +838,14 @@
   }
 }
 
+/* =========================
+   Skills
+========================= */
 .skillsSection {
   z-index: 3;
   margin-top: 1rem;
   padding: 1.1rem;
-  border-radius: 1.6rem;
+  border-radius: $radius-xs;
   border: 1px solid rgba(148, 163, 184, 0.14);
   background: transparent;
   box-shadow: 0 12px 30px rgba(15, 23, 42, 0.05);
@@ -822,7 +919,7 @@
 .skillsMarqueeWrap {
   position: relative;
   overflow: hidden;
-  border-radius: 1.3rem;
+  border-radius: $radius-xs;
 }
 
 .skillsFadeLeft,
@@ -907,7 +1004,7 @@
   align-items: center;
   gap: 0.52rem;
   padding: 0.72rem 1rem;
-  border-radius: 999px;
+  border-radius: $radius-xs;
   background: rgba(255, 255, 255, 0.9);
   border: 1px solid rgba(148, 163, 184, 0.14);
   color: #0f172a;
@@ -922,7 +1019,6 @@
     border-color 0.18s ease;
 
   &:hover {
-    transform: translateY(-2px);
     background: linear-gradient(
       135deg,
       rgba(59, 130, 246, 0.96),
@@ -962,6 +1058,9 @@
   }
 }
 
+/* =========================
+   Responsive
+========================= */
 @media (min-width: 860px) {
   .heroMain {
     grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
@@ -1001,7 +1100,7 @@
 @media (max-width: 640px) {
   .heroSection {
     padding: 1rem;
-    border-radius: 1.4rem;
+    border-radius: $radius-xs;
   }
 
   .sectionWatermark {
@@ -1020,7 +1119,7 @@
   .previewCard,
   .infoCardLarge,
   .skillsSection {
-    border-radius: 1.3rem;
+    border-radius: $radius-xs;
   }
 
   .actions {
@@ -1053,17 +1152,22 @@
     padding: 0.65rem 0.9rem;
     font-size: 0.8rem;
   }
+
+  .typewriterText::after {
+    height: 0.88em;
+  }
 }
 
 @media (max-width: 420px) {
   .sectionWatermark {
-    padding-top: 0.72rem;
+    padding-top: 1.1rem;
 
     span {
-      font-size: clamp(1.2rem, 8vw, 1.9rem);
+      font-size: clamp(2.2rem, 8vw, 1.9rem);
       letter-spacing: 0.02em;
     }
   }
+
   .primaryBtn,
   .secondaryBtn {
     width: 100%;

@@ -16,7 +16,7 @@ $sidebar-offset: 16px;
   isolation: isolate;
   contain: layout paint;
 
-  border-radius: 1rem;
+  border-radius: $radius-xs;
   border: 1px solid rgba(148, 163, 184, 0.14);
   background: linear-gradient(
     180deg,
@@ -248,7 +248,7 @@ $sidebar-offset: 16px;
   width: 2.55rem;
   height: 2.55rem;
   border: 1px solid rgba(148, 163, 184, 0.14);
-  border-radius: 0.92rem;
+  border-radius: $radius-xs;
   background: rgba(255, 255, 255, 0.58);
   color: #475569;
   display: inline-flex;
@@ -341,7 +341,7 @@ $sidebar-offset: 16px;
   width: 100%;
   min-height: 3.35rem;
   border: 0;
-  border-radius: 0.98rem;
+  border-radius: $radius-xs;
   background: transparent;
   color: #475569;
   padding: 0.52rem 0.8rem 0.52rem 0.92rem;
@@ -416,7 +416,7 @@ $sidebar-offset: 16px;
   width: 2.1rem;
   height: 2.1rem;
   margin-left: 0.5rem;
-  border-radius: 0.78rem;
+  border-radius: $radius-xs;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -549,7 +549,7 @@ $sidebar-offset: 16px;
 .socialCard {
   position: relative;
   overflow: visible;
-  border-radius: 1rem;
+  border-radius: $radius-xs;
   padding: 0.92rem 0.86rem;
   margin-top: 0.62rem;
   border: 1px solid rgba(148, 163, 184, 0.12);

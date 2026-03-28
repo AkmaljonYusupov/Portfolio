@@ -10,8 +10,7 @@ $mobile-gap: 12px;
 .headerWrap {
   position: relative;
   width: 100%;
-  height: 96px;
-  margin-bottom: 1.2rem;
+  height: 86px;
 }
 
 .header {
@@ -32,7 +31,7 @@ $mobile-gap: 12px;
   isolation: isolate;
   contain: layout paint;
 
-  border-radius: 1rem;
+  border-radius: $radius-xs;
   border: 1px solid rgba(148, 163, 184, 0.14);
   background: linear-gradient(
     180deg,
@@ -171,7 +170,7 @@ $mobile-gap: 12px;
   width: 2.8rem;
   height: 2.8rem;
   border: 1px solid rgba(148, 163, 184, 0.14);
-  border-radius: 0.92rem;
+  border-radius:$radius-xs;
   background: rgba(255, 255, 255, 0.58);
   color: #475569;
   display: inline-flex;
@@ -214,7 +213,7 @@ $mobile-gap: 12px;
   min-width: 136px;
   height: 2.8rem;
   padding: 0 0.95rem;
-  border-radius: 0.92rem;
+  border-radius: $radius-xs;
   border: 1px solid rgba(148, 163, 184, 0.14);
   background: rgba(255, 255, 255, 0.58);
   color: #0f172a;
@@ -299,7 +298,7 @@ $mobile-gap: 12px;
   align-items: center;
   gap: 0.5rem;
   padding: 0.22rem;
-  border-radius: 0.98rem;
+  border-radius: $radius-xs;
   border: 1px solid rgba(148, 163, 184, 0.12);
   background: rgba(255, 255, 255, 0.56);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.48);
@@ -318,7 +317,7 @@ $mobile-gap: 12px;
   height: 2.34rem;
   padding: 0 0.78rem;
   border: 0;
-  border-radius: 0.8rem;
+  border-radius:$radius-xs;
   background: transparent;
   color: #64748b;
   display: inline-flex;
@@ -406,10 +405,7 @@ $mobile-gap: 12px;
 }
 
 @media (max-width: 1023px) {
-  .headerWrap {
-    height: 138px;
-  }
-
+ 
   .header {
     flex-wrap: wrap;
     top: 12px;
@@ -428,7 +424,7 @@ $mobile-gap: 12px;
 
 @media (max-width: 639px) {
   .headerWrap {
-    height: 142px;
+    height: 135px;
   }
 
   .header {
@@ -444,14 +440,14 @@ $mobile-gap: 12px;
   .menuBtn {
     width: 2.65rem;
     height: 2.65rem;
-    border-radius: 0.86rem;
+    border-radius: $radius-xs;
   }
 
   .downloadBtn {
     min-width: 132px;
     height: 2.65rem;
     padding: 0 0.82rem;
-    border-radius: 0.86rem;
+    border-radius: $radius-xs;
   }
 
   .downloadText {

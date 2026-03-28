@@ -6,7 +6,7 @@ import {
   LayoutTemplate,
   Send,
 } from "lucide-react"
-import { useEffect, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 import { portfolioData } from "../../data/portfolio"
 import styles from "./HomeSection.module.scss"
 
@@ -15,6 +15,10 @@ type HomeSectionProps = {
   setActiveSection: (value: any) => void
 }
 
+/**
+ * Statistikadagi sonlarni animatsion oshirib ko'rsatadi.
+ * Masalan: 0 -> 25+
+ */
 function CountUp({
   value,
   duration = 1400,
@@ -40,6 +44,7 @@ function CountUp({
 
     const step = (timestamp: number) => {
       if (!start) start = timestamp
+
       const progress = Math.min((timestamp - start) / duration, 1)
       const eased = 1 - Math.pow(1 - progress, 3)
       const current = Math.floor(numberValue * eased)
@@ -54,10 +59,95 @@ function CountUp({
     }
 
     frame = requestAnimationFrame(step)
+
     return () => cancelAnimationFrame(frame)
   }, [value, duration])
 
   return <>{display}</>
+}
+
+/**
+ * Faqat oxirgi probil yo'qolib qolmasligi uchun uni NBSP ga aylantiradi.
+ * Boshqa probillar oddiy qoladi, shuning uchun matn normal wrap bo'ladi.
+ */
+function preserveTrailingSpace(value: string) {
+  if (!value) return value
+  return value.endsWith(" ") ? `${value.slice(0, -1)}\u00A0` : value
+}
+
+/**
+ * Universal premium typewriter
+ */
+function TypewriterLoop({
+  text,
+  typingSpeed = 85,
+  deletingSpeed = 42,
+  pauseBeforeDelete = 1700,
+  pauseBeforeRestart = 450,
+}: {
+  text: string
+  typingSpeed?: number
+  deletingSpeed?: number
+  pauseBeforeDelete?: number
+  pauseBeforeRestart?: number
+}) {
+  const finalText = String(text ?? "")
+  const [displayedText, setDisplayedText] = useState("")
+  const [isDeleting, setIsDeleting] = useState(false)
+
+  useEffect(() => {
+    setDisplayedText("")
+    setIsDeleting(false)
+  }, [finalText])
+
+  useEffect(() => {
+    if (!finalText) {
+      setDisplayedText("")
+      return
+    }
+
+    let timeoutId: ReturnType<typeof setTimeout>
+
+    if (!isDeleting && displayedText.length < finalText.length) {
+      timeoutId = setTimeout(() => {
+        setDisplayedText(finalText.slice(0, displayedText.length + 1))
+      }, typingSpeed)
+    } else if (!isDeleting && displayedText.length === finalText.length) {
+      timeoutId = setTimeout(() => {
+        setIsDeleting(true)
+      }, pauseBeforeDelete)
+    } else if (isDeleting && displayedText.length > 0) {
+      timeoutId = setTimeout(() => {
+        setDisplayedText(finalText.slice(0, displayedText.length - 1))
+      }, deletingSpeed)
+    } else if (isDeleting && displayedText.length === 0) {
+      timeoutId = setTimeout(() => {
+        setIsDeleting(false)
+      }, pauseBeforeRestart)
+    }
+
+    return () => clearTimeout(timeoutId)
+  }, [
+    displayedText,
+    isDeleting,
+    finalText,
+    typingSpeed,
+    deletingSpeed,
+    pauseBeforeDelete,
+    pauseBeforeRestart,
+  ])
+
+  return (
+    <span className={styles.typewriterRoot} aria-label={finalText}>
+
+      <span className={styles.typewriterSizer}>{finalText}</span>
+
+
+      <span className={styles.typewriterText} aria-hidden="true">
+        {preserveTrailingSpace(displayedText)}
+      </span>
+    </span>
+  )
 }
 
 export default function HomeSection({
@@ -71,6 +161,7 @@ export default function HomeSection({
   ]
 
   const skills = portfolioData.skills
+  const heroTitle = useMemo(() => String(t?.hero?.title ?? ""), [t?.hero?.title])
 
   return (
     <section className={styles.heroSection}>
@@ -90,7 +181,17 @@ export default function HomeSection({
       >
         <div className={styles.heroContent}>
           <p className={styles.overline}>{t.owner ?? "Akmaljon Yusufov"}</p>
-          <h1 className={styles.title}>{t.hero.title}</h1>
+
+          <h1 className={styles.title}>
+            <TypewriterLoop
+              text={heroTitle}
+              typingSpeed={85}
+              deletingSpeed={42}
+              pauseBeforeDelete={1700}
+              pauseBeforeRestart={500}
+            />
+          </h1>
+
           <p className={styles.desc}>{t.hero.desc}</p>
 
           <div className={styles.actions}>

@@ -4,7 +4,6 @@ import styles from "./App.module.scss"
 import CustomCursor from "./components/CustomCursor"
 import Header from "./components/Header"
 import Sidebar from "./components/Sidebar"
-import SocialLinks from "./components/SocialLinks"
 import AboutSection from "./components/sections/AboutSection"
 import ContactSection from "./components/sections/ContactSection"
 import HomeSection from "./components/sections/HomeSection"
@@ -195,11 +194,7 @@ function App() {
             t={t}
           />
 
-          <div className={styles.content}>
-            <SocialLinks />
-          </div>
-
-          <motion.div
+           <motion.div
             key={activeSection}
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}

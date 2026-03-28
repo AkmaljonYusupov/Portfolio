@@ -12,12 +12,22 @@
   "hero": {
     "badge": "Premium Frontend Portfolio",
     "title": "Mening portfolio saytimga xush kelibsiz",
-    "desc": "ReactJS, zamonaviy frontend arxitekturasi, animatsiyalar va ko‘p tilli interfeyslar bilan biznesga mos premium darajadagi foydalanuvchi tajribasini quraman.",
+    "desc": "Zamonaviy texnologiyalar va premium dizayn orqali foydalanuvchini jalb qiluvchi, tezkor va yuqori sifatli web tajribalar yarataman",
     "primary": "Loyihalarni ko‘rish",
     "secondary": "Bog‘lanish",
+    "sideBadge":"Frontend Dasturchi",
+    "sideTitle1": "Modern UI / UX",
+    "sideTitle2": "Kengaytiriladigan kod",
+    "sideDesc1": "Zamonaviy, estetik va foydalanuvchi tajribasiga yo‘naltirilgan interfeyslar yarataman",
+    "sideDesc2": "Toza, tushunarli va kengaytiriladigan frontend yechimlar yarataman",
     "stats1": "Yillik tajriba",
     "stats2": "Frontend loyihalar",
-    "stats3": "Texnologiyalar"
+    "stats3": "Texnologiyalar",
+    "cardTitle": "Modern UI / UX",
+    "cardText": "Zamonaviy dizayn, responsiv bo‘limlar va aniq tuzilma orqali premium foydalanuvchi interfeyslari yarataman",
+    "cardTag1": "Premium UI",
+    "cardTag2": "Modern Design",
+    "cardTag3": "Clean Code"
   },
   "about": {
     "title": "Frontend rivojlantirishga strategik yondashuv",

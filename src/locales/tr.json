@@ -12,12 +12,22 @@
   "hero": {
     "badge": "Premium Frontend Portfolio",
     "title": "Portföy siteme hoş geldiniz",
-    "desc": "ReactJS, ölçeklenebilir frontend mimarisi, akıcı animasyonlar ve çok dilli arayüzlerle premium dijital deneyimler oluşturuyorum.",
+    "desc": "Modern teknolojiler ve premium tasarım ile kullanıcıyı etkileyen, hızlı ve yüksek kaliteli web deneyimleri oluşturuyorum",
     "primary": "Projeleri Gör",
     "secondary": "İletişime Geç",
+    "sideBadge": "Frontend Geliştirici",
+    "sideTitle1": "Modern UI / UX",
+    "sideTitle2": "Ölçeklenebilir Kod",
+    "sideDesc1": "Modern, estetik ve kullanıcı deneyimine odaklı arayüzler oluşturuyorum",
+    "sideDesc2": "Temiz, anlaşılır ve ölçeklenebilir frontend çözümleri geliştiriyorum",
     "stats1": "Yıl Deneyim",
     "stats2": "Frontend Proje",
-    "stats3": "Teknoloji"
+    "stats3": "Teknoloji",
+    "cardTitle": "Modern UI / UX",
+    "cardText": "Modern tasarım, responsive yapılar ve net bir yapı ile kullanıcı dostu arayüzler oluşturuyorum",
+    "cardTag1": "Premium UI",
+    "cardTag2": "Modern Tasarım",
+    "cardTag3": "Temiz Kod"
   },
   "about": {
     "title": "Frontend geliştirmeye stratejik yaklaşım",

@@ -12,12 +12,22 @@
   "hero": {
     "badge": "Premium Frontend Portfolio",
     "title": "Welcome to my portfolio website",
-    "desc": "I craft premium ReactJS interfaces with scalable frontend architecture, smooth animation, and multilingual experiences focused on business impact.",
+    "desc": "I create fast, high-quality, and engaging web experiences using modern technologies and premium design",
     "primary": "View Projects",
     "secondary": "Contact Me",
+    "sideBadge": "Frontend Developer",
+    "sideTitle1": "Modern UI / UX",
+    "sideTitle2": "Scalable Code",
+    "sideDesc1": "I create modern, visually appealing, and user-focused interfaces",
+    "sideDesc2": "I build clean, maintainable, and scalable frontend solutions",
     "stats1": "Years Experience",
     "stats2": "Frontend Projects",
-    "stats3": "Technologies"
+    "stats3": "Technologies",
+    "cardTitle": "Modern UI / UX",
+    "cardText": "I create modern interfaces with clean design, responsive layouts, and clear structure",
+    "cardTag1": "Premium UI",
+    "cardTag2": "Modern Design",
+    "cardTag3": "Clean Code"
   },
   "about": {
     "title": "A strategic approach to frontend development",

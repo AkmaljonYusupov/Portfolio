@@ -237,10 +237,10 @@ export default function HomeSection({
                   <LayoutTemplate size={18} />
                 </div>
                 <div>
-                  <h4>{t?.hero?.sideTitle1 ?? "Modern UI"}</h4>
+                  <h4>{t?.hero?.sideTitle1 ?? "Modern UI / UX"}</h4>
                   <p>
                     {t?.hero?.sideDesc1 ??
-                      "Clean and premium interfaces for modern web projects"}
+                      "Zamonaviy, estetik va foydalanuvchi tajribasiga yo‘naltirilgan interfeyslar yarataman"}
                   </p>
                 </div>
               </div>
@@ -250,10 +250,10 @@ export default function HomeSection({
                   <Code2 size={18} />
                 </div>
                 <div>
-                  <h4>{t?.hero?.sideTitle2 ?? "Scalable Code"}</h4>
+                  <h4>{t?.hero?.sideTitle2 ?? "Kengaytiriladigan kod"}</h4>
                   <p>
                     {t?.hero?.sideDesc2 ??
-                      "Readable structure and reusable frontend components"}
+                      "Toza, tushunarli va kengaytiriladigan frontend yechimlar yarataman"}
                   </p>
                 </div>
               </div>
@@ -286,17 +286,17 @@ export default function HomeSection({
 
           <div className={styles.cardContent}>
             <h3 className={styles.cardTitle}>
-              {t?.hero?.cardTitle ?? "Modern UI Focus"}
+              {t?.hero?.cardTitle ?? "Modern UI / UX"}
             </h3>
             <p className={styles.cardText}>
               {t?.hero?.cardText ??
-                "Clean layouts, responsive sections, strong spacing and clear visual hierarchy for modern web interfaces."}
+                "Zamonaviy dizayn, responsiv bo‘limlar va aniq tuzilma orqali premium foydalanuvchi interfeyslari yarataman"}
             </p>
 
             <div className={styles.cardTags}>
-              <span>Responsive</span>
-              <span>Interactive</span>
-              <span>Clean Layout</span>
+              <span>{t?.hero?.cardTag1 ?? "Premium UI"}</span>
+              <span>{t?.hero?.cardTag2 ?? "Modern Design"}</span>
+              <span>{t?.hero?.cardTag3 ?? "Clean Code"}</span>
             </div>
           </div>
         </div>
@@ -316,6 +316,19 @@ export default function HomeSection({
           </div>
 
           <div className={styles.miniCard}>
+            <div className={styles.miniIcon}>
+              <Code2 size={18} />
+            </div>
+            <div>
+              <h4>{t?.hero?.miniTitle2 ?? "Code Quality"}</h4>
+              <p>
+                {t?.hero?.miniDesc2 ??
+                  "Readable, modular and scalable frontend structure"}
+              </p>
+            </div>
+          </div>
+
+           <div className={styles.miniCard}>
             <div className={styles.miniIcon}>
               <Code2 size={18} />
             </div>

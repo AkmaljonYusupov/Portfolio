@@ -3,10 +3,13 @@ import {
   ArrowUpRight,
   Briefcase,
   Code2,
+  Languages,
   LayoutTemplate,
+  MonitorSmartphone,
   Send,
 } from "lucide-react"
 import { useEffect, useMemo, useState } from "react"
+import { FaWordpress } from "react-icons/fa"
 import { portfolioData } from "../../data/portfolio"
 import styles from "./HomeSection.module.scss"
 
@@ -16,7 +19,7 @@ type HomeSectionProps = {
 }
 
 /**
- * Statistikadagi sonlarni animatsion oshirib ko'rsatadi.
+ * Statistikadagi sonlarni animatsion oshirib ko‘rsatadi.
  * Masalan: 0 -> 25+
  */
 function CountUp({
@@ -67,8 +70,7 @@ function CountUp({
 }
 
 /**
- * Faqat oxirgi probil yo'qolib qolmasligi uchun uni NBSP ga aylantiradi.
- * Boshqa probillar oddiy qoladi, shuning uchun matn normal wrap bo'ladi.
+ * Faqat oxirgi probil yo‘qolib qolmasligi uchun uni NBSP ga aylantiradi.
  */
 function preserveTrailingSpace(value: string) {
   if (!value) return value
@@ -76,7 +78,7 @@ function preserveTrailingSpace(value: string) {
 }
 
 /**
- * Universal premium typewriter
+ * Universal typewriter effekti
  */
 function TypewriterLoop({
   text,
@@ -139,9 +141,7 @@ function TypewriterLoop({
 
   return (
     <span className={styles.typewriterRoot} aria-label={finalText}>
-
       <span className={styles.typewriterSizer}>{finalText}</span>
-
 
       <span className={styles.typewriterText} aria-hidden="true">
         {preserveTrailingSpace(displayedText)}
@@ -155,13 +155,72 @@ export default function HomeSection({
   setActiveSection,
 }: HomeSectionProps) {
   const stats = [
-    { value: portfolioData.stats.experience, label: t.hero.stats1 },
-    { value: portfolioData.stats.projects, label: t.hero.stats2 },
-    { value: portfolioData.stats.tech, label: t.hero.stats3 },
+    { value: portfolioData.stats.experience, label: t?.hero?.stats1 },
+    { value: portfolioData.stats.projects, label: t?.hero?.stats2 },
+    { value: portfolioData.stats.tech, label: t?.hero?.stats3 },
   ]
 
   const skills = portfolioData.skills
-  const heroTitle = useMemo(() => String(t?.hero?.title ?? ""), [t?.hero?.title])
+  const heroTitle = useMemo(
+    () => String(t?.hero?.title ?? ""),
+    [t?.hero?.title]
+  )
+
+  /**
+   * O‘ng taraf mini kartalar
+   */
+  const miniCards = [
+    {
+      icon: Briefcase,
+      title: t?.hero?.miniTitle1 ?? "Project Ready",
+      desc:
+        t?.hero?.miniDesc1 ??
+        "Portfolio, dashboard, business and corporate websites",
+    },
+    {
+      icon: Code2,
+      title: t?.hero?.miniTitle2 ?? "Code Quality",
+      desc:
+        t?.hero?.miniDesc2 ??
+        "Readable, modular and scalable frontend structure",
+    },
+    {
+      icon: Languages,
+      title: t?.hero?.miniTitle3 ?? "Multilingual Websites",
+      desc:
+        t?.hero?.miniDesc3 ??
+        "Multi-page and multi-language websites with clean structure and easy content management",
+    },
+  ]
+
+  const cardTags = [
+    t?.hero?.cardTag1 ?? "Premium UI",
+    t?.hero?.cardTag2 ?? "Modern Design",
+    t?.hero?.cardTag3 ?? "Clean Code",
+    t?.hero?.cardTag4 ?? "WordPress",
+  ]
+
+  /**
+   * Chap katta kartaning pastki qo‘shimcha bloklari
+   */
+  const cardHighlights = [
+    {
+      icon: Languages,
+      title: t?.hero?.highlightTitle1 ?? "Multi-language Ready",
+      text:
+        t?.hero?.highlightDesc1 ??
+        "Uz, Ru, En va boshqa tillar bilan qulay struktura asosida ishlayman.",
+      isBrand: false,
+    },
+    {
+      icon: FaWordpress,
+      title: t?.hero?.highlightTitle2 ?? "WordPress Support",
+      text:
+        t?.hero?.highlightDesc2 ??
+        "Landing, company va content-based saytlar uchun WordPress yechimlar ham taklif qilaman.",
+      isBrand: true,
+    },
+  ]
 
   return (
     <section className={styles.heroSection}>
@@ -180,7 +239,7 @@ export default function HomeSection({
         transition={{ duration: 0.45, delay: 0.05 }}
       >
         <div className={styles.heroContent}>
-          <p className={styles.overline}>{t.owner ?? "Akmaljon Yusufov"}</p>
+          <p className={styles.overline}>{t?.owner ?? "Akmaljon Yusufov"}</p>
 
           <h1 className={styles.title}>
             <TypewriterLoop
@@ -192,7 +251,10 @@ export default function HomeSection({
             />
           </h1>
 
-          <p className={styles.desc}>{t.hero.desc}</p>
+          <p className={styles.desc}>
+            {t?.hero?.desc ??
+              "Zamonaviy va premium ko‘rinishdagi web interfeyslar yarataman."}
+          </p>
 
           <div className={styles.actions}>
             <button
@@ -201,7 +263,7 @@ export default function HomeSection({
               onClick={() => setActiveSection("portfolio")}
             >
               <span className={styles.btnGlow} />
-              <span>{t.hero.primary}</span>
+              <span>{t?.hero?.primary ?? "Loyihalarni ko‘rish"}</span>
               <ArrowUpRight size={17} />
             </button>
 
@@ -211,7 +273,7 @@ export default function HomeSection({
               onClick={() => setActiveSection("contact")}
             >
               <span className={styles.btnGlowSoft} />
-              <span>{t.hero.secondary}</span>
+              <span>{t?.hero?.secondary ?? "Bog‘lanish"}</span>
               <Send size={16} />
             </button>
           </div>
@@ -250,7 +312,7 @@ export default function HomeSection({
                   <Code2 size={18} />
                 </div>
                 <div>
-                  <h4>{t?.hero?.sideTitle2 ?? "Kengaytiriladigan kod"}</h4>
+                  <h4>{t?.hero?.sideTitle2 ?? "Scalable Frontend"}</h4>
                   <p>
                     {t?.hero?.sideDesc2 ??
                       "Toza, tushunarli va kengaytiriladigan frontend yechimlar yarataman"}
@@ -260,7 +322,10 @@ export default function HomeSection({
 
               <div className={styles.previewMiniStats}>
                 {stats.map((item, index) => (
-                  <div key={item.label} className={styles.previewStat}>
+                  <div
+                    key={`${item.label}-${index}`}
+                    className={styles.previewStat}
+                  >
                     <strong>
                       <CountUp value={item.value} duration={1400 + index * 150} />
                     </strong>
@@ -288,58 +353,85 @@ export default function HomeSection({
             <h3 className={styles.cardTitle}>
               {t?.hero?.cardTitle ?? "Modern UI / UX"}
             </h3>
+
             <p className={styles.cardText}>
               {t?.hero?.cardText ??
-                "Zamonaviy dizayn, responsiv bo‘limlar va aniq tuzilma orqali premium foydalanuvchi interfeyslari yarataman"}
+                "Zamonaviy dizayn, responsiv bo‘limlar va aniq tuzilma orqali premium foydalanuvchi interfeyslari yarataman. Shuningdek, WordPress asosidagi web saytlar bilan ham ishlay olaman."}
             </p>
 
             <div className={styles.cardTags}>
-              <span>{t?.hero?.cardTag1 ?? "Premium UI"}</span>
-              <span>{t?.hero?.cardTag2 ?? "Modern Design"}</span>
-              <span>{t?.hero?.cardTag3 ?? "Clean Code"}</span>
+              {cardTags.map((tag, index) => (
+                <span key={`${tag}-${index}`}>{tag}</span>
+              ))}
+            </div>
+
+            <div className={styles.cardExtraInfo}>
+              <div className={styles.cardExtraItem}>
+                <MonitorSmartphone size={16} />
+                <span>
+                  {t?.hero?.cardExtra1 ?? "Responsive & multi-device friendly"}
+                </span>
+              </div>
+
+              <div className={styles.cardExtraItem}>
+                <Languages size={16} />
+                <span>
+                  {t?.hero?.cardExtra2 ?? "Multi-language & multi-page websites"}
+                </span>
+              </div>
+
+              <div className={styles.cardExtraItem}>
+                <FaWordpress size={16} className={styles.wordpressIcon} />
+                <span>
+                  {t?.hero?.cardExtra3 ?? "WordPress based website solutions"}
+                </span>
+              </div>
+            </div>
+
+            <div className={styles.cardBottom}>
+              {cardHighlights.map((item, index) => {
+                const Icon = item.icon
+
+                return (
+                  <div
+                    key={`${item.title}-${index}`}
+                    className={styles.cardHighlight}
+                  >
+                    <div className={styles.cardHighlightIcon}>
+                      <Icon
+                        size={16}
+                        className={item.isBrand ? styles.wordpressIcon : undefined}
+                      />
+                    </div>
+
+                    <div className={styles.cardHighlightContent}>
+                      <h4>{item.title}</h4>
+                      <p>{item.text}</p>
+                    </div>
+                  </div>
+                )
+              })}
             </div>
           </div>
         </div>
 
         <div className={styles.infoCardStack}>
-          <div className={styles.miniCard}>
-            <div className={styles.miniIcon}>
-              <Briefcase size={18} />
-            </div>
-            <div>
-              <h4>{t?.hero?.miniTitle1 ?? "Project Ready"}</h4>
-              <p>
-                {t?.hero?.miniDesc1 ??
-                  "Portfolio, dashboard and landing pages"}
-              </p>
-            </div>
-          </div>
+          {miniCards.map((item, index) => {
+            const Icon = item.icon
 
-          <div className={styles.miniCard}>
-            <div className={styles.miniIcon}>
-              <Code2 size={18} />
-            </div>
-            <div>
-              <h4>{t?.hero?.miniTitle2 ?? "Code Quality"}</h4>
-              <p>
-                {t?.hero?.miniDesc2 ??
-                  "Readable, modular and scalable frontend structure"}
-              </p>
-            </div>
-          </div>
+            return (
+              <div key={`${item.title}-${index}`} className={styles.miniCard}>
+                <div className={styles.miniIcon}>
+                  <Icon size={18} />
+                </div>
 
-           <div className={styles.miniCard}>
-            <div className={styles.miniIcon}>
-              <Code2 size={18} />
-            </div>
-            <div>
-              <h4>{t?.hero?.miniTitle2 ?? "Code Quality"}</h4>
-              <p>
-                {t?.hero?.miniDesc2 ??
-                  "Readable, modular and scalable frontend structure"}
-              </p>
-            </div>
-          </div>
+                <div>
+                  <h4>{item.title}</h4>
+                  <p>{item.desc}</p>
+                </div>
+              </div>
+            )
+          })}
         </div>
       </motion.div>
 
@@ -353,9 +445,11 @@ export default function HomeSection({
           <span className={styles.skillsEyebrow}>
             {t?.hero?.skillsEyebrow ?? "Core Technologies"}
           </span>
+
           <h3 className={styles.skillsTitle}>
             {t?.hero?.skillsTitle ?? "Tech Stack"}
           </h3>
+
           <p className={styles.skillsDesc}>
             {t?.hero?.skillsDesc ??
               "Zamonaviy va ishonchli frontend yechimlar uchun foydalanadigan texnologiyalarim."}

@@ -179,7 +179,8 @@
 .skillsSection,
 .previewBox,
 .previewStat,
-.miniCard {
+.miniCard,
+.cardHighlight {
   position: relative;
   overflow: hidden;
 }
@@ -191,7 +192,8 @@
 .skillsSection > *,
 .previewBox > *,
 .previewStat > *,
-.miniCard > * {
+.miniCard > *,
+.cardHighlight > * {
   position: relative;
   z-index: 2;
 }
@@ -203,7 +205,8 @@
 .skillsSection::before,
 .previewBox::before,
 .previewStat::before,
-.miniCard::before {
+.miniCard::before,
+.cardHighlight::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -216,7 +219,7 @@
    Left content card
 ========================= */
 .heroContent {
-  border-radius:$radius-xs;
+  border-radius: $radius-xs;
   padding: 1.2rem;
   border: 1px solid rgba(148, 163, 184, 0.12);
   background: transparent;
@@ -271,7 +274,6 @@
 /* =========================
    Universal premium typewriter
 ========================= */
-
 .typewriterRoot {
   display: inline-grid;
   width: 100%;
@@ -284,8 +286,6 @@
   grid-area: 1 / 1;
 }
 
-/* Bu ko'rinmas text.
-   Final matn qancha joy olsa, shuncha joyni oldindan ushlab turadi. */
 .typewriterSizer {
   visibility: hidden;
   white-space: pre-wrap;
@@ -295,7 +295,6 @@
   min-width: 0;
 }
 
-/* Ko'rinadigan yoziladigan matn */
 .typewriterText {
   display: inline;
   width: 100%;
@@ -308,9 +307,6 @@
   word-break: break-word;
 }
 
-/* Cursor alohida element emas.
-   U matnning o'ziga birikkan pseudo-element.
-   Shu sabab matn qayerga tushsa, cursor ham birga tushadi. */
 .typewriterText::after {
   content: "";
   display: inline-block;
@@ -720,6 +716,7 @@
 
 .cardContent {
   min-width: 0;
+  width: 100%;
 }
 
 .cardTitle {
@@ -767,6 +764,139 @@
   }
 }
 
+.cardExtraInfo {
+  margin-top: 0.95rem;
+  display: grid;
+  gap: 0.55rem;
+  max-width: 430px;
+  padding: 0.95rem 1rem;
+  border-radius: $radius-xs;
+  border: 1px solid rgba(148, 163, 184, 0.12);
+  background: rgba(255, 255, 255, 0.58);
+
+  :global(.dark) & {
+    border-color: rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.035);
+  }
+}
+
+.cardExtraItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.58rem;
+  color: #334155;
+  font-size: 0.93rem;
+  line-height: 1.6;
+
+  svg {
+    margin-top: 0.1rem;
+    flex-shrink: 0;
+    color: #2563eb;
+  }
+
+  span {
+    color: #334155;
+  }
+
+  :global(.dark) & {
+    color: #e2e8f0;
+
+    svg,
+    span {
+      color: #e2e8f0;
+    }
+  }
+}
+
+/* chap pastdagi 2 ta box endi siqilmaydi */
+.cardBottom {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
+  align-items: stretch;
+}
+
+.cardHighlight {
+  min-width: 0;
+  min-height: 132px;
+  border-radius: $radius-xs;
+  padding: 1rem;
+  display: flex;
+  gap: 0.82rem;
+  align-items: flex-start;
+  border: 1px solid rgba(148, 163, 184, 0.12);
+  background: transparent;
+  box-shadow: none;
+
+  &::before {
+    background: rgba(255, 255, 255, 0.58);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.28);
+  }
+
+  :global(.dark) & {
+    border-color: rgba(255, 255, 255, 0.08);
+    box-shadow: none;
+
+    &::before {
+      background: rgba(255, 255, 255, 0.035);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.02);
+    }
+  }
+}
+
+.cardHighlightIcon {
+  width: 2.65rem;
+  height: 2.65rem;
+  border-radius: $radius-xs;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: rgba(241, 245, 249, 0.95);
+  border: 1px solid rgba(148, 163, 184, 0.12);
+  color: #2563eb;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4);
+
+  :global(.dark) & {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+    box-shadow: none;
+  }
+}
+
+.cardHighlightContent {
+  min-width: 0;
+  flex: 1;
+
+  h4 {
+    color: #0f172a;
+    font-size: 0.98rem;
+    font-weight: 800;
+    line-height: 1.4;
+
+    :global(.dark) & {
+      color: #ffffff;
+    }
+  }
+
+  p {
+    margin-top: 0.38rem;
+    color: #64748b;
+    font-size: 0.9rem;
+    line-height: 1.75;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+
+    :global(.dark) & {
+      color: #cbd5e1;
+    }
+  }
+}
+
 .infoCardStack {
   padding: 0.85rem;
   display: grid;
@@ -774,6 +904,8 @@
 }
 
 .miniCard {
+  min-width: 0;
+  min-height: 132px;
   border-radius: $radius-xs;
   padding: 1rem;
   display: flex;
@@ -781,16 +913,27 @@
   gap: 0.85rem;
   border: 1px solid rgba(148, 163, 184, 0.12);
   background: transparent;
+  box-shadow: none;
+  transition: none;
 
   &::before {
-    background: rgba(255, 255, 255, 0.72);
+    display: block;
+    background: rgba(255, 255, 255, 0.58);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.28);
+  }
+
+  &:hover {
+    transform: none;
+    box-shadow: none;
   }
 
   :global(.dark) & {
-    border-color: rgba(255, 255, 255, 0.07);
+    border-color: rgba(255, 255, 255, 0.08);
+    box-shadow: none;
 
     &::before {
-      background: rgba(255, 255, 255, 0.04);
+      background: rgba(255, 255, 255, 0.035);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.02);
     }
   }
 
@@ -808,8 +951,10 @@
   p {
     margin-top: 0.3rem;
     color: #64748b;
-    line-height: 1.7;
-    font-size: 0.9rem;
+    line-height: 1.75;
+    font-size: 0.92rem;
+    overflow-wrap: anywhere;
+    word-break: break-word;
 
     :global(.dark) & {
       color: #cbd5e1;
@@ -836,6 +981,12 @@
     border-color: rgba(255, 255, 255, 0.08);
     box-shadow: none;
   }
+}
+
+.wordpressIcon {
+  color: #21759b !important;
+  filter: drop-shadow(0 0 6px rgba(33, 117, 155, 0.22));
+  flex-shrink: 0;
 }
 
 /* =========================
@@ -1082,11 +1233,19 @@
       letter-spacing: 0.055em;
     }
   }
+
+  .cardBottom {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 859px) {
   .previewMiniStats {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .cardBottom {
+    grid-template-columns: 1fr;
   }
 
   .sectionWatermark {
@@ -1118,7 +1277,9 @@
   .heroContent,
   .previewCard,
   .infoCardLarge,
-  .skillsSection {
+  .skillsSection,
+  .miniCard,
+  .cardHighlight {
     border-radius: $radius-xs;
   }
 
@@ -1133,6 +1294,10 @@
 
   .infoCardLarge {
     flex-direction: column;
+  }
+
+  .cardExtraInfo {
+    max-width: 100%;
   }
 
   .previewMiniStats {
@@ -1155,6 +1320,12 @@
 
   .typewriterText::after {
     height: 0.88em;
+  }
+
+  .miniCard,
+  .cardHighlight {
+    min-height: auto;
+    padding: 0.95rem;
   }
 }
 

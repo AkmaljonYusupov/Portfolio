@@ -1,15 +1,6 @@
 import { motion } from "framer-motion"
-import {
-  ArrowUpRight,
-  Briefcase,
-  Code2,
-  Languages,
-  LayoutTemplate,
-  MonitorSmartphone,
-  Send,
-} from "lucide-react"
+import { ArrowUpRight, Code2, LayoutTemplate, Send } from "lucide-react"
 import { useEffect, useMemo, useState } from "react"
-import { FaWordpress } from "react-icons/fa"
 import { portfolioData } from "../../data/portfolio"
 import styles from "./HomeSection.module.scss"
 
@@ -160,67 +151,10 @@ export default function HomeSection({
     { value: portfolioData.stats.tech, label: t?.hero?.stats3 },
   ]
 
-  const skills = portfolioData.skills
   const heroTitle = useMemo(
     () => String(t?.hero?.title ?? ""),
     [t?.hero?.title]
   )
-
-  /**
-   * O‘ng taraf mini kartalar
-   */
-  const miniCards = [
-    {
-      icon: Briefcase,
-      title: t?.hero?.miniTitle1 ?? "Project Ready",
-      desc:
-        t?.hero?.miniDesc1 ??
-        "Portfolio, dashboard, business and corporate websites",
-    },
-    {
-      icon: Code2,
-      title: t?.hero?.miniTitle2 ?? "Code Quality",
-      desc:
-        t?.hero?.miniDesc2 ??
-        "Readable, modular and scalable frontend structure",
-    },
-    {
-      icon: Languages,
-      title: t?.hero?.miniTitle3 ?? "Multilingual Websites",
-      desc:
-        t?.hero?.miniDesc3 ??
-        "Multi-page and multi-language websites with clean structure and easy content management",
-    },
-  ]
-
-  const cardTags = [
-    t?.hero?.cardTag1 ?? "Premium UI",
-    t?.hero?.cardTag2 ?? "Modern Design",
-    t?.hero?.cardTag3 ?? "Clean Code",
-    t?.hero?.cardTag4 ?? "WordPress",
-  ]
-
-  /**
-   * Chap katta kartaning pastki qo‘shimcha bloklari
-   */
-  const cardHighlights = [
-    {
-      icon: Languages,
-      title: t?.hero?.highlightTitle1 ?? "Multi-language Ready",
-      text:
-        t?.hero?.highlightDesc1 ??
-        "Uz, Ru, En va boshqa tillar bilan qulay struktura asosida ishlayman.",
-      isBrand: false,
-    },
-    {
-      icon: FaWordpress,
-      title: t?.hero?.highlightTitle2 ?? "WordPress Support",
-      text:
-        t?.hero?.highlightDesc2 ??
-        "Landing, company va content-based saytlar uchun WordPress yechimlar ham taklif qilaman.",
-      isBrand: true,
-    },
-  ]
 
   return (
     <section className={styles.heroSection}>
@@ -336,152 +270,6 @@ export default function HomeSection({
             </div>
           </div>
         </motion.div>
-      </motion.div>
-
-      <motion.div
-        className={styles.infoGrid}
-        initial={{ opacity: 0, y: 18 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.45, delay: 0.16 }}
-      >
-        <div className={styles.infoCardLarge}>
-          <div className={styles.cardIcon}>
-            <LayoutTemplate size={20} />
-          </div>
-
-          <div className={styles.cardContent}>
-            <h3 className={styles.cardTitle}>
-              {t?.hero?.cardTitle ?? "Modern UI / UX"}
-            </h3>
-
-            <p className={styles.cardText}>
-              {t?.hero?.cardText ??
-                "Zamonaviy dizayn, responsiv bo‘limlar va aniq tuzilma orqali premium foydalanuvchi interfeyslari yarataman. Shuningdek, WordPress asosidagi web saytlar bilan ham ishlay olaman."}
-            </p>
-
-            <div className={styles.cardTags}>
-              {cardTags.map((tag, index) => (
-                <span key={`${tag}-${index}`}>{tag}</span>
-              ))}
-            </div>
-
-            <div className={styles.cardExtraInfo}>
-              <div className={styles.cardExtraItem}>
-                <MonitorSmartphone size={16} />
-                <span>
-                  {t?.hero?.cardExtra1 ?? "Responsive & multi-device friendly"}
-                </span>
-              </div>
-
-              <div className={styles.cardExtraItem}>
-                <Languages size={16} />
-                <span>
-                  {t?.hero?.cardExtra2 ?? "Multi-language & multi-page websites"}
-                </span>
-              </div>
-
-              <div className={styles.cardExtraItem}>
-                <FaWordpress size={16} className={styles.wordpressIcon} />
-                <span>
-                  {t?.hero?.cardExtra3 ?? "WordPress based website solutions"}
-                </span>
-              </div>
-            </div>
-
-            <div className={styles.cardBottom}>
-              {cardHighlights.map((item, index) => {
-                const Icon = item.icon
-
-                return (
-                  <div
-                    key={`${item.title}-${index}`}
-                    className={styles.cardHighlight}
-                  >
-                    <div className={styles.cardHighlightIcon}>
-                      <Icon
-                        size={16}
-                        className={item.isBrand ? styles.wordpressIcon : undefined}
-                      />
-                    </div>
-
-                    <div className={styles.cardHighlightContent}>
-                      <h4>{item.title}</h4>
-                      <p>{item.text}</p>
-                    </div>
-                  </div>
-                )
-              })}
-            </div>
-          </div>
-        </div>
-
-        <div className={styles.infoCardStack}>
-          {miniCards.map((item, index) => {
-            const Icon = item.icon
-
-            return (
-              <div key={`${item.title}-${index}`} className={styles.miniCard}>
-                <div className={styles.miniIcon}>
-                  <Icon size={18} />
-                </div>
-
-                <div>
-                  <h4>{item.title}</h4>
-                  <p>{item.desc}</p>
-                </div>
-              </div>
-            )
-          })}
-        </div>
-      </motion.div>
-
-      <motion.div
-        className={styles.skillsSection}
-        initial={{ opacity: 0, y: 16 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4, delay: 0.24 }}
-      >
-        <div className={styles.skillsHeader}>
-          <span className={styles.skillsEyebrow}>
-            {t?.hero?.skillsEyebrow ?? "Core Technologies"}
-          </span>
-
-          <h3 className={styles.skillsTitle}>
-            {t?.hero?.skillsTitle ?? "Tech Stack"}
-          </h3>
-
-          <p className={styles.skillsDesc}>
-            {t?.hero?.skillsDesc ??
-              "Zamonaviy va ishonchli frontend yechimlar uchun foydalanadigan texnologiyalarim."}
-          </p>
-        </div>
-
-        <div className={styles.skillsMarqueeWrap}>
-          <div className={styles.skillsFadeLeft} />
-          <div className={styles.skillsFadeRight} />
-
-          <div className={styles.skillsRow}>
-            <div className={styles.scrollLeft}>
-              {[...skills, ...skills, ...skills].map((skill: string, i) => (
-                <span key={`left-${skill}-${i}`} className={styles.skillChip}>
-                  <span className={styles.skillDot} />
-                  {skill}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          <div className={styles.skillsRow}>
-            <div className={styles.scrollRight}>
-              {[...skills, ...skills, ...skills].map((skill: string, i) => (
-                <span key={`right-${skill}-${i}`} className={styles.skillChip}>
-                  <span className={styles.skillDot} />
-                  {skill}
-                </span>
-              ))}
-            </div>
-          </div>
-        </div>
       </motion.div>
     </section>
   )

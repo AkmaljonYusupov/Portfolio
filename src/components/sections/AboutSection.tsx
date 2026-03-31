@@ -9,91 +9,129 @@ import {
   MonitorSmartphone,
   User,
 } from "lucide-react"
+import { useEffect, useMemo, useState } from "react"
 import { FaWordpress } from "react-icons/fa"
 import AkmaljonImage from "../../assets/Akmaljon.jpg"
 import { portfolioData } from "../../data/portfolio"
 import styles from "./AboutSection.module.scss"
 
+type ContentBlockItem = {
+  key: string
+  title: string
+  text: string
+  tags: string[]
+}
+
+function preserveTrailingSpace(value: string) {
+  if (!value) return value
+  return value.endsWith(" ") ? `${value.slice(0, -1)}\u00A0` : value
+}
+
+function TypewriterLoop({
+  text,
+  typingSpeed = 85,
+  deletingSpeed = 42,
+  pauseBeforeDelete = 1700,
+  pauseBeforeRestart = 500,
+}: {
+  text: string
+  typingSpeed?: number
+  deletingSpeed?: number
+  pauseBeforeDelete?: number
+  pauseBeforeRestart?: number
+}) {
+  const finalText = String(text ?? "")
+  const [displayedText, setDisplayedText] = useState("")
+  const [isDeleting, setIsDeleting] = useState(false)
+
+  useEffect(() => {
+    setDisplayedText("")
+    setIsDeleting(false)
+  }, [finalText])
+
+  useEffect(() => {
+    if (!finalText) {
+      setDisplayedText("")
+      return
+    }
+
+    let timeoutId: ReturnType<typeof setTimeout>
+
+    if (!isDeleting && displayedText.length < finalText.length) {
+      timeoutId = setTimeout(() => {
+        setDisplayedText(finalText.slice(0, displayedText.length + 1))
+      }, typingSpeed)
+    } else if (!isDeleting && displayedText.length === finalText.length) {
+      timeoutId = setTimeout(() => {
+        setIsDeleting(true)
+      }, pauseBeforeDelete)
+    } else if (isDeleting && displayedText.length > 0) {
+      timeoutId = setTimeout(() => {
+        setDisplayedText(finalText.slice(0, displayedText.length - 1))
+      }, deletingSpeed)
+    } else if (isDeleting && displayedText.length === 0) {
+      timeoutId = setTimeout(() => {
+        setIsDeleting(false)
+      }, pauseBeforeRestart)
+    }
+
+    return () => clearTimeout(timeoutId)
+  }, [
+    displayedText,
+    isDeleting,
+    finalText,
+    typingSpeed,
+    deletingSpeed,
+    pauseBeforeDelete,
+    pauseBeforeRestart,
+  ])
+
+  return (
+    <span className={styles.typewriterRoot} aria-label={finalText}>
+      <span className={styles.typewriterSizer}>{finalText}</span>
+      <span className={styles.typewriterText} aria-hidden="true">
+        {preserveTrailingSpace(displayedText)}
+      </span>
+    </span>
+  )
+}
+
 export default function AboutSection({ t }: { t: any }) {
   const skills = portfolioData.skills
 
-  const contentBlocks = [
+  const aboutTitle = useMemo(
+    () => String(t?.about?.title ?? ""),
+    [t?.about?.title]
+  )
+
+  const introTags: string[] = t?.about?.introTags ?? []
+  const featureCards: string[] = t?.about?.cards ?? []
+  const contentBlocks: ContentBlockItem[] = t?.about?.contentBlocks ?? []
+
+  const iconMap: Record<string, React.ElementType> = {
+    uiux: LayoutTemplate,
+    responsive: MonitorSmartphone,
+    multilang: Languages,
+    wordpress: FaWordpress,
+    project: Briefcase,
+    code: Code2,
+  }
+
+  const profileMetaItems = [
     {
-      icon: LayoutTemplate,
-      title: "Modern UI / UX",
-      text: "Zamonaviy, toza va foydalanuvchiga qulay interfeyslar yarataman.",
-      tags: ["Premium UI", "Modern Design", "Clean Code", "WordPress"],
-      isBrand: false,
+      label: t?.about?.profile?.directionLabel ?? "Direction",
+      value: t?.about?.profile?.directionValue ?? "Frontend Development",
+      icon: null,
     },
     {
-      icon: MonitorSmartphone,
-      title: "Responsive Layout",
-      text: "Saytni mobil, planshet va desktop qurilmalarga mos responsiv tarzda ishlab chiqaman.",
-      tags: [
-        "Responsive UI",
-        "Mobile First",
-        "Tablet Ready",
-        "Desktop Optimized",
-        "Flexible Layout",
-        "Cross-device",
-      ],
-      isBrand: false,
+      label: t?.about?.profile?.focusLabel ?? "Main Focus",
+      value: t?.about?.profile?.focusValue ?? "UI / UX, Responsiveness, Interactivity",
+      icon: null,
     },
     {
-      icon: Languages,
-      title: "Multi-language Systems",
-      text: "Ko‘p tilli va ko‘p sahifali web saytlarni qulay va kengaytiriladigan struktura bilan yarataman.",
-      tags: [
-        "react-i18next",
-        "i18next",
-        "JSON Locales",
-        "Language Switcher",
-        "Multi-page Structure",
-        "Dynamic Translation",
-      ],
-      isBrand: false,
-    },
-    {
-      icon: FaWordpress,
-      title: "WordPress Solutions",
-      text: "WordPress template va plaginlari asosida tezkor, tayyor va moslashtirilgan saytlar yarataman.",
-      tags: [
-        "WordPress Templates",
-        "Elementor",
-        "WooCommerce",
-        "Contact Form",
-        "Premium Themes",
-        "Plugins",
-      ],
-      isBrand: true,
-    },
-    {
-      icon: Briefcase,
-      title: "Project Ready",
-      text: "Portfolio, dashboard, business va corporate loyihalar uchun amaliy frontend yechimlar yarataman.",
-      tags: [
-        "Portfolio Website",
-        "Dashboard UI",
-        "Business Website",
-        "Corporate Website",
-        "Landing Page",
-        "Admin Panel",
-      ],
-      isBrand: false,
-    },
-    {
-      icon: Code2,
-      title: "Code Quality",
-      text: "Toza, modulli va kengaytiriladigan kod strukturasiga asoslangan frontend yechimlar yarataman.",
-      tags: [
-        "Clean Code",
-        "Reusable Components",
-        "Scalable Structure",
-        "Readable Files",
-        "Maintainable Codebase",
-        "Modular Architecture",
-      ],
-      isBrand: false,
+      label: t?.about?.profile?.locationLabel ?? "Location",
+      value: t?.about?.profile?.locationValue ?? "Uzbekistan",
+      icon: <MapPin size={15} />,
     },
   ]
 
@@ -103,7 +141,7 @@ export default function AboutSection({ t }: { t: any }) {
       <div className={styles.bgCircleTwo} />
 
       <div className={styles.sectionWatermark}>
-        {t?.nav?.about ?? "Men haqimda"}
+        {t?.nav?.about ?? "About"}
       </div>
 
       <motion.div
@@ -113,7 +151,16 @@ export default function AboutSection({ t }: { t: any }) {
         viewport={{ once: true, amount: 0.35 }}
         transition={{ duration: 0.45 }}
       >
-        <h2 className={styles.title}>{t?.about?.title}</h2>
+        <h2 className={styles.title}>
+          <TypewriterLoop
+            text={aboutTitle}
+            typingSpeed={85}
+            deletingSpeed={42}
+            pauseBeforeDelete={1700}
+            pauseBeforeRestart={500}
+          />
+        </h2>
+
         <p className={styles.desc}>{t?.about?.desc}</p>
       </motion.div>
 
@@ -129,25 +176,25 @@ export default function AboutSection({ t }: { t: any }) {
             <div className={styles.iconBox}>
               <User size={18} />
             </div>
-            <span className={styles.cardEyebrow}>Personal Introduction</span>
+            <span className={styles.cardEyebrow}>
+              {t?.about?.introEyebrow ?? "Personal Introduction"}
+            </span>
           </div>
 
           <p className={styles.cardText}>
-            Men zamonaviy, toza va foydalanuvchiga qulay interfeyslar yaratishga
-            e’tibor beraman. Frontend development jarayonida responsiv dizayn,
-            interaktivlik va professional ko‘rinishga alohida ahamiyat beraman.
+            {t?.about?.introText}
           </p>
 
           <div className={styles.cardTags}>
-            <span>Frontend</span>
-            <span>Responsive</span>
-            <span>Clean UI</span>
+            {introTags.map((tag) => (
+              <span key={tag}>{tag}</span>
+            ))}
           </div>
 
           <div className={styles.featureList}>
-            {t?.about?.cards?.map((item: string, index: number) => (
+            {featureCards.map((item, index) => (
               <motion.div
-                key={item}
+                key={`${item}-${index}`}
                 className={styles.featureItem}
                 initial={{ opacity: 0, y: 14 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -181,36 +228,37 @@ export default function AboutSection({ t }: { t: any }) {
             <div className={styles.profileRingInner} />
             <div className={styles.profileRingBlur} />
             <div className={styles.profileShine} />
+
             <div className={styles.profileImageInner}>
-              <img src={AkmaljonImage} alt="Akmaljon Yusufov" />
+              <img
+                src={AkmaljonImage}
+                alt={t?.about?.profileName ?? "Profile"}
+              />
             </div>
+
             <span className={styles.profileOnlineDot} />
           </div>
 
           <div className={styles.profileContent}>
-            <h3 className={styles.profileName}>Akmaljon Yusufov</h3>
-            <p className={styles.profileRole}>Frontend Developer</p>
+            <h3 className={styles.profileName}>
+              {t?.about?.profileName ?? "Akmaljon Yusufov"}
+            </h3>
+
+            <p className={styles.profileRole}>
+              {t?.about?.profileRole ?? "Frontend Developer"}
+            </p>
 
             <div className={styles.profileMeta}>
-              <div className={styles.metaItem}>
-                <span className={styles.metaLabel}>Yo‘nalish</span>
-                <span className={styles.metaValue}>Frontend Development</span>
-              </div>
+              {profileMetaItems.map((item) => (
+                <div key={item.label} className={styles.metaItem}>
+                  <span className={styles.metaLabel}>{item.label}</span>
 
-              <div className={styles.metaItem}>
-                <span className={styles.metaLabel}>Asosiy e’tibor</span>
-                <span className={styles.metaValue}>
-                  UI, Responsivlik, Interaktivlik
-                </span>
-              </div>
-
-              <div className={styles.metaItem}>
-                <span className={styles.metaLabel}>Joylashuv</span>
-                <span className={styles.metaValue}>
-                  <MapPin size={15} />
-                  Uzbekistan
-                </span>
-              </div>
+                  <span className={styles.metaValue}>
+                    {item.icon}
+                    {item.value}
+                  </span>
+                </div>
+              ))}
             </div>
           </div>
         </motion.div>
@@ -226,14 +274,15 @@ export default function AboutSection({ t }: { t: any }) {
         <div className={styles.detailMainCard}>
           <div className={styles.detailContentGrid}>
             {contentBlocks.map((item, index) => {
-              const Icon = item.icon
+              const Icon = iconMap[item.key] ?? LayoutTemplate
+              const isWordpress = item.key === "wordpress"
 
               return (
-                <div key={`${item.title}-${index}`} className={styles.contentBlock}>
+                <div key={`${item.key}-${index}`} className={styles.contentBlock}>
                   <div className={styles.iconBox}>
                     <Icon
                       size={18}
-                      className={item.isBrand ? styles.wordpressIcon : undefined}
+                      className={isWordpress ? styles.wordpressIcon : undefined}
                     />
                   </div>
 
@@ -242,7 +291,7 @@ export default function AboutSection({ t }: { t: any }) {
                     <p>{item.text}</p>
 
                     <div className={styles.contentBlockTags}>
-                      {item.tags.map((tag: string, tagIndex: number) => (
+                      {item.tags?.map((tag, tagIndex) => (
                         <span key={`${tag}-${tagIndex}`}>{tag}</span>
                       ))}
                     </div>
@@ -272,7 +321,7 @@ export default function AboutSection({ t }: { t: any }) {
 
           <p className={styles.skillsDesc}>
             {t?.hero?.skillsDesc ??
-              "Zamonaviy va ishonchli frontend yechimlar uchun foydalanadigan texnologiyalarim."}
+              "Technologies I use to build modern and reliable frontend solutions."}
           </p>
         </div>
 

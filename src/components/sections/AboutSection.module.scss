@@ -4,21 +4,27 @@
   position: relative;
   overflow: hidden;
   border-radius: $radius-xs;
-  padding: 1.25rem;
+  padding: 1.15rem;
+  border: 1px solid rgba(148, 163, 184, 0.14);
   background:
     radial-gradient(circle at top left, rgba(59, 130, 246, 0.08), transparent 24%),
     radial-gradient(circle at bottom right, rgba(168, 85, 247, 0.08), transparent 24%),
-    linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
-  border: 1px solid rgba(148, 163, 184, 0.16);
-  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.05);
+    linear-gradient(180deg, rgba(255, 255, 255, 0.94) 0%, rgba(248, 250, 252, 0.98) 100%);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow:
+    0 18px 42px rgba(15, 23, 42, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
 
   :global(.dark) & {
+    border-color: rgba(255, 255, 255, 0.08);
     background:
       radial-gradient(circle at top left, rgba(59, 130, 246, 0.12), transparent 24%),
       radial-gradient(circle at bottom right, rgba(168, 85, 247, 0.1), transparent 24%),
-      linear-gradient(180deg, #0f172a 0%, #111827 100%);
-    border-color: rgba(255, 255, 255, 0.08);
-    box-shadow: none;
+      linear-gradient(180deg, rgba(2, 6, 23, 0.94) 0%, rgba(15, 23, 42, 0.98) 100%);
+    box-shadow:
+      0 18px 42px rgba(0, 0, 0, 0.22),
+      inset 0 1px 0 rgba(255, 255, 255, 0.03);
   }
 }
 
@@ -26,24 +32,24 @@
 .bgCircleTwo {
   position: absolute;
   border-radius: 999px;
-  filter: blur(70px);
+  filter: blur(76px);
   pointer-events: none;
   z-index: 0;
 }
 
 .bgCircleOne {
-  width: 16rem;
-  height: 16rem;
-  top: -5rem;
-  left: -4rem;
-  background: rgba(14, 165, 233, 0.12);
+  top: -4.4rem;
+  left: -3.5rem;
+  width: 15rem;
+  height: 15rem;
+  background: rgba(59, 130, 246, 0.13);
 }
 
 .bgCircleTwo {
-  width: 14rem;
-  height: 14rem;
   right: -3rem;
-  bottom: -4rem;
+  bottom: -3.8rem;
+  width: 15rem;
+  height: 15rem;
   background: rgba(168, 85, 247, 0.12);
 }
 
@@ -54,29 +60,29 @@
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  padding-top: clamp(1rem, 4vw, 2.2rem);
+  padding-top: clamp(0.9rem, 4vw, 1.8rem);
   pointer-events: none;
   user-select: none;
   overflow: hidden;
-  font-size: clamp(2.8rem, 9vw, 5.8rem);
+  font-size: clamp(2.6rem, 8vw, 5.3rem);
   font-weight: 900;
-  letter-spacing: 0.065em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   line-height: 0.9;
   white-space: nowrap;
   text-align: center;
-  color: rgba(15, 23, 42, 0.12);
-  -webkit-text-stroke: 1px rgba(148, 163, 184, 0.12);
+  color: rgba(15, 23, 42, 0.1);
+  -webkit-text-stroke: 1px rgba(148, 163, 184, 0.1);
   text-shadow:
-    0 0 18px rgba(59, 130, 246, 0.05),
-    0 0 36px rgba(168, 85, 247, 0.04);
+    0 0 18px rgba(59, 130, 246, 0.04),
+    0 0 36px rgba(168, 85, 247, 0.035);
 
   :global(.dark) & {
-    color: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.08);
     -webkit-text-stroke: 1px rgba(255, 255, 255, 0.08);
     text-shadow:
-      0 0 20px rgba(59, 130, 246, 0.06),
-      0 0 42px rgba(168, 85, 247, 0.05);
+      0 0 18px rgba(59, 130, 246, 0.05),
+      0 0 36px rgba(168, 85, 247, 0.045);
   }
 }
 
@@ -88,42 +94,112 @@
   z-index: 1;
 }
 
+/* =========================
+   Top heading area
+========================= */
 .centerContent {
-  max-width: 860px;
+  max-width: 720px;
   margin: 0 auto;
   text-align: center;
-  padding-top: 0.3rem;
+  padding-top: 0.08rem;
 }
 
 .title {
-  margin-top: 0.6rem;
+  margin-top: 0.35rem;
   color: #0f172a;
-  font-size: clamp(2.2rem, 5vw, 4rem);
-  line-height: 1.04;
+  font-size: clamp(1.9rem, 4vw, 3.15rem);
+  line-height: 1.06;
   font-weight: 800;
   letter-spacing: -0.04em;
+  width: 100%;
 
   :global(.dark) & {
     color: #ffffff;
   }
 }
 
+/* =========================
+   Home dagidek typewriter
+========================= */
+.typewriterRoot {
+  display: inline-grid;
+  width: 100%;
+  max-width: 100%;
+  vertical-align: top;
+}
+
+.typewriterSizer,
+.typewriterText {
+  grid-area: 1 / 1;
+}
+
+.typewriterSizer {
+  visibility: hidden;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  line-height: inherit;
+  min-width: 0;
+}
+
+.typewriterText {
+  display: inline;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  line-height: inherit;
+  color: inherit;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.typewriterText::after {
+  content: "";
+  display: inline-block;
+  width: 4px;
+  height: 0.92em;
+  margin-left: 0.09em;
+  border-radius: 999px;
+  background: currentColor;
+  vertical-align: -0.08em;
+  animation: blinkCursor 0.95s ease-in-out infinite;
+  transform: translateY(0);
+  will-change: opacity;
+}
+
+@keyframes blinkCursor {
+  0%,
+  45% {
+    opacity: 1;
+  }
+
+  46%,
+  100% {
+    opacity: 0;
+  }
+}
+
 .desc {
-  max-width: 720px;
-  margin: 1rem auto 0;
+  max-width: 640px;
+  margin: 0.7rem auto 0;
   color: #475569;
-  font-size: 1rem;
-  line-height: 1.9;
+  font-size: 0.96rem;
+  line-height: 1.78;
 
   :global(.dark) & {
     color: #cbd5e1;
   }
 }
 
+/* =========================
+   Top cards grid
+========================= */
 .infoGrid {
   display: grid;
-  gap: 1rem;
-  margin-top: 1.5rem;
+  gap: 0.72rem;
+  margin-top: 1.15rem;
+  align-items: stretch;
 }
 
 .infoCardLarge,
@@ -131,47 +207,51 @@
 .detailMainCard,
 .skillsSection {
   border-radius: $radius-xs;
-  border: 1px solid rgba(148, 163, 184, 0.14);
-  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(148, 163, 184, 0.12);
+  background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+  box-shadow:
+    0 10px 28px rgba(15, 23, 42, 0.045),
+    inset 0 1px 0 rgba(255, 255, 255, 0.32);
 
   :global(.dark) & {
     background: rgba(255, 255, 255, 0.03);
     border-color: rgba(255, 255, 255, 0.08);
-    box-shadow: none;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.02);
   }
 }
 
 .infoCardLarge {
-  padding: 1.2rem;
+  padding: 1.05rem;
+  min-width: 0;
 }
 
 .cardHeader {
   display: flex;
   align-items: center;
-  gap: 0.8rem;
+  gap: 0.75rem;
 }
 
 .iconBox {
-  width: 2.7rem;
-  height: 2.7rem;
-  min-width: 2.7rem;
-  max-width: 2.7rem;
+  width: 2.65rem;
+  height: 2.65rem;
+  min-width: 2.65rem;
+  max-width: 2.65rem;
   border-radius: $radius-xs;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
   align-self: flex-start;
-  background: rgba(241, 245, 249, 0.95);
+  background: rgba(241, 245, 249, 0.94);
   border: 1px solid rgba(148, 163, 184, 0.12);
   color: #2563eb;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.36);
 
   :global(.dark) & {
-    background: rgba(255, 255, 255, 0.06);
+    background: rgba(255, 255, 255, 0.05);
     border-color: rgba(255, 255, 255, 0.08);
     color: #ffffff;
     box-shadow: none;
@@ -185,7 +265,7 @@
 }
 
 .cardEyebrow {
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -197,10 +277,10 @@
 }
 
 .cardText {
-  margin: 1rem 0 0;
+  margin: 0.9rem 0 0;
   color: #475569;
-  font-size: 1rem;
-  line-height: 1.85;
+  font-size: 0.97rem;
+  line-height: 1.82;
 
   :global(.dark) & {
     color: #cbd5e1;
@@ -210,22 +290,22 @@
 .cardTags {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.7rem;
-  margin-top: 1rem;
+  gap: 0.65rem;
+  margin-top: 0.9rem;
 
   span {
     display: inline-flex;
     align-items: center;
-    min-height: 38px;
+    min-height: 37px;
     max-width: 100%;
-    padding: 0.68rem 0.95rem;
+    padding: 0.62rem 0.92rem;
     border-radius: $radius-xs;
-    background: rgba(255, 255, 255, 0.85);
+    background: rgba(255, 255, 255, 0.84);
     border: 1px solid rgba(148, 163, 184, 0.14);
     color: #0f172a;
-    font-size: 0.88rem;
+    font-size: 0.85rem;
     font-weight: 700;
-    line-height: 1.45;
+    line-height: 1.42;
     white-space: normal;
     overflow-wrap: anywhere;
     word-break: break-word;
@@ -240,42 +320,45 @@
 
 .featureList {
   display: grid;
-  gap: 0.8rem;
-  margin-top: 1.1rem;
+  gap: 0.72rem;
+  margin-top: 0.95rem;
 }
 
 .featureItem {
   display: flex;
   align-items: flex-start;
-  gap: 0.8rem;
+  gap: 0.78rem;
   min-width: 0;
-  padding: 0.95rem;
+  padding: 0.9rem;
   border-radius: $radius-xs;
-  background: rgba(255, 255, 255, 0.55);
-  border: 1px solid rgba(148, 163, 184, 0.12);
-  transition: transform 0.25s ease, border-color 0.25s ease;
+  background: rgba(255, 255, 255, 0.52);
+  border: 1px solid rgba(148, 163, 184, 0.1);
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease;
 
   :global(.dark) & {
-    background: rgba(255, 255, 255, 0.025);
+    background: rgba(255, 255, 255, 0.022);
     border-color: rgba(255, 255, 255, 0.06);
   }
 
   &:hover {
-    transform: translateX(4px);
-    border-color: rgba(59, 130, 246, 0.2);
+    transform: translateX(3px);
+    border-color: rgba(59, 130, 246, 0.18);
   }
 }
 
 .featureContent {
   min-width: 0;
   display: grid;
-  gap: 0.22rem;
+  gap: 0.2rem;
 
   p {
     margin: 0;
     color: #334155;
-    line-height: 1.7;
-    font-size: 0.95rem;
+    line-height: 1.68;
+    font-size: 0.94rem;
     font-weight: 500;
     overflow-wrap: anywhere;
     word-break: break-word;
@@ -287,7 +370,7 @@
 }
 
 .featureIndex {
-  font-size: 0.76rem;
+  font-size: 0.74rem;
   font-weight: 800;
   letter-spacing: 0.12em;
   color: #94a3b8;
@@ -297,51 +380,59 @@
   }
 }
 
+/* =========================
+   Profile card
+========================= */
 .profileCard {
   overflow: hidden;
-  padding: 1rem;
+  padding: 0.95rem;
   width: 100%;
-  max-width: 420px;
-  margin: 0 auto;
+  max-width: none;
+  margin: 0;
+  justify-self: stretch;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 
   &:hover .profileRingOuter {
     animation-duration: 5s;
   }
 
   &:hover .profileRingInner {
-    animation-duration: 3.2s;
+    animation-duration: 3.1s;
   }
 }
 
 .profileImageWrap {
   position: relative;
   width: 100%;
-  max-width: 258px;
+  max-width: 228px;
   aspect-ratio: 1 / 1;
   margin: 0 auto;
   border-radius: 999px;
   isolation: isolate;
 
   &:hover .profileImageInner {
-    transform: scale(1.035);
+    transform: scale(1.03);
   }
 
   &:hover .profileImageInner img {
-    transform: scale(1.1);
+    transform: scale(1.08);
   }
 
   &:hover .profileRingBlur {
     opacity: 1;
-    transform: scale(1.12);
+    transform: scale(1.11);
     filter: blur(28px);
   }
 
   &:hover .profileRingOuter {
-    transform: scale(1.02);
+    transform: scale(1.015);
   }
 
   &:hover .profileRingInner {
-    transform: scale(1.015);
+    transform: scale(1.01);
   }
 
   &:hover .profileShine {
@@ -372,10 +463,10 @@
       #38bdf8 360deg
     );
   animation: premiumOrbitOne 10s linear infinite;
-  filter: saturate(1.05);
+  filter: saturate(1.04);
   box-shadow:
-    0 14px 30px rgba(59, 130, 246, 0.18),
-    0 18px 38px rgba(168, 85, 247, 0.14);
+    0 14px 28px rgba(59, 130, 246, 0.16),
+    0 18px 34px rgba(168, 85, 247, 0.12);
   transition: transform 0.35s ease;
 
   &::before {
@@ -383,14 +474,12 @@
     position: absolute;
     inset: 7px;
     border-radius: 999px;
-    background:
-      radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0.9));
+    background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0.9));
   }
 
   :global(.dark) & {
     &::before {
-      background:
-        radial-gradient(circle at 50% 50%, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.9));
+      background: radial-gradient(circle at 50% 50%, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.9));
     }
   }
 }
@@ -412,7 +501,6 @@
     );
   animation: premiumOrbitTwo 6s linear infinite reverse;
   opacity: 0.95;
-  mix-blend-mode: normal;
   filter: blur(0.2px);
   transition: transform 0.35s ease;
 
@@ -442,7 +530,7 @@
     radial-gradient(circle at 82% 80%, rgba(245, 158, 11, 0.26), transparent 30%),
     radial-gradient(circle at 50% 50%, rgba(217, 70, 239, 0.12), transparent 45%);
   filter: blur(22px);
-  opacity: 0.82;
+  opacity: 0.8;
   transform: scale(1);
   transition: 0.45s ease;
   pointer-events: none;
@@ -454,7 +542,7 @@
   z-index: 2;
   border-radius: 999px;
   pointer-events: none;
-  opacity: 0.78;
+  opacity: 0.75;
   overflow: hidden;
 
   &::before {
@@ -467,7 +555,7 @@
     background: linear-gradient(
       90deg,
       transparent,
-      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.48),
       transparent
     );
     transform: rotate(18deg);
@@ -493,14 +581,14 @@
   background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.78),
-    0 18px 34px rgba(15, 23, 42, 0.1),
-    0 8px 18px rgba(59, 130, 246, 0.08);
+    0 18px 34px rgba(15, 23, 42, 0.08),
+    0 8px 18px rgba(59, 130, 246, 0.07);
   transition: transform 0.38s ease;
 
   :global(.dark) & {
     background: rgba(255, 255, 255, 0.06);
     box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.06),
+      inset 0 1px 0 rgba(255, 255, 255, 0.04),
       0 18px 34px rgba(0, 0, 0, 0.22);
   }
 
@@ -543,7 +631,7 @@
   z-index: 4;
   box-shadow:
     0 0 0 0 rgba(34, 197, 94, 0.48),
-    0 8px 18px rgba(34, 197, 94, 0.28);
+    0 8px 18px rgba(34, 197, 94, 0.25);
   animation: onlinePulse 2s infinite;
 
   :global(.dark) & {
@@ -552,13 +640,16 @@
 }
 
 .profileContent {
-  padding: 1.2rem 0.2rem 0.15rem;
+  padding: 1rem 0.05rem 0.05rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 .profileName {
   margin: 0;
   color: #0f172a;
-  font-size: 1.26rem;
+  font-size: 1.2rem;
   font-weight: 800;
   text-align: center;
 
@@ -568,9 +659,9 @@
 }
 
 .profileRole {
-  margin: 0.35rem 0 0;
+  margin: 0.28rem 0 0;
   color: #64748b;
-  font-size: 0.95rem;
+  font-size: 0.93rem;
   line-height: 1.6;
   text-align: center;
 
@@ -581,32 +672,34 @@
 
 .profileMeta {
   display: grid;
-  gap: 0.8rem;
-  margin-top: 1rem;
+  gap: 0.7rem;
+  margin-top: 0.95rem;
 }
 
 .metaItem {
   display: grid;
-  gap: 0.22rem;
-  padding: 0.95rem 1rem;
+  gap: 0.26rem;
+  padding: 0.9rem 0.95rem;
   border-radius: $radius-xs;
-  background: rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.54);
   border: 1px solid rgba(148, 163, 184, 0.12);
-  transition: transform 0.25s ease, border-color 0.25s ease;
+  transition:
+    border-color 0.2s ease,
+    transform 0.2s ease;
 
   :global(.dark) & {
-    background: rgba(255, 255, 255, 0.025);
+    background: rgba(255, 255, 255, 0.022);
     border-color: rgba(255, 255, 255, 0.06);
   }
 
   &:hover {
-    transform: translateY(-2px);
-    border-color: rgba(59, 130, 246, 0.2);
+    border-color: rgba(59, 130, 246, 0.16);
+    transform: translateY(-1px);
   }
 }
 
 .metaLabel {
-  font-size: 0.76rem;
+  font-size: 0.74rem;
   font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -622,28 +715,33 @@
   align-items: center;
   gap: 0.38rem;
   color: #1e293b;
-  font-size: 0.95rem;
-  line-height: 1.7;
-  font-weight: 600;
+  font-size: 0.94rem;
+  line-height: 1.68;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 
   :global(.dark) & {
     color: #e2e8f0;
   }
 }
 
+/* =========================
+   Detail card
+========================= */
 .detailGrid {
   display: grid;
   gap: 1rem;
-  margin-top: 1rem;
+  margin-top: 0.95rem;
 }
 
 .detailMainCard {
-  padding: 1.1rem;
+  padding: 1.05rem;
 }
 
 .detailContentGrid {
   display: grid;
-  gap: 1rem;
+  gap: 0.9rem;
   margin-top: 0;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   align-items: stretch;
@@ -653,16 +751,24 @@
   min-width: 0;
   height: 100%;
   border-radius: $radius-xs;
-  padding: 1rem;
+  padding: 0.95rem;
   display: flex;
   align-items: flex-start;
-  gap: 0.82rem;
-  border: 1px solid rgba(148, 163, 184, 0.12);
-  background: rgba(255, 255, 255, 0.55);
+  gap: 0.78rem;
+  border: 1px solid rgba(148, 163, 184, 0.1);
+  background: rgba(255, 255, 255, 0.53);
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease;
 
   :global(.dark) & {
-    background: rgba(255, 255, 255, 0.025);
+    background: rgba(255, 255, 255, 0.022);
     border-color: rgba(255, 255, 255, 0.06);
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+    border-color: rgba(59, 130, 246, 0.18);
   }
 }
 
@@ -673,9 +779,9 @@
 
   h4 {
     color: #0f172a;
-    font-size: 1rem;
+    font-size: 0.98rem;
     font-weight: 800;
-    line-height: 1.4;
+    line-height: 1.38;
     overflow-wrap: anywhere;
     word-break: break-word;
 
@@ -685,10 +791,10 @@
   }
 
   p {
-    margin-top: 0.4rem;
+    margin-top: 0.38rem;
     color: #64748b;
-    font-size: 0.92rem;
-    line-height: 1.8;
+    font-size: 0.9rem;
+    line-height: 1.75;
     overflow-wrap: anywhere;
     word-break: break-word;
 
@@ -699,28 +805,28 @@
 }
 
 .contentBlockTags {
-  margin-top: 0.9rem;
+  margin-top: 0.85rem;
   display: flex;
   flex-wrap: wrap;
-  gap: 0.55rem;
+  gap: 0.5rem;
   min-width: 0;
 
   span {
     max-width: 100%;
-    padding: 0.5rem 0.8rem;
+    padding: 0.48rem 0.76rem;
     border-radius: $radius-xs;
     background: rgba(59, 130, 246, 0.08);
     border: 1px solid rgba(59, 130, 246, 0.1);
     color: #334155;
-    font-size: 0.78rem;
+    font-size: 0.77rem;
     font-weight: 700;
-    line-height: 1.45;
+    line-height: 1.4;
     white-space: normal;
     overflow-wrap: anywhere;
     word-break: break-word;
 
     :global(.dark) & {
-      background: rgba(255, 255, 255, 0.06);
+      background: rgba(255, 255, 255, 0.055);
       border-color: rgba(255, 255, 255, 0.08);
       color: #e2e8f0;
     }
@@ -729,22 +835,25 @@
 
 .wordpressIcon {
   color: #21759b !important;
-  filter: drop-shadow(0 0 6px rgba(33, 117, 155, 0.22));
+  filter: drop-shadow(0 0 6px rgba(33, 117, 155, 0.2));
 }
 
+/* =========================
+   Skills section
+========================= */
 .skillsSection {
-  margin-top: 1rem;
-  padding: 1.1rem;
+  margin-top: 0.95rem;
+  padding: 1.05rem;
 }
 
 .skillsHeader {
   text-align: center;
-  margin-bottom: 0.95rem;
+  margin-bottom: 0.9rem;
 }
 
 .skillsEyebrow {
   display: inline-block;
-  margin-bottom: 0.38rem;
+  margin-bottom: 0.36rem;
   font-size: 0.72rem;
   font-weight: 800;
   letter-spacing: 0.18em;
@@ -758,7 +867,7 @@
 
 .skillsTitle {
   color: #0f172a;
-  font-size: clamp(1.08rem, 2vw, 1.45rem);
+  font-size: clamp(1.06rem, 2vw, 1.4rem);
   font-weight: 800;
   line-height: 1.3;
 
@@ -769,10 +878,10 @@
 
 .skillsDesc {
   max-width: 620px;
-  margin: 0.45rem auto 0;
+  margin: 0.42rem auto 0;
   color: #64748b;
-  font-size: 0.92rem;
-  line-height: 1.7;
+  font-size: 0.9rem;
+  line-height: 1.68;
 
   :global(.dark) & {
     color: #cbd5e1;
@@ -819,7 +928,7 @@
   position: relative;
 
   & + & {
-    margin-top: 0.7rem;
+    margin-top: 0.68rem;
   }
 }
 
@@ -827,7 +936,7 @@
 .scrollRight {
   display: flex;
   align-items: center;
-  gap: 0.7rem;
+  gap: 0.68rem;
   width: max-content;
 }
 
@@ -865,13 +974,13 @@
 .skillChip {
   display: inline-flex;
   align-items: center;
-  gap: 0.52rem;
-  padding: 0.72rem 1rem;
+  gap: 0.5rem;
+  padding: 0.7rem 0.96rem;
   border-radius: $radius-xs;
   background: rgba(255, 255, 255, 0.9);
   border: 1px solid rgba(148, 163, 184, 0.14);
   color: #0f172a;
-  font-size: 0.92rem;
+  font-size: 0.9rem;
   font-weight: 700;
   white-space: nowrap;
   transition: 0.18s ease;
@@ -905,8 +1014,8 @@
 }
 
 .skillDot {
-  width: 0.48rem;
-  height: 0.48rem;
+  width: 0.46rem;
+  height: 0.46rem;
   border-radius: 999px;
   flex-shrink: 0;
   background: linear-gradient(135deg, #38bdf8, #8b5cf6);
@@ -916,6 +1025,9 @@
   }
 }
 
+/* =========================
+   Animations
+========================= */
 @keyframes premiumOrbitOne {
   0% {
     transform: rotate(0deg) scale(1);
@@ -976,7 +1088,7 @@
   70% {
     box-shadow:
       0 0 0 10px rgba(34, 197, 94, 0),
-      0 8px 18px rgba(34, 197, 94, 0.22);
+      0 8px 18px rgba(34, 197, 94, 0.2);
   }
   100% {
     box-shadow:
@@ -985,18 +1097,27 @@
   }
 }
 
+/* =========================
+   Responsive
+========================= */
 @media (min-width: 1024px) {
   .aboutSection {
-    padding: 1.6rem;
+    padding: 1.45rem;
   }
 
   .infoGrid {
-    grid-template-columns: minmax(0, 1.12fr) minmax(360px, 0.88fr);
-    align-items: start;
+    grid-template-columns: minmax(0, 1.5fr) minmax(320px, 0.82fr);
+    gap: 0.72rem;
+    align-items: stretch;
+  }
+
+  .infoCardLarge,
+  .profileCard {
+    height: 100%;
   }
 
   .profileCard {
-    max-width: 420px;
+    min-height: 100%;
   }
 }
 
@@ -1007,6 +1128,21 @@
 
   .iconBox {
     align-self: flex-start;
+  }
+
+  .profileImageWrap {
+    max-width: 220px;
+  }
+}
+
+@media (max-width: 900px) {
+  .infoGrid {
+    grid-template-columns: 1fr;
+    gap: 0.95rem;
+  }
+
+  .profileCard {
+    max-width: 100%;
   }
 }
 
@@ -1023,12 +1159,12 @@
 
 @media (max-width: 640px) {
   .aboutSection {
-    padding: 1rem;
+    padding: 0.95rem;
     border-radius: $radius-xs;
   }
 
   .sectionWatermark {
-    padding-top: 0.8rem;
+    padding-top: 0.75rem;
     font-size: clamp(1.45rem, 9vw, 2.5rem);
     letter-spacing: 0.025em;
     line-height: 0.95;
@@ -1036,12 +1172,26 @@
     white-space: nowrap;
   }
 
-  .profileCard {
+  .centerContent {
     max-width: 100%;
+    padding-top: 0;
+  }
+
+  .title {
+    margin-top: 0.25rem;
+    font-size: clamp(1.55rem, 7vw, 2.15rem);
+    line-height: 1.08;
+  }
+
+  .desc {
+    max-width: 100%;
+    margin-top: 0.62rem;
+    font-size: 0.92rem;
+    line-height: 1.72;
   }
 
   .profileImageWrap {
-    max-width: 220px;
+    max-width: 210px;
   }
 
   .profileRingOuter {
@@ -1057,7 +1207,7 @@
   }
 
   .skillsSection {
-    padding: 1rem 0.85rem;
+    padding: 0.95rem 0.82rem;
   }
 
   .skillsFadeLeft,
@@ -1066,15 +1216,43 @@
   }
 
   .skillChip {
-    padding: 0.65rem 0.9rem;
+    padding: 0.62rem 0.88rem;
     font-size: 0.8rem;
+  }
+
+  .typewriterText::after {
+    height: 0.88em;
   }
 }
 
 @media (max-width: 420px) {
   .sectionWatermark {
-    padding-top: 1.1rem;
-    font-size: clamp(2.2rem, 8vw, 1.9rem);
+    padding-top: 1rem;
+    font-size: clamp(1.9rem, 8vw, 2.15rem);
     letter-spacing: 0.02em;
+  }
+
+  .infoCardLarge,
+  .profileCard,
+  .detailMainCard,
+  .skillsSection {
+    border-radius: $radius-xs;
+  }
+
+  .profileName {
+    font-size: 1.08rem;
+  }
+
+  .profileRole {
+    font-size: 0.88rem;
+  }
+
+  .cardTags {
+    gap: 0.55rem;
+
+    span {
+      width: 100%;
+      justify-content: center;
+    }
   }
 }

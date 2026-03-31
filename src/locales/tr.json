@@ -10,48 +10,126 @@
     "contact": "İletişim"
   },
   "hero": {
-    "badge": "Premium Frontend Portfolio",
-    "title": "Portföy siteme hoş geldiniz",
-    "desc": "Modern teknolojiler ve premium tasarım ile kullanıcıyı etkileyen, hızlı ve yüksek kaliteli web deneyimleri oluşturuyorum",
+    "badge": "Premium Frontend Portföyü",
+    "title": "Portföy web siteme hoş geldiniz",
+    "desc": "Modern teknolojiler ve premium tasarım ile hızlı, kaliteli ve etkileyici web deneyimleri oluşturuyorum.",
     "primary": "Projeleri Gör",
     "secondary": "İletişime Geç",
     "sideBadge": "Frontend Geliştirici",
     "sideTitle1": "Modern UI / UX",
     "sideTitle2": "Ölçeklenebilir Kod",
-    "sideDesc1": "Modern, estetik ve kullanıcı deneyimine odaklı arayüzler oluşturuyorum",
-    "sideDesc2": "Temiz, anlaşılır ve ölçeklenebilir frontend çözümleri geliştiriyorum",
-    "stats1": "Yıl Deneyim",
-    "stats2": "Frontend Proje",
-    "stats3": "Teknoloji",
-    "cardTitle": "Modern UI / UX",
-    "cardText": "Modern tasarım, responsive yapılar ve net bir yapı ile kullanıcı dostu arayüzler oluşturuyorum",
-    "cardTag1": "Premium UI",
-    "cardTag2": "Modern Tasarım",
-    "cardTag3": "Temiz Kod"
+    "sideDesc1": "Modern, estetik ve kullanıcı deneyimine odaklı arayüzler oluşturuyorum.",
+    "sideDesc2": "Temiz, anlaşılır ve ölçeklenebilir frontend çözümleri geliştiriyorum.",
+    "stats1": "Yıllık Deneyim",
+    "stats2": "Frontend Projeleri",
+    "stats3": "Teknolojiler",
+    "skillsEyebrow": "Temel Teknolojiler",
+    "skillsTitle": "Teknoloji Stack'i",
+    "skillsDesc": "Modern ve güvenilir frontend çözümleri oluştururken kullandığım teknolojiler."
   },
   "about": {
     "title": "Frontend geliştirmeye stratejik yaklaşım",
-    "desc": "Sadece arayüz tasarlamıyorum; kullanıcı davranışı, iş hedefleri ve görsel güveni birleştiren evrensel frontend sistemleri geliştiriyorum. Her bölüm hızlı, şık ve responsive çalışır.",
+    "desc": "Sadece arayüz tasarlamıyorum; kullanıcı davranışını, iş hedeflerini ve görsel güveni birleştiren evrensel frontend sistemleri kuruyorum. Her bölüm hızlı, şık ve mobil cihazlara uyumlu çalışır.",
+    "introEyebrow": "Kişisel Tanıtım",
+    "introText": "Modern, temiz ve kullanıcı dostu arayüzler oluşturmaya odaklanıyorum. Frontend geliştirme sürecinde responsive tasarıma, etkileşime ve profesyonel görünüme özel önem veriyorum.",
+    "introTags": ["Frontend", "Responsive", "Clean UI"],
     "cards": [
-      "Component tabanlı mimari",
+      "Component-based mimari",
       "Responsive ve mobile-first UI",
-      "Çok dilli evrensel arayüz",
-      "Premium animasyon ve UX detayları"
+      "Evrensel çok dilli arayüz",
+      "Premium animasyonlar ve UX detayları"
+    ],
+    "profileName": "Akmaljon Yusufov",
+    "profileRole": "Frontend Geliştirici",
+    "profile": {
+      "directionLabel": "Alan",
+      "directionValue": "Frontend Development",
+      "focusLabel": "Ana Odak",
+      "focusValue": "UI / UX, Responsive Tasarım, Etkileşim",
+      "locationLabel": "Konum",
+      "locationValue": "Özbekistan"
+    },
+    "contentBlocks": [
+      {
+        "title": "Modern UI / UX",
+        "text": "Modern, temiz ve kullanıcı dostu arayüzler oluşturuyorum.",
+        "tags": ["Premium UI", "Modern Design", "Clean Code", "WordPress"]
+      },
+      {
+        "title": "Responsive Layout",
+        "text": "Web sitelerini mobil, tablet ve masaüstü cihazlara tam uyumlu şekilde geliştiriyorum.",
+        "tags": [
+          "Responsive UI",
+          "Mobile First",
+          "Tablet Ready",
+          "Desktop Optimized",
+          "Flexible Layout",
+          "Cross-device"
+        ]
+      },
+      {
+        "title": "Multi-language Systems",
+        "text": "Esnek ve ölçeklenebilir yapı ile çok dilli ve çok sayfalı web siteleri oluşturuyorum.",
+        "tags": [
+          "react-i18next",
+          "i18next",
+          "JSON Locales",
+          "Language Switcher",
+          "Multi-page Structure",
+          "Dynamic Translation"
+        ]
+      },
+      {
+        "title": "WordPress Solutions",
+        "text": "WordPress tema ve eklentileri temelinde hızlı, hazır ve özelleştirilebilir siteler oluşturuyorum.",
+        "tags": [
+          "WordPress Templates",
+          "Elementor",
+          "WooCommerce",
+          "Contact Form",
+          "Premium Themes",
+          "Plugins"
+        ]
+      },
+      {
+        "title": "Project Ready",
+        "text": "Portföy, dashboard, business ve corporate projeler için pratik frontend çözümleri geliştiriyorum.",
+        "tags": [
+          "Portfolio Website",
+          "Dashboard UI",
+          "Business Website",
+          "Corporate Website",
+          "Landing Page",
+          "Admin Panel"
+        ]
+      },
+      {
+        "title": "Code Quality",
+        "text": "Temiz, modüler ve ölçeklenebilir kod yapısına dayalı frontend çözümleri geliştiriyorum.",
+        "tags": [
+          "Clean Code",
+          "Reusable Components",
+          "Scalable Structure",
+          "Readable Files",
+          "Maintainable Codebase",
+          "Modular Architecture"
+        ]
+      }
     ]
   },
   "portfolio": {
-    "title": "Öne Çıkan İşler",
-    "desc": "Premium UI, güçlü yapı ve iş odaklı modern frontend örnekleri.",
+    "title": "Seçilmiş Çalışmalar",
+    "desc": "Premium UI, güçlü yapı ve iş sonuçlarına odaklanan modern frontend çalışmalarından örnekler.",
     "items": [
       {
         "title": "Enterprise Dashboard",
         "category": "React + Analytics",
-        "text": "KPI, grafikler, filtreler ve modüler layout içeren yönetim paneli."
+        "text": "KPI, grafikler, filtreler ve modüler düzen içeren yönetim paneli."
       },
       {
         "title": "Corporate Website",
         "category": "Multi-page UX",
-        "text": "Premium kurumsal web sitesi ve iç sayfa ekosistemi."
+        "text": "Şirket için premium landing page ve iç sayfa ekosistemi."
       },
       {
         "title": "LMS Frontend",
@@ -61,13 +139,13 @@
       {
         "title": "Portfolio Experience",
         "category": "Personal Brand",
-        "text": "Kişisel marka için animasyonlu ve güven veren portfolio deneyimi."
+        "text": "Kişisel marka için animasyonlu ve güvenilir portföy sistemi."
       }
     ]
   },
   "services": {
     "title": "Hizmetler",
-    "desc": "Modern evrensel frontend için temel hizmetler.",
+    "desc": "Evrensel frontend geliştirme alanındaki temel hizmetler.",
     "items": [
       {
         "title": "ReactJS Development",
@@ -76,7 +154,7 @@
       },
       {
         "title": "UI/UX Implementation",
-        "text": "Hazır tasarımı premium frontend ürüne dönüştürme.",
+        "text": "Tasarımı premium görünümle eksiksiz şekilde frontend’e aktarma.",
         "icon": "palette"
       },
       {
@@ -86,20 +164,20 @@
       },
       {
         "title": "Frontend Optimization",
-        "text": "Performance, accessibility ve yapı iyileştirme.",
+        "text": "Performans, erişilebilirlik ve temiz yapı iyileştirmesi.",
         "icon": "device"
       }
     ]
   },
   "contact": {
     "title": "Birlikte güçlü bir proje oluşturalım",
-    "desc": "Premium portfolio, kurumsal site veya React tabanlı evrensel frontend ihtiyacınız varsa iletişime geçin.",
+    "desc": "Premium düzeyde portföy, kurumsal web sitesi veya React tabanlı evrensel frontend ihtiyacınız varsa benimle iletişime geçin.",
     "email": "Email",
     "phone": "Telefon",
     "location": "Konum",
     "button": "Mesaj Gönder",
-    "availability": "Yeni projeler için uygunum",
-    "fullName": "Tam ad",
-    "projectDetails": "Proje detayları"
+    "availability": "Şu anda yeni projelere açığım",
+    "fullName": "Tam Ad",
+    "projectDetails": "Proje Detayları"
   }
 }

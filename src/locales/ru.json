@@ -1,5 +1,5 @@
 {
-  "owner": "Akmaljon Юсуфов",
+  "owner": "Akmaljon Yusufov",
   "role": "Senior Frontend Web Programmer",
   "shortRole": "Frontend разработчик",
   "nav": {
@@ -10,38 +10,116 @@
     "contact": "Контакты"
   },
   "hero": {
-    "badge": "Премиум Frontend Portfolio",
-    "title": "Добро пожаловать в моё портфолио",
-    "desc": "Современные технологии и премиальный дизайн позволяют мне создавать быстрые, качественные и привлекательные веб-решения для пользователей",
+    "badge": "Премиальное Frontend Portfolio",
+    "title": "Добро пожаловать на мой сайт-портфолио",
+    "desc": "Создаю быстрые, качественные и визуально сильные веб-интерфейсы с использованием современных технологий и премиального дизайна.",
     "primary": "Смотреть проекты",
     "secondary": "Связаться",
-    "sideBadge": "Frontend Разработчик",
+    "sideBadge": "Frontend разработчик",
     "sideTitle1": "Modern UI / UX",
     "sideTitle2": "Масштабируемый код",
-    "sideDesc1": "Создаю современные, эстетичные и ориентированные на пользовательский опыт интерфейсы",
-    "sideDesc2": "Разрабатываю чистые, понятные и масштабируемые frontend решения",
+    "sideDesc1": "Создаю современные, эстетичные и ориентированные на пользовательский опыт интерфейсы.",
+    "sideDesc2": "Разрабатываю чистые, понятные и масштабируемые frontend-решения.",
     "stats1": "Лет опыта",
-    "stats2": "Frontend проектов",
-    "stats3": "Технологий",
-    "cardTitle": "Modern UI / UX",
-    "cardText": "Создаю современные интерфейсы с продуманным дизайном, адаптивной версткой и чёткой структурой",
-    "cardTag1": "Премиальный UI",
-    "cardTag2": "Современный дизайн",
-    "cardTag3": "Чистый код"
+    "stats2": "Frontend проекты",
+    "stats3": "Технологии",
+    "skillsEyebrow": "Ключевые технологии",
+    "skillsTitle": "Технологический стек",
+    "skillsDesc": "Технологии, которые я использую для создания современных и надежных frontend-решений."
   },
   "about": {
     "title": "Стратегический подход к frontend-разработке",
-    "desc": "Я создаю не просто интерфейсы, а универсальные frontend-системы, где соединяются действия пользователя, бизнес-цели и визуальное доверие. Каждый раздел быстрый, красивый и адаптивный.",
+    "desc": "Я не просто создаю интерфейсы, а разрабатываю универсальные frontend-системы, которые объединяют поведение пользователя, бизнес-цели и визуальное доверие. Каждый блок работает быстро, красиво и адаптивно на мобильных устройствах.",
+    "introEyebrow": "Личное представление",
+    "introText": "Я уделяю внимание созданию современных, чистых и удобных для пользователя интерфейсов. В процессе frontend-разработки особое значение придаю адаптивности, интерактивности и профессиональному визуальному виду.",
+    "introTags": ["Frontend", "Адаптивность", "Чистый UI"],
     "cards": [
       "Компонентная архитектура",
-      "Responsive и mobile-first UI",
-      "Многоязычный универсальный интерфейс",
+      "Адаптивный и mobile-first UI",
+      "Универсальный мультиязычный интерфейс",
       "Премиальные анимации и UX-детали"
+    ],
+    "profileName": "Akmaljon Yusufov",
+    "profileRole": "Frontend разработчик",
+    "profile": {
+      "directionLabel": "Направление",
+      "directionValue": "Frontend Development",
+      "focusLabel": "Основной фокус",
+      "focusValue": "UI / UX, Адаптивность, Интерактивность",
+      "locationLabel": "Локация",
+      "locationValue": "Узбекистан"
+    },
+    "contentBlocks": [
+      {
+        "title": "Modern UI / UX",
+        "text": "Создаю современные, чистые и удобные для пользователя интерфейсы.",
+        "tags": ["Premium UI", "Modern Design", "Clean Code", "WordPress"]
+      },
+      {
+        "title": "Responsive Layout",
+        "text": "Разрабатываю сайты с полной адаптацией под мобильные устройства, планшеты и десктопы.",
+        "tags": [
+          "Responsive UI",
+          "Mobile First",
+          "Tablet Ready",
+          "Desktop Optimized",
+          "Flexible Layout",
+          "Cross-device"
+        ]
+      },
+      {
+        "title": "Multi-language Systems",
+        "text": "Создаю многоязычные и многостраничные сайты с удобной и масштабируемой структурой.",
+        "tags": [
+          "react-i18next",
+          "i18next",
+          "JSON Locales",
+          "Language Switcher",
+          "Multi-page Structure",
+          "Dynamic Translation"
+        ]
+      },
+      {
+        "title": "WordPress Solutions",
+        "text": "Создаю быстрые, готовые и адаптируемые сайты на основе шаблонов и плагинов WordPress.",
+        "tags": [
+          "WordPress Templates",
+          "Elementor",
+          "WooCommerce",
+          "Contact Form",
+          "Premium Themes",
+          "Plugins"
+        ]
+      },
+      {
+        "title": "Project Ready",
+        "text": "Создаю практичные frontend-решения для портфолио, dashboard, business и corporate проектов.",
+        "tags": [
+          "Portfolio Website",
+          "Dashboard UI",
+          "Business Website",
+          "Corporate Website",
+          "Landing Page",
+          "Admin Panel"
+        ]
+      },
+      {
+        "title": "Code Quality",
+        "text": "Разрабатываю frontend-решения на основе чистой, модульной и масштабируемой структуры кода.",
+        "tags": [
+          "Clean Code",
+          "Reusable Components",
+          "Scalable Structure",
+          "Readable Files",
+          "Maintainable Codebase",
+          "Modular Architecture"
+        ]
+      }
     ]
   },
   "portfolio": {
     "title": "Избранные работы",
-    "desc": "Примеры современных frontend-решений с premium UI и продуманной структурой.",
+    "desc": "Примеры современных frontend-работ с премиальным UI, сильной структурой и ориентацией на бизнес-результат.",
     "items": [
       {
         "title": "Enterprise Dashboard",
@@ -51,7 +129,7 @@
       {
         "title": "Corporate Website",
         "category": "Multi-page UX",
-        "text": "Премиальный корпоративный сайт и экосистема внутренних страниц."
+        "text": "Премиальный landing и экосистема внутренних страниц для компании."
       },
       {
         "title": "LMS Frontend",
@@ -61,44 +139,44 @@
       {
         "title": "Portfolio Experience",
         "category": "Personal Brand",
-        "text": "Анимационный и уверенный portfolio-сайт для личного бренда."
+        "text": "Анимационная и надежная система портфолио для личного бренда."
       }
     ]
   },
   "services": {
     "title": "Услуги",
-    "desc": "Ключевые услуги в направлении универсального frontend.",
+    "desc": "Основной набор услуг в направлении универсальной frontend-разработки.",
     "items": [
       {
         "title": "ReactJS Development",
-        "text": "Создание быстрых, чистых и масштабируемых React-интерфейсов.",
+        "text": "Создание быстрых, чистых и масштабируемых интерфейсов на React.",
         "icon": "code"
       },
       {
         "title": "UI/UX Implementation",
-        "text": "Премиальная frontend-реализация готового дизайна.",
+        "text": "Точная реализация дизайна во frontend с премиальным визуальным уровнем.",
         "icon": "palette"
       },
       {
         "title": "Responsive Web Design",
-        "text": "Идеальная адаптация под desktop, tablet и mobile.",
+        "text": "Идеальная адаптация для desktop, tablet и mobile.",
         "icon": "mobile"
       },
       {
         "title": "Frontend Optimization",
-        "text": "Улучшение performance, accessibility и архитектуры.",
+        "text": "Улучшение производительности, accessibility и чистоты структуры.",
         "icon": "device"
       }
     ]
   },
   "contact": {
     "title": "Давайте создадим сильный проект вместе",
-    "desc": "Если вам нужен премиальный portfolio, корпоративный сайт или универсальный frontend на React — свяжитесь со мной.",
+    "desc": "Если вам нужен premium portfolio, корпоративный сайт или универсальный frontend на React — свяжитесь со мной.",
     "email": "Email",
     "phone": "Телефон",
-    "location": "Локация",
+    "location": "Адрес",
     "button": "Отправить сообщение",
-    "availability": "Открыт для новых проектов",
+    "availability": "Сейчас открыт для новых проектов",
     "fullName": "Полное имя",
     "projectDetails": "Детали проекта"
   }

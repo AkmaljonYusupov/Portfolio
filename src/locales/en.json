@@ -12,94 +12,172 @@
   "hero": {
     "badge": "Premium Frontend Portfolio",
     "title": "Welcome to my portfolio website",
-    "desc": "I create fast, high-quality, and engaging web experiences using modern technologies and premium design",
+    "desc": "I create fast, high-quality, and visually engaging web experiences through modern technologies and premium design.",
     "primary": "View Projects",
     "secondary": "Contact Me",
     "sideBadge": "Frontend Developer",
     "sideTitle1": "Modern UI / UX",
     "sideTitle2": "Scalable Code",
-    "sideDesc1": "I create modern, visually appealing, and user-focused interfaces",
-    "sideDesc2": "I build clean, maintainable, and scalable frontend solutions",
-    "stats1": "Years Experience",
+    "sideDesc1": "I create modern, aesthetic, and user-centered interfaces.",
+    "sideDesc2": "I build clean, understandable, and scalable frontend solutions.",
+    "stats1": "Years of Experience",
     "stats2": "Frontend Projects",
     "stats3": "Technologies",
-    "cardTitle": "Modern UI / UX",
-    "cardText": "I create modern interfaces with clean design, responsive layouts, and clear structure",
-    "cardTag1": "Premium UI",
-    "cardTag2": "Modern Design",
-    "cardTag3": "Clean Code"
+    "skillsEyebrow": "Core Technologies",
+    "skillsTitle": "Tech Stack",
+    "skillsDesc": "Technologies I use to build modern and reliable frontend solutions."
   },
   "about": {
     "title": "A strategic approach to frontend development",
-    "desc": "I do not just design interfaces — I build universal frontend systems that combine user behavior, business goals, and visual trust. Every section is fast, elegant, and responsive.",
+    "desc": "I do not just design interfaces. I build universal frontend systems that combine user behavior, business goals, and visual trust. Every section is fast, polished, and optimized for mobile devices.",
+    "introEyebrow": "Personal Introduction",
+    "introText": "I focus on creating modern, clean, and user-friendly interfaces. In frontend development, I give special importance to responsive design, interactivity, and a professional visual appearance.",
+    "introTags": ["Frontend", "Responsive", "Clean UI"],
     "cards": [
       "Component-based architecture",
       "Responsive and mobile-first UI",
-      "Multilingual universal interface",
-      "Premium animation and UX details"
+      "Universal multi-language interface",
+      "Premium animations and UX details"
+    ],
+    "profileName": "Akmaljon Yusufov",
+    "profileRole": "Frontend Developer",
+    "profile": {
+      "directionLabel": "Direction",
+      "directionValue": "Frontend Development",
+      "focusLabel": "Main Focus",
+      "focusValue": "UI / UX, Responsiveness, Interactivity",
+      "locationLabel": "Location",
+      "locationValue": "Uzbekistan"
+    },
+    "contentBlocks": [
+      {
+        "title": "Modern UI / UX",
+        "text": "I create modern, clean, and user-friendly interfaces.",
+        "tags": ["Premium UI", "Modern Design", "Clean Code", "WordPress"]
+      },
+      {
+        "title": "Responsive Layout",
+        "text": "I build websites that adapt perfectly to mobile, tablet, and desktop devices.",
+        "tags": [
+          "Responsive UI",
+          "Mobile First",
+          "Tablet Ready",
+          "Desktop Optimized",
+          "Flexible Layout",
+          "Cross-device"
+        ]
+      },
+      {
+        "title": "Multi-language Systems",
+        "text": "I create multi-language and multi-page websites with a flexible and scalable structure.",
+        "tags": [
+          "react-i18next",
+          "i18next",
+          "JSON Locales",
+          "Language Switcher",
+          "Multi-page Structure",
+          "Dynamic Translation"
+        ]
+      },
+      {
+        "title": "WordPress Solutions",
+        "text": "I build fast, ready-to-use, and customizable websites based on WordPress templates and plugins.",
+        "tags": [
+          "WordPress Templates",
+          "Elementor",
+          "WooCommerce",
+          "Contact Form",
+          "Premium Themes",
+          "Plugins"
+        ]
+      },
+      {
+        "title": "Project Ready",
+        "text": "I create practical frontend solutions for portfolio, dashboard, business, and corporate projects.",
+        "tags": [
+          "Portfolio Website",
+          "Dashboard UI",
+          "Business Website",
+          "Corporate Website",
+          "Landing Page",
+          "Admin Panel"
+        ]
+      },
+      {
+        "title": "Code Quality",
+        "text": "I build frontend solutions based on clean, modular, and scalable code architecture.",
+        "tags": [
+          "Clean Code",
+          "Reusable Components",
+          "Scalable Structure",
+          "Readable Files",
+          "Maintainable Codebase",
+          "Modular Architecture"
+        ]
+      }
     ]
   },
   "portfolio": {
-    "title": "Featured Work",
-    "desc": "A selection of modern frontend work focused on premium UI, strong structure, and real business value.",
+    "title": "Selected Works",
+    "desc": "Examples of modern frontend work focused on premium UI, strong structure, and business results.",
     "items": [
       {
         "title": "Enterprise Dashboard",
         "category": "React + Analytics",
-        "text": "A management dashboard with KPI blocks, charts, filters, and modular layout."
+        "text": "A management dashboard with KPI, charts, filters, and a modular layout."
       },
       {
         "title": "Corporate Website",
         "category": "Multi-page UX",
-        "text": "A premium corporate website and internal page ecosystem."
+        "text": "A premium landing page and inner-page ecosystem for a company."
       },
       {
         "title": "LMS Frontend",
         "category": "Education Platform",
-        "text": "A modern UI for courses, tests, profiles, and admin flow."
+        "text": "A modern interface for courses, tests, profiles, and admin flow."
       },
       {
         "title": "Portfolio Experience",
         "category": "Personal Brand",
-        "text": "An animated and high-trust portfolio experience for a personal brand."
+        "text": "An animated and reliable portfolio system for personal branding."
       }
     ]
   },
   "services": {
     "title": "Services",
-    "desc": "Core services for modern universal frontend development.",
+    "desc": "A core set of services focused on universal frontend development.",
     "items": [
       {
         "title": "ReactJS Development",
-        "text": "Fast, clean, and scalable React interface development.",
+        "text": "Building fast, clean, and scalable React interfaces.",
         "icon": "code"
       },
       {
         "title": "UI/UX Implementation",
-        "text": "Turning polished designs into premium frontend products.",
+        "text": "Turning design into a polished premium frontend experience.",
         "icon": "palette"
       },
       {
         "title": "Responsive Web Design",
-        "text": "Perfect adaptation for desktop, tablet, and mobile.",
+        "text": "Perfect adaptability for desktop, tablet, and mobile.",
         "icon": "mobile"
       },
       {
         "title": "Frontend Optimization",
-        "text": "Improving performance, accessibility, and code structure.",
+        "text": "Improving performance, accessibility, and clean structure.",
         "icon": "device"
       }
     ]
   },
   "contact": {
-    "title": "Let’s build a powerful project together",
-    "desc": "Need a premium portfolio, corporate website, or a universal React frontend? Let’s connect.",
+    "title": "Let’s build a strong project together",
+    "desc": "If you need a premium portfolio, a corporate website, or a universal React-based frontend, feel free to contact me.",
     "email": "Email",
     "phone": "Phone",
     "location": "Location",
     "button": "Send Message",
-    "availability": "Currently available for new projects",
-    "fullName": "Full name",
-    "projectDetails": "Project details"
+    "availability": "Currently open for new projects",
+    "fullName": "Full Name",
+    "projectDetails": "Project Details"
   }
 }

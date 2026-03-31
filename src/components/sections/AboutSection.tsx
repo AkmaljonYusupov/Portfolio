@@ -3,6 +3,8 @@ import {
   Briefcase,
   CheckCircle2,
   Code2,
+  Github,
+  Instagram,
   Languages,
   LayoutTemplate,
   MapPin,
@@ -10,7 +12,7 @@ import {
   User,
 } from "lucide-react"
 import { useEffect, useMemo, useState } from "react"
-import { FaWordpress } from "react-icons/fa"
+import { FaTelegramPlane, FaWordpress } from "react-icons/fa"
 import AkmaljonImage from "../../assets/Akmaljon.jpg"
 import { portfolioData } from "../../data/portfolio"
 import styles from "./AboutSection.module.scss"
@@ -137,6 +139,27 @@ export default function AboutSection({ t }: { t: any }) {
     },
   ]
 
+  const socialLinks = [
+    {
+      name: "Telegram",
+      href: "https://t.me/AkmaljonYusupov",
+      icon: <FaTelegramPlane size={16} />,
+      className: styles.telegram,
+    },
+    {
+      name: "Instagram",
+      href: "https://instagram.com/Coder.ac",
+      icon: <Instagram size={16} />,
+      className: styles.instagram,
+    },
+    {
+      name: "GitHub",
+      href: "https://github.com/AkmaljonYusupov",
+      icon: <Github size={16} />,
+      className: styles.github,
+    },
+  ]
+
   return (
     <section className={styles.aboutSection}>
       <div className={styles.bgGlowOne} />
@@ -250,6 +273,30 @@ export default function AboutSection({ t }: { t: any }) {
               {t?.about?.profileRole ?? "Frontend Developer"}
             </p>
 
+            <div className={styles.profileSocials}>
+              {socialLinks.map((item, index) => (
+                <motion.a
+                  key={item.name}
+                  href={item.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className={`${styles.socialBtn} ${item.className}`}
+                  initial={{ opacity: 0, y: 12, scale: 0.96 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  viewport={{ once: true, amount: 0.35 }}
+                  transition={{ duration: 0.35, delay: 0.18 + index * 0.08 }}
+                  whileHover={{ y: -2 }}
+                  whileTap={{ scale: 0.98 }}
+                  aria-label={item.name}
+                  title={item.name}
+                >
+                  <span className={styles.socialBtnGlow} />
+                  <span className={styles.socialBtnIcon}>{item.icon}</span>
+                  <span className={styles.socialBtnText}>{item.name}</span>
+                </motion.a>
+              ))}
+            </div>
+
             <div className={styles.profileMeta}>
               {profileMetaItems.map((item, index) => (
                 <motion.div
@@ -260,7 +307,7 @@ export default function AboutSection({ t }: { t: any }) {
                   viewport={{ once: true, amount: 0.35 }}
                   transition={{
                     duration: 0.38,
-                    delay: 0.16 + index * 0.08,
+                    delay: 0.24 + index * 0.08,
                   }}
                 >
                   <span className={styles.metaLabel}>{item.label}</span>

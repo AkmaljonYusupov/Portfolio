@@ -430,17 +430,23 @@
   }
 }
 
+/* =========================
+   Chap tarafdagi feature boxlar — 2 ustun
+========================= */
 .featureList {
   display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.72rem;
   margin-top: 0.95rem;
+  align-items: stretch;
 }
 
 .featureItem {
+  min-width: 0;
+  min-height: 100%;
   display: flex;
   align-items: flex-start;
   gap: 0.78rem;
-  min-width: 0;
   padding: 0.9rem;
   border-radius: $radius-xs;
   border: 1px solid rgba(148, 163, 184, 0.08);
@@ -585,12 +591,20 @@
     position: absolute;
     inset: 7px;
     border-radius: 999px;
-    background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0.9));
+    background: radial-gradient(
+      circle at 50% 50%,
+      rgba(255, 255, 255, 0.96),
+      rgba(255, 255, 255, 0.9)
+    );
   }
 
   :global(.dark) & {
     &::before {
-      background: radial-gradient(circle at 50% 50%, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.9));
+      background: radial-gradient(
+        circle at 50% 50%,
+        rgba(15, 23, 42, 0.96),
+        rgba(15, 23, 42, 0.9)
+      );
     }
   }
 }
@@ -778,6 +792,118 @@
 
   :global(.dark) & {
     color: #cbd5e1;
+  }
+}
+
+/* =========================
+   Profil tagidagi social linklar
+========================= */
+.profileSocials {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.62rem;
+  margin-top: 0.9rem;
+}
+
+.socialBtn {
+  position: relative;
+  overflow: hidden;
+  min-width: 0;
+  padding: 0.68rem 0.9rem;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  text-decoration: none;
+  border: 1px solid rgba(148, 163, 184, 0.12);
+  background: rgba(255, 255, 255, 0.64);
+  color: #0f172a;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow:
+    0 8px 20px rgba(15, 23, 42, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    border-color: rgba(59, 130, 246, 0.22);
+    box-shadow:
+      0 12px 24px rgba(37, 99, 235, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.56);
+  }
+
+  :global(.dark) & {
+    background: rgba(255, 255, 255, 0.045);
+    color: #e2e8f0;
+    border-color: rgba(255, 255, 255, 0.08);
+    box-shadow: none;
+
+    &:hover {
+      border-color: rgba(255, 255, 255, 0.14);
+      background: rgba(255, 255, 255, 0.06);
+    }
+  }
+}
+
+.socialBtnGlow {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.22),
+    transparent 55%
+  );
+}
+
+.socialBtnIcon,
+.socialBtnText {
+  position: relative;
+  z-index: 2;
+}
+
+.socialBtnIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.socialBtnText {
+  font-size: 0.82rem;
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.telegram {
+  color: #229ed9;
+
+  :global(.dark) & {
+    color: #5cc8ff;
+  }
+}
+
+.instagram {
+  color: #e1306c;
+
+  :global(.dark) & {
+    color: #ff78a7;
+  }
+}
+
+.github {
+  color: #111827;
+
+  :global(.dark) & {
+    color: #f8fafc;
   }
 }
 
@@ -1304,6 +1430,10 @@
 }
 
 @media (max-width: 767px) {
+  .featureList {
+    grid-template-columns: 1fr;
+  }
+
   .detailContentGrid {
     grid-template-columns: 1fr;
   }
@@ -1366,6 +1496,18 @@
     inset: 10px;
   }
 
+  .profileSocials {
+    gap: 0.55rem;
+  }
+
+  .socialBtn {
+    padding: 0.64rem 0.82rem;
+  }
+
+  .socialBtnText {
+    font-size: 0.78rem;
+  }
+
   .skillsSection {
     padding: 0.95rem 0.82rem;
   }
@@ -1408,6 +1550,15 @@
 
   .profileRole {
     font-size: 0.88rem;
+  }
+
+  .profileSocials {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .socialBtn {
+    width: 100%;
   }
 
   .cardTags {

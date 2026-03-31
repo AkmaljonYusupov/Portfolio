@@ -31,12 +31,18 @@
     "desc": "Sadece arayüz tasarlamıyorum; kullanıcı davranışını, iş hedeflerini ve görsel güveni birleştiren evrensel frontend sistemleri kuruyorum. Her bölüm hızlı, şık ve mobil cihazlara uyumlu çalışır.",
     "introEyebrow": "Kişisel Tanıtım",
     "introText": "Modern, temiz ve kullanıcı dostu arayüzler oluşturmaya odaklanıyorum. Frontend geliştirme sürecinde responsive tasarıma, etkileşime ve profesyonel görünüme özel önem veriyorum.",
-    "introTags": ["Frontend", "Responsive", "Clean UI"],
+    "introTags": [
+      "Frontend",
+      "Responsive",
+      "Clean UI"
+    ],
     "cards": [
-      "Component-based mimari",
-      "Responsive ve mobile-first UI",
-      "Evrensel çok dilli arayüz",
-      "Premium animasyonlar ve UX detayları"
+      "Modern ve kullanıcı dostu arayüzler geliştiririm.",
+      "Tüm cihazlara uyumlu responsive siteler yaparım.",
+      "Çok dilli ve çok sayfalı web siteleri geliştiririm.",
+      "WordPress tabanlı hızlı ve esnek siteler oluştururum.",
+      "Portföy ve iş projeleri için frontend çözümler üretirim.",
+      "Temiz ve ölçeklenebilir kod yazarım."
     ],
     "profileName": "Akmaljon Yusufov",
     "profileRole": "Frontend Geliştirici",
@@ -53,7 +59,12 @@
         "key": "uiux",
         "title": "Modern UI / UX",
         "text": "Modern, temiz ve kullanıcı dostu arayüzler oluşturuyorum.",
-        "tags": ["Premium UI", "Modern Design", "Clean Code", "WordPress"]
+        "tags": [
+          "Premium UI",
+          "Modern Design",
+          "Clean Code",
+          "WordPress"
+        ]
       },
       {
         "key": "responsive",

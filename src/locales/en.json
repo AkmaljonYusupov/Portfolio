@@ -31,12 +31,18 @@
     "desc": "I do not just design interfaces. I build universal frontend systems that combine user behavior, business goals, and visual trust. Every section is fast, polished, and optimized for mobile devices.",
     "introEyebrow": "Personal Introduction",
     "introText": "I focus on creating modern, clean, and user-friendly interfaces. In frontend development, I give special importance to responsive design, interactivity, and a professional visual appearance.",
-    "introTags": ["Frontend", "Responsive", "Clean UI"],
+    "introTags": [
+      "Frontend",
+      "Responsive",
+      "Clean UI"
+    ],
     "cards": [
-      "Component-based architecture",
-      "Responsive and mobile-first UI",
-      "Universal multi-language interface",
-      "Premium animations and UX details"
+      "I create modern and user-friendly interfaces.",
+      "I build fully responsive websites for all devices.",
+      "I develop multi-language and multi-page websites.",
+      "I create fast and flexible WordPress-based websites.",
+      "I build frontend solutions for portfolio and business projects.",
+      "I write clean and scalable code."
     ],
     "profileName": "Akmaljon Yusufov",
     "profileRole": "Frontend Developer",
@@ -53,7 +59,12 @@
         "key": "uiux",
         "title": "Modern UI / UX",
         "text": "I create modern, clean, and user-friendly interfaces.",
-        "tags": ["Premium UI", "Modern Design", "Clean Code", "WordPress"]
+        "tags": [
+          "Premium UI",
+          "Modern Design",
+          "Clean Code",
+          "WordPress"
+        ]
       },
       {
         "key": "responsive",

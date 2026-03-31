@@ -134,28 +134,318 @@
     ]
   },
   "portfolio": {
-    "title": "Seçilmiş Çalışmalar",
-    "desc": "Premium UI, güçlü yapı ve iş sonuçlarına odaklanan modern frontend çalışmalarından örnekler.",
+    "title": "Seçilmiş Projeler",
+    "desc": "Farklı alanlardaki gerçek frontend ve WordPress projelerim. Her proje modern arayüz, responsive yapı ve pratik işlevsellik üzerine kuruludur.",
+    "stats": {
+      "totalProjects": "Projeler",
+      "uiLevel": "UI seviyesi",
+      "responsive": "Responsive"
+    },
+    "tags": [
+      "Premium UI",
+      "Responsive Layout",
+      "Modern UX",
+      "Scalable Frontend"
+    ],
+    "card": {
+      "liveDemo": "Projeyi Gör",
+      "premiumProject": "Premium Proje",
+      "productionUI": "Production UI",
+      "responsive": "Responsive",
+      "modernUX": "Modern UX",
+      "technologies": "Teknolojiler",
+      "features": "Özellikler",
+      "year": "Yıl",
+      "status": "Durum"
+    },
     "items": [
       {
-        "title": "Enterprise Dashboard",
-        "category": "React + Analytics",
-        "text": "KPI, grafikler, filtreler ve modüler düzen içeren yönetim paneli."
+        "id": "novacolor",
+        "title": "Novacolor Uzbekistan",
+        "category": "Kurumsal Web Sitesi",
+        "text": "Marka, ürün ve hizmet sunumuna odaklanan modern kurumsal frontend çözümü.",
+        "link": "https://novacolor.uz/",
+        "status": "Live",
+        "year": "2025",
+        "technologies": [
+          "Next.js"
+        ],
+        "features": [
+          "Corporate UI",
+          "Modern Layout",
+          "Responsive Design"
+        ]
       },
       {
-        "title": "Corporate Website",
-        "category": "Multi-page UX",
-        "text": "Şirket için premium landing page ve iç sayfa ekosistemi."
+        "id": "coder-blog",
+        "title": "Coder Blog",
+        "category": "Blog Platformu",
+        "text": "İçerikleri temiz ve okunabilir şekilde sunan minimal blog arayüzü.",
+        "link": "https://coder-blog.vercel.app/",
+        "status": "Live",
+        "year": "2025",
+        "technologies": [
+          "Next.js"
+        ],
+        "features": [
+          "Clean Blog UI",
+          "Fast Pages",
+          "Responsive Layout"
+        ]
       },
       {
-        "title": "LMS Frontend",
-        "category": "Education Platform",
-        "text": "Kurslar, testler, profiller ve admin akışı için modern arayüz."
+        "id": "paint-demo",
+        "title": "Paint Demo",
+        "category": "Canvas Uygulaması",
+        "text": "Canvas ile oluşturulmuş, tarayıcı içinde çalışan interaktif çizim projesi.",
+        "link": "https://paint-demo.vercel.app/",
+        "status": "Live",
+        "year": "2025",
+        "technologies": [
+          "HTML5",
+          "CSS3",
+          "JavaScript",
+          "Canvas"
+        ],
+        "features": [
+          "Drawing Tools",
+          "Interactive Canvas",
+          "Browser Based"
+        ]
       },
       {
-        "title": "Portfolio Experience",
-        "category": "Personal Brand",
-        "text": "Kişisel marka için animasyonlu ve güvenilir portföy sistemi."
+        "id": "greenshop",
+        "title": "GreenShop",
+        "category": "React Web Sitesi",
+        "text": "Ürün sunumu ve kullanıcı deneyimine odaklanan modern React projesi.",
+        "link": "https://greenshopuzb.netlify.app",
+        "status": "Live",
+        "year": "2025",
+        "technologies": [
+          "ReactJS"
+        ],
+        "features": [
+          "Product UI",
+          "Responsive Layout",
+          "Modern Components"
+        ]
+      },
+      {
+        "id": "send-to-admin",
+        "title": "Send To Admin",
+        "category": "Etkileşimli Form Projesi",
+        "text": "Bilgi gönderme sürecini sadeleştiren, temiz form akışına sahip frontend projesi.",
+        "link": "https://send-to-admin.vercel.app/",
+        "status": "Live",
+        "year": "2025",
+        "technologies": [
+          "HTML5",
+          "CSS3",
+          "JavaScript"
+        ],
+        "features": [
+          "Form UI",
+          "Interactive Logic",
+          "Clean Structure"
+        ]
+      },
+      {
+        "id": "besnik-pro",
+        "title": "Besnik Pro",
+        "category": "Landing Page",
+        "text": "Güzel section yapıları ve tekrar kullanılabilir frontend bileşenleriyle hazırlanmış premium landing page projesi.",
+        "link": "https://besnik-pro.vercel.app/",
+        "status": "Live",
+        "year": "2025",
+        "technologies": [
+          "HTML5",
+          "CSS3",
+          "SCSS",
+          "Components",
+          "JavaScript"
+        ],
+        "features": [
+          "Landing Structure",
+          "Reusable Components",
+          "Modern Visuals"
+        ]
+      },
+      {
+        "id": "crud-uz",
+        "title": "CRUD UZ",
+        "category": "CRUD Arayüzü",
+        "text": "Veri ekleme, düzenleme ve silme işlemleri için pratik arayüze sahip proje.",
+        "link": "https://crud-uz.vercel.app/",
+        "status": "Live",
+        "year": "2025",
+        "technologies": [
+          "HTML5",
+          "CSS3",
+          "Bootstrap 5",
+          "JavaScript"
+        ],
+        "features": [
+          "CRUD Actions",
+          "Table UI",
+          "Bootstrap Layout"
+        ]
+      },
+      {
+        "id": "quiztest-uz",
+        "title": "Quiz Test UZ",
+        "category": "Quiz Platformu",
+        "text": "Form doğrulama ve telefon input maskesi ile güçlendirilmiş quiz frontend projesi.",
+        "link": "https://quiztest-uz.vercel.app/",
+        "status": "Live",
+        "year": "2025",
+        "technologies": [
+          "HTML5",
+          "CSS3",
+          "Bootstrap 5",
+          "JavaScript",
+          "IMask"
+        ],
+        "features": [
+          "Quiz Flow",
+          "Phone Mask",
+          "Form Validation"
+        ]
+      },
+      {
+        "id": "snakegame-uz",
+        "title": "Snake Game UZ",
+        "category": "Oyun Projesi",
+        "text": "Çoklu dil desteği, oyun modları, bonuslar ve istatistiklerle geliştirilmiş interaktif yılan oyunu.",
+        "link": "https://snakegame-uz.vercel.app/",
+        "status": "Live",
+        "year": "2025",
+        "technologies": [
+          "HTML5",
+          "CSS3",
+          "Tailwind CSS",
+          "Bootstrap",
+          "JavaScript",
+          "Canvas API",
+          "Font Awesome",
+          "Google Fonts"
+        ],
+        "features": [
+          "Multi-language",
+          "Difficulty Levels",
+          "Game Modes",
+          "Canvas Graphics",
+          "Responsive Design"
+        ]
+      },
+      {
+        "id": "strategik2048",
+        "title": "Strategik 2048",
+        "category": "Puzzle Game",
+        "text": "Responsive arayüz ve hafif animasyonlarla hazırlanmış modern 2048 frontend yorumu.",
+        "link": "https://strategik2048.vercel.app/",
+        "status": "Live",
+        "year": "2025",
+        "technologies": [
+          "HTML5",
+          "CSS3",
+          "Bootstrap CSS",
+          "Tailwind CSS",
+          "JavaScript"
+        ],
+        "features": [
+          "Puzzle Logic",
+          "Responsive Interface",
+          "Modern UI"
+        ]
+      },
+      {
+        "id": "koreys",
+        "title": "Koreys",
+        "category": "Eğitim Web Sitesi",
+        "text": "İçerik netliği ve farklı ekranlarda iyi deneyim sunmaya odaklanan responsive eğitim projesi.",
+        "link": "https://koreys.vercel.app/",
+        "status": "Live",
+        "year": "2025",
+        "technologies": [
+          "HTML5",
+          "CSS3",
+          "Bootstrap CSS",
+          "Tailwind CSS",
+          "JavaScript",
+          "Responsive"
+        ],
+        "features": [
+          "Education UI",
+          "Responsive Layout",
+          "Clean Content Blocks"
+        ]
+      },
+      {
+        "id": "remstroy",
+        "title": "Remstroy",
+        "category": "İşletme Web Sitesi",
+        "text": "Router, TypeScript ve i18n ile kurulmuş ölçeklenebilir frontend mimarisine sahip çok sayfalı ve çok dilli iş projesi.",
+        "link": "https://remstroy-eta.vercel.app/",
+        "status": "Live",
+        "year": "2025",
+        "technologies": [
+          "React",
+          "React Router DOM",
+          "JavaScript (ES6+)",
+          "TypeScript",
+          "SCSS (Sass)",
+          "Vite / CRA",
+          "react-i18next",
+          "i18next"
+        ],
+        "features": [
+          "Multi-page",
+          "Multi-language",
+          "Scalable Structure",
+          "Business UI"
+        ]
+      },
+      {
+        "id": "neftgasprom",
+        "title": "NeftGasProm",
+        "category": "Kurumsal Çok Dilli Web Sitesi",
+        "text": "Genişletilebilir sayfa yapısı ve modern UI ile hazırlanmış premium çok dilli kurumsal frontend projesi.",
+        "link": "https://neftgasprom.vercel.app/",
+        "status": "Live",
+        "year": "2025",
+        "technologies": [
+          "React",
+          "React Router DOM",
+          "JavaScript (ES6+)",
+          "TypeScript",
+          "SCSS (Sass)",
+          "Vite / CRA",
+          "react-i18next",
+          "i18next"
+        ],
+        "features": [
+          "Corporate Pages",
+          "Multi-language",
+          "Premium UI",
+          "Scalable Frontend"
+        ]
+      },
+      {
+        "id": "marocandy",
+        "title": "Marocandy",
+        "category": "WordPress Web Sitesi",
+        "text": "Marka sunumu ve kolay içerik yönetimi için oluşturulmuş esnek WordPress projesi.",
+        "link": "https://marocandy.uz/",
+        "status": "Live",
+        "year": "2025",
+        "technologies": [
+          "WordPress"
+        ],
+        "features": [
+          "CMS Based",
+          "Content Management",
+          "Business Ready"
+        ]
       }
     ]
   },

@@ -134,28 +134,318 @@
     ]
   },
   "portfolio": {
-    "title": "Selected Works",
-    "desc": "Examples of modern frontend work focused on premium UI, strong structure, and business results.",
+    "title": "Selected Projects",
+    "desc": "A collection of my real frontend and WordPress projects across different directions. Each project focuses on modern UI, responsive structure, and practical functionality.",
+    "stats": {
+      "totalProjects": "Projects",
+      "uiLevel": "UI Level",
+      "responsive": "Responsive"
+    },
+    "tags": [
+      "Premium UI",
+      "Responsive Layout",
+      "Modern UX",
+      "Scalable Frontend"
+    ],
+    "card": {
+      "liveDemo": "View Project",
+      "premiumProject": "Premium Project",
+      "productionUI": "Production UI",
+      "responsive": "Responsive",
+      "modernUX": "Modern UX",
+      "technologies": "Technologies",
+      "features": "Features",
+      "year": "Year",
+      "status": "Status"
+    },
     "items": [
       {
-        "title": "Enterprise Dashboard",
-        "category": "React + Analytics",
-        "text": "A management dashboard with KPI, charts, filters, and a modular layout."
+        "id": "novacolor",
+        "title": "Novacolor Uzbekistan",
+        "category": "Corporate Website",
+        "text": "A modern corporate-style frontend solution focused on premium presentation of brand, products, and services.",
+        "link": "https://novacolor.uz/",
+        "status": "Live",
+        "year": "2025",
+        "technologies": [
+          "Next.js"
+        ],
+        "features": [
+          "Corporate UI",
+          "Modern Layout",
+          "Responsive Design"
+        ]
       },
       {
-        "title": "Corporate Website",
-        "category": "Multi-page UX",
-        "text": "A premium landing page and inner-page ecosystem for a company."
+        "id": "coder-blog",
+        "title": "Coder Blog",
+        "category": "Blog Platform",
+        "text": "A clean blog interface for presenting articles and content with a minimal layout and comfortable reading experience.",
+        "link": "https://coder-blog.vercel.app/",
+        "status": "Live",
+        "year": "2025",
+        "technologies": [
+          "Next.js"
+        ],
+        "features": [
+          "Clean Blog UI",
+          "Fast Pages",
+          "Responsive Layout"
+        ]
       },
       {
-        "title": "LMS Frontend",
-        "category": "Education Platform",
-        "text": "A modern interface for courses, tests, profiles, and admin flow."
+        "id": "paint-demo",
+        "title": "Paint Demo",
+        "category": "Canvas App",
+        "text": "An interactive browser-based drawing project built with Canvas, offering a simple and engaging paint experience.",
+        "link": "https://paint-demo.vercel.app/",
+        "status": "Live",
+        "year": "2025",
+        "technologies": [
+          "HTML5",
+          "CSS3",
+          "JavaScript",
+          "Canvas"
+        ],
+        "features": [
+          "Drawing Tools",
+          "Interactive Canvas",
+          "Browser Based"
+        ]
       },
       {
-        "title": "Portfolio Experience",
-        "category": "Personal Brand",
-        "text": "An animated and reliable portfolio system for personal branding."
+        "id": "greenshop",
+        "title": "GreenShop",
+        "category": "React Website",
+        "text": "A modern React-based web project focused on product presentation and improved user experience.",
+        "link": "https://greenshopuzb.netlify.app",
+        "status": "Live",
+        "year": "2025",
+        "technologies": [
+          "ReactJS"
+        ],
+        "features": [
+          "Product UI",
+          "Responsive Layout",
+          "Modern Components"
+        ]
+      },
+      {
+        "id": "send-to-admin",
+        "title": "Send To Admin",
+        "category": "Interactive Form Project",
+        "text": "A frontend project that simplifies sending information with a clean form flow and user interaction.",
+        "link": "https://send-to-admin.vercel.app/",
+        "status": "Live",
+        "year": "2025",
+        "technologies": [
+          "HTML5",
+          "CSS3",
+          "JavaScript"
+        ],
+        "features": [
+          "Form UI",
+          "Interactive Logic",
+          "Clean Structure"
+        ]
+      },
+      {
+        "id": "besnik-pro",
+        "title": "Besnik Pro",
+        "category": "Landing Page",
+        "text": "A premium landing page project built with beautiful sections, reusable frontend components, and a modern visual structure.",
+        "link": "https://besnik-pro.vercel.app/",
+        "status": "Live",
+        "year": "2025",
+        "technologies": [
+          "HTML5",
+          "CSS3",
+          "SCSS",
+          "Components",
+          "JavaScript"
+        ],
+        "features": [
+          "Landing Structure",
+          "Reusable Components",
+          "Modern Visuals"
+        ]
+      },
+      {
+        "id": "crud-uz",
+        "title": "CRUD UZ",
+        "category": "CRUD Interface",
+        "text": "A project with a practical interface for creating, editing, updating, and deleting data.",
+        "link": "https://crud-uz.vercel.app/",
+        "status": "Live",
+        "year": "2025",
+        "technologies": [
+          "HTML5",
+          "CSS3",
+          "Bootstrap 5",
+          "JavaScript"
+        ],
+        "features": [
+          "CRUD Actions",
+          "Table UI",
+          "Bootstrap Layout"
+        ]
+      },
+      {
+        "id": "quiztest-uz",
+        "title": "Quiz Test UZ",
+        "category": "Quiz Platform",
+        "text": "A frontend quiz project enhanced with form validation and phone number masking for better usability.",
+        "link": "https://quiztest-uz.vercel.app/",
+        "status": "Live",
+        "year": "2025",
+        "technologies": [
+          "HTML5",
+          "CSS3",
+          "Bootstrap 5",
+          "JavaScript",
+          "IMask"
+        ],
+        "features": [
+          "Quiz Flow",
+          "Phone Mask",
+          "Form Validation"
+        ]
+      },
+      {
+        "id": "snakegame-uz",
+        "title": "Snake Game UZ",
+        "category": "Game Project",
+        "text": "An interactive snake game enhanced with multi-language support, modes, bonuses, and gameplay statistics.",
+        "link": "https://snakegame-uz.vercel.app/",
+        "status": "Live",
+        "year": "2025",
+        "technologies": [
+          "HTML5",
+          "CSS3",
+          "Tailwind CSS",
+          "Bootstrap",
+          "JavaScript",
+          "Canvas API",
+          "Font Awesome",
+          "Google Fonts"
+        ],
+        "features": [
+          "Multi-language",
+          "Difficulty Levels",
+          "Game Modes",
+          "Canvas Graphics",
+          "Responsive Design"
+        ]
+      },
+      {
+        "id": "strategik2048",
+        "title": "Strategik 2048",
+        "category": "Puzzle Game",
+        "text": "A modern frontend interpretation of the 2048 game with responsive layout and lightweight animations.",
+        "link": "https://strategik2048.vercel.app/",
+        "status": "Live",
+        "year": "2025",
+        "technologies": [
+          "HTML5",
+          "CSS3",
+          "Bootstrap CSS",
+          "Tailwind CSS",
+          "JavaScript"
+        ],
+        "features": [
+          "Puzzle Logic",
+          "Responsive Interface",
+          "Modern UI"
+        ]
+      },
+      {
+        "id": "koreys",
+        "title": "Koreys",
+        "category": "Educational Website",
+        "text": "A responsive educational project focused on content clarity and a consistent experience across screen sizes.",
+        "link": "https://koreys.vercel.app/",
+        "status": "Live",
+        "year": "2025",
+        "technologies": [
+          "HTML5",
+          "CSS3",
+          "Bootstrap CSS",
+          "Tailwind CSS",
+          "JavaScript",
+          "Responsive"
+        ],
+        "features": [
+          "Education UI",
+          "Responsive Layout",
+          "Clean Content Blocks"
+        ]
+      },
+      {
+        "id": "remstroy",
+        "title": "Remstroy",
+        "category": "Business Website",
+        "text": "A multi-page and multi-language business project built with a scalable frontend architecture using Router, TypeScript, and i18n.",
+        "link": "https://remstroy-eta.vercel.app/",
+        "status": "Live",
+        "year": "2025",
+        "technologies": [
+          "React",
+          "React Router DOM",
+          "JavaScript (ES6+)",
+          "TypeScript",
+          "SCSS (Sass)",
+          "Vite / CRA",
+          "react-i18next",
+          "i18next"
+        ],
+        "features": [
+          "Multi-page",
+          "Multi-language",
+          "Scalable Structure",
+          "Business UI"
+        ]
+      },
+      {
+        "id": "neftgasprom",
+        "title": "NeftGasProm",
+        "category": "Corporate Multi-language Website",
+        "text": "A premium multi-language corporate frontend project with expandable page structure and modern UI.",
+        "link": "https://neftgasprom.vercel.app/",
+        "status": "Live",
+        "year": "2025",
+        "technologies": [
+          "React",
+          "React Router DOM",
+          "JavaScript (ES6+)",
+          "TypeScript",
+          "SCSS (Sass)",
+          "Vite / CRA",
+          "react-i18next",
+          "i18next"
+        ],
+        "features": [
+          "Corporate Pages",
+          "Multi-language",
+          "Premium UI",
+          "Scalable Frontend"
+        ]
+      },
+      {
+        "id": "marocandy",
+        "title": "Marocandy",
+        "category": "WordPress Website",
+        "text": "A flexible WordPress project built for brand presentation and easy content management.",
+        "link": "https://marocandy.uz/",
+        "status": "Live",
+        "year": "2025",
+        "technologies": [
+          "WordPress"
+        ],
+        "features": [
+          "CMS Based",
+          "Content Management",
+          "Business Ready"
+        ]
       }
     ]
   },

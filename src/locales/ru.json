@@ -121,5 +121,68 @@
         ]
       }
     ]
+  },
+  "portfolio": {
+    "title": "Избранные работы",
+    "desc": "Примеры современных frontend-работ с премиальным UI, сильной структурой и ориентацией на бизнес-результат.",
+    "items": [
+      {
+        "title": "Enterprise Dashboard",
+        "category": "React + Analytics",
+        "text": "Панель управления с KPI, графиками, фильтрами и модульной структурой."
+      },
+      {
+        "title": "Corporate Website",
+        "category": "Multi-page UX",
+        "text": "Премиальный landing и экосистема внутренних страниц для компании."
+      },
+      {
+        "title": "LMS Frontend",
+        "category": "Education Platform",
+        "text": "Современный интерфейс для курсов, тестов, профилей и admin flow."
+      },
+      {
+        "title": "Portfolio Experience",
+        "category": "Personal Brand",
+        "text": "Анимационная и надежная система портфолио для личного бренда."
+      }
+    ]
+  },
+  "services": {
+    "title": "Услуги",
+    "desc": "Основной набор услуг в направлении универсальной frontend-разработки.",
+    "items": [
+      {
+        "title": "ReactJS Development",
+        "text": "Создание быстрых, чистых и масштабируемых интерфейсов на React.",
+        "icon": "code"
+      },
+      {
+        "title": "UI/UX Implementation",
+        "text": "Точная реализация дизайна во frontend с премиальным визуальным уровнем.",
+        "icon": "palette"
+      },
+      {
+        "title": "Responsive Web Design",
+        "text": "Идеальная адаптация для desktop, tablet и mobile.",
+        "icon": "mobile"
+      },
+      {
+        "title": "Frontend Optimization",
+        "text": "Улучшение производительности, accessibility и чистоты структуры.",
+        "icon": "device"
+      }
+    ]
+  },
+  "contact": {
+    "title": "Давайте создадим сильный проект вместе",
+    "desc": "Если вам нужен premium portfolio, корпоративный сайт или универсальный frontend на React — свяжитесь со мной.",
+    "email": "Email",
+    "phone": "Телефон",
+    "location": "Адрес",
+    "button": "Отправить сообщение",
+    "availability": "Сейчас открыт для новых проектов",
+    "fullName": "Полное имя",
+    "projectDetails": "Детали проекта"
   }
 }

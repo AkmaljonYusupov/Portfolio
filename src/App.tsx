@@ -13,9 +13,59 @@ import type { LanguageKey, Translation } from "./i18n"
 import { translations } from "./i18n"
 import type { CursorState, SectionKey } from "./types"
 
+const ACTIVE_SECTION_STORAGE_KEY = "portfolio_active_section"
+const ACTIVE_LANGUAGE_STORAGE_KEY = "portfolio_active_language"
+
+const VALID_SECTIONS: SectionKey[] = [
+  "home",
+  "about",
+  "portfolio",
+  "services",
+  "contact",
+]
+
+const VALID_LANGUAGES: LanguageKey[] = ["uz", "ru", "en", "tr"]
+
+function getInitialSection(): SectionKey {
+  if (typeof window === "undefined") return "home"
+
+  try {
+    const savedSection = localStorage.getItem(ACTIVE_SECTION_STORAGE_KEY)
+
+    if (savedSection && VALID_SECTIONS.includes(savedSection as SectionKey)) {
+      return savedSection as SectionKey
+    }
+  } catch {
+    // ignore
+  }
+
+  return "home"
+}
+
+function getInitialLanguage(): LanguageKey {
+  if (typeof window === "undefined") return "uz"
+
+  try {
+    const savedLanguage = localStorage.getItem(ACTIVE_LANGUAGE_STORAGE_KEY)
+
+    if (
+      savedLanguage &&
+      VALID_LANGUAGES.includes(savedLanguage as LanguageKey)
+    ) {
+      return savedLanguage as LanguageKey
+    }
+  } catch {
+    // ignore
+  }
+
+  return "uz"
+}
+
 function App() {
-  const [language, setLanguage] = useState<LanguageKey>("uz")
-  const [activeSection, setActiveSection] = useState<SectionKey>("home")
+  const [language, setLanguage] = useState<LanguageKey>(() => getInitialLanguage())
+  const [activeSection, setActiveSection] = useState<SectionKey>(() =>
+    getInitialSection()
+  )
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const [isDesktop, setIsDesktop] = useState(false)
   const [isDesktopCursor, setIsDesktopCursor] = useState(false)
@@ -30,6 +80,32 @@ function App() {
   })
 
   const t: Translation = useMemo(() => translations[language], [language])
+
+  useEffect(() => {
+    if (typeof window === "undefined") return
+
+    try {
+      localStorage.setItem(ACTIVE_LANGUAGE_STORAGE_KEY, language)
+    } catch {
+      // ignore
+    }
+  }, [language])
+
+  useEffect(() => {
+    if (typeof window === "undefined") return
+
+    try {
+      localStorage.setItem(ACTIVE_SECTION_STORAGE_KEY, activeSection)
+    } catch {
+      // ignore
+    }
+  }, [activeSection])
+
+  useEffect(() => {
+    if (typeof document !== "undefined") {
+      document.documentElement.lang = language
+    }
+  }, [language])
 
   useEffect(() => {
     if (typeof window === "undefined") return
@@ -72,7 +148,7 @@ function App() {
       trailX += (mouseX - trailX) * 0.16
       trailY += (mouseY - trailY) * 0.16
 
-      setCursor(prev => ({
+      setCursor((prev) => ({
         ...prev,
         x: mouseX,
         y: mouseY,
@@ -92,7 +168,7 @@ function App() {
       mouseX = e.clientX
       mouseY = e.clientY
 
-      setCursor(prev => ({
+      setCursor((prev) => ({
         ...prev,
         x: e.clientX,
         y: e.clientY,
@@ -102,15 +178,15 @@ function App() {
     }
 
     const handleDown = () => {
-      setCursor(prev => ({ ...prev, pressed: true }))
+      setCursor((prev) => ({ ...prev, pressed: true }))
     }
 
     const handleUp = () => {
-      setCursor(prev => ({ ...prev, pressed: false }))
+      setCursor((prev) => ({ ...prev, pressed: false }))
     }
 
     const handleLeave = () => {
-      setCursor(prev => ({
+      setCursor((prev) => ({
         ...prev,
         visible: false,
         pressed: false,
@@ -119,7 +195,7 @@ function App() {
     }
 
     const handleEnter = () => {
-      setCursor(prev => ({ ...prev, visible: true }))
+      setCursor((prev) => ({ ...prev, visible: true }))
     }
 
     rafId = window.requestAnimationFrame(animate)
@@ -153,7 +229,7 @@ function App() {
       case "contact":
         return <ContactSection t={t} />
       default:
-        return null
+        return <HomeSection t={t} setActiveSection={setActiveSection} />
     }
   }
 
@@ -194,7 +270,7 @@ function App() {
             t={t}
           />
 
-           <motion.div
+          <motion.div
             key={activeSection}
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}

@@ -17,77 +17,83 @@ import styles from "./AboutSection.module.scss"
 export default function AboutSection({ t }: { t: any }) {
   const skills = portfolioData.skills
 
-  const miniCards = [
+  const contentBlocks = [
     {
-      icon: Briefcase,
-      title: t?.hero?.miniTitle1 ?? "Project Ready",
-      desc:
-        t?.hero?.miniDesc1 ??
-        "Portfolio, dashboard, business and corporate websites",
-    },
-    {
-      icon: Code2,
-      title: t?.hero?.miniTitle2 ?? "Code Quality",
-      desc:
-        t?.hero?.miniDesc2 ??
-        "Readable, modular and scalable frontend structure",
-    },
-  ]
-
-  const cardTags = [
-    t?.hero?.cardTag1 ?? "Premium UI",
-    t?.hero?.cardTag2 ?? "Modern Design",
-    t?.hero?.cardTag3 ?? "Clean Code",
-    t?.hero?.cardTag4 ?? "WordPress",
-  ]
-
-  const cardExtras = [
-    {
-      icon: MonitorSmartphone,
-      title: t?.hero?.cardExtraTitle1 ?? "Responsive Layout",
-      text:
-        t?.hero?.cardExtraDesc1 ??
-        "Barcha qurilmalarda qulay ishlaydigan responsiv va multi-device friendly interfeyslar yarataman.",
+      icon: LayoutTemplate,
+      title: "Modern UI / UX",
+      text: "Zamonaviy, toza va foydalanuvchiga qulay interfeyslar yarataman.",
+      tags: ["Premium UI", "Modern Design", "Clean Code", "WordPress"],
       isBrand: false,
     },
-  ]
-
-  const multilingualTechTags = [
-    "react-i18next",
-    "i18next",
-    "JSON Locales",
-    "Language Switcher",
-    "Multi-page Structure",
-    "Dynamic Translation",
-  ]
-
-  const wordpressTags = [
-    "WordPress Templates",
-    "Elementor",
-    "WooCommerce",
-    "Contact Form",
-    "Premium Themes",
-    "Plugins",
-  ]
-
-  const cardHighlights = [
+    {
+      icon: MonitorSmartphone,
+      title: "Responsive Layout",
+      text: "Saytni mobil, planshet va desktop qurilmalarga mos responsiv tarzda ishlab chiqaman.",
+      tags: [
+        "Responsive UI",
+        "Mobile First",
+        "Tablet Ready",
+        "Desktop Optimized",
+        "Flexible Layout",
+        "Cross-device",
+      ],
+      isBrand: false,
+    },
     {
       icon: Languages,
       title: "Multi-language Systems",
-      text:
-        "Ko‘p tilli va ko‘p sahifali web saytlarni aniq struktura asosida ishlab chiqaman. Til almashinuvi, locale fayllar, sahifalar bo‘yicha tarjima boshqaruvi va kengaytiriladigan i18n arxitektura bilan ishlayman.",
-      tags: multilingualTechTags,
+      text: "Ko‘p tilli va ko‘p sahifali web saytlarni qulay va kengaytiriladigan struktura bilan yarataman.",
+      tags: [
+        "react-i18next",
+        "i18next",
+        "JSON Locales",
+        "Language Switcher",
+        "Multi-page Structure",
+        "Dynamic Translation",
+      ],
       isBrand: false,
-      full: true,
     },
     {
       icon: FaWordpress,
       title: "WordPress Solutions",
-      text:
-        "WordPress template va plaginlari asosida tezkor va tayyor yechimlar ishlab chiqaman. Elementor, WooCommerce, Contact Form va boshqa kuchli vositalar yordamida company website, landing page hamda internet magazinlarni qisqa muddatda tayyorlab beraman. Menda 200+ premium shablonlar bazasi mavjud bo‘lib, ular asosida mijozga moslashtirilgan professional saytlar yarataman.",
-      tags: wordpressTags,
+      text: "WordPress template va plaginlari asosida tezkor, tayyor va moslashtirilgan saytlar yarataman.",
+      tags: [
+        "WordPress Templates",
+        "Elementor",
+        "WooCommerce",
+        "Contact Form",
+        "Premium Themes",
+        "Plugins",
+      ],
       isBrand: true,
-      full: true,
+    },
+    {
+      icon: Briefcase,
+      title: "Project Ready",
+      text: "Portfolio, dashboard, business va corporate loyihalar uchun amaliy frontend yechimlar yarataman.",
+      tags: [
+        "Portfolio Website",
+        "Dashboard UI",
+        "Business Website",
+        "Corporate Website",
+        "Landing Page",
+        "Admin Panel",
+      ],
+      isBrand: false,
+    },
+    {
+      icon: Code2,
+      title: "Code Quality",
+      text: "Toza, modulli va kengaytiriladigan kod strukturasiga asoslangan frontend yechimlar yarataman.",
+      tags: [
+        "Clean Code",
+        "Reusable Components",
+        "Scalable Structure",
+        "Readable Files",
+        "Maintainable Codebase",
+        "Modular Architecture",
+      ],
+      isBrand: false,
     },
   ]
 
@@ -218,35 +224,12 @@ export default function AboutSection({ t }: { t: any }) {
         transition={{ duration: 0.45, delay: 0.05 }}
       >
         <div className={styles.detailMainCard}>
-          <div className={styles.detailMainTop}>
-            <div className={styles.iconBox}>
-              <LayoutTemplate size={18} />
-            </div>
-
-            <div className={styles.detailMainContent}>
-              <h3 className={styles.detailTitle}>
-                {t?.hero?.cardTitle ?? "Modern UI / UX"}
-              </h3>
-
-              <p className={styles.detailText}>
-                {t?.hero?.cardText ??
-                  "Zamonaviy dizayn, responsiv bo‘limlar va aniq tuzilma orqali premium foydalanuvchi interfeyslari yarataman. Shuningdek, WordPress asosidagi web saytlar bilan ham ishlay olaman."}
-              </p>
-
-              <div className={styles.detailTags}>
-                {cardTags.map((tag, index) => (
-                  <span key={`${tag}-${index}`}>{tag}</span>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          <div className={styles.extraGrid}>
-            {cardExtras.map((item, index) => {
+          <div className={styles.detailContentGrid}>
+            {contentBlocks.map((item, index) => {
               const Icon = item.icon
 
               return (
-                <div key={`${item.title}-${index}`} className={styles.extraBox}>
+                <div key={`${item.title}-${index}`} className={styles.contentBlock}>
                   <div className={styles.iconBox}>
                     <Icon
                       size={18}
@@ -254,68 +237,20 @@ export default function AboutSection({ t }: { t: any }) {
                     />
                   </div>
 
-                  <div className={styles.extraBoxContent}>
+                  <div className={styles.contentBlockBody}>
                     <h4>{item.title}</h4>
                     <p>{item.text}</p>
+
+                    <div className={styles.contentBlockTags}>
+                      {item.tags.map((tag: string, tagIndex: number) => (
+                        <span key={`${tag}-${tagIndex}`}>{tag}</span>
+                      ))}
+                    </div>
                   </div>
                 </div>
               )
             })}
           </div>
-
-          <div className={styles.highlightGrid}>
-            {cardHighlights.map((item, index) => {
-              const Icon = item.icon
-
-              return (
-                <div
-                  key={`${item.title}-${index}`}
-                  className={`${styles.highlightCard} ${
-                    item.full ? styles.highlightCardFull : ""
-                  }`}
-                >
-                  <div className={styles.iconBox}>
-                    <Icon
-                      size={18}
-                      className={item.isBrand ? styles.wordpressIcon : undefined}
-                    />
-                  </div>
-
-                  <div className={styles.highlightContent}>
-                    <h4>{item.title}</h4>
-                    <p>{item.text}</p>
-
-                    {item.tags && (
-                      <div className={styles.highlightTags}>
-                        {item.tags.map((tag: string, tagIndex: number) => (
-                          <span key={`${tag}-${tagIndex}`}>{tag}</span>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                </div>
-              )
-            })}
-          </div>
-        </div>
-
-        <div className={styles.detailSideStack}>
-          {miniCards.map((item, index) => {
-            const Icon = item.icon
-
-            return (
-              <div key={`${item.title}-${index}`} className={styles.miniCard}>
-                <div className={styles.iconBox}>
-                  <Icon size={18} />
-                </div>
-
-                <div className={styles.miniCardContent}>
-                  <h4>{item.title}</h4>
-                  <p>{item.desc}</p>
-                </div>
-              </div>
-            )
-          })}
         </div>
       </motion.div>
 

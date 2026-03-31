@@ -129,7 +129,6 @@
 .infoCardLarge,
 .profileCard,
 .detailMainCard,
-.detailSideStack,
 .skillsSection {
   border-radius: $radius-xs;
   border: 1px solid rgba(148, 163, 184, 0.14);
@@ -631,86 +630,14 @@
   padding: 1.1rem;
 }
 
-.detailMainTop {
-  display: flex;
-  align-items: stretch;
-  gap: 0.9rem;
-  border: 1px solid rgba(148, 163, 184, 0.12);
+.detailContentGrid {
+  display: grid;
+  gap: 1rem;
+}
+
+.contentBlock {
   border-radius: $radius-xs;
   padding: 1rem;
-  background: rgba(255, 255, 255, 0.52);
-
-  :global(.dark) & {
-    background: rgba(255, 255, 255, 0.025);
-    border-color: rgba(255, 255, 255, 0.06);
-  }
-}
-
-.detailMainContent {
-  min-width: 0;
-  width: 100%;
-  border: none;
-  border-radius: 0;
-  padding: 0;
-  background: transparent;
-}
-
-.detailTitle {
-  color: #0f172a;
-  font-size: 1.12rem;
-  font-weight: 800;
-  line-height: 1.4;
-
-  :global(.dark) & {
-    color: #ffffff;
-  }
-}
-
-.detailText {
-  margin-top: 0.55rem;
-  color: #64748b;
-  line-height: 1.8;
-  font-size: 0.95rem;
-
-  :global(.dark) & {
-    color: #cbd5e1;
-  }
-}
-
-.detailTags {
-  margin-top: 0.9rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.55rem;
-
-  span {
-    padding: 0.5rem 0.8rem;
-    border-radius: $radius-xs;
-    background: rgba(59, 130, 246, 0.08);
-    border: 1px solid rgba(59, 130, 246, 0.1);
-    color: #334155;
-    font-size: 0.78rem;
-    font-weight: 700;
-
-    :global(.dark) & {
-      background: rgba(255, 255, 255, 0.06);
-      border-color: rgba(255, 255, 255, 0.08);
-      color: #e2e8f0;
-    }
-  }
-}
-
-.extraGrid {
-  margin-top: 1rem;
-  display: grid;
-  gap: 0.75rem;
-}
-
-.extraBox,
-.highlightCard,
-.miniCard {
-  border-radius: $radius-xs;
-  padding: 0.95rem 1rem;
   display: flex;
   align-items: flex-start;
   gap: 0.82rem;
@@ -723,15 +650,13 @@
   }
 }
 
-.extraBoxContent,
-.highlightContent,
-.miniCardContent {
+.contentBlockBody {
   min-width: 0;
   flex: 1;
 
   h4 {
     color: #0f172a;
-    font-size: 0.98rem;
+    font-size: 1rem;
     font-weight: 800;
     line-height: 1.4;
 
@@ -741,10 +666,10 @@
   }
 
   p {
-    margin-top: 0.35rem;
+    margin-top: 0.4rem;
     color: #64748b;
-    font-size: 0.9rem;
-    line-height: 1.75;
+    font-size: 0.92rem;
+    line-height: 1.8;
     word-break: break-word;
 
     :global(.dark) & {
@@ -753,18 +678,7 @@
   }
 }
 
-.highlightGrid {
-  margin-top: 0.9rem;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.75rem;
-}
-
-.highlightCardFull {
-  grid-column: 1 / -1;
-}
-
-.highlightTags {
+.contentBlockTags {
   margin-top: 0.9rem;
   display: flex;
   flex-wrap: wrap;
@@ -785,16 +699,6 @@
       color: #e2e8f0;
     }
   }
-}
-
-.detailSideStack {
-  padding: 0.85rem;
-  display: grid;
-  gap: 0.8rem;
-}
-
-.miniCard {
-  min-height: 132px;
 }
 
 .wordpressIcon {
@@ -1065,27 +969,13 @@
     align-items: start;
   }
 
-  .detailGrid {
-    grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
-    align-items: start;
-  }
-
-  .infoCardLarge {
-    min-height: 100%;
+  .detailContentGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: stretch;
   }
 
   .profileCard {
     max-width: 420px;
-  }
-}
-
-@media (max-width: 1024px) {
-  .highlightGrid {
-    grid-template-columns: 1fr;
-  }
-
-  .highlightCardFull {
-    grid-column: auto;
   }
 }
 
@@ -1124,10 +1014,7 @@
     inset: 10px;
   }
 
-  .detailMainTop,
-  .extraBox,
-  .highlightCard,
-  .miniCard,
+  .contentBlock,
   .featureItem {
     flex-direction: column;
   }

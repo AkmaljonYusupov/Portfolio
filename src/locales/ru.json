@@ -10,15 +10,14 @@
     "contact": "Контакты"
   },
   "hero": {
-    "badge": "Премиальное Frontend Portfolio",
     "title": "Добро пожаловать на мой сайт-портфолио",
     "desc": "Создаю быстрые, качественные и визуально сильные веб-интерфейсы с использованием современных технологий и премиального дизайна.",
     "primary": "Смотреть проекты",
     "secondary": "Связаться",
     "sideBadge": "Frontend разработчик",
     "sideTitle1": "Modern UI / UX",
-    "sideTitle2": "Масштабируемый код",
     "sideDesc1": "Создаю современные, эстетичные и ориентированные на пользовательский опыт интерфейсы.",
+    "sideTitle2": "Масштабируемый код",
     "sideDesc2": "Разрабатываю чистые, понятные и масштабируемые frontend-решения.",
     "stats1": "Лет опыта",
     "stats2": "Frontend проекты",
@@ -51,11 +50,13 @@
     },
     "contentBlocks": [
       {
+        "key": "uiux",
         "title": "Modern UI / UX",
         "text": "Создаю современные, чистые и удобные для пользователя интерфейсы.",
         "tags": ["Premium UI", "Modern Design", "Clean Code", "WordPress"]
       },
       {
+        "key": "responsive",
         "title": "Responsive Layout",
         "text": "Разрабатываю сайты с полной адаптацией под мобильные устройства, планшеты и десктопы.",
         "tags": [
@@ -68,6 +69,7 @@
         ]
       },
       {
+        "key": "multilang",
         "title": "Multi-language Systems",
         "text": "Создаю многоязычные и многостраничные сайты с удобной и масштабируемой структурой.",
         "tags": [
@@ -80,6 +82,7 @@
         ]
       },
       {
+        "key": "wordpress",
         "title": "WordPress Solutions",
         "text": "Создаю быстрые, готовые и адаптируемые сайты на основе шаблонов и плагинов WordPress.",
         "tags": [
@@ -92,8 +95,9 @@
         ]
       },
       {
+        "key": "project",
         "title": "Project Ready",
-        "text": "Создаю практичные frontend-решения для портфолио, dashboard, business и corporate проектов.",
+        "text": "Создаю практичные frontend-решения для portfolio, dashboard, business и corporate проектов.",
         "tags": [
           "Portfolio Website",
           "Dashboard UI",
@@ -104,6 +108,7 @@
         ]
       },
       {
+        "key": "code",
         "title": "Code Quality",
         "text": "Разрабатываю frontend-решения на основе чистой, модульной и масштабируемой структуры кода.",
         "tags": [
@@ -116,68 +121,5 @@
         ]
       }
     ]
-  },
-  "portfolio": {
-    "title": "Избранные работы",
-    "desc": "Примеры современных frontend-работ с премиальным UI, сильной структурой и ориентацией на бизнес-результат.",
-    "items": [
-      {
-        "title": "Enterprise Dashboard",
-        "category": "React + Analytics",
-        "text": "Панель управления с KPI, графиками, фильтрами и модульной структурой."
-      },
-      {
-        "title": "Corporate Website",
-        "category": "Multi-page UX",
-        "text": "Премиальный landing и экосистема внутренних страниц для компании."
-      },
-      {
-        "title": "LMS Frontend",
-        "category": "Education Platform",
-        "text": "Современный интерфейс для курсов, тестов, профилей и admin flow."
-      },
-      {
-        "title": "Portfolio Experience",
-        "category": "Personal Brand",
-        "text": "Анимационная и надежная система портфолио для личного бренда."
-      }
-    ]
-  },
-  "services": {
-    "title": "Услуги",
-    "desc": "Основной набор услуг в направлении универсальной frontend-разработки.",
-    "items": [
-      {
-        "title": "ReactJS Development",
-        "text": "Создание быстрых, чистых и масштабируемых интерфейсов на React.",
-        "icon": "code"
-      },
-      {
-        "title": "UI/UX Implementation",
-        "text": "Точная реализация дизайна во frontend с премиальным визуальным уровнем.",
-        "icon": "palette"
-      },
-      {
-        "title": "Responsive Web Design",
-        "text": "Идеальная адаптация для desktop, tablet и mobile.",
-        "icon": "mobile"
-      },
-      {
-        "title": "Frontend Optimization",
-        "text": "Улучшение производительности, accessibility и чистоты структуры.",
-        "icon": "device"
-      }
-    ]
-  },
-  "contact": {
-    "title": "Давайте создадим сильный проект вместе",
-    "desc": "Если вам нужен premium portfolio, корпоративный сайт или универсальный frontend на React — свяжитесь со мной.",
-    "email": "Email",
-    "phone": "Телефон",
-    "location": "Адрес",
-    "button": "Отправить сообщение",
-    "availability": "Сейчас открыт для новых проектов",
-    "fullName": "Полное имя",
-    "projectDetails": "Детали проекта"
   }
 }

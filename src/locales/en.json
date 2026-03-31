@@ -10,15 +10,14 @@
     "contact": "Contact"
   },
   "hero": {
-    "badge": "Premium Frontend Portfolio",
     "title": "Welcome to my portfolio website",
     "desc": "I create fast, high-quality, and visually engaging web experiences through modern technologies and premium design.",
     "primary": "View Projects",
     "secondary": "Contact Me",
     "sideBadge": "Frontend Developer",
     "sideTitle1": "Modern UI / UX",
-    "sideTitle2": "Scalable Code",
     "sideDesc1": "I create modern, aesthetic, and user-centered interfaces.",
+    "sideTitle2": "Scalable Code",
     "sideDesc2": "I build clean, understandable, and scalable frontend solutions.",
     "stats1": "Years of Experience",
     "stats2": "Frontend Projects",
@@ -51,11 +50,13 @@
     },
     "contentBlocks": [
       {
+        "key": "uiux",
         "title": "Modern UI / UX",
         "text": "I create modern, clean, and user-friendly interfaces.",
         "tags": ["Premium UI", "Modern Design", "Clean Code", "WordPress"]
       },
       {
+        "key": "responsive",
         "title": "Responsive Layout",
         "text": "I build websites that adapt perfectly to mobile, tablet, and desktop devices.",
         "tags": [
@@ -68,6 +69,7 @@
         ]
       },
       {
+        "key": "multilang",
         "title": "Multi-language Systems",
         "text": "I create multi-language and multi-page websites with a flexible and scalable structure.",
         "tags": [
@@ -80,6 +82,7 @@
         ]
       },
       {
+        "key": "wordpress",
         "title": "WordPress Solutions",
         "text": "I build fast, ready-to-use, and customizable websites based on WordPress templates and plugins.",
         "tags": [
@@ -92,6 +95,7 @@
         ]
       },
       {
+        "key": "project",
         "title": "Project Ready",
         "text": "I create practical frontend solutions for portfolio, dashboard, business, and corporate projects.",
         "tags": [
@@ -104,6 +108,7 @@
         ]
       },
       {
+        "key": "code",
         "title": "Code Quality",
         "text": "I build frontend solutions based on clean, modular, and scalable code architecture.",
         "tags": [
@@ -116,68 +121,5 @@
         ]
       }
     ]
-  },
-  "portfolio": {
-    "title": "Selected Works",
-    "desc": "Examples of modern frontend work focused on premium UI, strong structure, and business results.",
-    "items": [
-      {
-        "title": "Enterprise Dashboard",
-        "category": "React + Analytics",
-        "text": "A management dashboard with KPI, charts, filters, and a modular layout."
-      },
-      {
-        "title": "Corporate Website",
-        "category": "Multi-page UX",
-        "text": "A premium landing page and inner-page ecosystem for a company."
-      },
-      {
-        "title": "LMS Frontend",
-        "category": "Education Platform",
-        "text": "A modern interface for courses, tests, profiles, and admin flow."
-      },
-      {
-        "title": "Portfolio Experience",
-        "category": "Personal Brand",
-        "text": "An animated and reliable portfolio system for personal branding."
-      }
-    ]
-  },
-  "services": {
-    "title": "Services",
-    "desc": "A core set of services focused on universal frontend development.",
-    "items": [
-      {
-        "title": "ReactJS Development",
-        "text": "Building fast, clean, and scalable React interfaces.",
-        "icon": "code"
-      },
-      {
-        "title": "UI/UX Implementation",
-        "text": "Turning design into a polished premium frontend experience.",
-        "icon": "palette"
-      },
-      {
-        "title": "Responsive Web Design",
-        "text": "Perfect adaptability for desktop, tablet, and mobile.",
-        "icon": "mobile"
-      },
-      {
-        "title": "Frontend Optimization",
-        "text": "Improving performance, accessibility, and clean structure.",
-        "icon": "device"
-      }
-    ]
-  },
-  "contact": {
-    "title": "Let’s build a strong project together",
-    "desc": "If you need a premium portfolio, a corporate website, or a universal React-based frontend, feel free to contact me.",
-    "email": "Email",
-    "phone": "Phone",
-    "location": "Location",
-    "button": "Send Message",
-    "availability": "Currently open for new projects",
-    "fullName": "Full Name",
-    "projectDetails": "Project Details"
   }
 }

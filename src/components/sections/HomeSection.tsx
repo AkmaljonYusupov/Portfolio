@@ -9,10 +9,12 @@ type HomeSectionProps = {
   setActiveSection: (value: any) => void
 }
 
-/**
- * Statistikadagi sonlarni animatsion oshirib ko‘rsatadi.
- * Masalan: 0 -> 25+
- */
+type HeroPreviewItem = {
+  key: string
+  title: string
+  text: string
+}
+
 function CountUp({
   value,
   duration = 1400,
@@ -60,17 +62,11 @@ function CountUp({
   return <>{display}</>
 }
 
-/**
- * Faqat oxirgi probil yo‘qolib qolmasligi uchun uni NBSP ga aylantiradi.
- */
 function preserveTrailingSpace(value: string) {
   if (!value) return value
   return value.endsWith(" ") ? `${value.slice(0, -1)}\u00A0` : value
 }
 
-/**
- * Universal typewriter effekti
- */
 function TypewriterLoop({
   text,
   typingSpeed = 85,
@@ -145,16 +141,50 @@ export default function HomeSection({
   t,
   setActiveSection,
 }: HomeSectionProps) {
-  const stats = [
-    { value: portfolioData.stats.experience, label: t?.hero?.stats1 },
-    { value: portfolioData.stats.projects, label: t?.hero?.stats2 },
-    { value: portfolioData.stats.tech, label: t?.hero?.stats3 },
-  ]
-
   const heroTitle = useMemo(
     () => String(t?.hero?.title ?? ""),
     [t?.hero?.title]
   )
+
+  const previewItems: HeroPreviewItem[] = [
+    {
+      key: "uiux",
+      title: t?.hero?.sideTitle1 ?? "Modern UI / UX",
+      text:
+        t?.hero?.sideDesc1 ??
+        "I create modern, aesthetic, and user-centered interfaces.",
+    },
+    {
+      key: "code",
+      title: t?.hero?.sideTitle2 ?? "Scalable Code",
+      text:
+        t?.hero?.sideDesc2 ??
+        "I build clean, understandable, and scalable frontend solutions.",
+    },
+  ]
+
+  const previewIconMap: Record<string, React.ElementType> = {
+    uiux: LayoutTemplate,
+    code: Code2,
+  }
+
+  const stats = [
+    {
+      key: "experience",
+      value: portfolioData.stats.experience,
+      label: t?.hero?.stats1 ?? "Years of Experience",
+    },
+    {
+      key: "projects",
+      value: portfolioData.stats.projects,
+      label: t?.hero?.stats2 ?? "Frontend Projects",
+    },
+    {
+      key: "tech",
+      value: portfolioData.stats.tech,
+      label: t?.hero?.stats3 ?? "Technologies",
+    },
+  ]
 
   return (
     <section className={styles.heroSection}>
@@ -187,7 +217,7 @@ export default function HomeSection({
 
           <p className={styles.desc}>
             {t?.hero?.desc ??
-              "Zamonaviy va premium ko‘rinishdagi web interfeyslar yarataman."}
+              "I create modern and premium-quality web interfaces."}
           </p>
 
           <div className={styles.actions}>
@@ -197,7 +227,7 @@ export default function HomeSection({
               onClick={() => setActiveSection("portfolio")}
             >
               <span className={styles.btnGlow} />
-              <span>{t?.hero?.primary ?? "Loyihalarni ko‘rish"}</span>
+              <span>{t?.hero?.primary ?? "View Projects"}</span>
               <ArrowUpRight size={17} />
             </button>
 
@@ -207,7 +237,7 @@ export default function HomeSection({
               onClick={() => setActiveSection("contact")}
             >
               <span className={styles.btnGlowSoft} />
-              <span>{t?.hero?.secondary ?? "Bog‘lanish"}</span>
+              <span>{t?.hero?.secondary ?? "Contact Me"}</span>
               <Send size={16} />
             </button>
           </div>
@@ -228,38 +258,26 @@ export default function HomeSection({
             </div>
 
             <div className={styles.previewGrid}>
-              <div className={styles.previewBox}>
-                <div className={styles.previewIcon}>
-                  <LayoutTemplate size={18} />
-                </div>
-                <div>
-                  <h4>{t?.hero?.sideTitle1 ?? "Modern UI / UX"}</h4>
-                  <p>
-                    {t?.hero?.sideDesc1 ??
-                      "Zamonaviy, estetik va foydalanuvchi tajribasiga yo‘naltirilgan interfeyslar yarataman"}
-                  </p>
-                </div>
-              </div>
+              {previewItems.map((item) => {
+                const Icon = previewIconMap[item.key] ?? LayoutTemplate
 
-              <div className={styles.previewBox}>
-                <div className={styles.previewIcon}>
-                  <Code2 size={18} />
-                </div>
-                <div>
-                  <h4>{t?.hero?.sideTitle2 ?? "Scalable Frontend"}</h4>
-                  <p>
-                    {t?.hero?.sideDesc2 ??
-                      "Toza, tushunarli va kengaytiriladigan frontend yechimlar yarataman"}
-                  </p>
-                </div>
-              </div>
+                return (
+                  <div key={item.key} className={styles.previewBox}>
+                    <div className={styles.previewIcon}>
+                      <Icon size={18} />
+                    </div>
+
+                    <div>
+                      <h4>{item.title}</h4>
+                      <p>{item.text}</p>
+                    </div>
+                  </div>
+                )
+              })}
 
               <div className={styles.previewMiniStats}>
                 {stats.map((item, index) => (
-                  <div
-                    key={`${item.label}-${index}`}
-                    className={styles.previewStat}
-                  >
+                  <div key={item.key} className={styles.previewStat}>
                     <strong>
                       <CountUp value={item.value} duration={1400 + index * 150} />
                     </strong>

@@ -10,15 +10,14 @@
     "contact": "İletişim"
   },
   "hero": {
-    "badge": "Premium Frontend Portföyü",
     "title": "Portföy web siteme hoş geldiniz",
     "desc": "Modern teknolojiler ve premium tasarım ile hızlı, kaliteli ve etkileyici web deneyimleri oluşturuyorum.",
     "primary": "Projeleri Gör",
     "secondary": "İletişime Geç",
     "sideBadge": "Frontend Geliştirici",
     "sideTitle1": "Modern UI / UX",
-    "sideTitle2": "Ölçeklenebilir Kod",
     "sideDesc1": "Modern, estetik ve kullanıcı deneyimine odaklı arayüzler oluşturuyorum.",
+    "sideTitle2": "Ölçeklenebilir Kod",
     "sideDesc2": "Temiz, anlaşılır ve ölçeklenebilir frontend çözümleri geliştiriyorum.",
     "stats1": "Yıllık Deneyim",
     "stats2": "Frontend Projeleri",
@@ -51,11 +50,13 @@
     },
     "contentBlocks": [
       {
+        "key": "uiux",
         "title": "Modern UI / UX",
         "text": "Modern, temiz ve kullanıcı dostu arayüzler oluşturuyorum.",
         "tags": ["Premium UI", "Modern Design", "Clean Code", "WordPress"]
       },
       {
+        "key": "responsive",
         "title": "Responsive Layout",
         "text": "Web sitelerini mobil, tablet ve masaüstü cihazlara tam uyumlu şekilde geliştiriyorum.",
         "tags": [
@@ -68,6 +69,7 @@
         ]
       },
       {
+        "key": "multilang",
         "title": "Multi-language Systems",
         "text": "Esnek ve ölçeklenebilir yapı ile çok dilli ve çok sayfalı web siteleri oluşturuyorum.",
         "tags": [
@@ -80,6 +82,7 @@
         ]
       },
       {
+        "key": "wordpress",
         "title": "WordPress Solutions",
         "text": "WordPress tema ve eklentileri temelinde hızlı, hazır ve özelleştirilebilir siteler oluşturuyorum.",
         "tags": [
@@ -92,6 +95,7 @@
         ]
       },
       {
+        "key": "project",
         "title": "Project Ready",
         "text": "Portföy, dashboard, business ve corporate projeler için pratik frontend çözümleri geliştiriyorum.",
         "tags": [
@@ -104,6 +108,7 @@
         ]
       },
       {
+        "key": "code",
         "title": "Code Quality",
         "text": "Temiz, modüler ve ölçeklenebilir kod yapısına dayalı frontend çözümleri geliştiriyorum.",
         "tags": [
@@ -116,68 +121,5 @@
         ]
       }
     ]
-  },
-  "portfolio": {
-    "title": "Seçilmiş Çalışmalar",
-    "desc": "Premium UI, güçlü yapı ve iş sonuçlarına odaklanan modern frontend çalışmalarından örnekler.",
-    "items": [
-      {
-        "title": "Enterprise Dashboard",
-        "category": "React + Analytics",
-        "text": "KPI, grafikler, filtreler ve modüler düzen içeren yönetim paneli."
-      },
-      {
-        "title": "Corporate Website",
-        "category": "Multi-page UX",
-        "text": "Şirket için premium landing page ve iç sayfa ekosistemi."
-      },
-      {
-        "title": "LMS Frontend",
-        "category": "Education Platform",
-        "text": "Kurslar, testler, profiller ve admin akışı için modern arayüz."
-      },
-      {
-        "title": "Portfolio Experience",
-        "category": "Personal Brand",
-        "text": "Kişisel marka için animasyonlu ve güvenilir portföy sistemi."
-      }
-    ]
-  },
-  "services": {
-    "title": "Hizmetler",
-    "desc": "Evrensel frontend geliştirme alanındaki temel hizmetler.",
-    "items": [
-      {
-        "title": "ReactJS Development",
-        "text": "Hızlı, temiz ve ölçeklenebilir React arayüzleri geliştirme.",
-        "icon": "code"
-      },
-      {
-        "title": "UI/UX Implementation",
-        "text": "Tasarımı premium görünümle eksiksiz şekilde frontend’e aktarma.",
-        "icon": "palette"
-      },
-      {
-        "title": "Responsive Web Design",
-        "text": "Desktop, tablet ve mobil için kusursuz uyum.",
-        "icon": "mobile"
-      },
-      {
-        "title": "Frontend Optimization",
-        "text": "Performans, erişilebilirlik ve temiz yapı iyileştirmesi.",
-        "icon": "device"
-      }
-    ]
-  },
-  "contact": {
-    "title": "Birlikte güçlü bir proje oluşturalım",
-    "desc": "Premium düzeyde portföy, kurumsal web sitesi veya React tabanlı evrensel frontend ihtiyacınız varsa benimle iletişime geçin.",
-    "email": "Email",
-    "phone": "Telefon",
-    "location": "Konum",
-    "button": "Mesaj Gönder",
-    "availability": "Şu anda yeni projelere açığım",
-    "fullName": "Tam Ad",
-    "projectDetails": "Proje Detayları"
   }
 }

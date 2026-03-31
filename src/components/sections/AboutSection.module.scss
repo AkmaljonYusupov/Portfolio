@@ -158,11 +158,13 @@
   width: 2.7rem;
   height: 2.7rem;
   min-width: 2.7rem;
+  max-width: 2.7rem;
   border-radius: $radius-xs;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  align-self: flex-start;
   background: rgba(241, 245, 249, 0.95);
   border: 1px solid rgba(148, 163, 184, 0.12);
   color: #2563eb;
@@ -215,6 +217,7 @@
     display: inline-flex;
     align-items: center;
     min-height: 38px;
+    max-width: 100%;
     padding: 0.68rem 0.95rem;
     border-radius: $radius-xs;
     background: rgba(255, 255, 255, 0.85);
@@ -222,6 +225,10 @@
     color: #0f172a;
     font-size: 0.88rem;
     font-weight: 700;
+    line-height: 1.45;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: break-word;
 
     :global(.dark) & {
       background: rgba(255, 255, 255, 0.05);
@@ -241,6 +248,7 @@
   display: flex;
   align-items: flex-start;
   gap: 0.8rem;
+  min-width: 0;
   padding: 0.95rem;
   border-radius: $radius-xs;
   background: rgba(255, 255, 255, 0.55);
@@ -259,6 +267,7 @@
 }
 
 .featureContent {
+  min-width: 0;
   display: grid;
   gap: 0.22rem;
 
@@ -268,6 +277,8 @@
     line-height: 1.7;
     font-size: 0.95rem;
     font-weight: 500;
+    overflow-wrap: anywhere;
+    word-break: break-word;
 
     :global(.dark) & {
       color: #e2e8f0;
@@ -633,9 +644,14 @@
 .detailContentGrid {
   display: grid;
   gap: 1rem;
+  margin-top: 0;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
 }
 
 .contentBlock {
+  min-width: 0;
+  height: 100%;
   border-radius: $radius-xs;
   padding: 1rem;
   display: flex;
@@ -652,6 +668,7 @@
 
 .contentBlockBody {
   min-width: 0;
+  width: 100%;
   flex: 1;
 
   h4 {
@@ -659,6 +676,8 @@
     font-size: 1rem;
     font-weight: 800;
     line-height: 1.4;
+    overflow-wrap: anywhere;
+    word-break: break-word;
 
     :global(.dark) & {
       color: #ffffff;
@@ -670,6 +689,7 @@
     color: #64748b;
     font-size: 0.92rem;
     line-height: 1.8;
+    overflow-wrap: anywhere;
     word-break: break-word;
 
     :global(.dark) & {
@@ -683,8 +703,10 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.55rem;
+  min-width: 0;
 
   span {
+    max-width: 100%;
     padding: 0.5rem 0.8rem;
     border-radius: $radius-xs;
     background: rgba(59, 130, 246, 0.08);
@@ -692,6 +714,10 @@
     color: #334155;
     font-size: 0.78rem;
     font-weight: 700;
+    line-height: 1.45;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: break-word;
 
     :global(.dark) & {
       background: rgba(255, 255, 255, 0.06);
@@ -969,13 +995,29 @@
     align-items: start;
   }
 
-  .detailContentGrid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    align-items: stretch;
-  }
-
   .profileCard {
     max-width: 420px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .contentBlock {
+    flex-direction: column;
+  }
+
+  .iconBox {
+    align-self: flex-start;
+  }
+}
+
+@media (max-width: 767px) {
+  .detailContentGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .contentBlock,
+  .featureItem {
+    flex-direction: column;
   }
 }
 
@@ -1012,11 +1054,6 @@
 
   .profileImageInner {
     inset: 10px;
-  }
-
-  .contentBlock,
-  .featureItem {
-    flex-direction: column;
   }
 
   .skillsSection {

@@ -245,24 +245,38 @@ export default function HomeSection({
 
         <motion.div
           className={styles.heroSide}
-          initial={{ opacity: 0, x: 18 }}
-          animate={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, x: 20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.25 }}
           transition={{ duration: 0.45, delay: 0.12 }}
         >
           <div className={styles.previewCard}>
-            <div className={styles.previewTop}>
+            <motion.div
+              className={styles.previewTop}
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.35, delay: 0.12 }}
+            >
               <div className={styles.previewPill}>
                 <span className={styles.previewDot} />
                 <span>{t?.hero?.sideBadge ?? "Frontend Developer"}</span>
               </div>
-            </div>
+            </motion.div>
 
             <div className={styles.previewGrid}>
-              {previewItems.map((item) => {
+              {previewItems.map((item, index) => {
                 const Icon = previewIconMap[item.key] ?? LayoutTemplate
 
                 return (
-                  <div key={item.key} className={styles.previewBox}>
+                  <motion.div
+                    key={item.key}
+                    className={styles.previewBox}
+                    initial={{ opacity: 0, y: 14 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.2 }}
+                    transition={{ duration: 0.35, delay: 0.18 + index * 0.06 }}
+                  >
                     <div className={styles.previewIcon}>
                       <Icon size={18} />
                     </div>
@@ -271,18 +285,28 @@ export default function HomeSection({
                       <h4>{item.title}</h4>
                       <p>{item.text}</p>
                     </div>
-                  </div>
+                  </motion.div>
                 )
               })}
 
               <div className={styles.previewMiniStats}>
                 {stats.map((item, index) => (
-                  <div key={item.key} className={styles.previewStat}>
+                  <motion.div
+                    key={item.key}
+                    className={styles.previewStat}
+                    initial={{ opacity: 0, y: 14, scale: 0.98 }}
+                    whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                    viewport={{ once: true, amount: 0.25 }}
+                    transition={{
+                      duration: 0.38,
+                      delay: 0.28 + index * 0.08,
+                    }}
+                  >
                     <strong>
                       <CountUp value={item.value} duration={1400 + index * 150} />
                     </strong>
                     <span>{item.label}</span>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </div>

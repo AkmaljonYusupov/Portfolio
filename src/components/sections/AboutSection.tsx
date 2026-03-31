@@ -125,7 +125,9 @@ export default function AboutSection({ t }: { t: any }) {
     },
     {
       label: t?.about?.profile?.focusLabel ?? "Main Focus",
-      value: t?.about?.profile?.focusValue ?? "UI / UX, Responsiveness, Interactivity",
+      value:
+        t?.about?.profile?.focusValue ??
+        "UI / UX, Responsiveness, Interactivity",
       icon: null,
     },
     {
@@ -137,11 +139,12 @@ export default function AboutSection({ t }: { t: any }) {
 
   return (
     <section className={styles.aboutSection}>
-      <div className={styles.bgCircleOne} />
-      <div className={styles.bgCircleTwo} />
+      <div className={styles.bgGlowOne} />
+      <div className={styles.bgGlowTwo} />
+      <div className={styles.topLine} />
 
       <div className={styles.sectionWatermark}>
-        {t?.nav?.about ?? "About"}
+        <span>{t?.nav?.about ?? "ABOUT"}</span>
       </div>
 
       <motion.div
@@ -176,14 +179,13 @@ export default function AboutSection({ t }: { t: any }) {
             <div className={styles.iconBox}>
               <User size={18} />
             </div>
+
             <span className={styles.cardEyebrow}>
               {t?.about?.introEyebrow ?? "Personal Introduction"}
             </span>
           </div>
 
-          <p className={styles.cardText}>
-            {t?.about?.introText}
-          </p>
+          <p className={styles.cardText}>{t?.about?.introText}</p>
 
           <div className={styles.cardTags}>
             {introTags.map((tag) => (
@@ -249,15 +251,25 @@ export default function AboutSection({ t }: { t: any }) {
             </p>
 
             <div className={styles.profileMeta}>
-              {profileMetaItems.map((item) => (
-                <div key={item.label} className={styles.metaItem}>
+              {profileMetaItems.map((item, index) => (
+                <motion.div
+                  key={item.label}
+                  className={styles.metaItem}
+                  initial={{ opacity: 0, y: 16, scale: 0.98 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  viewport={{ once: true, amount: 0.35 }}
+                  transition={{
+                    duration: 0.38,
+                    delay: 0.16 + index * 0.08,
+                  }}
+                >
                   <span className={styles.metaLabel}>{item.label}</span>
 
                   <span className={styles.metaValue}>
                     {item.icon}
                     {item.value}
                   </span>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
@@ -278,7 +290,14 @@ export default function AboutSection({ t }: { t: any }) {
               const isWordpress = item.key === "wordpress"
 
               return (
-                <div key={`${item.key}-${index}`} className={styles.contentBlock}>
+                <motion.div
+                  key={`${item.key}-${index}`}
+                  className={styles.contentBlock}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.18 }}
+                  transition={{ duration: 0.38, delay: index * 0.07 }}
+                >
                   <div className={styles.iconBox}>
                     <Icon
                       size={18}
@@ -296,7 +315,7 @@ export default function AboutSection({ t }: { t: any }) {
                       ))}
                     </div>
                   </div>
-                </div>
+                </motion.div>
               )
             })}
           </div>

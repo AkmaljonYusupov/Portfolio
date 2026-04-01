@@ -1,7 +1,6 @@
 import { motion, type Variants } from "framer-motion"
 import {
   ArrowUpRight,
-  Briefcase,
   CheckCircle2,
   ExternalLink,
   Globe,
@@ -74,16 +73,27 @@ const sectionVariants: Variants = {
 const itemVariants: Variants = {
   hidden: {
     opacity: 0,
-    y: 22,
+    y: 20,
   },
   show: {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.5,
+      duration: 0.45,
       ease: smoothEase,
     },
   },
+}
+
+function getPreviewClass(index: number) {
+  const variants = [
+    styles.previewLayoutOne,
+    styles.previewLayoutTwo,
+    styles.previewLayoutThree,
+    styles.previewLayoutFour,
+  ]
+
+  return variants[index % variants.length]
 }
 
 export default function PortfolioSection({ t }: PortfolioSectionProps) {
@@ -152,22 +162,15 @@ export default function PortfolioSection({ t }: PortfolioSectionProps) {
               className={styles.projectCard}
               variants={itemVariants}
             >
-              <div className={styles.cardOverlay} />
-              <div className={styles.cardGlow} />
+              <div className={styles.cardTop}>
+                <div className={styles.cardMeta}>
+                  <span className={styles.categoryChip}>{item.category}</span>
 
-              <div className={styles.cardHeader}>
-                <div className={styles.cardHeaderLeft}>
-                  <div className={styles.cardTopMeta}>
-                    <span className={styles.categoryChip}>{item.category}</span>
-
-                    {item.year ? (
-                      <span className={styles.yearChip}>
-                        {t.portfolio.card.year}: {item.year}
-                      </span>
-                    ) : null}
-                  </div>
-
-                  <h3 className={styles.cardTitle}>{item.title}</h3>
+                  {item.year ? (
+                    <span className={styles.yearChip}>
+                      {t.portfolio.card.year}: {item.year}
+                    </span>
+                  ) : null}
                 </div>
 
                 <a
@@ -177,94 +180,81 @@ export default function PortfolioSection({ t }: PortfolioSectionProps) {
                   className={styles.iconButton}
                   aria-label={`${item.title} live demo`}
                 >
-                  <ExternalLink size={17} />
+                  <ExternalLink size={16} />
                 </a>
               </div>
 
-              <div className={styles.previewCard}>
-                <div className={styles.previewTopBar}>
-                  <span className={styles.dot} />
-                  <span className={styles.dot} />
-                  <span className={styles.dot} />
-                </div>
+              <div className={styles.cardBody}>
+                <div className={styles.cardContent}>
+                  <h3 className={styles.cardTitle}>{item.title}</h3>
+                  <p className={styles.projectText}>{item.text}</p>
 
-                <div className={styles.previewMain}>
-                  <div className={styles.previewSidebar}>
-                    <div className={styles.sidebarBar} />
-                    <div className={styles.sidebarBarShort} />
-                    <div className={styles.sidebarBar} />
-                    <div className={styles.sidebarBarShort} />
-                    <div className={styles.sidebarBar} />
-                  </div>
-
-                  <div className={styles.previewBody}>
-                    <div className={styles.previewHero}>
-                      <div className={styles.previewHeroIcon} />
-                      <div className={styles.previewHeroTextWrap}>
-                        <div className={styles.previewHeroText} />
-                        <div className={styles.previewHeroTextShort} />
-                      </div>
+                  <div className={styles.metaRow}>
+                    <div className={styles.metaItem}>
+                      <MonitorSmartphone size={15} />
+                      <span>{t.portfolio.card.responsive}</span>
                     </div>
 
-                    <div className={styles.previewContentGrid}>
-                      <div className={styles.blockWide} />
-                      <div className={styles.blockAccent} />
-                      <div className={styles.block} />
-                      <div className={styles.block} />
-                      <div className={styles.blockWide} />
+                    <div className={styles.metaItem}>
+                      <CheckCircle2 size={15} />
+                      <span>{t.portfolio.card.modernUX}</span>
                     </div>
                   </div>
                 </div>
-              </div>
 
-              <p className={styles.projectText}>{item.text}</p>
+                <div
+                  className={`${styles.previewCard} ${getPreviewClass(index)}`}
+                >
+                  <div className={styles.previewHeader}>
+                    <span className={styles.previewDot} />
+                    <span className={styles.previewDot} />
+                    <span className={styles.previewDot} />
+                  </div>
 
-              <div className={styles.metaRow}>
-                <div className={styles.metaItem}>
-                  <Briefcase size={15} />
-                  <span>{t.portfolio.card.productionUI}</span>
-                </div>
-
-                <div className={styles.metaItem}>
-                  <MonitorSmartphone size={15} />
-                  <span>{t.portfolio.card.responsive}</span>
-                </div>
-
-                <div className={styles.metaItem}>
-                  <CheckCircle2 size={15} />
-                  <span>{t.portfolio.card.modernUX}</span>
-                </div>
-              </div>
-
-              <div className={styles.infoSection}>
-                <div className={styles.infoLabel}>
-                  <Layers3 size={15} />
-                  <span>{t.portfolio.card.technologies}</span>
-                </div>
-
-                <div className={styles.techStack}>
-                  {item.technologies.map((tech, techIndex) => (
-                    <span key={`${item.id}-tech-${techIndex}`}>{tech}</span>
-                  ))}
+                  <div className={styles.previewInner}>
+                    <div className={styles.previewBarLg} />
+                    <div className={styles.previewBarMd} />
+                    <div className={styles.previewGrid}>
+                      <div className={styles.previewBlock} />
+                      <div className={styles.previewBlockAccent} />
+                      <div className={styles.previewBlock} />
+                      <div className={styles.previewBlockWide} />
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              {item.features?.length ? (
-                <div className={styles.infoSection}>
+              <div className={styles.infoGrid}>
+                <div className={styles.infoCard}>
                   <div className={styles.infoLabel}>
-                    <Globe size={15} />
-                    <span>{t.portfolio.card.features}</span>
+                    <Layers3 size={15} />
+                    <span>{t.portfolio.card.technologies}</span>
                   </div>
 
-                  <div className={styles.featureList}>
-                    {item.features.map((feature, featureIndex) => (
-                      <span key={`${item.id}-feature-${featureIndex}`}>
-                        {feature}
-                      </span>
+                  <div className={styles.techStack}>
+                    {item.technologies.map((tech, techIndex) => (
+                      <span key={`${item.id}-tech-${techIndex}`}>{tech}</span>
                     ))}
                   </div>
                 </div>
-              ) : null}
+
+                {item.features?.length ? (
+                  <div className={styles.infoCard}>
+                    <div className={styles.infoLabel}>
+                      <Globe size={15} />
+                      <span>{t.portfolio.card.features}</span>
+                    </div>
+
+                    <div className={styles.featureList}>
+                      {item.features.map((feature, featureIndex) => (
+                        <span key={`${item.id}-feature-${featureIndex}`}>
+                          {feature}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                ) : null}
+              </div>
 
               <div className={styles.cardBottom}>
                 <div className={styles.projectStatus}>

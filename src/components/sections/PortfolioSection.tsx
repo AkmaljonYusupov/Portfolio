@@ -1,4 +1,4 @@
-import { motion } from "framer-motion"
+import { motion, type Variants } from "framer-motion"
 import {
   ArrowUpRight,
   Briefcase,
@@ -52,7 +52,9 @@ type PortfolioSectionProps = {
   }
 }
 
-const sectionVariants = {
+const smoothEase: [number, number, number, number] = [0.22, 1, 0.36, 1]
+
+const sectionVariants: Variants = {
   hidden: {
     opacity: 0,
     y: 18,
@@ -62,14 +64,14 @@ const sectionVariants = {
     y: 0,
     transition: {
       duration: 0.55,
-      ease: [0.22, 1, 0.36, 1],
+      ease: smoothEase,
       when: "beforeChildren",
       staggerChildren: 0.08,
     },
   },
 }
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: {
     opacity: 0,
     y: 22,
@@ -79,7 +81,7 @@ const itemVariants = {
     y: 0,
     transition: {
       duration: 0.5,
-      ease: [0.22, 1, 0.36, 1],
+      ease: smoothEase,
     },
   },
 }

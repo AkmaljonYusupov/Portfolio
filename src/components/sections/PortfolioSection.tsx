@@ -127,7 +127,10 @@ export default function PortfolioSection({ t }: PortfolioSectionProps) {
     if (!selectedProject) return
 
     const previousOverflow = document.body.style.overflow
+    const previousOverflowX = document.body.style.overflowX
+
     document.body.style.overflow = "hidden"
+    document.body.style.overflowX = "hidden"
 
     const handleEscape = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
@@ -139,6 +142,7 @@ export default function PortfolioSection({ t }: PortfolioSectionProps) {
 
     return () => {
       document.body.style.overflow = previousOverflow
+      document.body.style.overflowX = previousOverflowX
       window.removeEventListener("keydown", handleEscape)
     }
   }, [selectedProject])

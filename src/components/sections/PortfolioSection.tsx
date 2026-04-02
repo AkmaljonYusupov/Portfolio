@@ -30,6 +30,8 @@ type PortfolioSectionProps = {
       viewProjectButton?: string
       techLabel?: string
       statusLabel?: string
+      yearLabel?: string
+      filterLabel?: string
       modal?: {
         close?: string
         about?: string
@@ -169,6 +171,8 @@ export default function PortfolioSection({ t }: PortfolioSectionProps) {
   const viewLabel = t?.portfolio?.viewProjectButton ?? "Loyihani ko‘rish"
   const techLabel = t?.portfolio?.techLabel ?? "Ishlatilgan texnologiya"
   const statusLabel = t?.portfolio?.statusLabel ?? "Holati"
+  const yearLabel = t?.portfolio?.yearLabel ?? "Yil"
+  const filterLabel = t?.portfolio?.filterLabel ?? "Filter"
 
   const activeCategoryLabel =
     activeCategory === "all" ? allLabel : activeCategory
@@ -213,7 +217,9 @@ export default function PortfolioSection({ t }: PortfolioSectionProps) {
                     onClick={() => setFilterOpen((prev) => !prev)}
                   >
                     <div className={styles.filterToggleText}>
-                      <span className={styles.filterToggleLabel}>Filter</span>
+                      <span className={styles.filterToggleLabel}>
+                        {filterLabel}
+                      </span>
                       <span className={styles.filterToggleValue}>
                         {activeCategoryLabel}
                       </span>
@@ -267,13 +273,15 @@ export default function PortfolioSection({ t }: PortfolioSectionProps) {
                 layout
               >
                 <div className={styles.cardTopRow}>
-                  <span className={styles.yearChip}>{item.year || "—"}</span>
+                  <span className={styles.yearChip}>
+                    {yearLabel}: {item.year || "—"}
+                  </span>
 
                   <div className={styles.statusWrap}>
                     <span className={styles.statusLabel}>{statusLabel}</span>
                     <span className={styles.statusBadge}>
                       <span className={styles.statusDot} />
-                      {item.status}
+                      <span className={styles.statusBadgeText}>{item.status}</span>
                     </span>
                   </div>
                 </div>
@@ -341,7 +349,9 @@ export default function PortfolioSection({ t }: PortfolioSectionProps) {
               <div className={styles.modalTop}>
                 <div className={styles.modalHeadLeft}>
                   {selectedProject.year ? (
-                    <span className={styles.modalYear}>{selectedProject.year}</span>
+                    <span className={styles.modalYear}>
+                      {yearLabel}: {selectedProject.year}
+                    </span>
                   ) : null}
 
                   <h3 className={styles.modalTitle}>{selectedProject.title}</h3>
@@ -368,11 +378,18 @@ export default function PortfolioSection({ t }: PortfolioSectionProps) {
 
                   <div className={styles.modalInfoCard}>
                     <span className={styles.modalInfoLabel}>
-                      {t?.portfolio?.modal?.status ?? "Holati"}
+                      {t?.portfolio?.modal?.status ?? statusLabel}
                     </span>
-                    <div className={styles.modalStatus}>
-                      <span className={styles.statusDot} />
-                      <span>{selectedProject.status}</span>
+
+                    <div className={styles.modalStatusWrap}>
+                      <span className={styles.modalStatusLabel}>{statusLabel}</span>
+
+                      <span className={styles.modalStatusBadge}>
+                        <span className={styles.statusDot} />
+                        <span className={styles.modalStatusBadgeText}>
+                          {selectedProject.status}
+                        </span>
+                      </span>
                     </div>
                   </div>
 

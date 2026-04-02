@@ -5,7 +5,7 @@
 ========================= */
 .portfolioSection {
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   isolation: isolate;
   border-radius: $radius-xs;
   padding: 1.15rem;
@@ -27,6 +27,7 @@
     inset: 0;
     pointer-events: none;
     z-index: 0;
+    border-radius: inherit;
     background:
       radial-gradient(circle at top left, rgba(59, 130, 246, 0.08), transparent 24%),
       radial-gradient(circle at bottom right, rgba(168, 85, 247, 0.07), transparent 22%);
@@ -90,7 +91,7 @@
 .sectionWatermark {
   position: absolute;
   inset: 0;
-  z-index: 2;
+  z-index: 1;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -124,7 +125,7 @@
 .heroCard,
 .cardsGrid {
   position: relative;
-  z-index: 3;
+  z-index: 4;
 }
 
 /* =========================
@@ -137,6 +138,8 @@
   border: 1px solid rgba(148, 163, 184, 0.1);
   background: rgba(255, 255, 255, 0.56);
   box-shadow: 0 8px 20px rgba(15, 23, 42, 0.04);
+  position: relative;
+  z-index: 15;
 
   :global(.dark) & {
     background: rgba(255, 255, 255, 0.03);
@@ -217,6 +220,7 @@
 .filterWrap {
   position: relative;
   width: min(100%, 290px);
+  z-index: 40;
 }
 
 .filterToggle {
@@ -311,7 +315,7 @@
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   box-shadow: 0 18px 36px rgba(15, 23, 42, 0.1);
-  max-height: 208px; /* 4 ta item uchun */
+  max-height: 208px;
   overflow-y: auto;
   opacity: 0;
   visibility: hidden;
@@ -321,7 +325,7 @@
     opacity 0.2s ease,
     transform 0.2s ease,
     visibility 0.2s ease;
-  z-index: 12;
+  z-index: 100;
   scrollbar-width: thin;
   scrollbar-color: rgba(148, 163, 184, 0.45) transparent;
 
@@ -416,6 +420,8 @@
     transform 0.22s ease,
     border-color 0.22s ease,
     box-shadow 0.22s ease;
+  position: relative;
+  z-index: 2;
 
   &:hover {
     transform: translateY(-2px);
@@ -461,7 +467,7 @@
 .statusWrap {
   display: inline-flex;
   align-items: center;
-  gap: 0.55rem;
+  gap: 0.65rem;
   flex-wrap: wrap;
   justify-content: flex-end;
 }
@@ -471,6 +477,7 @@
   font-size: 0.78rem;
   font-weight: 800;
   white-space: nowrap;
+  line-height: 1.2;
 
   :global(.dark) & {
     color: #94a3b8;
@@ -480,9 +487,9 @@
 .statusBadge {
   display: inline-flex;
   align-items: center;
-  gap: 0.48rem;
+  gap: 0.5rem;
   min-height: 35px;
-  padding: 0.52rem 0.8rem;
+  padding: 0.52rem 0.82rem;
   border-radius: 999px;
   background: rgba(240, 253, 244, 0.92);
   border: 1px solid rgba(34, 197, 94, 0.14);
@@ -496,6 +503,11 @@
     border-color: rgba(34, 197, 94, 0.14);
     color: #bbf7d0;
   }
+}
+
+.statusBadgeText {
+  display: inline-block;
+  line-height: 1;
 }
 
 .statusDot {
@@ -642,13 +654,15 @@
     rgba(2, 6, 23, 0.68);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
+  overflow-y: auto;
 }
 
 .modalCard {
   position: relative;
   overflow: hidden;
-  width: min(780px, 100%);
-  max-height: min(88vh, 900px);
+  width: min(780px, calc(100vw - 2rem));
+  max-width: 780px;
+  max-height: calc(100dvh - 2rem);
   border-radius: 28px;
   border: 1px solid rgba(148, 163, 184, 0.14);
   background: linear-gradient(
@@ -659,6 +673,8 @@
   box-shadow:
     0 28px 72px rgba(15, 23, 42, 0.22),
     inset 0 1px 0 rgba(255, 255, 255, 0.46);
+  display: flex;
+  flex-direction: column;
 
   :global(.dark) & {
     border-color: rgba(255, 255, 255, 0.08);
@@ -705,6 +721,7 @@
   justify-content: space-between;
   gap: 1rem;
   padding: 1.15rem 1.15rem 0;
+  flex-shrink: 0;
 }
 
 .modalHeadLeft {
@@ -762,6 +779,7 @@
   transition:
     transform 0.24s ease,
     background 0.24s ease;
+  flex-shrink: 0;
 
   &:hover {
     transform: rotate(90deg);
@@ -780,6 +798,7 @@
   z-index: 1;
   padding: 1rem 1.15rem 1.15rem;
   overflow-y: auto;
+  min-height: 0;
 }
 
 .modalInfoGrid {
@@ -824,17 +843,48 @@
   }
 }
 
-.modalStatus {
+.modalStatusWrap {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.modalStatusLabel {
+  color: #64748b;
+  font-size: 0.82rem;
+  font-weight: 800;
+  line-height: 1.2;
+
+  :global(.dark) & {
+    color: #94a3b8;
+  }
+}
+
+.modalStatusBadge {
   display: inline-flex;
   align-items: center;
   gap: 0.55rem;
-  color: #0f172a;
-  font-size: 0.94rem;
-  font-weight: 700;
+  min-height: 36px;
+  padding: 0.54rem 0.86rem;
+  border-radius: 999px;
+  background: rgba(240, 253, 244, 0.92);
+  border: 1px solid rgba(34, 197, 94, 0.14);
+  color: #166534;
+  font-size: 0.84rem;
+  font-weight: 800;
+  white-space: nowrap;
 
   :global(.dark) & {
-    color: #ffffff;
+    background: rgba(34, 197, 94, 0.08);
+    border-color: rgba(34, 197, 94, 0.14);
+    color: #bbf7d0;
   }
+}
+
+.modalStatusBadgeText {
+  display: inline-block;
+  line-height: 1;
 }
 
 .modalTags {
@@ -971,6 +1021,17 @@
   .statusWrap {
     justify-content: flex-start;
   }
+
+  .modalOverlay {
+    align-items: flex-start;
+    padding: 0.75rem;
+  }
+
+  .modalCard {
+    width: min(100%, calc(100vw - 1.5rem));
+    max-height: calc(100dvh - 1.5rem);
+    margin: auto;
+  }
 }
 
 @media (max-width: 640px) {
@@ -995,7 +1056,6 @@
   }
 
   .modalCard {
-    max-height: 90vh;
     border-radius: 24px;
   }
 
@@ -1030,13 +1090,20 @@
     font-size: 0.8rem;
   }
 
-  .statusWrap {
-    gap: 0.45rem;
+  .statusWrap,
+  .modalStatusWrap {
+    gap: 0.55rem;
   }
 
   .statusBadge,
-  .yearChip {
+  .yearChip,
+  .modalYear,
+  .modalStatusBadge {
     min-height: 33px;
     padding: 0.48rem 0.72rem;
+  }
+
+  .modalTitle {
+    font-size: 1.22rem;
   }
 }

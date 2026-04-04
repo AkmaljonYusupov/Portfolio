@@ -132,29 +132,30 @@ function buildImageMap() {
     if (parentFolderKey) map[parentFolderKey] = url
     if (fullPathKey) map[fullPathKey] = url
 
-    if (folderKey.includes("besnik") || fileKey.includes("besnik")) map["besnik"] = url
-    if (folderKey.includes("coder") || fileKey.includes("coder")) map["coder"] = url
-    if (folderKey.includes("crud") || fileKey.includes("crud")) map["crud"] = url
-
+    if (folderKey.includes("besnik") || fileKey.includes("besnik")) {
+      map["besnik"] = url
+    }
+    if (folderKey.includes("coder") || fileKey.includes("coder")) {
+      map["coder"] = url
+    }
+    if (folderKey.includes("crud") || fileKey.includes("crud")) {
+      map["crud"] = url
+    }
     if (folderKey.includes("novacolor") || fileKey.includes("novacolor")) {
       map["novacolor"] = url
       map["novacoloruz"] = url
     }
-
     if (folderKey.includes("snake") || fileKey.includes("snake")) {
       map["snake"] = url
       map["snakegame"] = url
     }
-
     if (folderKey.includes("sendtoadmin") || fileKey.includes("sendtoadmin")) {
       map["sendtoadmin"] = url
     }
-
     if (folderKey.includes("green") || fileKey.includes("green")) {
       map["greenshop"] = url
       map["green"] = url
     }
-
     if (
       folderKey.includes("2048") ||
       fileKey.includes("2048") ||

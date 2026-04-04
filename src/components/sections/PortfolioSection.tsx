@@ -1,6 +1,6 @@
 import { AnimatePresence, motion, type Variants } from "framer-motion"
 import { ArrowUpRight, ExternalLink, X } from "lucide-react"
-import { useEffect, useMemo, useRef, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 import styles from "./PortfolioSection.module.scss"
 
 type PortfolioProject = {
@@ -98,23 +98,129 @@ const modalVariants: Variants = {
   },
 }
 
+function normalizeKey(value: string) {
+  return String(value ?? "")
+    .toLowerCase()
+    .replace(/\.[^/.]+$/, "")
+    .replace(/&/g, "and")
+    .replace(/\s+/g, "")
+    .replace(/[-_]+/g, "")
+    .replace(/[^a-z0-9]/g, "")
+}
+
+const rawImages = import.meta.glob("../../assets/**/*.{png,jpg,jpeg,webp,svg}", {
+  eager: true,
+  import: "default",
+}) as Record<string, string>
+
+function buildImageMap() {
+  const map: Record<string, string> = {}
+
+  Object.entries(rawImages).forEach(([path, url]) => {
+    const parts = path.split("/")
+    const fileName = parts[parts.length - 1] || ""
+    const folderName = parts[parts.length - 2] || ""
+    const parentFolderName = parts[parts.length - 3] || ""
+
+    const fileKey = normalizeKey(fileName)
+    const folderKey = normalizeKey(folderName)
+    const parentFolderKey = normalizeKey(parentFolderName)
+    const fullPathKey = normalizeKey(path)
+
+    if (fileKey) map[fileKey] = url
+    if (folderKey) map[folderKey] = url
+    if (parentFolderKey) map[parentFolderKey] = url
+    if (fullPathKey) map[fullPathKey] = url
+
+    if (folderKey.includes("besnik") || fileKey.includes("besnik")) map["besnik"] = url
+    if (folderKey.includes("coder") || fileKey.includes("coder")) map["coder"] = url
+    if (folderKey.includes("crud") || fileKey.includes("crud")) map["crud"] = url
+
+    if (folderKey.includes("novacolor") || fileKey.includes("novacolor")) {
+      map["novacolor"] = url
+      map["novacoloruz"] = url
+    }
+
+    if (folderKey.includes("snake") || fileKey.includes("snake")) {
+      map["snake"] = url
+      map["snakegame"] = url
+    }
+
+    if (folderKey.includes("sendtoadmin") || fileKey.includes("sendtoadmin")) {
+      map["sendtoadmin"] = url
+    }
+
+    if (folderKey.includes("green") || fileKey.includes("green")) {
+      map["greenshop"] = url
+      map["green"] = url
+    }
+
+    if (
+      folderKey.includes("2048") ||
+      fileKey.includes("2048") ||
+      fullPathKey.includes("2048")
+    ) {
+      map["2048"] = url
+      map["game2048"] = url
+      map["strategi2048"] = url
+      map["strategik2048"] = url
+    }
+  })
+
+  return map
+}
+
+const portfolioImageMap = buildImageMap()
+
+function getProjectImage(project: PortfolioProject): string | null {
+  const candidates = [
+    normalizeKey(project.id),
+    normalizeKey(project.title),
+    normalizeKey(project.category),
+    normalizeKey(`${project.id}${project.title}`),
+    normalizeKey(`${project.title}${project.category}`),
+  ].filter(Boolean)
+
+  for (const candidate of candidates) {
+    if (portfolioImageMap[candidate]) {
+      return portfolioImageMap[candidate]
+    }
+  }
+
+  for (const candidate of candidates) {
+    const matchedKey = Object.keys(portfolioImageMap).find(
+      (key) =>
+        key.includes(candidate) ||
+        candidate.includes(key) ||
+        key.startsWith(candidate) ||
+        candidate.startsWith(key)
+    )
+
+    if (matchedKey) {
+      return portfolioImageMap[matchedKey]
+    }
+  }
+
+  const rawEntries = Object.entries(rawImages)
+  for (const candidate of candidates) {
+    const found = rawEntries.find(([path]) => normalizeKey(path).includes(candidate))
+    if (found) return found[1]
+  }
+
+  return null
+}
+
 export default function PortfolioSection({ t }: PortfolioSectionProps) {
   const portfolioLabel = t?.nav?.portfolio ?? "Portfolio"
   const items = t?.portfolio?.items ?? []
 
   const [activeCategory, setActiveCategory] = useState("all")
-  const [selectedProject, setSelectedProject] = useState<PortfolioProject | null>(
-    null
-  )
-  const [filterOpen, setFilterOpen] = useState(false)
-
-  const filterRef = useRef<HTMLDivElement | null>(null)
+  const [selectedProject, setSelectedProject] = useState<PortfolioProject | null>(null)
 
   const categories = useMemo(() => {
     const uniqueCategories = Array.from(
       new Set(items.map((item) => item.category).filter(Boolean))
     )
-
     return ["all", ...uniqueCategories]
   }, [items])
 
@@ -126,49 +232,27 @@ export default function PortfolioSection({ t }: PortfolioSectionProps) {
   useEffect(() => {
     if (!selectedProject) return
 
-    const previousOverflow = document.body.style.overflow
-    const previousOverflowX = document.body.style.overflowX
+    const previousHtmlOverflow = document.documentElement.style.overflow
+    const previousBodyOverflow = document.body.style.overflow
+    const previousBodyOverflowX = document.body.style.overflowX
 
+    document.documentElement.style.overflow = "hidden"
     document.body.style.overflow = "hidden"
     document.body.style.overflowX = "hidden"
 
     const handleEscape = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        setSelectedProject(null)
-      }
+      if (event.key === "Escape") setSelectedProject(null)
     }
 
     window.addEventListener("keydown", handleEscape)
 
     return () => {
-      document.body.style.overflow = previousOverflow
-      document.body.style.overflowX = previousOverflowX
+      document.documentElement.style.overflow = previousHtmlOverflow
+      document.body.style.overflow = previousBodyOverflow
+      document.body.style.overflowX = previousBodyOverflowX
       window.removeEventListener("keydown", handleEscape)
     }
   }, [selectedProject])
-
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (!filterRef.current) return
-      if (!filterRef.current.contains(event.target as Node)) {
-        setFilterOpen(false)
-      }
-    }
-
-    document.addEventListener("mousedown", handleClickOutside)
-    return () => document.removeEventListener("mousedown", handleClickOutside)
-  }, [])
-
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth > 768) {
-        setFilterOpen(false)
-      }
-    }
-
-    window.addEventListener("resize", handleResize)
-    return () => window.removeEventListener("resize", handleResize)
-  }, [])
 
   const allLabel = t?.portfolio?.allLabel ?? "Barchasi"
   const detailsLabel = t?.portfolio?.detailsButton ?? "Batafsil"
@@ -177,9 +261,6 @@ export default function PortfolioSection({ t }: PortfolioSectionProps) {
   const statusLabel = t?.portfolio?.statusLabel ?? "Holati"
   const yearLabel = t?.portfolio?.yearLabel ?? "Yil"
   const filterLabel = t?.portfolio?.filterLabel ?? "Filter"
-
-  const activeCategoryLabel =
-    activeCategory === "all" ? allLabel : activeCategory
 
   return (
     <>
@@ -214,118 +295,110 @@ export default function PortfolioSection({ t }: PortfolioSectionProps) {
               </div>
 
               <div className={styles.heroRight}>
-                <div className={styles.filterWrap} ref={filterRef}>
-                  <button
-                    type="button"
-                    className={styles.filterToggle}
-                    onClick={() => setFilterOpen((prev) => !prev)}
-                  >
-                    <div className={styles.filterToggleText}>
-                      <span className={styles.filterToggleLabel}>
-                        {filterLabel}
-                      </span>
-                      <span className={styles.filterToggleValue}>
-                        {activeCategoryLabel}
-                      </span>
-                    </div>
+                <div className={styles.filterCompact}>
+                  <label htmlFor="portfolio-filter" className={styles.filterLabelText}>
+                    {filterLabel}
+                  </label>
 
-                    <span
-                      className={`${styles.filterChevron} ${
-                        filterOpen ? styles.filterChevronOpen : ""
-                      }`}
+                  <div className={styles.selectWrap}>
+                    <select
+                      id="portfolio-filter"
+                      className={styles.filterSelect}
+                      value={activeCategory}
+                      onChange={(e) => setActiveCategory(e.target.value)}
                     >
-                      ▾
-                    </span>
-                  </button>
-
-                  <div
-                    className={`${styles.filterMenu} ${
-                      filterOpen ? styles.filterMenuOpen : ""
-                    }`}
-                  >
-                    {categories.map((category) => {
-                      const isActive = activeCategory === category
-
-                      return (
-                        <button
-                          key={category}
-                          type="button"
-                          className={`${styles.filterItem} ${
-                            isActive ? styles.filterItemActive : ""
-                          }`}
-                          onClick={() => {
-                            setActiveCategory(category)
-                            setFilterOpen(false)
-                          }}
-                        >
+                      {categories.map((category) => (
+                        <option key={category} value={category}>
                           {category === "all" ? allLabel : category}
-                        </button>
-                      )
-                    })}
+                        </option>
+                      ))}
+                    </select>
                   </div>
+
+                  <span className={styles.filterCount}>
+                    {filteredProjects.length} / {items.length}
+                  </span>
                 </div>
               </div>
             </div>
           </motion.div>
 
           <motion.div className={styles.cardsGrid}>
-            {filteredProjects.map((item, index) => (
-              <motion.article
-                key={`${item.id}-${index}`}
-                className={styles.projectCard}
-                variants={itemVariants}
-                layout
-              >
-                <div className={styles.cardTopRow}>
-                  <span className={styles.yearChip}>
-                    {yearLabel}: {item.year || "—"}
-                  </span>
+            {filteredProjects.map((item, index) => {
+              const projectImage = getProjectImage(item)
 
-                  <div className={styles.statusWrap}>
-                    <span className={styles.statusLabel}>{statusLabel}</span>
-                    <span className={styles.statusBadge}>
-                      <span className={styles.statusDot} />
-                      <span className={styles.statusBadgeText}>{item.status}</span>
-                    </span>
+              return (
+                <motion.article
+                  key={`${item.id}-${index}`}
+                  className={styles.projectCard}
+                  variants={itemVariants}
+                  layout
+                >
+                  <div className={styles.projectImageWrap}>
+                    {projectImage ? (
+                      <img
+                        src={projectImage}
+                        alt={item.title}
+                        className={styles.projectImage}
+                        loading="lazy"
+                      />
+                    ) : (
+                      <div className={styles.projectImageFallback}>
+                        <span>{item.title}</span>
+                      </div>
+                    )}
                   </div>
-                </div>
 
-                <h3 className={styles.cardTitle}>{item.title}</h3>
+                  <div className={styles.cardTopRow}>
+                    <span className={styles.yearChip}>
+                      {yearLabel}: {item.year || "—"}
+                    </span>
 
-                {item.technologies?.length ? (
-                  <div className={styles.techPreview}>
-                    <span className={styles.techPreviewLabel}>{techLabel}</span>
-
-                    <div className={styles.techPreviewTags}>
-                      {item.technologies.slice(0, 4).map((tech, techIndex) => (
-                        <span key={`${item.id}-tech-${techIndex}`}>{tech}</span>
-                      ))}
+                    <div className={styles.statusWrap}>
+                      <span className={styles.statusLabel}>{statusLabel}</span>
+                      <span className={styles.statusBadge}>
+                        <span className={styles.statusDot} />
+                        <span className={styles.statusBadgeText}>{item.status}</span>
+                      </span>
                     </div>
                   </div>
-                ) : null}
 
-                <div className={styles.cardActions}>
-                  <button
-                    type="button"
-                    className={styles.detailsButton}
-                    onClick={() => setSelectedProject(item)}
-                  >
-                    <span>{detailsLabel}</span>
-                    <ArrowUpRight size={16} />
-                  </button>
+                  <h3 className={styles.cardTitle}>{item.title}</h3>
 
-                  <a
-                    href={item.link}
-                    target="_blank"
-                    rel="noreferrer"
-                    className={styles.viewButton}
-                  >
-                    <span>{viewLabel}</span>
-                    <ExternalLink size={16} />
-                  </a>
-                </div>
-              </motion.article>
-            ))}
+                  {item.technologies?.length ? (
+                    <div className={styles.techPreview}>
+                      <span className={styles.techPreviewLabel}>{techLabel}</span>
+                      <div className={styles.techPreviewTags}>
+                        {item.technologies.slice(0, 4).map((tech, techIndex) => (
+                          <span key={`${item.id}-tech-${techIndex}`}>{tech}</span>
+                        ))}
+                      </div>
+                    </div>
+                  ) : null}
+
+                  <div className={styles.cardActions}>
+                    <button
+                      type="button"
+                      className={styles.detailsButton}
+                      onClick={() => setSelectedProject(item)}
+                    >
+                      <span>{detailsLabel}</span>
+                      <ArrowUpRight size={16} />
+                    </button>
+
+                    <a
+                      href={item.link}
+                      target="_blank"
+                      rel="noreferrer"
+                      className={styles.viewButton}
+                    >
+                      <span>{viewLabel}</span>
+                      <ExternalLink size={16} />
+                    </a>
+                  </div>
+                </motion.article>
+              )
+            })}
           </motion.div>
         </div>
       </motion.section>
@@ -372,6 +445,25 @@ export default function PortfolioSection({ t }: PortfolioSectionProps) {
               </div>
 
               <div className={styles.modalContent}>
+                {(() => {
+                  const selectedProjectImage = getProjectImage(selectedProject)
+
+                  return selectedProjectImage ? (
+                    <div className={styles.modalPreview}>
+                      <img
+                        src={selectedProjectImage}
+                        alt={selectedProject.title}
+                        className={styles.modalPreviewImage}
+                        loading="lazy"
+                      />
+                    </div>
+                  ) : (
+                    <div className={styles.modalPreviewFallback}>
+                      <span>{selectedProject.title}</span>
+                    </div>
+                  )
+                })()}
+
                 <div className={styles.modalInfoGrid}>
                   <div className={styles.modalInfoCard}>
                     <span className={styles.modalInfoLabel}>
@@ -387,7 +479,6 @@ export default function PortfolioSection({ t }: PortfolioSectionProps) {
 
                     <div className={styles.modalStatusWrap}>
                       <span className={styles.modalStatusLabel}>{statusLabel}</span>
-
                       <span className={styles.modalStatusBadge}>
                         <span className={styles.statusDot} />
                         <span className={styles.modalStatusBadgeText}>

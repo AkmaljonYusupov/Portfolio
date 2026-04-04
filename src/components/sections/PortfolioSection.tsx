@@ -1,6 +1,6 @@
 import { AnimatePresence, motion, type Variants } from "framer-motion"
-import { ArrowUpRight, ExternalLink, X } from "lucide-react"
-import { useEffect, useMemo, useState } from "react"
+import { ArrowUpRight, Check, ExternalLink, X } from "lucide-react"
+import { useEffect, useMemo, useRef, useState } from "react"
 import styles from "./PortfolioSection.module.scss"
 
 type PortfolioProject = {
@@ -32,12 +32,12 @@ type PortfolioSectionProps = {
       statusLabel?: string
       yearLabel?: string
       filterLabel?: string
+      selectedCountLabel?: string
       modal?: {
         close?: string
         about?: string
         technologies?: string
         features?: string
-        year?: string
         status?: string
       }
     }
@@ -217,6 +217,9 @@ export default function PortfolioSection({ t }: PortfolioSectionProps) {
 
   const [activeCategory, setActiveCategory] = useState("all")
   const [selectedProject, setSelectedProject] = useState<PortfolioProject | null>(null)
+  const [filterOpen, setFilterOpen] = useState(false)
+
+  const filterRef = useRef<HTMLDivElement | null>(null)
 
   const categories = useMemo(() => {
     const uniqueCategories = Array.from(
@@ -255,13 +258,28 @@ export default function PortfolioSection({ t }: PortfolioSectionProps) {
     }
   }, [selectedProject])
 
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (!filterRef.current) return
+      if (!filterRef.current.contains(event.target as Node)) {
+        setFilterOpen(false)
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside)
+    return () => document.removeEventListener("mousedown", handleClickOutside)
+  }, [])
+
   const allLabel = t?.portfolio?.allLabel ?? "Barchasi"
   const detailsLabel = t?.portfolio?.detailsButton ?? "Batafsil"
   const viewLabel = t?.portfolio?.viewProjectButton ?? "Loyihani ko‘rish"
-  const techLabel = t?.portfolio?.techLabel ?? "Ishlatilgan texnologiya"
+  const techLabel = t?.portfolio?.techLabel ?? "Ishlatilgan texnologiyalar"
   const statusLabel = t?.portfolio?.statusLabel ?? "Holati"
   const yearLabel = t?.portfolio?.yearLabel ?? "Yil"
-  const filterLabel = t?.portfolio?.filterLabel ?? "Filter"
+  const filterLabel = t?.portfolio?.filterLabel ?? "Kategoriya"
+  const selectedCountLabel = t?.portfolio?.selectedCountLabel ?? "ta loyiha"
+
+  const activeCategoryLabel = activeCategory === "all" ? allLabel : activeCategory
 
   return (
     <>
@@ -296,29 +314,65 @@ export default function PortfolioSection({ t }: PortfolioSectionProps) {
               </div>
 
               <div className={styles.heroRight}>
-                <div className={styles.filterCompact}>
-                  <label htmlFor="portfolio-filter" className={styles.filterLabelText}>
-                    {filterLabel}
-                  </label>
-
-                  <div className={styles.selectWrap}>
-                    <select
-                      id="portfolio-filter"
-                      className={styles.filterSelect}
-                      value={activeCategory}
-                      onChange={(e) => setActiveCategory(e.target.value)}
-                    >
-                      {categories.map((category) => (
-                        <option key={category} value={category}>
-                          {category === "all" ? allLabel : category}
-                        </option>
-                      ))}
-                    </select>
+                <div className={styles.filterCompact} ref={filterRef}>
+                  <div className={styles.filterHead}>
+                    <span className={styles.filterLabelText}>{filterLabel}</span>
+                    <span className={styles.filterCount}>
+                      {filteredProjects.length} {selectedCountLabel}
+                    </span>
                   </div>
 
-                  <span className={styles.filterCount}>
-                    {filteredProjects.length} / {items.length}
-                  </span>
+                  <button
+                    type="button"
+                    className={styles.dropdownButton}
+                    onClick={() => setFilterOpen((prev) => !prev)}
+                    aria-expanded={filterOpen}
+                    aria-haspopup="listbox"
+                  >
+                    <span className={styles.dropdownButtonText}>{activeCategoryLabel}</span>
+                    <span
+                      className={`${styles.dropdownChevron} ${
+                        filterOpen ? styles.dropdownChevronOpen : ""
+                      }`}
+                    />
+                  </button>
+
+                  <AnimatePresence>
+                    {filterOpen ? (
+                      <motion.div
+                        className={styles.dropdownMenu}
+                        initial={{ opacity: 0, y: 8, scale: 0.98 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: 6, scale: 0.98 }}
+                        transition={{ duration: 0.18 }}
+                        role="listbox"
+                      >
+                        {categories.map((category) => {
+                          const isActive = activeCategory === category
+                          const label = category === "all" ? allLabel : category
+
+                          return (
+                            <button
+                              key={category}
+                              type="button"
+                              role="option"
+                              aria-selected={isActive}
+                              className={`${styles.dropdownItem} ${
+                                isActive ? styles.dropdownItemActive : ""
+                              }`}
+                              onClick={() => {
+                                setActiveCategory(category)
+                                setFilterOpen(false)
+                              }}
+                            >
+                              <span className={styles.dropdownItemText}>{label}</span>
+                              {isActive ? <Check size={16} className={styles.dropdownCheck} /> : null}
+                            </button>
+                          )
+                        })}
+                      </motion.div>
+                    ) : null}
+                  </AnimatePresence>
                 </div>
               </div>
             </div>

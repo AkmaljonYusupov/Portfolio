@@ -133,37 +133,36 @@
       }
     ]
   },
-  "portfolio": {
+"portfolio": {
     "title": "Seçilmiş Projeler",
-    "desc": "Farklı alanlardaki gerçek frontend ve WordPress projelerim. Her proje modern arayüz, responsive yapı ve pratik işlevsellik üzerine kuruludur.",
-    "stats": {
-      "totalProjects": "Projeler",
-      "uiLevel": "UI seviyesi",
-      "responsive": "Responsive"
-    },
+    "desc": "Farklı alanlardaki gerçek frontend ve WordPress projelerim. Her proje modern arayüz, duyarlı yapı ve pratik işlevselliğe odaklanmaktadır.",
     "tags": [
       "Premium UI",
-      "Responsive Layout",
+      "Duyarlı Düzen",
       "Modern UX",
-      "Scalable Frontend"
+      "Ölçeklenebilir Frontend"
     ],
-    "card": {
-      "liveDemo": "Projeyi Gör",
-      "premiumProject": "Premium Proje",
-      "productionUI": "Production UI",
-      "responsive": "Responsive",
-      "modernUX": "Modern UX",
+    "allLabel": "Tümü",
+    "detailsButton": "Detaylar",
+    "viewProjectButton": "Projeyi Gör",
+    "techLabel": "Kullanılan Teknolojiler",
+    "statusLabel": "Durum",
+    "yearLabel": "Yıl",
+    "filterLabel": "Kategori",
+    "selectedCountLabel": "proje",
+    "modal": {
+      "close": "Kapat",
+      "about": "Proje Hakkında",
       "technologies": "Teknolojiler",
       "features": "Özellikler",
-      "year": "Yıl",
       "status": "Durum"
     },
     "items": [
       {
         "id": "novacolor",
         "title": "Novacolor Uzbekistan",
-        "category": "Kurumsal Web Sitesi",
-        "text": "Marka, ürün ve hizmet sunumuna odaklanan modern kurumsal frontend çözümü.",
+        "category": "Corporate Website",
+        "text": "Kurumsal görünümlü modern ve akıcı bir frontend çözümü. Markayı, ürünleri ve hizmetleri premium biçimde tanıtmaya odaklanmaktadır.",
         "link": "https://novacolor.uz/",
         "status": "Live",
         "year": "2025",
@@ -179,8 +178,8 @@
       {
         "id": "coder-blog",
         "title": "Coder Blog",
-        "category": "Blog Platformu",
-        "text": "İçerikleri temiz ve okunabilir şekilde sunan minimal blog arayüzü.",
+        "category": "Blog Platform",
+        "text": "İçerik ve makaleleri temiz bir görünümde sunan blog arayüzü. Minimalist tasarımı ve rahat okuma deneyimiyle öne çıkar.",
         "link": "https://coder-blog.vercel.app/",
         "status": "Live",
         "year": "2025",
@@ -196,8 +195,8 @@
       {
         "id": "paint-demo",
         "title": "Paint Demo",
-        "category": "Canvas Uygulaması",
-        "text": "Canvas ile oluşturulmuş, tarayıcı içinde çalışan interaktif çizim projesi.",
+        "category": "Canvas App",
+        "text": "Doğrudan tarayıcıda çalışan interaktif bir çizim projesi. Canvas tabanlı olup kullanıcıya basit ve eğlenceli bir çizim deneyimi sunar.",
         "link": "https://paint-demo.vercel.app/",
         "status": "Live",
         "year": "2025",
@@ -216,8 +215,8 @@
       {
         "id": "greenshop",
         "title": "GreenShop",
-        "category": "React Web Sitesi",
-        "text": "Ürün sunumu ve kullanıcı deneyimine odaklanan modern React projesi.",
+        "category": "React Website",
+        "text": "Ürünleri sergilemeye ve kullanıcı deneyimini geliştirmeye yönelik React tabanlı modern bir web projesi.",
         "link": "https://greenshopuzb.netlify.app",
         "status": "Live",
         "year": "2025",
@@ -233,8 +232,8 @@
       {
         "id": "send-to-admin",
         "title": "Send To Admin",
-        "category": "Etkileşimli Form Projesi",
-        "text": "Bilgi gönderme sürecini sadeleştiren, temiz form akışına sahip frontend projesi.",
+        "category": "Interactive Form Project",
+        "text": "Veri gönderme sürecini basit ve anlaşılır hale getiren bir frontend projesi. Form işleyişi ve kullanıcı etkileşimi ön plandadır.",
         "link": "https://send-to-admin.vercel.app/",
         "status": "Live",
         "year": "2025",
@@ -253,7 +252,7 @@
         "id": "besnik-pro",
         "title": "Besnik Pro",
         "category": "Landing Page",
-        "text": "Güzel section yapıları ve tekrar kullanılabilir frontend bileşenleriyle hazırlanmış premium landing page projesi.",
+        "text": "Güzel bloklar, bölüm yapısı ve yeniden kullanılabilir frontend bileşenleriyle oluşturulmuş premium bir açılış sayfası projesi.",
         "link": "https://besnik-pro.vercel.app/",
         "status": "Live",
         "year": "2025",
@@ -273,8 +272,8 @@
       {
         "id": "crud-uz",
         "title": "CRUD UZ",
-        "category": "CRUD Arayüzü",
-        "text": "Veri ekleme, düzenleme ve silme işlemleri için pratik arayüze sahip proje.",
+        "category": "CRUD Interface",
+        "text": "Veri ekleme, düzenleme ve silme işlemleri için kullanışlı arayüze sahip bir CRUD projesi.",
         "link": "https://crud-uz.vercel.app/",
         "status": "Live",
         "year": "2025",
@@ -293,8 +292,8 @@
       {
         "id": "quiztest-uz",
         "title": "Quiz Test UZ",
-        "category": "Quiz Platformu",
-        "text": "Form doğrulama ve telefon input maskesi ile güçlendirilmiş quiz frontend projesi.",
+        "category": "Quiz Platform",
+        "text": "Test ve soru-cevap süreçleri için geliştirilmiş bir frontend projesi. Form doğrulaması ve telefon girişi maskesiyle zenginleştirilmiştir.",
         "link": "https://quiztest-uz.vercel.app/",
         "status": "Live",
         "year": "2025",
@@ -314,8 +313,8 @@
       {
         "id": "snakegame-uz",
         "title": "Snake Game UZ",
-        "category": "Oyun Projesi",
-        "text": "Çoklu dil desteği, oyun modları, bonuslar ve istatistiklerle geliştirilmiş interaktif yılan oyunu.",
+        "category": "Game Project",
+        "text": "Çok dilli destek, oyun modları, bonuslar ve istatistiklerle zenginleştirilmiş interaktif yılan oyunu.",
         "link": "https://snakegame-uz.vercel.app/",
         "status": "Live",
         "year": "2025",
@@ -341,7 +340,7 @@
         "id": "strategik2048",
         "title": "Strategik 2048",
         "category": "Puzzle Game",
-        "text": "Responsive arayüz ve hafif animasyonlarla hazırlanmış modern 2048 frontend yorumu.",
+        "text": "2048 oyununun modern bir frontend yorumu. Duyarlı arayüz ve hafif animasyonlarla hazırlanmış bir proje.",
         "link": "https://strategik2048.vercel.app/",
         "status": "Live",
         "year": "2025",
@@ -361,8 +360,8 @@
       {
         "id": "koreys",
         "title": "Koreys",
-        "category": "Eğitim Web Sitesi",
-        "text": "İçerik netliği ve farklı ekranlarda iyi deneyim sunmaya odaklanan responsive eğitim projesi.",
+        "category": "Educational Website",
+        "text": "Eğitime yönelik duyarlı bir proje. Farklı ekran boyutlarında sorunsuz çalışma ve net içerik görünümüne odaklanılmıştır.",
         "link": "https://koreys.vercel.app/",
         "status": "Live",
         "year": "2025",
@@ -383,8 +382,8 @@
       {
         "id": "remstroy",
         "title": "Remstroy",
-        "category": "İşletme Web Sitesi",
-        "text": "Router, TypeScript ve i18n ile kurulmuş ölçeklenebilir frontend mimarisine sahip çok sayfalı ve çok dilli iş projesi.",
+        "category": "Business Website",
+        "text": "Çok sayfalı, çok dilli ve modern bir iş projesi. Router, TypeScript ve i18n tabanlı ölçeklenebilir frontend mimarisiyle inşa edilmiştir.",
         "link": "https://remstroy-eta.vercel.app/",
         "status": "Live",
         "year": "2025",
@@ -408,8 +407,8 @@
       {
         "id": "neftgasprom",
         "title": "NeftGasProm",
-        "category": "Kurumsal Çok Dilli Web Sitesi",
-        "text": "Genişletilebilir sayfa yapısı ve modern UI ile hazırlanmış premium çok dilli kurumsal frontend projesi.",
+        "category": "NeftGasProm",
+        "text": "Kurumsal odaklı, çok dilli ve premium bir frontend projesi. Ölçeklenebilir sayfa yapısı ve modern UI ile hayata geçirilmiştir.",
         "link": "https://neftgasprom.vercel.app/",
         "status": "Live",
         "year": "2025",
@@ -433,8 +432,8 @@
       {
         "id": "marocandy",
         "title": "Marocandy",
-        "category": "WordPress Web Sitesi",
-        "text": "Marka sunumu ve kolay içerik yönetimi için oluşturulmuş esnek WordPress projesi.",
+        "category": "WordPress Website",
+        "text": "WordPress üzerine kurulu hazır ve esnek bir proje. Marka tanıtımı ve içerik yönetimi için kullanışlı bir çözüm.",
         "link": "https://marocandy.uz/",
         "status": "Live",
         "year": "2025",

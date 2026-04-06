@@ -23,14 +23,37 @@ type PortfolioProject = {
   features?: string[]
 }
 
+type PortfolioCard = {
+  liveDemo?: string
+  premiumProject?: string
+  productionUI?: string
+  responsive?: string
+  modernUX?: string
+  technologies?: string
+  features?: string
+  year?: string
+  status?: string
+}
+
+type PortfolioStats = {
+  totalProjects?: string
+  uiLevel?: string
+  responsive?: string
+}
+
 type PortfolioSectionProps = {
   t: {
-    nav?: { portfolio?: string }
+    nav?: {
+      portfolio?: string
+    }
     portfolio: {
       title: string
       desc: string
       tags?: string[]
       items: PortfolioProject[]
+      stats?: PortfolioStats
+      card?: PortfolioCard
+      // flat label aliases — kept for backward compat
       allLabel?: string
       detailsButton?: string
       viewProjectButton?: string
@@ -79,7 +102,7 @@ const modalVariants: Variants = {
   exit: { opacity: 0, y: 18, scale: 0.98, transition: { duration: 0.18, ease: "easeOut" } },
 }
 
-// ─── Image map (built once at module level, never re-runs) ───────────────────
+// ─── Image map (built once at module level, never re-runs) ────────────────────
 
 function normalizeKey(value: string) {
   return String(value ?? "")
@@ -91,25 +114,16 @@ function normalizeKey(value: string) {
     .replace(/[^a-z0-9]/g, "")
 }
 
-/**
- * Lazy-loaded image URLs via Vite's import.meta.glob.
- * Using `eager: false` returns a map of () => Promise<module> instead of
- * resolved URLs, so we get the URL only when actually needed.
- */
 const rawImageLoaders = import.meta.glob<{ default: string }>(
   "../../assets/**/*.{png,jpg,jpeg,webp,svg}",
   { eager: false }
 )
 
-/**
- * Eager map only for the *path → normalized keys* index.
- * We never touch the actual image bytes here — just the file paths.
- */
 const pathToKeys: Record<string, string[]> = {}
 
 for (const path of Object.keys(rawImageLoaders)) {
-  const parts = path.split("/")
-  const fileName = parts[parts.length - 1] ?? ""
+  const parts      = path.split("/")
+  const fileName   = parts[parts.length - 1] ?? ""
   const folderName = parts[parts.length - 2] ?? ""
 
   const keys = [
@@ -118,28 +132,24 @@ for (const path of Object.keys(rawImageLoaders)) {
     normalizeKey(path),
   ].filter(Boolean)
 
-  // Brand-specific aliases — extend as needed
   const aliases: Record<string, string[]> = {
-    besnik: ["besnik"],
-    coder: ["coder"],
-    crud: ["crud"],
+    besnik:    ["besnik"],
+    coder:     ["coder"],
+    crud:      ["crud"],
     novacolor: ["novacolor", "novacoloruz"],
-    snake: ["snake", "snakegame"],
+    snake:     ["snake", "snakegame"],
     sendtoadmin: ["sendtoadmin"],
-    green: ["greenshop", "green"],
-    "2048": ["2048", "game2048", "strategi2048", "strategik2048"],
+    green:     ["greenshop", "green"],
+    "2048":    ["2048", "game2048", "strategi2048", "strategik2048"],
   }
 
   for (const [keyword, extra] of Object.entries(aliases)) {
-    if (keys.some((k) => k.includes(keyword))) {
-      keys.push(...extra)
-    }
+    if (keys.some((k) => k.includes(keyword))) keys.push(...extra)
   }
 
   pathToKeys[path] = [...new Set(keys)]
 }
 
-/** Reverse lookup: normalizedKey → vite path */
 const keyToPath: Record<string, string> = {}
 for (const [path, keys] of Object.entries(pathToKeys)) {
   for (const key of keys) {
@@ -147,7 +157,6 @@ for (const [path, keys] of Object.entries(pathToKeys)) {
   }
 }
 
-/** Runtime cache so we never load the same image twice */
 const resolvedUrlCache: Record<string, string> = {}
 
 async function resolveImageUrl(vitePath: string): Promise<string> {
@@ -170,7 +179,6 @@ function findVitePath(project: PortfolioProject): string | null {
     if (keyToPath[candidate]) return keyToPath[candidate]
   }
 
-  // Substring fallback
   for (const candidate of candidates) {
     const match = Object.keys(keyToPath).find(
       (k) => k.includes(candidate) || candidate.includes(k)
@@ -181,53 +189,27 @@ function findVitePath(project: PortfolioProject): string | null {
   return null
 }
 
-// ─── LazyImage component ──────────────────────────────────────────────────────
+// ─── LazyImage ────────────────────────────────────────────────────────────────
 
-/**
- * Renders a placeholder skeleton until the image enters the viewport,
- * then dynamically imports the asset and fades it in.
- *
- * Strategy:
- * 1. IntersectionObserver fires when the card is ~200 px away (rootMargin).
- * 2. We call resolveImageUrl() — Vite code-splits each image into its own
- *    chunk so only the needed file is fetched.
- * 3. The image tag is created with `decoding="async"` and `fetchpriority`
- *    so the browser pipeline doesn't block the main thread.
- * 4. A CSS fade-in plays once the blob/URL is ready, hiding the brief flash.
- */
 type LazyImageProps = {
   project: PortfolioProject
   className: string
   fallbackClassName: string
   alt: string
-  /** Set to "high" for the first visible card, undefined for the rest */
   fetchPriority?: "high" | "low" | "auto"
 }
 
-function LazyImage({
-  project,
-  className,
-  fallbackClassName,
-  alt,
-  fetchPriority,
-}: LazyImageProps) {
-  const wrapRef = useRef<HTMLDivElement>(null)
-  const [src, setSrc] = useState<string | null>(null)
+function LazyImage({ project, className, fallbackClassName, alt, fetchPriority }: LazyImageProps) {
+  const wrapRef             = useRef<HTMLDivElement>(null)
+  const [src, setSrc]       = useState<string | null>(null)
   const [loaded, setLoaded] = useState(false)
-  const [error, setError] = useState(false)
+  const [error, setError]   = useState(false)
 
   useEffect(() => {
     const vitePath = findVitePath(project)
-    if (!vitePath) {
-      setError(true)
-      return
-    }
+    if (!vitePath) { setError(true); return }
 
-    // If already resolved (e.g. same project appears twice), skip IO entirely
-    if (resolvedUrlCache[vitePath]) {
-      setSrc(resolvedUrlCache[vitePath])
-      return
-    }
+    if (resolvedUrlCache[vitePath]) { setSrc(resolvedUrlCache[vitePath]); return }
 
     const el = wrapRef.current
     if (!el) return
@@ -238,11 +220,7 @@ function LazyImage({
         observer.disconnect()
         resolveImageUrl(vitePath).then(setSrc).catch(() => setError(true))
       },
-      {
-        // Start loading 300 px before the image scrolls into view
-        rootMargin: "300px 0px",
-        threshold: 0,
-      }
+      { rootMargin: "300px 0px", threshold: 0 }
     )
 
     observer.observe(el)
@@ -250,18 +228,12 @@ function LazyImage({
   }, [project])
 
   if (error || (!src && findVitePath(project) === null)) {
-    return (
-      <div className={fallbackClassName}>
-        <span>{alt}</span>
-      </div>
-    )
+    return <div className={fallbackClassName}><span>{alt}</span></div>
   }
 
   return (
     <div ref={wrapRef} className={styles.lazyImageWrap}>
-      {/* Skeleton shown while image hasn't loaded yet */}
       {!loaded && <div className={styles.imageSkeleton} aria-hidden="true" />}
-
       {src && (
         <img
           src={src}
@@ -278,23 +250,91 @@ function LazyImage({
   )
 }
 
+// ─── ModalImage ───────────────────────────────────────────────────────────────
+
+function ModalImage({ project }: { project: PortfolioProject }) {
+  const [src, setSrc] = useState<string | null>(() => {
+    const vitePath = findVitePath(project)
+    return vitePath && resolvedUrlCache[vitePath] ? resolvedUrlCache[vitePath] : null
+  })
+  const [loaded, setLoaded] = useState(false)
+  const [error, setError]   = useState(false)
+
+  useEffect(() => {
+    if (src) return
+    const vitePath = findVitePath(project)
+    if (!vitePath) { setError(true); return }
+    resolveImageUrl(vitePath).then(setSrc).catch(() => setError(true))
+  }, [project, src])
+
+  if (error || findVitePath(project) === null) {
+    return (
+      <div className={`${styles.modalPreviewFallback} ${styles.projectImageFallback}`}>
+        <span>{project.title}</span>
+      </div>
+    )
+  }
+
+  return (
+    <div className={styles.modalPreview}>
+      {!loaded && <div className={styles.imageSkeleton} aria-hidden="true" />}
+      {src && (
+        <img
+          src={src}
+          alt={project.title}
+          className={`${styles.modalPreviewImage} ${loaded ? styles.imgVisible : styles.imgHidden}`}
+          decoding="async"
+          // @ts-expect-error
+          fetchpriority="high"
+          onLoad={() => setLoaded(true)}
+          onError={() => setError(true)}
+        />
+      )}
+    </div>
+  )
+}
+
 // ─── Main component ───────────────────────────────────────────────────────────
 
 export default function PortfolioSection({ t }: PortfolioSectionProps) {
+  // ── nav ───────────────────────────────────────────────────────────────────
   const portfolioLabel = t?.nav?.portfolio ?? "Portfolio"
+
+  // ── Resolve labels: card.* (JSON) → flat keys (fallback) → hardcoded UZ ──
+  const card = t?.portfolio?.card
+
+  const yearLabel          = card?.year              ?? t?.portfolio?.yearLabel           ?? "Yil"
+  const statusLabel        = card?.status            ?? t?.portfolio?.statusLabel         ?? "Holati"
+  const techLabel          = card?.technologies      ?? t?.portfolio?.techLabel           ?? "Texnologiyalar"
+  const detailsLabel       = t?.portfolio?.detailsButton                                 ?? "Batafsil"
+  const viewLabel          = card?.liveDemo          ?? t?.portfolio?.viewProjectButton   ?? "Loyihani ko'rish"
+  const filterLabel        = t?.portfolio?.filterLabel                                   ?? "Kategoriya"
+  const selectedCountLabel = t?.portfolio?.selectedCountLabel                            ?? "ta loyiha"
+  const allLabel           = t?.portfolio?.allLabel                                      ?? "Barchasi"
+
+  // ── Modal labels ──────────────────────────────────────────────────────────
+  const modal = t?.portfolio?.modal
+
+  const modalCloseLabel  = modal?.close        ?? "Yopish"
+  const modalAboutLabel  = modal?.about        ?? "Loyiha haqida"
+  const modalTechLabel   = modal?.technologies ?? card?.technologies ?? techLabel
+  const modalFeatLabel   = modal?.features     ?? card?.features     ?? "Imkoniyatlar"
+  const modalStatusLabel = modal?.status       ?? card?.status       ?? statusLabel
+
+  // ── State ─────────────────────────────────────────────────────────────────
   const items = t?.portfolio?.items ?? []
 
-  const [activeCategory, setActiveCategory] = useState("all")
+  const [activeCategory, setActiveCategory]   = useState("all")
   const [selectedProject, setSelectedProject] = useState<PortfolioProject | null>(null)
-  const [filterOpen, setFilterOpen] = useState(false)
+  const [filterOpen, setFilterOpen]           = useState(false)
 
   const filterRef = useRef<HTMLDivElement | null>(null)
 
   const categories = useMemo(() => {
-    const uniqueCategories = Array.from(
+    const unique = Array.from(
       new Set(items.map((item) => item.category).filter(Boolean))
     )
-    return ["all", ...uniqueCategories]
+    return ["all", ...unique]
   }, [items])
 
   const filteredProjects = useMemo(() => {
@@ -305,17 +345,17 @@ export default function PortfolioSection({ t }: PortfolioSectionProps) {
   // Lock scroll when modal is open
   useEffect(() => {
     if (!selectedProject) return
-    const prevHtml = document.documentElement.style.overflow
-    const prevBody = document.body.style.overflow
+    const prevHtml  = document.documentElement.style.overflow
+    const prevBody  = document.body.style.overflow
     const prevBodyX = document.body.style.overflowX
     document.documentElement.style.overflow = "hidden"
-    document.body.style.overflow = "hidden"
+    document.body.style.overflow  = "hidden"
     document.body.style.overflowX = "hidden"
     const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setSelectedProject(null) }
     window.addEventListener("keydown", onKey)
     return () => {
       document.documentElement.style.overflow = prevHtml
-      document.body.style.overflow = prevBody
+      document.body.style.overflow  = prevBody
       document.body.style.overflowX = prevBodyX
       window.removeEventListener("keydown", onKey)
     }
@@ -330,19 +370,10 @@ export default function PortfolioSection({ t }: PortfolioSectionProps) {
     return () => document.removeEventListener("mousedown", handler)
   }, [])
 
-  const closeModal = useCallback(() => setSelectedProject(null), [])
-
-  // Labels
-  const allLabel            = t?.portfolio?.allLabel            ?? "Barchasi"
-  const detailsLabel        = t?.portfolio?.detailsButton       ?? "Batafsil"
-  const viewLabel           = t?.portfolio?.viewProjectButton   ?? "Loyihani ko'rish"
-  const techLabel           = t?.portfolio?.techLabel           ?? "Ishlatilgan texnologiyalar"
-  const statusLabel         = t?.portfolio?.statusLabel         ?? "Holati"
-  const yearLabel           = t?.portfolio?.yearLabel           ?? "Yil"
-  const filterLabel         = t?.portfolio?.filterLabel         ?? "Kategoriya"
-  const selectedCountLabel  = t?.portfolio?.selectedCountLabel  ?? "ta loyiha"
+  const closeModal          = useCallback(() => setSelectedProject(null), [])
   const activeCategoryLabel = activeCategory === "all" ? allLabel : activeCategory
 
+  // ── Render ────────────────────────────────────────────────────────────────
   return (
     <>
       <motion.section
@@ -360,12 +391,15 @@ export default function PortfolioSection({ t }: PortfolioSectionProps) {
         </div>
 
         <div className={styles.inner}>
-          {/* ── Hero card ── */}
+
+          {/* ── Hero card ─────────────────────────────────────────────────── */}
           <motion.div className={styles.heroCard} variants={itemVariants}>
             <div className={styles.heroContent}>
+
               <div className={styles.heroLeft}>
                 <h2 className={styles.title}>{t.portfolio.title}</h2>
                 <p className={styles.desc}>{t.portfolio.desc}</p>
+
                 {t?.portfolio?.tags?.length ? (
                   <div className={styles.heroTags}>
                     {t.portfolio.tags.map((tag, i) => (
@@ -375,6 +409,7 @@ export default function PortfolioSection({ t }: PortfolioSectionProps) {
                 ) : null}
               </div>
 
+              {/* Filter dropdown */}
               <div className={styles.heroRight}>
                 <div className={styles.filterCompact} ref={filterRef}>
                   <div className={styles.filterHead}>
@@ -411,18 +446,25 @@ export default function PortfolioSection({ t }: PortfolioSectionProps) {
                       >
                         {categories.map((cat) => {
                           const isActive = activeCategory === cat
-                          const label = cat === "all" ? allLabel : cat
+                          const label    = cat === "all" ? allLabel : cat
                           return (
                             <button
                               key={cat}
                               type="button"
                               role="option"
                               aria-selected={isActive}
-                              className={`${styles.dropdownItem} ${isActive ? styles.dropdownItemActive : ""}`}
-                              onClick={() => { setActiveCategory(cat); setFilterOpen(false) }}
+                              className={`${styles.dropdownItem} ${
+                                isActive ? styles.dropdownItemActive : ""
+                              }`}
+                              onClick={() => {
+                                setActiveCategory(cat)
+                                setFilterOpen(false)
+                              }}
                             >
                               <span className={styles.dropdownItemText}>{label}</span>
-                              {isActive && <Check size={16} className={styles.dropdownCheck} />}
+                              {isActive && (
+                                <Check size={16} className={styles.dropdownCheck} />
+                              )}
                             </button>
                           )
                         })}
@@ -434,7 +476,7 @@ export default function PortfolioSection({ t }: PortfolioSectionProps) {
             </div>
           </motion.div>
 
-          {/* ── Cards grid ── */}
+          {/* ── Cards grid ───────────────────────────────────────────────── */}
           <motion.div className={styles.cardsGrid}>
             {filteredProjects.map((item, index) => (
               <motion.article
@@ -443,20 +485,21 @@ export default function PortfolioSection({ t }: PortfolioSectionProps) {
                 variants={itemVariants}
                 layout
               >
+                {/* Image */}
                 <div className={styles.projectImageWrap}>
                   <LazyImage
                     project={item}
                     className={styles.projectImage}
                     fallbackClassName={styles.projectImageFallback}
                     alt={item.title}
-                    // Give the first card high fetch priority — it's likely LCP
                     fetchPriority={index === 0 ? "high" : undefined}
                   />
                 </div>
 
+                {/* Year + Status row */}
                 <div className={styles.cardTopRow}>
                   <span className={styles.yearChip}>
-                    {yearLabel}: {item.year || "—"}
+                    {yearLabel}: {item.year ?? "—"}
                   </span>
                   <div className={styles.statusWrap}>
                     <span className={styles.statusLabel}>{statusLabel}</span>
@@ -467,8 +510,10 @@ export default function PortfolioSection({ t }: PortfolioSectionProps) {
                   </div>
                 </div>
 
+                {/* Title */}
                 <h3 className={styles.cardTitle}>{item.title}</h3>
 
+                {/* Technologies preview (max 4) */}
                 {item.technologies?.length ? (
                   <div className={styles.techPreview}>
                     <span className={styles.techPreviewLabel}>{techLabel}</span>
@@ -480,6 +525,7 @@ export default function PortfolioSection({ t }: PortfolioSectionProps) {
                   </div>
                 ) : null}
 
+                {/* Card actions */}
                 <div className={styles.cardActions}>
                   <button
                     type="button"
@@ -505,7 +551,7 @@ export default function PortfolioSection({ t }: PortfolioSectionProps) {
         </div>
       </motion.section>
 
-      {/* ── Modal ── */}
+      {/* ── Modal ─────────────────────────────────────────────────────────── */}
       <AnimatePresence>
         {selectedProject && (
           <motion.div
@@ -526,6 +572,7 @@ export default function PortfolioSection({ t }: PortfolioSectionProps) {
               <div className={styles.modalGlowOne} />
               <div className={styles.modalGlowTwo} />
 
+              {/* Modal header */}
               <div className={styles.modalTop}>
                 <div className={styles.modalHeadLeft}>
                   {selectedProject.year && (
@@ -539,28 +586,27 @@ export default function PortfolioSection({ t }: PortfolioSectionProps) {
                   type="button"
                   className={styles.modalClose}
                   onClick={closeModal}
-                  aria-label={t?.portfolio?.modal?.close ?? "Yopish"}
+                  aria-label={modalCloseLabel}
                 >
                   <X size={18} />
                 </button>
               </div>
 
+              {/* Modal body */}
               <div className={styles.modalContent}>
-                {/* Modal image — eager because the user explicitly opened this */}
                 <ModalImage project={selectedProject} />
 
                 <div className={styles.modalInfoGrid}>
+
+                  {/* About */}
                   <div className={styles.modalInfoCard}>
-                    <span className={styles.modalInfoLabel}>
-                      {t?.portfolio?.modal?.about ?? "Loyiha haqida"}
-                    </span>
+                    <span className={styles.modalInfoLabel}>{modalAboutLabel}</span>
                     <p className={styles.modalText}>{selectedProject.text}</p>
                   </div>
 
+                  {/* Status */}
                   <div className={styles.modalInfoCard}>
-                    <span className={styles.modalInfoLabel}>
-                      {t?.portfolio?.modal?.status ?? statusLabel}
-                    </span>
+                    <span className={styles.modalInfoLabel}>{modalStatusLabel}</span>
                     <div className={styles.modalStatusWrap}>
                       <span className={styles.modalStatusLabel}>{statusLabel}</span>
                       <span className={styles.modalStatusBadge}>
@@ -572,11 +618,10 @@ export default function PortfolioSection({ t }: PortfolioSectionProps) {
                     </div>
                   </div>
 
+                  {/* Technologies */}
                   {selectedProject.technologies?.length ? (
                     <div className={styles.modalInfoCard}>
-                      <span className={styles.modalInfoLabel}>
-                        {t?.portfolio?.modal?.technologies ?? "Texnologiyalar"}
-                      </span>
+                      <span className={styles.modalInfoLabel}>{modalTechLabel}</span>
                       <div className={styles.modalTags}>
                         {selectedProject.technologies.map((tech, i) => (
                           <span key={`${selectedProject.id}-tech-modal-${i}`}>{tech}</span>
@@ -585,11 +630,10 @@ export default function PortfolioSection({ t }: PortfolioSectionProps) {
                     </div>
                   ) : null}
 
+                  {/* Features */}
                   {selectedProject.features?.length ? (
                     <div className={styles.modalInfoCard}>
-                      <span className={styles.modalInfoLabel}>
-                        {t?.portfolio?.modal?.features ?? "Imkoniyatlar"}
-                      </span>
+                      <span className={styles.modalInfoLabel}>{modalFeatLabel}</span>
                       <div className={styles.modalTags}>
                         {selectedProject.features.map((feature, i) => (
                           <span key={`${selectedProject.id}-feature-${i}`}>{feature}</span>
@@ -599,6 +643,7 @@ export default function PortfolioSection({ t }: PortfolioSectionProps) {
                   ) : null}
                 </div>
 
+                {/* Modal actions */}
                 <div className={styles.modalActions}>
                   <a
                     href={selectedProject.link}
@@ -614,7 +659,7 @@ export default function PortfolioSection({ t }: PortfolioSectionProps) {
                     className={styles.modalSecondaryButton}
                     onClick={closeModal}
                   >
-                    {t?.portfolio?.modal?.close ?? "Yopish"}
+                    {modalCloseLabel}
                   </button>
                 </div>
               </div>
@@ -623,50 +668,5 @@ export default function PortfolioSection({ t }: PortfolioSectionProps) {
         )}
       </AnimatePresence>
     </>
-  )
-}
-
-// ─── Modal image (eager — user already clicked, no lazy needed) ───────────────
-
-function ModalImage({ project }: { project: PortfolioProject }) {
-  const [src, setSrc] = useState<string | null>(() => {
-    // If already in cache from the card thumbnail, use it instantly
-    const vitePath = findVitePath(project)
-    return vitePath && resolvedUrlCache[vitePath] ? resolvedUrlCache[vitePath] : null
-  })
-  const [loaded, setLoaded] = useState(false)
-  const [error, setError] = useState(false)
-
-  useEffect(() => {
-    if (src) return
-    const vitePath = findVitePath(project)
-    if (!vitePath) { setError(true); return }
-    resolveImageUrl(vitePath).then(setSrc).catch(() => setError(true))
-  }, [project, src])
-
-  if (error || findVitePath(project) === null) {
-    return (
-      <div className={`${styles.modalPreviewFallback} ${styles.projectImageFallback}`}>
-        <span>{project.title}</span>
-      </div>
-    )
-  }
-
-  return (
-    <div className={styles.modalPreview}>
-      {!loaded && <div className={styles.imageSkeleton} aria-hidden="true" />}
-      {src && (
-        <img
-          src={src}
-          alt={project.title}
-          className={`${styles.modalPreviewImage} ${loaded ? styles.imgVisible : styles.imgHidden}`}
-          decoding="async"
-          // @ts-expect-error
-          fetchpriority="high"
-          onLoad={() => setLoaded(true)}
-          onError={() => setError(true)}
-        />
-      )}
-    </div>
   )
 }

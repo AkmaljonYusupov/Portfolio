@@ -3,14 +3,14 @@ import {
   ArrowUpRight,
   CheckCircle2,
   ChevronDown,
-  ChevronUp,
   Clock,
-  Shield,
-  Star,
-  TrendingUp,
-  Zap,
+  Code2,
+  Layers3,
+  MonitorSmartphone,
+  Palette,
 } from "lucide-react"
 import { useMemo, useState } from "react"
+import { FaWordpress } from "react-icons/fa"
 import ServiceIcon from "../ServiceIcon"
 import styles from "./ServicesSection.module.scss"
 
@@ -32,14 +32,7 @@ type ServicesSectionProps = {
     services: {
       title: string
       desc: string
-      tags?: string[]
       items: ServiceItem[]
-      stats?: {
-        experience?: string
-        projects?: string
-        clients?: string
-        satisfaction?: string
-      }
     }
   }
 }
@@ -69,134 +62,233 @@ const itemVariants: Variants = {
   },
 }
 
-function getLevelColor(level?: string) {
-  if (!level) return {}
-
-  const l = level.toLowerCase()
-
-  if (l.includes("pro") || l.includes("advanced") || l.includes("yuqori")) {
-    return {
-      bg: "rgba(168, 85, 247, 0.10)",
-      border: "rgba(168, 85, 247, 0.18)",
-      color: "#7c3aed",
-    }
-  }
-
-  if (l.includes("mid") || l.includes("o'rta") || l.includes("intermediate")) {
-    return {
-      bg: "rgba(59, 130, 246, 0.10)",
-      border: "rgba(59, 130, 246, 0.18)",
-      color: "#2563eb",
-    }
-  }
-
-  return {
-    bg: "rgba(34, 197, 94, 0.08)",
-    border: "rgba(34, 197, 94, 0.18)",
-    color: "#166534",
-  }
-}
-
 function normalize(value: string) {
   return String(value ?? "").toLowerCase().trim()
+}
+
+function getServiceTheme(icon?: string) {
+  const key = normalize(icon)
+
+  if (key.includes("react") || key.includes("code") || key.includes("dev")) {
+    return "development"
+  }
+
+  if (
+    key.includes("ui") ||
+    key.includes("ux") ||
+    key.includes("design") ||
+    key.includes("palette")
+  ) {
+    return "uiux"
+  }
+
+  if (
+    key.includes("responsive") ||
+    key.includes("mobile") ||
+    key.includes("device")
+  ) {
+    return "responsive"
+  }
+
+  if (key.includes("wordpress") || key.includes("wp")) {
+    return "wordpress"
+  }
+
+  return "default"
+}
+
+function getServiceAccentIcon(icon?: string) {
+  const key = normalize(icon)
+
+  if (key.includes("react") || key.includes("code") || key.includes("dev")) {
+    return Code2
+  }
+
+  if (
+    key.includes("ui") ||
+    key.includes("ux") ||
+    key.includes("design") ||
+    key.includes("palette")
+  ) {
+    return Palette
+  }
+
+  if (
+    key.includes("responsive") ||
+    key.includes("mobile") ||
+    key.includes("device")
+  ) {
+    return MonitorSmartphone
+  }
+
+  if (key.includes("wordpress") || key.includes("wp")) {
+    return FaWordpress
+  }
+
+  return Layers3
 }
 
 export default function ServicesSection({ t }: ServicesSectionProps) {
   const sectionLabel = t?.nav?.services ?? "Services"
   const rawItems = t?.services?.items ?? []
-  const stats = t?.services?.stats
   const [expandedId, setExpandedId] = useState<string | null>(null)
 
   const items = useMemo<ServiceItem[]>(() => {
-    const hasWordPress = rawItems.some((item) => {
+    const mapped = rawItems.map((item) => {
+      const title = normalize(item.title)
+      const icon = normalize(item.icon)
+
+      if (
+        title.includes("react") ||
+        icon.includes("react") ||
+        icon.includes("code")
+      ) {
+        return {
+          ...item,
+          title: item.title || "ReactJS Development",
+          text:
+            "ReactJS asosida tezkor, toza va kengaytiriladigan web interfeyslar yarataman. Komponentli arxitektura, qayta ishlatiladigan kod va zamonaviy frontend yechimlarga e'tibor beraman.",
+          features: item.features?.length
+            ? item.features
+            : [
+                "Component-based arxitektura",
+                "Toza va scalable kod yozilishi",
+                "API bilan integratsiya",
+                "Interaktiv va tezkor UI",
+              ],
+          tags: item.tags?.length
+            ? item.tags
+            : ["ReactJS", "Frontend", "Clean Code"],
+        }
+      }
+
+      if (
+        title.includes("ui") ||
+        title.includes("ux") ||
+        icon.includes("design") ||
+        icon.includes("ui")
+      ) {
+        return {
+          ...item,
+          title: item.title || "UI/UX Implementation",
+          text:
+            "Tayyor dizaynlarni premium ko‘rinishda to‘liq frontendga aylantiraman. Foydalanuvchi uchun qulay, estetik va vizual jihatdan tartibli interfeyslar yarataman.",
+          features: item.features?.length
+            ? item.features
+            : [
+                "Pixel-perfect layout",
+                "Premium UI elementlar",
+                "Figma dizaynni kodga aylantirish",
+                "Silliq hover va transitionlar",
+              ],
+          tags: item.tags?.length
+            ? item.tags
+            : ["UI Design", "UX", "Premium Look"],
+        }
+      }
+
+      if (
+        title.includes("responsive") ||
+        title.includes("mobile") ||
+        icon.includes("responsive") ||
+        icon.includes("mobile")
+      ) {
+        return {
+          ...item,
+          title: item.title || "Responsive Web Design",
+          text:
+            "Saytlarni desktop, planshet va mobil qurilmalarga mukammal moslab ishlab chiqaman. Har bir ekran o‘lchamida toza va qulay ko‘rinish saqlanadi.",
+          features: item.features?.length
+            ? item.features
+            : [
+                "Mobile-first yondashuv",
+                "Tablet va desktop optimizatsiya",
+                "Moslashuvchan grid tizimi",
+                "Barcha ekranlarda qulay ko‘rinish",
+              ],
+          tags: item.tags?.length
+            ? item.tags
+            : ["Responsive", "Mobile", "Adaptive UI"],
+        }
+      }
+
+      if (
+        title.includes("wordpress") ||
+        icon.includes("wordpress") ||
+        icon.includes("wp")
+      ) {
+        return {
+          ...item,
+          title: item.title || "WordPress Services",
+          text:
+            "WordPress asosida boshqaruvi qulay, zamonaviy va tezkor saytlar yarataman. Blog, korporativ sayt, landing page va custom sahifalarni ehtiyojga moslab ishlab chiqaman.",
+          features: item.features?.length
+            ? item.features
+            : [
+                "WordPress sayt yaratish",
+                "Custom template moslash",
+                "Admin panel orqali boshqaruv",
+                "SEO va tezlikka mos struktura",
+              ],
+          tags: item.tags?.length
+            ? item.tags
+            : ["WordPress", "CMS", "Custom Setup"],
+        }
+      }
+
+      return {
+        ...item,
+        text:
+          item.text ||
+          "Zamonaviy frontend ehtiyojlari uchun ishonchli va qulay web yechimlar ishlab chiqaman.",
+        features: item.features?.length
+          ? item.features
+          : [
+              "Toza frontend yechim",
+              "Moslashuvchan tuzilma",
+              "Yuqori sifatli interfeys",
+              "Loyiha ehtiyojiga moslashuv",
+            ],
+        tags: item.tags?.length
+          ? item.tags
+          : ["Frontend", "Modern", "Reliable"],
+      }
+    })
+
+    const hasWordPress = mapped.some((item) => {
       const title = normalize(item.title)
       const text = normalize(item.text)
       const icon = normalize(item.icon)
       const tags = (item.tags ?? []).map(normalize).join(" ")
-      const features = (item.features ?? []).map(normalize).join(" ")
 
       return (
         title.includes("wordpress") ||
         text.includes("wordpress") ||
         icon.includes("wordpress") ||
-        tags.includes("wordpress") ||
-        features.includes("wordpress")
+        tags.includes("wordpress")
       )
     })
 
-    if (hasWordPress) return rawItems
+    if (hasWordPress) return mapped
 
     return [
-      ...rawItems,
+      ...mapped,
       {
-        title: "WordPress Xizmatlari",
-        text: "WordPress asosida zamonaviy, tezkor, responsive va boshqaruvi qulay web saytlar yarataman. Blog, landing page, korporativ sayt va custom sahifalarni professional darajada ishlab chiqaman.",
+        title: "WordPress Services",
+        text:
+          "WordPress asosida boshqaruvi qulay, zamonaviy va tezkor saytlar yarataman. Blog, korporativ sayt, landing page va custom sahifalarni ehtiyojga moslab ishlab chiqaman.",
         icon: "wordpress",
-        level: "Professional",
         duration: "Moslashuvchan",
-        tags: ["WordPress", "CMS", "Responsive"],
+        tags: ["WordPress", "CMS", "Custom Setup"],
         features: [
           "WordPress sayt yaratish",
           "Custom template moslash",
-          "Landing page va blog sahifalar",
           "Admin panel orqali boshqaruv",
           "SEO va tezlikka mos struktura",
         ],
       },
     ]
   }, [rawItems])
-
-  const goToContact = () => {
-    const selectors = [
-      "#contact",
-      '[data-section="contact"]',
-      '[id="contact-section"]',
-      "section#contact",
-    ]
-
-    let target: HTMLElement | null = null
-
-    for (const selector of selectors) {
-      const el = document.querySelector(selector)
-      if (el instanceof HTMLElement) {
-        target = el
-        break
-      }
-    }
-
-    if (target) {
-      target.scrollIntoView({ behavior: "smooth", block: "start" })
-      if (window.location.hash !== "#contact") {
-        window.history.replaceState(null, "", "#contact")
-      }
-      return
-    }
-
-    window.location.hash = "#contact"
-  }
-
-  const defaultStats = [
-    {
-      value: stats?.experience ?? "3+",
-      label: "Yil tajriba",
-      icon: <TrendingUp size={14} />,
-    },
-    {
-      value: stats?.projects ?? "20+",
-      label: "Loyihalar",
-      icon: <Zap size={14} />,
-    },
-    {
-      value: stats?.clients ?? "15+",
-      label: "Mijozlar",
-      icon: <Shield size={14} />,
-    },
-    {
-      value: stats?.satisfaction ?? "100%",
-      label: "Mamnunlik",
-      icon: <Star size={14} />,
-    },
-  ]
 
   return (
     <motion.section
@@ -214,154 +306,126 @@ export default function ServicesSection({ t }: ServicesSectionProps) {
         <span>{sectionLabel}</span>
       </div>
 
-      <div className={styles.inner}>
-        <motion.div className={styles.heroCard} variants={itemVariants}>
-          <div className={styles.heroContent}>
-            <div className={styles.heroLeft}>
-              <h2 className={styles.title}>{t.services.title}</h2>
-              <p className={styles.desc}>{t.services.desc}</p>
+      <motion.div
+        className={styles.centerContent}
+        variants={itemVariants}
+        initial={{ opacity: 0, y: 18 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.35 }}
+        transition={{ duration: 0.45 }}
+      >
+        <h2 className={styles.title}>{t?.services?.title ?? "Xizmatlar"}</h2>
+        <p className={styles.desc}>
+          {t?.services?.desc ??
+            "Frontend yo‘nalishida kerakli asosiy xizmatlar to‘plami."}
+        </p>
+      </motion.div>
 
-              {t?.services?.tags?.length ? (
-                <div className={styles.heroTags}>
-                  {t.services.tags.map((tag, i) => (
-                    <span key={`${tag}-${i}`}>{tag}</span>
-                  ))}
-                </div>
-              ) : null}
-            </div>
+      <motion.div className={styles.cardsGrid}>
+        <AnimatePresence mode="popLayout">
+          {items.map((service, index) => {
+            const id = `${service.title}-${index}`
+            const isExpanded = expandedId === id
+            const theme = getServiceTheme(service.icon)
+            const AccentIcon = getServiceAccentIcon(service.icon)
 
-            <div className={styles.heroStats}>
-              {defaultStats.map((stat, index) => (
-                <div className={styles.statItem} key={index}>
-                  <div className={styles.statIcon}>{stat.icon}</div>
-                  <span className={styles.statValue}>{stat.value}</span>
-                  <span className={styles.statLabel}>{stat.label}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </motion.div>
+            return (
+              <motion.article
+                key={id}
+                className={`${styles.card} ${styles[theme]} ${
+                  isExpanded ? styles.cardExpanded : ""
+                }`}
+                variants={itemVariants}
+                layout
+                initial={{ opacity: 0, y: 18 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 12, scale: 0.97 }}
+                transition={{
+                  duration: 0.38,
+                  ease: smoothEase,
+                  delay: index * 0.05,
+                }}
+              >
+                <div className={styles.cardAccent} />
 
-        <motion.div className={styles.cardsGrid}>
-          <AnimatePresence mode="popLayout">
-            {items.map((service, index) => {
-              const id = `${service.title}-${index}`
-              const isExpanded = expandedId === id
-              const levelColors = getLevelColor(service.level)
-
-              return (
-                <motion.article
-                  key={id}
-                  className={`${styles.card} ${isExpanded ? styles.cardExpanded : ""}`}
-                  variants={itemVariants}
-                  layout
-                  initial={{ opacity: 0, y: 18 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 12, scale: 0.97 }}
-                  transition={{
-                    duration: 0.38,
-                    ease: smoothEase,
-                    delay: index * 0.05,
-                  }}
-                >
-                  <div className={styles.cardTop}>
-                    <div className={styles.iconWrap}>
-                      <ServiceIcon type={service.icon} />
-                    </div>
-
-                    <div className={styles.cardTopRight}>
-                      {service.level && (
-                        <span
-                          className={styles.levelBadge}
-                          style={{
-                            background: levelColors.bg,
-                            borderColor: levelColors.border,
-                            color: levelColors.color,
-                          }}
-                        >
-                          <Star size={11} />
-                          {service.level}
-                        </span>
-                      )}
-
-                      {service.duration && (
-                        <span className={styles.durationBadge}>
-                          <Clock size={11} />
-                          {service.duration}
-                        </span>
-                      )}
-                    </div>
+                <div className={styles.cardTop}>
+                  <div className={styles.iconWrap}>
+                    <ServiceIcon type={service.icon} />
                   </div>
 
-                  <h3 className={styles.cardTitle}>{service.title}</h3>
-                  <p className={styles.text}>{service.text}</p>
+                  <div className={styles.cardTopRight}>
+                    <span className={styles.miniType}>
+                      <AccentIcon size={14} />
+                      <span>{service.tags?.[0] ?? "Service"}</span>
+                    </span>
 
-                  {service.tags?.length ? (
-                    <div className={styles.featureChips}>
-                      {service.tags.slice(0, 3).map((tag, ti) => (
-                        <span key={`${id}-tag-${ti}`}>{tag}</span>
+                    {service.duration && (
+                      <span className={styles.durationBadge}>
+                        <Clock size={11} />
+                        {service.duration}
+                      </span>
+                    )}
+                  </div>
+                </div>
+
+                <h3 className={styles.cardTitle}>{service.title}</h3>
+                <p className={styles.text}>{service.text}</p>
+
+                {service.tags?.length ? (
+                  <div className={styles.featureChips}>
+                    {service.tags.slice(0, 3).map((tag, ti) => (
+                      <span key={`${id}-tag-${ti}`}>{tag}</span>
+                    ))}
+                  </div>
+                ) : null}
+
+                <AnimatePresence initial={false}>
+                  {isExpanded && service.features?.length ? (
+                    <motion.div
+                      className={styles.featuresExpanded}
+                      key="features"
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.32, ease: smoothEase }}
+                    >
+                      {service.features.map((feature, fi) => (
+                        <div className={styles.featureRow} key={fi}>
+                          <CheckCircle2
+                            size={13}
+                            className={styles.featureCheck}
+                          />
+                          <span>{feature}</span>
+                        </div>
                       ))}
-                    </div>
+                    </motion.div>
                   ) : null}
+                </AnimatePresence>
 
-                  <AnimatePresence initial={false}>
-                    {isExpanded && service.features?.length ? (
-                      <motion.div
-                        className={styles.featuresExpanded}
-                        key="features"
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: "auto" }}
-                        exit={{ opacity: 0, height: 0 }}
-                        transition={{ duration: 0.32, ease: smoothEase }}
-                      >
-                        {service.features.map((feature, fi) => (
-                          <div className={styles.featureRow} key={fi}>
-                            <CheckCircle2
-                              size={13}
-                              className={styles.featureCheck}
-                            />
-                            <span>{feature}</span>
-                          </div>
-                        ))}
-                      </motion.div>
-                    ) : null}
-                  </AnimatePresence>
+                <div className={styles.cardFooter}>
+                  <button
+                    type="button"
+                    className={styles.expandBtn}
+                    onClick={() => setExpandedId(isExpanded ? null : id)}
+                    aria-expanded={isExpanded}
+                  >
+                    <ChevronDown
+                      size={14}
+                      className={isExpanded ? styles.chevronOpen : ""}
+                    />
+                    <span>Batafsil</span>
+                  </button>
 
-                  <div className={styles.cardFooter}>
-                    <button
-                      type="button"
-                      className={styles.expandBtn}
-                      onClick={() => setExpandedId(isExpanded ? null : id)}
-                      aria-expanded={isExpanded}
-                    >
-                      {isExpanded ? (
-                        <>
-                          <ChevronUp size={14} />
-                          <span>Yopish</span>
-                        </>
-                      ) : (
-                        <>
-                          <ChevronDown size={14} />
-                          <span>Batafsil</span>
-                        </>
-                      )}
-                    </button>
-
-                    <button
-                      type="button"
-                      className={styles.moreBtn}
-                      onClick={goToContact}
-                    >
-                      <span>Boshlash</span>
-                      <ArrowUpRight size={15} />
-                    </button>
-                  </div>
-                </motion.article>
-              )
-            })}
-          </AnimatePresence>
-        </motion.div>
-      </div>
+                  <button type="button" className={styles.moreBtn}>
+                    <span>Boshlash</span>
+                    <ArrowUpRight size={15} />
+                  </button>
+                </div>
+              </motion.article>
+            )
+          })}
+        </AnimatePresence>
+      </motion.div>
     </motion.section>
   )
 }

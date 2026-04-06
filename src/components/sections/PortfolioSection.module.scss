@@ -272,6 +272,65 @@
 }
 
 /* =========================
+   Lazy image + skeleton
+========================= */
+
+/**
+ * .lazyImageWrap fills the parent (.projectImageWrap) completely.
+ * It holds both the skeleton and the real <img> stacked via absolute positioning.
+ */
+.lazyImageWrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/**
+ * Skeleton — animated shimmer shown while the image is loading.
+ * Uses a moving gradient to signal activity without a spinner.
+ */
+.imageSkeleton {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  overflow: hidden;
+
+  background: linear-gradient(
+    90deg,
+    rgba(226, 232, 240, 0.6) 0%,
+    rgba(241, 245, 249, 0.9) 50%,
+    rgba(226, 232, 240, 0.6) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.6s ease-in-out infinite;
+
+  :global(.dark) & {
+    background: linear-gradient(
+      90deg,
+      rgba(30, 41, 59, 0.8) 0%,
+      rgba(51, 65, 85, 0.9) 50%,
+      rgba(30, 41, 59, 0.8) 100%
+    );
+    background-size: 200% 100%;
+  }
+}
+
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Image visibility helpers — toggled by LazyImage component */
+.imgHidden {
+  opacity: 0;
+}
+
+.imgVisible {
+  opacity: 1;
+  transition: opacity 0.35s ease;
+}
+
+/* =========================
    Simple Premium Dropdown Filter
 ========================= */
 .filterCompact {
@@ -422,18 +481,12 @@
   scrollbar-width: thin;
   scrollbar-color: rgba(148, 163, 184, 0.42) transparent;
 
-  &::-webkit-scrollbar {
-    width: 6px;
-  }
-
+  &::-webkit-scrollbar { width: 6px; }
   &::-webkit-scrollbar-thumb {
     background: rgba(148, 163, 184, 0.42);
     border-radius: 999px;
   }
-
-  &::-webkit-scrollbar-track {
-    background: transparent;
-  }
+  &::-webkit-scrollbar-track { background: transparent; }
 
   :global(.dark) & {
     background: rgba(15, 23, 42, 0.98);
@@ -460,18 +513,14 @@
   font-size: 0.85rem;
   font-weight: 700;
   cursor: pointer;
-  transition:
-    background 0.2s ease,
-    color 0.2s ease;
+  transition: background 0.2s ease, color 0.2s ease;
 
   &:hover {
     background: rgba(59, 130, 246, 0.08);
     color: #2563eb;
   }
 
-  :global(.dark) & {
-    color: #e2e8f0;
-  }
+  :global(.dark) & { color: #e2e8f0; }
 }
 
 .dropdownItemActive {
@@ -490,9 +539,7 @@
   word-break: break-word;
 }
 
-.dropdownCheck {
-  flex-shrink: 0;
-}
+.dropdownCheck { flex-shrink: 0; }
 
 @media (max-width: 767px) {
   .filterCompact {
@@ -502,23 +549,11 @@
 }
 
 @media (max-width: 420px) {
-  .filterCompact {
-    padding: 0.78rem;
-  }
-
-  .dropdownButton {
-    min-height: 46px;
-    padding: 0.76rem 0.88rem;
-  }
-
-  .dropdownButtonText {
-    font-size: 0.84rem;
-  }
-
+  .filterCompact { padding: 0.78rem; }
+  .dropdownButton { min-height: 46px; padding: 0.76rem 0.88rem; }
+  .dropdownButtonText { font-size: 0.84rem; }
   .filterLabelText,
-  .filterCount {
-    font-size: 0.72rem;
-  }
+  .filterCount { font-size: 0.72rem; }
 }
 
 /* =========================
@@ -567,12 +602,16 @@
   border-radius: $radius-xs;
   overflow: hidden;
   border: 1px solid rgba(148, 163, 184, 0.12);
-  background: rgba(241, 245, 249, 0.9);
 
+  /* No background here — skeleton provides the fill */
   :global(.dark) & {
-    background: rgba(255, 255, 255, 0.04);
     border-color: rgba(255, 255, 255, 0.08);
   }
+}
+
+/* Scale effect on hover — targets the real <img> inside LazyImage */
+.projectCard:hover .projectImage {
+  transform: scale(1.03);
 }
 
 .projectImage {
@@ -581,11 +620,7 @@
   display: block;
   object-fit: cover;
   object-position: top center;
-  transition: transform 0.45s ease, filter 0.3s ease;
-}
-
-.projectCard:hover .projectImage {
-  transform: scale(1.03);
+  transition: transform 0.45s ease, opacity 0.35s ease;
 }
 
 .projectImageFallback,
@@ -664,9 +699,7 @@
   white-space: nowrap;
   line-height: 1.2;
 
-  :global(.dark) & {
-    color: #94a3b8;
-  }
+  :global(.dark) & { color: #94a3b8; }
 }
 
 .statusBadge {
@@ -715,15 +748,10 @@
   overflow-wrap: anywhere;
   word-break: break-word;
 
-  :global(.dark) & {
-    color: #ffffff;
-  }
+  :global(.dark) & { color: #ffffff; }
 }
 
-.techPreview {
-  display: grid;
-  gap: 0.6rem;
-}
+.techPreview { display: grid; gap: 0.6rem; }
 
 .techPreviewLabel {
   color: #64748b;
@@ -732,9 +760,7 @@
   text-transform: uppercase;
   letter-spacing: 0.04em;
 
-  :global(.dark) & {
-    color: #94a3b8;
-  }
+  :global(.dark) & { color: #94a3b8; }
 }
 
 .techPreviewTags {
@@ -915,10 +941,7 @@
   flex-shrink: 0;
 }
 
-.modalHeadLeft {
-  display: grid;
-  gap: 0.65rem;
-}
+.modalHeadLeft { display: grid; gap: 0.65rem; }
 
 .modalYear {
   display: inline-flex;
@@ -951,9 +974,7 @@
   overflow-wrap: anywhere;
   word-break: break-word;
 
-  :global(.dark) & {
-    color: #ffffff;
-  }
+  :global(.dark) & { color: #ffffff; }
 }
 
 .modalClose {
@@ -993,16 +1014,15 @@
 }
 
 .modalPreview {
+  position: relative;
   width: 100%;
   aspect-ratio: 16 / 9;
   border-radius: $radius-xs;
   overflow: hidden;
   border: 1px solid rgba(148, 163, 184, 0.1);
-  background: rgba(241, 245, 249, 0.9);
   margin-bottom: 1rem;
 
   :global(.dark) & {
-    background: rgba(255, 255, 255, 0.04);
     border-color: rgba(255, 255, 255, 0.08);
   }
 }
@@ -1022,10 +1042,7 @@
   margin-bottom: 1rem;
 }
 
-.modalInfoGrid {
-  display: grid;
-  gap: 0.9rem;
-}
+.modalInfoGrid { display: grid; gap: 0.9rem; }
 
 .modalInfoCard {
   padding: 1rem;
@@ -1049,9 +1066,7 @@
   text-transform: uppercase;
   letter-spacing: 0.05em;
 
-  :global(.dark) & {
-    color: #cbd5e1;
-  }
+  :global(.dark) & { color: #cbd5e1; }
 }
 
 .modalText {
@@ -1062,9 +1077,7 @@
   overflow-wrap: anywhere;
   word-break: break-word;
 
-  :global(.dark) & {
-    color: #e2e8f0;
-  }
+  :global(.dark) & { color: #e2e8f0; }
 }
 
 .modalStatusWrap {
@@ -1080,9 +1093,7 @@
   font-weight: 800;
   line-height: 1.2;
 
-  :global(.dark) & {
-    color: #94a3b8;
-  }
+  :global(.dark) & { color: #94a3b8; }
 }
 
 .modalStatusBadge {
@@ -1170,9 +1181,7 @@
   background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
   color: #ffffff;
 
-  &:hover {
-    transform: translateY(-2px);
-  }
+  &:hover { transform: translateY(-2px); }
 }
 
 .modalSecondaryButton {
@@ -1216,13 +1225,9 @@
 
 @media (max-width: 767px) {
   .heroRight,
-  .filterCompact {
-    width: 100%;
-  }
+  .filterCompact { width: 100%; }
 
-  .cardsGrid {
-    grid-template-columns: 1fr;
-  }
+  .cardsGrid { grid-template-columns: 1fr; }
 
   .cardActions,
   .modalActions {
@@ -1233,13 +1238,9 @@
   .detailsButton,
   .viewButton,
   .modalPrimaryButton,
-  .modalSecondaryButton {
-    width: 100%;
-  }
+  .modalSecondaryButton { width: 100%; }
 
-  .statusWrap {
-    justify-content: flex-start;
-  }
+  .statusWrap { justify-content: flex-start; }
 
   .modalOverlay {
     align-items: flex-start;
@@ -1257,20 +1258,14 @@
     padding: 0.85rem;
   }
 
-  .dropdownButton {
-    min-height: 48px;
-  }
+  .dropdownButton { min-height: 48px; }
 }
 
 @media (max-width: 640px) {
-  .portfolioSection {
-    padding: 1rem;
-  }
+  .portfolioSection { padding: 1rem; }
 
   .heroCard,
-  .projectCard {
-    padding: 0.95rem;
-  }
+  .projectCard { padding: 0.95rem; }
 
   .title {
     font-size: clamp(1.55rem, 7vw, 2.15rem);
@@ -1289,9 +1284,7 @@
     padding-right: 0.9rem;
   }
 
-  .filterCompact {
-    width: 100%;
-  }
+  .filterCompact { width: 100%; }
 }
 
 @media (max-width: 420px) {
@@ -1309,9 +1302,7 @@
     gap: 0.48rem;
   }
 
-  .filterLabelText {
-    font-size: 0.72rem;
-  }
+  .filterLabelText { font-size: 0.72rem; }
 
   .dropdownButton {
     min-height: 46px;
@@ -1319,17 +1310,11 @@
     border-radius: 14px;
   }
 
-  .dropdownButtonText {
-    font-size: 0.84rem;
-  }
+  .dropdownButtonText { font-size: 0.84rem; }
 
-  .dropdownMenu {
-    max-height: 176px;
-  }
+  .dropdownMenu { max-height: 176px; }
 
-  .filterCount {
-    font-size: 0.74rem;
-  }
+  .filterCount { font-size: 0.74rem; }
 
   .detailsButton,
   .viewButton {
@@ -1337,9 +1322,7 @@
   }
 
   .statusWrap,
-  .modalStatusWrap {
-    gap: 0.55rem;
-  }
+  .modalStatusWrap { gap: 0.55rem; }
 
   .statusBadge,
   .yearChip,
@@ -1349,7 +1332,5 @@
     padding: 0.48rem 0.72rem;
   }
 
-  .modalTitle {
-    font-size: 1.22rem;
-  }
+  .modalTitle { font-size: 1.22rem; }
 }

@@ -448,29 +448,81 @@
       }
     ]
   },
-  "services": {
+ "services": {
     "title": "Services",
     "desc": "A core set of services focused on universal frontend development.",
     "items": [
       {
         "title": "ReactJS Development",
-        "text": "Building fast, clean, and scalable React interfaces.",
-        "icon": "code"
+        "text": "I build fast, clean, and scalable React interfaces.",
+        "icon": "code",
+        "features": [
+          "Component-based architecture",
+          "Clean and scalable code",
+          "API integration",
+          "Interactive and fast UI"
+        ],
+        "tags": ["ReactJS", "Frontend", "TypeScript"]
       },
       {
         "title": "UI/UX Implementation",
-        "text": "Turning design into a polished premium frontend experience.",
-        "icon": "palette"
+        "text": "Turning ready designs into pixel-perfect premium frontend experiences.",
+        "icon": "palette",
+        "features": [
+          "Pixel-perfect implementation",
+          "Figma to Code conversion",
+          "Smooth animations",
+          "Premium UI elements"
+        ],
+        "tags": ["UI/UX", "Figma", "Premium Design"]
       },
       {
         "title": "Responsive Web Design",
-        "text": "Perfect adaptability for desktop, tablet, and mobile.",
-        "icon": "mobile"
+        "text": "Perfect adaptability for desktop, tablet, and mobile devices.",
+        "icon": "mobile",
+        "features": [
+          "Mobile-first approach",
+          "Tablet and desktop optimization",
+          "Flexible grid system",
+          "Comfortable view on all screens"
+        ],
+        "tags": ["Responsive", "Mobile", "Adaptive"]
       },
       {
         "title": "Frontend Optimization",
-        "text": "Improving performance, accessibility, and clean structure.",
-        "icon": "device"
+        "text": "Improving performance, accessibility, and code quality.",
+        "icon": "device",
+        "features": [
+          "Increasing loading speed",
+          "Improving accessibility (a11y)",
+          "Code refactoring and cleaning",
+          "SEO optimization"
+        ],
+        "tags": ["Performance", "Optimization", "Clean Code"]
+      },
+      {
+        "title": "Multi-Language Systems",
+        "text": "I create multi-language, user-friendly and SEO-friendly websites using react-i18next and i18next.",
+        "icon": "globe",
+        "features": [
+          "react-i18next integration",
+          "JSON-based locale files",
+          "Language switcher and auto-detection",
+          "SEO-friendly hreflang"
+        ],
+        "tags": ["i18n", "Multi-language", "Localization"]
+      },
+      {
+        "title": "WordPress Services",
+        "text": "I create modern, fast and easy-to-manage websites on WordPress.",
+        "icon": "wordpress",
+        "features": [
+          "WordPress website development",
+          "Custom template adaptation",
+          "Admin panel management",
+          "SEO and speed optimization"
+        ],
+        "tags": ["WordPress", "CMS", "Elementor"]
       }
     ]
   },

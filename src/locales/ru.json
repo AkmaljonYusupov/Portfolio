@@ -448,29 +448,81 @@
       }
     ]
   },
-  "services": {
+ "services": {
     "title": "Услуги",
     "desc": "Основной набор услуг в направлении универсальной frontend-разработки.",
     "items": [
       {
         "title": "ReactJS Development",
         "text": "Создание быстрых, чистых и масштабируемых интерфейсов на React.",
-        "icon": "code"
+        "icon": "code",
+        "features": [
+          "Компонентная архитектура",
+          "Чистый и масштабируемый код",
+          "Интеграция API",
+          "Интерактивный и быстрый UI"
+        ],
+        "tags": ["ReactJS", "Frontend", "TypeScript"]
       },
       {
         "title": "UI/UX Implementation",
         "text": "Точная реализация дизайна во frontend с премиальным визуальным уровнем.",
-        "icon": "palette"
+        "icon": "palette",
+        "features": [
+          "Pixel-perfect реализация",
+          "Конвертация Figma в код",
+          "Плавные анимации",
+          "Премиальные UI элементы"
+        ],
+        "tags": ["UI/UX", "Figma", "Premium Design"]
       },
       {
         "title": "Responsive Web Design",
         "text": "Идеальная адаптация для desktop, tablet и mobile.",
-        "icon": "mobile"
+        "icon": "mobile",
+        "features": [
+          "Mobile-first подход",
+          "Оптимизация под планшет и десктоп",
+          "Гибкая сетка",
+          "Удобный вид на всех экранах"
+        ],
+        "tags": ["Responsive", "Mobile", "Adaptive"]
       },
       {
         "title": "Frontend Optimization",
         "text": "Улучшение производительности, accessibility и чистоты структуры.",
-        "icon": "device"
+        "icon": "device",
+        "features": [
+          "Увеличение скорости загрузки",
+          "Улучшение доступности (a11y)",
+          "Рефакторинг и очистка кода",
+          "SEO оптимизация"
+        ],
+        "tags": ["Performance", "Optimization", "Clean Code"]
+      },
+      {
+        "title": "Multi-Language Systems",
+        "text": "Создаю многоязычные, удобные для пользователя и SEO-дружественные сайты с помощью react-i18next и i18next.",
+        "icon": "globe",
+        "features": [
+          "Интеграция react-i18next",
+          "JSON-файлы локалей",
+          "Переключатель языков и автоопределение",
+          "SEO-friendly hreflang"
+        ],
+        "tags": ["i18n", "Multi-language", "Localization"]
+      },
+      {
+        "title": "WordPress Services",
+        "text": "Создаю современные, быстрые и удобные в управлении сайты на WordPress.",
+        "icon": "wordpress",
+        "features": [
+          "Разработка сайтов на WordPress",
+          "Адаптация пользовательских шаблонов",
+          "Управление через админ-панель",
+          "SEO и оптимизация скорости"
+        ],
+        "tags": ["WordPress", "CMS", "Elementor"]
       }
     ]
   },

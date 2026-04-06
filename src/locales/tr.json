@@ -448,29 +448,81 @@
       }
     ]
   },
-  "services": {
+ "services": {
     "title": "Hizmetler",
     "desc": "Evrensel frontend geliştirme alanındaki temel hizmetler.",
     "items": [
       {
         "title": "ReactJS Development",
         "text": "Hızlı, temiz ve ölçeklenebilir React arayüzleri geliştirme.",
-        "icon": "code"
+        "icon": "code",
+        "features": [
+          "Component tabanlı mimari",
+          "Temiz ve ölçeklenebilir kod",
+          "API entegrasyonu",
+          "Etkileşimli ve hızlı UI"
+        ],
+        "tags": ["ReactJS", "Frontend", "TypeScript"]
       },
       {
         "title": "UI/UX Implementation",
         "text": "Tasarımı premium görünümle eksiksiz şekilde frontend’e aktarma.",
-        "icon": "palette"
+        "icon": "palette",
+        "features": [
+          "Pixel-perfect uygulama",
+          "Figma'dan koda dönüştürme",
+          "Akıcı animasyonlar",
+          "Premium UI elemanları"
+        ],
+        "tags": ["UI/UX", "Figma", "Premium Design"]
       },
       {
         "title": "Responsive Web Design",
         "text": "Desktop, tablet ve mobil için kusursuz uyum.",
-        "icon": "mobile"
+        "icon": "mobile",
+        "features": [
+          "Mobile-first yaklaşım",
+          "Tablet ve desktop optimizasyonu",
+          "Esnek grid sistemi",
+          "Tüm ekranlarda rahat görünüm"
+        ],
+        "tags": ["Responsive", "Mobile", "Adaptive"]
       },
       {
         "title": "Frontend Optimization",
         "text": "Performans, erişilebilirlik ve temiz yapı iyileştirmesi.",
-        "icon": "device"
+        "icon": "device",
+        "features": [
+          "Yüklenme hızını artırma",
+          "Erişilebilirlik (a11y) iyileştirmesi",
+          "Kod refactoring ve temizleme",
+          "SEO optimizasyonu"
+        ],
+        "tags": ["Performance", "Optimization", "Clean Code"]
+      },
+      {
+        "title": "Multi-Language Systems",
+        "text": "react-i18next ve i18next kullanarak çok dilli, kullanıcı dostu ve SEO uyumlu web siteleri oluşturuyorum.",
+        "icon": "globe",
+        "features": [
+          "react-i18next entegrasyonu",
+          "JSON tabanlı locale dosyaları",
+          "Dil değiştirici ve otomatik algılama",
+          "SEO uyumlu hreflang"
+        ],
+        "tags": ["i18n", "Multi-language", "Localization"]
+      },
+      {
+        "title": "WordPress Services",
+        "text": "WordPress üzerinde modern, hızlı ve kolay yönetilebilir siteler oluşturuyorum.",
+        "icon": "wordpress",
+        "features": [
+          "WordPress site geliştirme",
+          "Özel şablon uyarlaması",
+          "Admin panel yönetimi",
+          "SEO ve hız optimizasyonu"
+        ],
+        "tags": ["WordPress", "CMS", "Elementor"]
       }
     ]
   },

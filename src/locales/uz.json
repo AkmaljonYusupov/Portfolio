@@ -454,23 +454,75 @@
     "items": [
       {
         "title": "ReactJS Development",
-        "text": "Tezkor, toza va kengaytiriladigan React interfeyslar yaratish.",
-        "icon": "code"
+        "text": "ReactJS asosida tezkor, toza va kengaytiriladigan interfeyslar yarataman.",
+        "icon": "code",
+        "features": [
+          "Component-based arxitektura",
+          "Toza va scalable kod",
+          "API integratsiyasi",
+          "Interaktiv va tezkor UI"
+        ],
+        "tags": ["ReactJS", "Frontend", "TypeScript"]
       },
       {
         "title": "UI/UX Implementation",
-        "text": "Dizaynni premium ko‘rinishda to‘liq frontendga aylantirish.",
-        "icon": "palette"
+        "text": "Tayyor dizaynlarni pixel-perfect va premium ko‘rinishda to‘liq frontendga aylantiraman.",
+        "icon": "palette",
+        "features": [
+          "Pixel-perfect implementatsiya",
+          "Figma → Kod aylantirish",
+          "Silliq animatsiyalar",
+          "Premium UI elementlari"
+        ],
+        "tags": ["UI/UX", "Figma", "Premium Design"]
       },
       {
         "title": "Responsive Web Design",
-        "text": "Desktop, tablet va mobil uchun mukammal moslashuv.",
-        "icon": "mobile"
+        "text": "Saytlarni desktop, planshet va mobil qurilmalarga mukammal moslab ishlab chiqaman.",
+        "icon": "mobile",
+        "features": [
+          "Mobile-first yondashuv",
+          "Tablet va desktop optimizatsiya",
+          "Moslashuvchan grid tizimi",
+          "Barcha ekranlarda qulay ko‘rinish"
+        ],
+        "tags": ["Responsive", "Mobile", "Adaptive"]
       },
       {
         "title": "Frontend Optimization",
-        "text": "Performance, accessibility va toza struktura yaxshilash.",
-        "icon": "device"
+        "text": "Performance, accessibility va kod sifatini yaxshilash bo‘yicha xizmatlar.",
+        "icon": "device",
+        "features": [
+          "Yuklanish tezligini oshirish",
+          "Accessibility (a11y) yaxshilash",
+          "Kod refaktoring va tozalash",
+          "SEO ga moslashuv"
+        ],
+        "tags": ["Performance", "Optimization", "Clean Code"]
+      },
+      {
+        "title": "Multi-Language Systems",
+        "text": "react-i18next va i18next yordamida ko‘p tilli, foydalanuvchiga qulay va SEO mos veb-saytlar yarataman.",
+        "icon": "globe",
+        "features": [
+          "react-i18next integratsiyasi",
+          "JSON-based locale fayllari",
+          "Til switcher va avto-aniqlash",
+          "SEO-friendly hreflang"
+        ],
+        "tags": ["i18n", "Multi-language", "Localization"]
+      },
+      {
+        "title": "WordPress Services",
+        "text": "WordPress asosida boshqaruvi qulay, zamonaviy va tezkor saytlar yarataman.",
+        "icon": "wordpress",
+        "features": [
+          "WordPress sayt yaratish",
+          "Custom template moslash",
+          "Admin panel orqali boshqaruv",
+          "SEO va tezlik optimizatsiyasi"
+        ],
+        "tags": ["WordPress", "CMS", "Elementor"]
       }
     ]
   },

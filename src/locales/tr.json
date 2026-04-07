@@ -133,7 +133,7 @@
       }
     ]
   },
-"portfolio": {
+  "portfolio": {
     "title": "Seçilmiş Projeler",
     "desc": "Farklı alanlardaki gerçek frontend ve WordPress projelerim. Her proje modern arayüz, duyarlı yapı ve pratik işlevselliğe odaklanmaktadır.",
     "tags": [
@@ -158,227 +158,6 @@
       "status": "Durum"
     },
     "items": [
-      {
-        "id": "novacolor",
-        "title": "Novacolor Uzbekistan",
-        "category": "Corporate Website",
-        "text": "Kurumsal görünümlü modern ve akıcı bir frontend çözümü. Markayı, ürünleri ve hizmetleri premium biçimde tanıtmaya odaklanmaktadır.",
-        "link": "https://novacolor.uz/",
-        "status": "Live",
-        "year": "2025",
-        "technologies": [
-          "Next.js"
-        ],
-        "features": [
-          "Corporate UI",
-          "Modern Layout",
-          "Responsive Design"
-        ]
-      },
-      {
-        "id": "coder-blog",
-        "title": "Coder Blog",
-        "category": "Blog Platform",
-        "text": "İçerik ve makaleleri temiz bir görünümde sunan blog arayüzü. Minimalist tasarımı ve rahat okuma deneyimiyle öne çıkar.",
-        "link": "https://coder-blog.vercel.app/",
-        "status": "Live",
-        "year": "2025",
-        "technologies": [
-          "Next.js"
-        ],
-        "features": [
-          "Clean Blog UI",
-          "Fast Pages",
-          "Responsive Layout"
-        ]
-      },
-      {
-        "id": "paint-demo",
-        "title": "Paint Demo",
-        "category": "Canvas App",
-        "text": "Doğrudan tarayıcıda çalışan interaktif bir çizim projesi. Canvas tabanlı olup kullanıcıya basit ve eğlenceli bir çizim deneyimi sunar.",
-        "link": "https://paint-demo.vercel.app/",
-        "status": "Live",
-        "year": "2025",
-        "technologies": [
-          "HTML5",
-          "CSS3",
-          "JavaScript",
-          "Canvas"
-        ],
-        "features": [
-          "Drawing Tools",
-          "Interactive Canvas",
-          "Browser Based"
-        ]
-      },
-      {
-        "id": "greenshop",
-        "title": "GreenShop",
-        "category": "React Website",
-        "text": "Ürünleri sergilemeye ve kullanıcı deneyimini geliştirmeye yönelik React tabanlı modern bir web projesi.",
-        "link": "https://greenshopuzb.netlify.app",
-        "status": "Live",
-        "year": "2025",
-        "technologies": [
-          "ReactJS"
-        ],
-        "features": [
-          "Product UI",
-          "Responsive Layout",
-          "Modern Components"
-        ]
-      },
-      {
-        "id": "send-to-admin",
-        "title": "Send To Admin",
-        "category": "Interactive Form Project",
-        "text": "Veri gönderme sürecini basit ve anlaşılır hale getiren bir frontend projesi. Form işleyişi ve kullanıcı etkileşimi ön plandadır.",
-        "link": "https://send-to-admin.vercel.app/",
-        "status": "Live",
-        "year": "2025",
-        "technologies": [
-          "HTML5",
-          "CSS3",
-          "JavaScript"
-        ],
-        "features": [
-          "Form UI",
-          "Interactive Logic",
-          "Clean Structure"
-        ]
-      },
-      {
-        "id": "besnik-pro",
-        "title": "Besnik Pro",
-        "category": "Landing Page",
-        "text": "Güzel bloklar, bölüm yapısı ve yeniden kullanılabilir frontend bileşenleriyle oluşturulmuş premium bir açılış sayfası projesi.",
-        "link": "https://besnik-pro.vercel.app/",
-        "status": "Live",
-        "year": "2025",
-        "technologies": [
-          "HTML5",
-          "CSS3",
-          "SCSS",
-          "Components",
-          "JavaScript"
-        ],
-        "features": [
-          "Landing Structure",
-          "Reusable Components",
-          "Modern Visuals"
-        ]
-      },
-      {
-        "id": "crud-uz",
-        "title": "CRUD UZ",
-        "category": "CRUD Interface",
-        "text": "Veri ekleme, düzenleme ve silme işlemleri için kullanışlı arayüze sahip bir CRUD projesi.",
-        "link": "https://crud-uz.vercel.app/",
-        "status": "Live",
-        "year": "2025",
-        "technologies": [
-          "HTML5",
-          "CSS3",
-          "Bootstrap 5",
-          "JavaScript"
-        ],
-        "features": [
-          "CRUD Actions",
-          "Table UI",
-          "Bootstrap Layout"
-        ]
-      },
-      {
-        "id": "quiztest-uz",
-        "title": "Quiz Test UZ",
-        "category": "Quiz Platform",
-        "text": "Test ve soru-cevap süreçleri için geliştirilmiş bir frontend projesi. Form doğrulaması ve telefon girişi maskesiyle zenginleştirilmiştir.",
-        "link": "https://quiztest-uz.vercel.app/",
-        "status": "Live",
-        "year": "2025",
-        "technologies": [
-          "HTML5",
-          "CSS3",
-          "Bootstrap 5",
-          "JavaScript",
-          "IMask"
-        ],
-        "features": [
-          "Quiz Flow",
-          "Phone Mask",
-          "Form Validation"
-        ]
-      },
-      {
-        "id": "snakegame-uz",
-        "title": "Snake Game UZ",
-        "category": "Game Project",
-        "text": "Çok dilli destek, oyun modları, bonuslar ve istatistiklerle zenginleştirilmiş interaktif yılan oyunu.",
-        "link": "https://snakegame-uz.vercel.app/",
-        "status": "Live",
-        "year": "2025",
-        "technologies": [
-          "HTML5",
-          "CSS3",
-          "Tailwind CSS",
-          "Bootstrap",
-          "JavaScript",
-          "Canvas API",
-          "Font Awesome",
-          "Google Fonts"
-        ],
-        "features": [
-          "Multi-language",
-          "Difficulty Levels",
-          "Game Modes",
-          "Canvas Graphics",
-          "Responsive Design"
-        ]
-      },
-      {
-        "id": "strategik2048",
-        "title": "Strategik 2048",
-        "category": "Puzzle Game",
-        "text": "2048 oyununun modern bir frontend yorumu. Duyarlı arayüz ve hafif animasyonlarla hazırlanmış bir proje.",
-        "link": "https://strategik2048.vercel.app/",
-        "status": "Live",
-        "year": "2025",
-        "technologies": [
-          "HTML5",
-          "CSS3",
-          "Bootstrap CSS",
-          "Tailwind CSS",
-          "JavaScript"
-        ],
-        "features": [
-          "Puzzle Logic",
-          "Responsive Interface",
-          "Modern UI"
-        ]
-      },
-      {
-        "id": "koreys",
-        "title": "Koreys",
-        "category": "Educational Website",
-        "text": "Eğitime yönelik duyarlı bir proje. Farklı ekran boyutlarında sorunsuz çalışma ve net içerik görünümüne odaklanılmıştır.",
-        "link": "https://koreys.vercel.app/",
-        "status": "Live",
-        "year": "2025",
-        "technologies": [
-          "HTML5",
-          "CSS3",
-          "Bootstrap CSS",
-          "Tailwind CSS",
-          "JavaScript",
-          "Responsive"
-        ],
-        "features": [
-          "Education UI",
-          "Responsive Layout",
-          "Clean Content Blocks"
-        ]
-      },
       {
         "id": "remstroy",
         "title": "Remstroy",
@@ -445,10 +224,231 @@
           "Content Management",
           "Business Ready"
         ]
+      },
+      {
+        "id": "greenshop",
+        "title": "GreenShop",
+        "category": "React Website",
+        "text": "Ürünleri sergilemeye ve kullanıcı deneyimini geliştirmeye yönelik React tabanlı modern bir web projesi.",
+        "link": "https://greenshopuzb.netlify.app",
+        "status": "Live",
+        "year": "2025",
+        "technologies": [
+          "ReactJS"
+        ],
+        "features": [
+          "Product UI",
+          "Responsive Layout",
+          "Modern Components"
+        ]
+      },
+      {
+        "id": "novacolor",
+        "title": "Novacolor Uzbekistan",
+        "category": "Corporate Website",
+        "text": "Kurumsal görünümlü modern ve akıcı bir frontend çözümü. Markayı, ürünleri ve hizmetleri premium biçimde tanıtmaya odaklanmaktadır.",
+        "link": "https://novacolor.uz/",
+        "status": "Live",
+        "year": "2025",
+        "technologies": [
+          "Next.js"
+        ],
+        "features": [
+          "Corporate UI",
+          "Modern Layout",
+          "Responsive Design"
+        ]
+      },
+      {
+        "id": "coder-blog",
+        "title": "Coder Blog",
+        "category": "Blog Platform",
+        "text": "İçerik ve makaleleri temiz bir görünümde sunan blog arayüzü. Minimalist tasarımı ve rahat okuma deneyimiyle öne çıkar.",
+        "link": "https://coder-blog.vercel.app/",
+        "status": "Live",
+        "year": "2025",
+        "technologies": [
+          "Next.js"
+        ],
+        "features": [
+          "Clean Blog UI",
+          "Fast Pages",
+          "Responsive Layout"
+        ]
+      },
+      {
+        "id": "besnik-pro",
+        "title": "Besnik Pro",
+        "category": "Landing Page",
+        "text": "Güzel bloklar, bölüm yapısı ve yeniden kullanılabilir frontend bileşenleriyle oluşturulmuş premium bir açılış sayfası projesi.",
+        "link": "https://besnik-pro.vercel.app/",
+        "status": "Live",
+        "year": "2025",
+        "technologies": [
+          "HTML5",
+          "CSS3",
+          "SCSS",
+          "Components",
+          "JavaScript"
+        ],
+        "features": [
+          "Landing Structure",
+          "Reusable Components",
+          "Modern Visuals"
+        ]
+      },
+      {
+        "id": "koreys",
+        "title": "Koreys",
+        "category": "Educational Website",
+        "text": "Eğitime yönelik duyarlı bir proje. Farklı ekran boyutlarında sorunsuz çalışma ve net içerik görünümüne odaklanılmıştır.",
+        "link": "https://koreys.vercel.app/",
+        "status": "Live",
+        "year": "2025",
+        "technologies": [
+          "HTML5",
+          "CSS3",
+          "Bootstrap CSS",
+          "Tailwind CSS",
+          "JavaScript",
+          "Responsive"
+        ],
+        "features": [
+          "Education UI",
+          "Responsive Layout",
+          "Clean Content Blocks"
+        ]
+      },
+      {
+        "id": "paint-demo",
+        "title": "Paint Demo",
+        "category": "Canvas App",
+        "text": "Doğrudan tarayıcıda çalışan interaktif bir çizim projesi. Canvas tabanlı olup kullanıcıya basit ve eğlenceli bir çizim deneyimi sunar.",
+        "link": "https://paint-demo.vercel.app/",
+        "status": "Live",
+        "year": "2025",
+        "technologies": [
+          "HTML5",
+          "CSS3",
+          "JavaScript",
+          "Canvas"
+        ],
+        "features": [
+          "Drawing Tools",
+          "Interactive Canvas",
+          "Browser Based"
+        ]
+      },
+      {
+        "id": "quiztest-uz",
+        "title": "Quiz Test UZ",
+        "category": "Quiz Platform",
+        "text": "Test ve soru-cevap süreçleri için geliştirilmiş bir frontend projesi. Form doğrulaması ve telefon girişi maskesiyle zenginleştirilmiştir.",
+        "link": "https://quiztest-uz.vercel.app/",
+        "status": "Live",
+        "year": "2025",
+        "technologies": [
+          "HTML5",
+          "CSS3",
+          "Bootstrap 5",
+          "JavaScript",
+          "IMask"
+        ],
+        "features": [
+          "Quiz Flow",
+          "Phone Mask",
+          "Form Validation"
+        ]
+      },
+      {
+        "id": "send-to-admin",
+        "title": "Send To Admin",
+        "category": "Interactive Form Project",
+        "text": "Veri gönderme sürecini basit ve anlaşılır hale getiren bir frontend projesi. Form işleyişi ve kullanıcı etkileşimi ön plandadır.",
+        "link": "https://send-to-admin.vercel.app/",
+        "status": "Live",
+        "year": "2025",
+        "technologies": [
+          "HTML5",
+          "CSS3",
+          "JavaScript"
+        ],
+        "features": [
+          "Form UI",
+          "Interactive Logic",
+          "Clean Structure"
+        ]
+      },
+      {
+        "id": "crud-uz",
+        "title": "CRUD UZ",
+        "category": "CRUD Interface",
+        "text": "Veri ekleme, düzenleme ve silme işlemleri için kullanışlı arayüze sahip bir CRUD projesi.",
+        "link": "https://crud-uz.vercel.app/",
+        "status": "Live",
+        "year": "2025",
+        "technologies": [
+          "HTML5",
+          "CSS3",
+          "Bootstrap 5",
+          "JavaScript"
+        ],
+        "features": [
+          "CRUD Actions",
+          "Table UI",
+          "Bootstrap Layout"
+        ]
+      },
+      {
+        "id": "snakegame-uz",
+        "title": "Snake Game UZ",
+        "category": "Game Project",
+        "text": "Çok dilli destek, oyun modları, bonuslar ve istatistiklerle zenginleştirilmiş interaktif yılan oyunu.",
+        "link": "https://snakegame-uz.vercel.app/",
+        "status": "Live",
+        "year": "2025",
+        "technologies": [
+          "HTML5",
+          "CSS3",
+          "Tailwind CSS",
+          "Bootstrap",
+          "JavaScript",
+          "Canvas API",
+          "Font Awesome",
+          "Google Fonts"
+        ],
+        "features": [
+          "Multi-language",
+          "Difficulty Levels",
+          "Game Modes",
+          "Canvas Graphics",
+          "Responsive Design"
+        ]
+      },
+      {
+        "id": "strategik2048",
+        "title": "Strategik 2048",
+        "category": "Puzzle Game",
+        "text": "2048 oyununun modern bir frontend yorumu. Duyarlı arayüz ve hafif animasyonlarla hazırlanmış bir proje.",
+        "link": "https://strategik2048.vercel.app/",
+        "status": "Live",
+        "year": "2025",
+        "technologies": [
+          "HTML5",
+          "CSS3",
+          "Bootstrap CSS",
+          "Tailwind CSS",
+          "JavaScript"
+        ],
+        "features": [
+          "Puzzle Logic",
+          "Responsive Interface",
+          "Modern UI"
+        ]
       }
     ]
   },
- "services": {
+  "services": {
     "title": "Hizmetler",
     "desc": "Evrensel frontend geliştirme alanındaki temel hizmetler.",
     "items": [
@@ -514,11 +514,11 @@
       },
       {
         "title": "WordPress Services",
-        "text": "WordPress üzerinde modern, hızlı ve kolay yönetilebilir siteler oluşturuyorum.",
+        "text": "WordPress üzerinde modern, hızlı ve kolay yönetilebilir web siteleri oluşturuyorum.",
         "icon": "wordpress",
         "features": [
-          "WordPress site geliştirme",
-          "Özel şablon uyarlaması",
+          "WordPress website geliştirme",
+          "Özel şablon uyarlama",
           "Admin panel yönetimi",
           "SEO ve hız optimizasyonu"
         ],
@@ -528,13 +528,13 @@
   },
   "contact": {
     "title": "Birlikte güçlü bir proje oluşturalım",
-    "desc": "Premium düzeyde portföy, kurumsal web sitesi veya React tabanlı evrensel frontend ihtiyacınız varsa benimle iletişime geçin.",
+    "desc": "Premium bir portföy, kurumsal bir web sitesi veya React tabanlı evrensel bir frontend’e ihtiyacınız varsa benimle iletişime geçin.",
     "email": "Email",
     "phone": "Telefon",
     "location": "Konum",
     "button": "Mesaj Gönder",
     "availability": "Şu anda yeni projelere açığım",
-    "fullName": "Tam Ad",
+    "fullName": "Ad Soyad",
     "projectDetails": "Proje Detayları"
   }
 }

@@ -159,227 +159,6 @@
     },
     "items": [
       {
-        "id": "novacolor",
-        "title": "Novacolor Uzbekistan",
-        "category": "Corporate Website",
-        "text": "A modern and polished frontend solution with a corporate look. Focused on presenting the brand, products, and services in a premium way.",
-        "link": "https://novacolor.uz/",
-        "status": "Live",
-        "year": "2025",
-        "technologies": [
-          "Next.js"
-        ],
-        "features": [
-          "Corporate UI",
-          "Modern Layout",
-          "Responsive Design"
-        ]
-      },
-      {
-        "id": "coder-blog",
-        "title": "Coder Blog",
-        "category": "Blog Platform",
-        "text": "A blog interface that presents content and articles in a clean and organized way. Features a minimal design and a comfortable reading experience.",
-        "link": "https://coder-blog.vercel.app/",
-        "status": "Live",
-        "year": "2025",
-        "technologies": [
-          "Next.js"
-        ],
-        "features": [
-          "Clean Blog UI",
-          "Fast Pages",
-          "Responsive Layout"
-        ]
-      },
-      {
-        "id": "paint-demo",
-        "title": "Paint Demo",
-        "category": "Canvas App",
-        "text": "An interactive drawing project that runs directly in the browser. Built on Canvas, it offers users a simple and enjoyable drawing experience.",
-        "link": "https://paint-demo.vercel.app/",
-        "status": "Live",
-        "year": "2025",
-        "technologies": [
-          "HTML5",
-          "CSS3",
-          "JavaScript",
-          "Canvas"
-        ],
-        "features": [
-          "Drawing Tools",
-          "Interactive Canvas",
-          "Browser Based"
-        ]
-      },
-      {
-        "id": "greenshop",
-        "title": "GreenShop",
-        "category": "React Website",
-        "text": "A modern React-based web project aimed at showcasing products and improving user experience.",
-        "link": "https://greenshopuzb.netlify.app",
-        "status": "Live",
-        "year": "2025",
-        "technologies": [
-          "ReactJS"
-        ],
-        "features": [
-          "Product UI",
-          "Responsive Layout",
-          "Modern Components"
-        ]
-      },
-      {
-        "id": "send-to-admin",
-        "title": "Send To Admin",
-        "category": "Interactive Form Project",
-        "text": "A frontend project that makes the data submission process simple and intuitive. Form handling and user interaction are at its core.",
-        "link": "https://send-to-admin.vercel.app/",
-        "status": "Live",
-        "year": "2025",
-        "technologies": [
-          "HTML5",
-          "CSS3",
-          "JavaScript"
-        ],
-        "features": [
-          "Form UI",
-          "Interactive Logic",
-          "Clean Structure"
-        ]
-      },
-      {
-        "id": "besnik-pro",
-        "title": "Besnik Pro",
-        "category": "Landing Page",
-        "text": "A premium landing page built with beautiful blocks, a well-structured section layout, and reusable frontend components.",
-        "link": "https://besnik-pro.vercel.app/",
-        "status": "Live",
-        "year": "2025",
-        "technologies": [
-          "HTML5",
-          "CSS3",
-          "SCSS",
-          "Components",
-          "JavaScript"
-        ],
-        "features": [
-          "Landing Structure",
-          "Reusable Components",
-          "Modern Visuals"
-        ]
-      },
-      {
-        "id": "crud-uz",
-        "title": "CRUD UZ",
-        "category": "CRUD Interface",
-        "text": "A CRUD project with a user-friendly interface for managing data — adding, editing, and deleting records with ease.",
-        "link": "https://crud-uz.vercel.app/",
-        "status": "Live",
-        "year": "2025",
-        "technologies": [
-          "HTML5",
-          "CSS3",
-          "Bootstrap 5",
-          "JavaScript"
-        ],
-        "features": [
-          "CRUD Actions",
-          "Table UI",
-          "Bootstrap Layout"
-        ]
-      },
-      {
-        "id": "quiztest-uz",
-        "title": "Quiz Test UZ",
-        "category": "Quiz Platform",
-        "text": "A frontend project built for quizzes and Q&A flows. Enhanced with form validation and a phone input mask.",
-        "link": "https://quiztest-uz.vercel.app/",
-        "status": "Live",
-        "year": "2025",
-        "technologies": [
-          "HTML5",
-          "CSS3",
-          "Bootstrap 5",
-          "JavaScript",
-          "IMask"
-        ],
-        "features": [
-          "Quiz Flow",
-          "Phone Mask",
-          "Form Validation"
-        ]
-      },
-      {
-        "id": "snakegame-uz",
-        "title": "Snake Game UZ",
-        "category": "Game Project",
-        "text": "An interactive Snake game enriched with multi-language support, game modes, bonuses, and statistics.",
-        "link": "https://snakegame-uz.vercel.app/",
-        "status": "Live",
-        "year": "2025",
-        "technologies": [
-          "HTML5",
-          "CSS3",
-          "Tailwind CSS",
-          "Bootstrap",
-          "JavaScript",
-          "Canvas API",
-          "Font Awesome",
-          "Google Fonts"
-        ],
-        "features": [
-          "Multi-language",
-          "Difficulty Levels",
-          "Game Modes",
-          "Canvas Graphics",
-          "Responsive Design"
-        ]
-      },
-      {
-        "id": "strategik2048",
-        "title": "Strategik 2048",
-        "category": "Puzzle Game",
-        "text": "A modern frontend take on the classic 2048 puzzle game. Built with a responsive interface and smooth animations.",
-        "link": "https://strategik2048.vercel.app/",
-        "status": "Live",
-        "year": "2025",
-        "technologies": [
-          "HTML5",
-          "CSS3",
-          "Bootstrap CSS",
-          "Tailwind CSS",
-          "JavaScript"
-        ],
-        "features": [
-          "Puzzle Logic",
-          "Responsive Interface",
-          "Modern UI"
-        ]
-      },
-      {
-        "id": "koreys",
-        "title": "Koreys",
-        "category": "Educational Website",
-        "text": "A responsive educational project. Focused on performing well across all screen sizes and presenting content clearly.",
-        "link": "https://koreys.vercel.app/",
-        "status": "Live",
-        "year": "2025",
-        "technologies": [
-          "HTML5",
-          "CSS3",
-          "Bootstrap CSS",
-          "Tailwind CSS",
-          "JavaScript",
-          "Responsive"
-        ],
-        "features": [
-          "Education UI",
-          "Responsive Layout",
-          "Clean Content Blocks"
-        ]
-      },
-      {
         "id": "remstroy",
         "title": "Remstroy",
         "category": "Business Website",
@@ -445,10 +224,231 @@
           "Content Management",
           "Business Ready"
         ]
+      },
+      {
+        "id": "greenshop",
+        "title": "GreenShop",
+        "category": "React Website",
+        "text": "A modern React-based web project aimed at showcasing products and improving user experience.",
+        "link": "https://greenshopuzb.netlify.app",
+        "status": "Live",
+        "year": "2025",
+        "technologies": [
+          "ReactJS"
+        ],
+        "features": [
+          "Product UI",
+          "Responsive Layout",
+          "Modern Components"
+        ]
+      },
+      {
+        "id": "novacolor",
+        "title": "Novacolor Uzbekistan",
+        "category": "Corporate Website",
+        "text": "A modern and polished frontend solution with a corporate look. Focused on presenting the brand, products, and services in a premium way.",
+        "link": "https://novacolor.uz/",
+        "status": "Live",
+        "year": "2025",
+        "technologies": [
+          "Next.js"
+        ],
+        "features": [
+          "Corporate UI",
+          "Modern Layout",
+          "Responsive Design"
+        ]
+      },
+      {
+        "id": "coder-blog",
+        "title": "Coder Blog",
+        "category": "Blog Platform",
+        "text": "A blog interface that presents content and articles in a clean and organized way. Features a minimal design and a comfortable reading experience.",
+        "link": "https://coder-blog.vercel.app/",
+        "status": "Live",
+        "year": "2025",
+        "technologies": [
+          "Next.js"
+        ],
+        "features": [
+          "Clean Blog UI",
+          "Fast Pages",
+          "Responsive Layout"
+        ]
+      },
+      {
+        "id": "besnik-pro",
+        "title": "Besnik Pro",
+        "category": "Landing Page",
+        "text": "A premium landing page built with beautiful blocks, a well-structured section layout, and reusable frontend components.",
+        "link": "https://besnik-pro.vercel.app/",
+        "status": "Live",
+        "year": "2025",
+        "technologies": [
+          "HTML5",
+          "CSS3",
+          "SCSS",
+          "Components",
+          "JavaScript"
+        ],
+        "features": [
+          "Landing Structure",
+          "Reusable Components",
+          "Modern Visuals"
+        ]
+      },
+      {
+        "id": "koreys",
+        "title": "Koreys",
+        "category": "Educational Website",
+        "text": "A responsive educational project. Focused on performing well across all screen sizes and presenting content clearly.",
+        "link": "https://koreys.vercel.app/",
+        "status": "Live",
+        "year": "2025",
+        "technologies": [
+          "HTML5",
+          "CSS3",
+          "Bootstrap CSS",
+          "Tailwind CSS",
+          "JavaScript",
+          "Responsive"
+        ],
+        "features": [
+          "Education UI",
+          "Responsive Layout",
+          "Clean Content Blocks"
+        ]
+      },
+      {
+        "id": "paint-demo",
+        "title": "Paint Demo",
+        "category": "Canvas App",
+        "text": "An interactive drawing project that runs directly in the browser. Built on Canvas, it offers users a simple and enjoyable drawing experience.",
+        "link": "https://paint-demo.vercel.app/",
+        "status": "Live",
+        "year": "2025",
+        "technologies": [
+          "HTML5",
+          "CSS3",
+          "JavaScript",
+          "Canvas"
+        ],
+        "features": [
+          "Drawing Tools",
+          "Interactive Canvas",
+          "Browser Based"
+        ]
+      },
+      {
+        "id": "quiztest-uz",
+        "title": "Quiz Test UZ",
+        "category": "Quiz Platform",
+        "text": "A frontend project built for quizzes and Q&A flows. Enhanced with form validation and a phone input mask.",
+        "link": "https://quiztest-uz.vercel.app/",
+        "status": "Live",
+        "year": "2025",
+        "technologies": [
+          "HTML5",
+          "CSS3",
+          "Bootstrap 5",
+          "JavaScript",
+          "IMask"
+        ],
+        "features": [
+          "Quiz Flow",
+          "Phone Mask",
+          "Form Validation"
+        ]
+      },
+      {
+        "id": "send-to-admin",
+        "title": "Send To Admin",
+        "category": "Interactive Form Project",
+        "text": "A frontend project that makes the data submission process simple and intuitive. Form handling and user interaction are at its core.",
+        "link": "https://send-to-admin.vercel.app/",
+        "status": "Live",
+        "year": "2025",
+        "technologies": [
+          "HTML5",
+          "CSS3",
+          "JavaScript"
+        ],
+        "features": [
+          "Form UI",
+          "Interactive Logic",
+          "Clean Structure"
+        ]
+      },
+      {
+        "id": "crud-uz",
+        "title": "CRUD UZ",
+        "category": "CRUD Interface",
+        "text": "A CRUD project with a user-friendly interface for managing data — adding, editing, and deleting records with ease.",
+        "link": "https://crud-uz.vercel.app/",
+        "status": "Live",
+        "year": "2025",
+        "technologies": [
+          "HTML5",
+          "CSS3",
+          "Bootstrap 5",
+          "JavaScript"
+        ],
+        "features": [
+          "CRUD Actions",
+          "Table UI",
+          "Bootstrap Layout"
+        ]
+      },
+      {
+        "id": "snakegame-uz",
+        "title": "Snake Game UZ",
+        "category": "Game Project",
+        "text": "An interactive Snake game enriched with multi-language support, game modes, bonuses, and statistics.",
+        "link": "https://snakegame-uz.vercel.app/",
+        "status": "Live",
+        "year": "2025",
+        "technologies": [
+          "HTML5",
+          "CSS3",
+          "Tailwind CSS",
+          "Bootstrap",
+          "JavaScript",
+          "Canvas API",
+          "Font Awesome",
+          "Google Fonts"
+        ],
+        "features": [
+          "Multi-language",
+          "Difficulty Levels",
+          "Game Modes",
+          "Canvas Graphics",
+          "Responsive Design"
+        ]
+      },
+      {
+        "id": "strategik2048",
+        "title": "Strategik 2048",
+        "category": "Puzzle Game",
+        "text": "A modern frontend take on the classic 2048 puzzle game. Built with a responsive interface and smooth animations.",
+        "link": "https://strategik2048.vercel.app/",
+        "status": "Live",
+        "year": "2025",
+        "technologies": [
+          "HTML5",
+          "CSS3",
+          "Bootstrap CSS",
+          "Tailwind CSS",
+          "JavaScript"
+        ],
+        "features": [
+          "Puzzle Logic",
+          "Responsive Interface",
+          "Modern UI"
+        ]
       }
     ]
   },
- "services": {
+  "services": {
     "title": "Services",
     "desc": "A core set of services focused on universal frontend development.",
     "items": [

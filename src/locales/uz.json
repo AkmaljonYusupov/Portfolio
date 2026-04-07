@@ -158,233 +158,12 @@
       "status": "Holati"
     },
     "items": [
-      {
-        "id": "novacolor",
-        "title": "Novacolor Uzbekistan",
-        "category": "Corporate Website",
-        "text": "Korporativ ko'rinishdagi zamonaviy va silliq frontend yechim. Brend taqdimoti, mahsulotlar va xizmatlarni premium usulda ko'rsatishga yo'naltirilgan.",
-        "link": "https://novacolor.uz/",
-        "status": "Live",
-        "year": "2025",
-        "technologies": [
-          "Next.js"
-        ],
-        "features": [
-          "Corporate UI",
-          "Modern Layout",
-          "Responsive Design"
-        ]
-      },
-      {
-        "id": "coder-blog",
-        "title": "Coder Blog",
-        "category": "Blog Platform",
-        "text": "Kontent va maqolalarni toza ko'rinishda taqdim etuvchi blog interfeysi. Minimal dizayn va qulay o'qish tajribasiga ega.",
-        "link": "https://coder-blog.vercel.app/",
-        "status": "Live",
-        "year": "2025",
-        "technologies": [
-          "Next.js"
-        ],
-        "features": [
-          "Clean Blog UI",
-          "Fast Pages",
-          "Responsive Layout"
-        ]
-      },
-      {
-        "id": "paint-demo",
-        "title": "Paint Demo",
-        "category": "Canvas App",
-        "text": "Brauzer ichida ishlovchi interaktiv chizish loyihasi. Canvas asosida foydalanuvchiga sodda va qiziqarli rasm chizish tajribasi beradi.",
-        "link": "https://paint-demo.vercel.app/",
-        "status": "Live",
-        "year": "2025",
-        "technologies": [
-          "HTML5",
-          "CSS3",
-          "JavaScript",
-          "Canvas"
-        ],
-        "features": [
-          "Drawing Tools",
-          "Interactive Canvas",
-          "Browser Based"
-        ]
-      },
-      {
-        "id": "greenshop",
-        "title": "GreenShop",
-        "category": "React Website",
-        "text": "Mahsulotlarni ko'rsatish va foydalanuvchi tajribasini yaxshilashga qaratilgan React asosidagi zamonaviy web loyiha.",
-        "link": "https://greenshopuzb.netlify.app",
-        "status": "Live",
-        "year": "2025",
-        "technologies": [
-          "ReactJS"
-        ],
-        "features": [
-          "Product UI",
-          "Responsive Layout",
-          "Modern Components"
-        ]
-      },
-      {
-        "id": "send-to-admin",
-        "title": "Send To Admin",
-        "category": "Interactive Form Project",
-        "text": "Ma'lumot yuborish jarayonini sodda va tushunarli qiluvchi frontend loyiha. Forma ishlashi va foydalanuvchi bilan o'zaro aloqa markazda turadi.",
-        "link": "https://send-to-admin.vercel.app/",
-        "status": "Live",
-        "year": "2025",
-        "technologies": [
-          "HTML5",
-          "CSS3",
-          "JavaScript"
-        ],
-        "features": [
-          "Form UI",
-          "Interactive Logic",
-          "Clean Structure"
-        ]
-      },
-      {
-        "id": "besnik-pro",
-        "title": "Besnik Pro",
-        "category": "Landing Page",
-        "text": "Chiroyli bloklar, section tuzilmasi va frontend komponentlar bilan yig'ilgan premium landing page loyihasi.",
-        "link": "https://besnik-pro.vercel.app/",
-        "status": "Live",
-        "year": "2025",
-        "technologies": [
-          "HTML5",
-          "CSS3",
-          "SCSS",
-          "Components",
-          "JavaScript"
-        ],
-        "features": [
-          "Landing Structure",
-          "Reusable Components",
-          "Modern Visuals"
-        ]
-      },
-      {
-        "id": "crud-uz",
-        "title": "CRUD UZ",
-        "category": "CRUD Interface",
-        "text": "Ma'lumotlar bilan ishlash, qo'shish, tahrirlash va o'chirish uchun qulay interfeysga ega CRUD loyiha.",
-        "link": "https://crud-uz.vercel.app/",
-        "status": "Live",
-        "year": "2025",
-        "technologies": [
-          "HTML5",
-          "CSS3",
-          "Bootstrap 5",
-          "JavaScript"
-        ],
-        "features": [
-          "CRUD Actions",
-          "Table UI",
-          "Bootstrap Layout"
-        ]
-      },
-      {
-        "id": "quiztest-uz",
-        "title": "Quiz Test UZ",
-        "category": "Quiz Platform",
-        "text": "Test va savol-javob jarayonlari uchun yaratilgan frontend loyiha. Forma validatsiyasi va telefon input maskasi bilan boyitilgan.",
-        "link": "https://quiztest-uz.vercel.app/",
-        "status": "Live",
-        "year": "2025",
-        "technologies": [
-          "HTML5",
-          "CSS3",
-          "Bootstrap 5",
-          "JavaScript",
-          "IMask"
-        ],
-        "features": [
-          "Quiz Flow",
-          "Phone Mask",
-          "Form Validation"
-        ]
-      },
-      {
-        "id": "snakegame-uz",
-        "title": "Snake Game UZ",
-        "category": "Game Project",
-        "text": "Ko'p tilli qo'llab-quvvatlash, rejimlar, bonuslar va statistika bilan boyitilgan interaktiv ilon o'yini.",
-        "link": "https://snakegame-uz.vercel.app/",
-        "status": "Live",
-        "year": "2025",
-        "technologies": [
-          "HTML5",
-          "CSS3",
-          "Tailwind CSS",
-          "Bootstrap",
-          "JavaScript",
-          "Canvas API",
-          "Font Awesome",
-          "Google Fonts"
-        ],
-        "features": [
-          "Multi-language",
-          "Difficulty Levels",
-          "Game Modes",
-          "Canvas Graphics",
-          "Responsive Design"
-        ]
-      },
-      {
-        "id": "strategik2048",
-        "title": "Strategik 2048",
-        "category": "Puzzle Game",
-        "text": "2048 o'yinining zamonaviy frontend talqini. Responsive interfeys va yengil animatsiyalar bilan ishlangan loyiha.",
-        "link": "https://strategik2048.vercel.app/",
-        "status": "Live",
-        "year": "2025",
-        "technologies": [
-          "HTML5",
-          "CSS3",
-          "Bootstrap CSS",
-          "Tailwind CSS",
-          "JavaScript"
-        ],
-        "features": [
-          "Puzzle Logic",
-          "Responsive Interface",
-          "Modern UI"
-        ]
-      },
-      {
-        "id": "koreys",
-        "title": "Koreys",
-        "category": "Educational Website",
-        "text": "Ta'limga yo'naltirilgan responsiv loyiha. Turli ekranlarda yaxshi ishlash va aniq kontent ko'rinishiga e'tibor qaratilgan.",
-        "link": "https://koreys.vercel.app/",
-        "status": "Live",
-        "year": "2025",
-        "technologies": [
-          "HTML5",
-          "CSS3",
-          "Bootstrap CSS",
-          "Tailwind CSS",
-          "JavaScript",
-          "Responsive"
-        ],
-        "features": [
-          "Education UI",
-          "Responsive Layout",
-          "Clean Content Blocks"
-        ]
-      },
-      {
+       {
         "id": "remstroy",
         "title": "Remstroy",
-        "category": "Business Website",
+        "category": "Remstroy",
         "text": "Ko'p sahifali, ko'p tilli va zamonaviy biznes loyiha. Router, TypeScript va i18n asosida kengaytiriladigan frontend arxitektura bilan qurilgan.",
-        "link": "https://remstroy-eta.vercel.app/",
+        "link": "https://remstroycom.uz/",
         "status": "Live",
         "year": "2025",
         "technologies": [
@@ -432,7 +211,7 @@
       {
         "id": "marocandy",
         "title": "Marocandy",
-        "category": "WordPress Website",
+        "category": "Internet magazin",
         "text": "WordPress asosida qurilgan tayyor va moslashuvchan loyiha. Brend taqdimoti va kontent boshqaruvi uchun qulay yechim.",
         "link": "https://marocandy.uz/",
         "status": "Live",
@@ -444,6 +223,227 @@
           "CMS Based",
           "Content Management",
           "Business Ready"
+        ]
+      },
+       {
+        "id": "greenshop",
+        "title": "GreenShop",
+        "category": "React Website",
+        "text": "Mahsulotlarni ko'rsatish va foydalanuvchi tajribasini yaxshilashga qaratilgan React asosidagi zamonaviy web loyiha.",
+        "link": "https://greenshopuzb.netlify.app",
+        "status": "Live",
+        "year": "2025",
+        "technologies": [
+          "ReactJS"
+        ],
+        "features": [
+          "Product UI",
+          "Responsive Layout",
+          "Modern Components"
+        ]
+      },
+      {
+        "id": "novacolor",
+        "title": "Novacolor Uzbekistan",
+        "category": "Novacolor Uzbekistan",
+        "text": "Korporativ ko'rinishdagi zamonaviy va silliq frontend yechim. Brend taqdimoti, mahsulotlar va xizmatlarni premium usulda ko'rsatishga yo'naltirilgan.",
+        "link": "https://novacolor.uz/",
+        "status": "Live",
+        "year": "2025",
+        "technologies": [
+          "Next.js"
+        ],
+        "features": [
+          "Corporate UI",
+          "Modern Layout",
+          "Responsive Design"
+        ]
+      },
+     {
+        "id": "coder-blog",
+        "title": "Coder Blog",
+        "category": "Blog Platform",
+        "text": "Kontent va maqolalarni toza ko'rinishda taqdim etuvchi blog interfeysi. Minimal dizayn va qulay o'qish tajribasiga ega.",
+        "link": "https://coder-blog.vercel.app/",
+        "status": "Live",
+        "year": "2025",
+        "technologies": [
+          "Next.js"
+        ],
+        "features": [
+          "Clean Blog UI",
+          "Fast Pages",
+          "Responsive Layout"
+        ]
+      },
+      {
+        "id": "besnik-pro",
+        "title": "Besnik Pro",
+        "category": "Landing Page",
+        "text": "Chiroyli bloklar, section tuzilmasi va frontend komponentlar bilan yig'ilgan premium landing page loyihasi.",
+        "link": "https://besnik-pro.vercel.app/",
+        "status": "Live",
+        "year": "2025",
+        "technologies": [
+          "HTML5",
+          "CSS3",
+          "SCSS",
+          "Components",
+          "JavaScript"
+        ],
+        "features": [
+          "Landing Structure",
+          "Reusable Components",
+          "Modern Visuals"
+        ]
+      },
+      {
+        "id": "koreys",
+        "title": "Koreys",
+        "category": "Educational Website",
+        "text": "Ta'limga yo'naltirilgan responsiv loyiha. Turli ekranlarda yaxshi ishlash va aniq kontent ko'rinishiga e'tibor qaratilgan.",
+        "link": "https://koreys.vercel.app/",
+        "status": "Live",
+        "year": "2025",
+        "technologies": [
+          "HTML5",
+          "CSS3",
+          "Bootstrap CSS",
+          "Tailwind CSS",
+          "JavaScript",
+          "Responsive"
+        ],
+        "features": [
+          "Education UI",
+          "Responsive Layout",
+          "Clean Content Blocks"
+        ]
+      },
+      {
+        "id": "paint-demo",
+        "title": "Paint Demo",
+        "category": "Canvas App",
+        "text": "Brauzer ichida ishlovchi interaktiv chizish loyihasi. Canvas asosida foydalanuvchiga sodda va qiziqarli rasm chizish tajribasi beradi.",
+        "link": "https://paint-demo.vercel.app/",
+        "status": "Live",
+        "year": "2025",
+        "technologies": [
+          "HTML5",
+          "CSS3",
+          "JavaScript",
+          "Canvas"
+        ],
+        "features": [
+          "Drawing Tools",
+          "Interactive Canvas",
+          "Browser Based"
+        ]
+      },
+      {
+        "id": "quiztest-uz",
+        "title": "Quiz Test UZ",
+        "category": "Quiz Platform",
+        "text": "Test va savol-javob jarayonlari uchun yaratilgan frontend loyiha. Forma validatsiyasi va telefon input maskasi bilan boyitilgan.",
+        "link": "https://quiztest-uz.vercel.app/",
+        "status": "Live",
+        "year": "2025",
+        "technologies": [
+          "HTML5",
+          "CSS3",
+          "Bootstrap 5",
+          "JavaScript",
+          "IMask"
+        ],
+        "features": [
+          "Quiz Flow",
+          "Phone Mask",
+          "Form Validation"
+        ]
+      },
+      {
+        "id": "send-to-admin",
+        "title": "Send To Admin",
+        "category": "Interactive Form Project",
+        "text": "Ma'lumot yuborish jarayonini sodda va tushunarli qiluvchi frontend loyiha. Forma ishlashi va foydalanuvchi bilan o'zaro aloqa markazda turadi.",
+        "link": "https://send-to-admin.vercel.app/",
+        "status": "Live",
+        "year": "2025",
+        "technologies": [
+          "HTML5",
+          "CSS3",
+          "JavaScript"
+        ],
+        "features": [
+          "Form UI",
+          "Interactive Logic",
+          "Clean Structure"
+        ]
+      },
+    {
+        "id": "crud-uz",
+        "title": "CRUD UZ",
+        "category": "CRUD Interface",
+        "text": "Ma'lumotlar bilan ishlash, qo'shish, tahrirlash va o'chirish uchun qulay interfeysga ega CRUD loyiha.",
+        "link": "https://crud-uz.vercel.app/",
+        "status": "Live",
+        "year": "2025",
+        "technologies": [
+          "HTML5",
+          "CSS3",
+          "Bootstrap 5",
+          "JavaScript"
+        ],
+        "features": [
+          "CRUD Actions",
+          "Table UI",
+          "Bootstrap Layout"
+        ]
+      },
+    {
+        "id": "snakegame-uz",
+        "title": "Snake Game UZ",
+        "category": "Game Project",
+        "text": "Ko'p tilli qo'llab-quvvatlash, rejimlar, bonuslar va statistika bilan boyitilgan interaktiv ilon o'yini.",
+        "link": "https://snakegame-uz.vercel.app/",
+        "status": "Live",
+        "year": "2025",
+        "technologies": [
+          "HTML5",
+          "CSS3",
+          "Tailwind CSS",
+          "Bootstrap",
+          "JavaScript",
+          "Canvas API",
+          "Font Awesome",
+          "Google Fonts"
+        ],
+        "features": [
+          "Multi-language",
+          "Difficulty Levels",
+          "Game Modes",
+          "Canvas Graphics",
+          "Responsive Design"
+        ]
+      },
+      {
+        "id": "strategik2048",
+        "title": "Strategik 2048",
+        "category": "Puzzle Game",
+        "text": "2048 o'yinining zamonaviy frontend talqini. Responsive interfeys va yengil animatsiyalar bilan ishlangan loyiha.",
+        "link": "https://strategik2048.vercel.app/",
+        "status": "Live",
+        "year": "2025",
+        "technologies": [
+          "HTML5",
+          "CSS3",
+          "Bootstrap CSS",
+          "Tailwind CSS",
+          "JavaScript"
+        ],
+        "features": [
+          "Puzzle Logic",
+          "Responsive Interface",
+          "Modern UI"
         ]
       }
     ]
